@@ -1,0 +1,459 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 23: Security and Hacks}
+\subtitle{Module 2: Blockchain Fundamentals}
+\author{Digital Finance}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{The Stakes: Billions Lost to Hacks}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_23/crypto_hacks_timeline.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Major Incidents:}
+\begin{itemize}
+\item \textbf{2016:} The DAO (\$60M) -- reentrancy
+\item \textbf{2021:} Poly Network (\$611M) -- access control (returned)
+\item \textbf{2022:} Ronin Bridge (\$625M) -- compromised keys
+\item \textbf{2022:} Wormhole Bridge (\$325M) -- signature verification
+\item \textbf{Total (2020--2024):} $>$\$10 billion stolen
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Threat Landscape}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_23/threat_categories.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Attack Vectors:}
+\begin{itemize}
+\item \textbf{Smart Contract Bugs:} Logic errors, reentrancy, overflow
+\item \textbf{Bridge Vulnerabilities:} Cross-chain security weaknesses
+\item \textbf{Private Key Compromise:} Phishing, social engineering, malware
+\item \textbf{Oracle Manipulation:} Flash loan attacks on price feeds
+\item \textbf{Governance Attacks:} Token-based voting exploits
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Reentrancy: The DAO Hack (2016)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Vulnerability:}
+\begin{itemize}
+\item Contract sends ETH before updating balance
+\item Recipient contract calls back
+\item Recursive withdrawals drain funds
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Impact:}
+\begin{itemize}
+\item 3.6M ETH stolen (\$60M)
+\item Led to Ethereum hard fork
+\item ETH/ETC split
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_23/reentrancy_flow.pdf}
+\end{columns}
+
+\vspace{3mm}
+\textbf{Prevention:} Checks-Effects-Interactions pattern, reentrancy guards (OpenZeppelin)
+\end{frame}
+
+\begin{frame}{Reentrancy Code Example}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{charts/lesson_23/reentrancy_code.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Fix: Checks-Effects-Interactions}
+\begin{itemize}
+\item \textbf{Checks:} Validate conditions (sufficient balance)
+\item \textbf{Effects:} Update state (subtract balance)
+\item \textbf{Interactions:} External calls (send ETH)
+\end{itemize}
+
+\textbf{Modern Protection:} OpenZeppelin \texttt{ReentrancyGuard} modifier
+\end{frame}
+
+\begin{frame}{Integer Overflow/Underflow}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Problem (Pre-Solidity 0.8):}
+\begin{itemize}
+\item uint256 max: $2^{256} - 1$
+\item Overflow: max + 1 wraps to 0
+\item Underflow: 0 - 1 wraps to max
+\item Silent failures (no revert)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Example Attack:}
+\begin{itemize}
+\item Balance: 100 tokens
+\item Transfer 200 (should fail)
+\item \texttt{balance - 200} underflows to huge number
+\item Exploit unlimited tokens
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_23/overflow_visualization.pdf}
+\end{columns}
+
+\vspace{3mm}
+\textbf{Fix:} Solidity 0.8+ has automatic overflow checks, or use SafeMath library
+\end{frame}
+
+\begin{frame}{Access Control Vulnerabilities}
+\textbf{Common Mistakes:}
+\begin{itemize}
+\item Missing \texttt{onlyOwner} modifiers on critical functions
+\item Default function visibility (public vs internal)
+\item Incorrect permission checks
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Example: Parity Wallet Hack (2017)}
+\begin{itemize}
+\item Multi-sig library had unprotected \texttt{initWallet()} function
+\item Anyone could call and become owner
+\item Attacker initialized, then called \texttt{kill()} (selfdestruct)
+\item \$300M frozen permanently
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Best Practice:}
+\begin{itemize}
+\item Explicitly declare visibility (public, external, internal, private)
+\item Use OpenZeppelin \texttt{Ownable} and \texttt{AccessControl}
+\item Audit all privileged functions
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Oracle Manipulation: Flash Loan Attacks}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_23/flash_loan_attack.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Attack Pattern (e.g., Harvest Finance, \$24M):}
+\begin{enumerate}
+\item Flash loan large amount of Token A
+\item Swap on low-liquidity DEX, manipulate price
+\item Protocol using DEX price oracle now sees inflated price
+\item Exploit: borrow over-collateralized or dump tokens at fake price
+\item Repay flash loan, profit
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Oracle Security: Defense Mechanisms}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Vulnerable:}
+\begin{itemize}
+\item Single DEX as price source
+\item Spot price (current block)
+\item Low liquidity pools
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Secure:}
+\begin{itemize}
+\item Time-Weighted Average Price (TWAP)
+\item Multiple oracle sources (Chainlink)
+\item High liquidity requirements
+\item Price deviation limits
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_23/oracle_comparison.pdf}
+\end{columns}
+
+\vspace{3mm}
+\textbf{Chainlink:} Decentralized oracle network, aggregates data from multiple providers
+\end{frame}
+
+\begin{frame}{Bridge Hacks: Cross-Chain Vulnerabilities}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Why Bridges are Risky:}
+\begin{itemize}
+\item Centralized honeypots (large TVL)
+\item Complex multi-sig schemes
+\item Cross-chain validation challenges
+\item Centralized validators
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Attack Types:}
+\begin{itemize}
+\item Compromised validator keys
+\item Signature verification bugs
+\item Replay attacks
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_23/bridge_architecture.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Ronin Bridge Hack (2022): \$625M Stolen}
+\textbf{Context:}
+\begin{itemize}
+\item Ronin: Ethereum sidechain for Axie Infinity game
+\item Bridge: Transfer assets between Ethereum and Ronin
+\item Requires 5-of-9 validator signatures for withdrawals
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Attack:}
+\begin{enumerate}
+\item Attacker compromised 4 Sky Mavis (developer) validator keys (spear phishing)
+\item Exploited backdoor in Axie DAO validator (5th signature)
+\item Forged withdrawal transaction: 173,600 ETH + 25.5M USDC
+\item Took 6 days to detect (low monitoring)
+\end{enumerate}
+
+\vspace{3mm}
+\textbf{Root Cause:} Centralization (5 of 9 validators controlled by single entity), poor key management
+\end{frame}
+
+\begin{frame}{Wormhole Bridge Hack (2022): \$325M}
+\textbf{Mechanism:}
+\begin{itemize}
+\item Wormhole: Bridge between Ethereum and Solana
+\item Guardians validate cross-chain messages
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Vulnerability:}
+\begin{itemize}
+\item Signature verification function had bug
+\item Attacker bypassed guardian signature check
+\item Minted 120,000 wrapped ETH on Solana without depositing on Ethereum
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Outcome:}
+\begin{itemize}
+\item Attacker bridged fake wETH to Ethereum, sold for real ETH
+\item Jump Crypto (parent company) refunded users (\$325M bailout)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Lesson:} Even well-funded projects have critical bugs, audits not foolproof
+\end{frame}
+
+\begin{frame}{Bridge Hacks: Total Damage}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{charts/lesson_23/bridge_hacks_chart.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Major Bridge Hacks (2021--2022):}
+\begin{itemize}
+\item Ronin: \$625M, Poly Network: \$611M, Wormhole: \$325M, Nomad: \$190M, Harmony: \$100M
+\item Total: $>$\$2 billion (over 50\% of all DeFi hacks)
+\end{itemize}
+
+\textbf{Trend:} Bridges are highest-value targets (centralized trust, large TVL)
+\end{frame}
+
+\begin{frame}{Phishing and Social Engineering}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Common Attacks:}
+\begin{itemize}
+\item Fake wallet extensions (clipboard hijack)
+\item Malicious dApp frontends
+\item Discord/Telegram impersonation
+\item Fake support (``verify your wallet'')
+\item Address poisoning
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Example:}
+\begin{itemize}
+\item User clicks malicious link
+\item Connects wallet to fake dApp
+\item Signs \texttt{setApprovalForAll} transaction
+\item Attacker drains NFTs/tokens
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_23/phishing_flow.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Address Poisoning Attack}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{charts/lesson_23/address_poisoning.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Attack:}
+\begin{enumerate}
+\item Attacker creates vanity address matching first/last chars of victim's address
+\item Sends 0 ETH transaction to victim (appears in history)
+\item Victim copies address from history (sees first/last match, assumes correct)
+\item Sends funds to attacker's address
+\end{enumerate}
+
+\textbf{Prevention:} Verify entire address, use address book, hardware wallet confirmation screens
+\end{frame}
+
+\begin{frame}{Rug Pulls: Exit Scams}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Types:}
+\begin{itemize}
+\item \textbf{Liquidity Removal:} Dev drains LP, token worthless
+\item \textbf{Backdoor Functions:} Hidden mint/burn/pause
+\item \textbf{Honeypot:} Can buy but not sell
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Example: Squid Game Token (2021)}
+\begin{itemize}
+\item Market cap: \$3M in days
+\item Could buy, not sell (code restriction)
+\item Developers cashed out, disappeared
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_23/rug_pull_pattern.pdf}
+\end{columns}
+
+\vspace{3mm}
+\textbf{Red Flags:} Anonymous teams, no audit, centralized control, unrealistic promises
+\end{frame}
+
+\begin{frame}{Governance Attacks}
+\textbf{Scenario:}
+\begin{itemize}
+\item Protocol governed by token holders (1 token = 1 vote)
+\item Attacker acquires majority via flash loan or market buy
+\item Proposes malicious governance action (drain treasury)
+\item Votes pass, execute attack, repay flash loan
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Example: Beanstalk (2022, \$182M)}
+\begin{itemize}
+\item Attacker took flash loan of governance tokens
+\item Voted to approve malicious proposal
+\item Drained \$182M from protocol
+\item Repaid flash loan in same transaction
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Defense:} Time-locks on proposals, vote escrow (lock tokens for voting), quorum requirements
+\end{frame}
+
+\begin{frame}{Auditing: Not a Silver Bullet}
+\textbf{Audit Process:}
+\begin{itemize}
+\item Security firm reviews smart contract code
+\item Identifies vulnerabilities, best practice violations
+\item Provides report with severity levels (critical, high, medium, low)
+\item Cost: \$50K--\$500K+ depending on complexity
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Limitations:}
+\begin{itemize}
+\item Audits are snapshots (code changes after audit)
+\item Cannot find all bugs (Wormhole was audited)
+\item Economic attacks (flash loans, governance) hard to model
+\item Audit shopping (only publish favorable audits)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Best Practice:} Multiple audits (Trail of Bits, OpenZeppelin, Consensys Diligence), public bug bounties
+\end{frame}
+
+\begin{frame}{Bug Bounties: Whitehat Incentives}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Programs:}
+\begin{itemize}
+\item Pay security researchers for finding bugs
+\item Tiered rewards (critical: \$1M+)
+\item Platforms: Immunefi, HackerOne
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Examples:}
+\begin{itemize}
+\item Aurora: \$6M bounty (critical)
+\item Wormhole: \$10M (post-hack)
+\item MakerDAO: \$10M max
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_23/bug_bounty_tiers.pdf}
+\end{columns}
+
+\vspace{3mm}
+\textbf{Whitehats Saved:} $>$\$50M in 2023 via responsible disclosure
+\end{frame}
+
+\begin{frame}{Security Best Practices}
+\textbf{For Developers:}
+\begin{itemize}
+\item Use audited libraries (OpenZeppelin)
+\item Multiple audits before mainnet launch
+\item Time-locks on upgrades and governance
+\item Comprehensive testing (unit, integration, fuzzing)
+\item Bug bounty programs
+\item Incident response plan
+\end{itemize}
+
+\vspace{3mm}
+\textbf{For Users:}
+\begin{itemize}
+\item Hardware wallets for large amounts
+\item Verify contract addresses (bookmarks, not Google)
+\item Revoke token approvals regularly (revoke.cash)
+\item Never share seed phrases
+\item Be skeptical of high yields (if too good to be true...)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Summary}
+\begin{itemize}
+\item \textbf{Reentrancy:} External calls before state updates, use checks-effects-interactions
+\item \textbf{Overflow/Underflow:} Solidity 0.8+ auto-checks, or SafeMath
+\item \textbf{Oracle Manipulation:} Use TWAP, Chainlink, avoid single DEX price
+\item \textbf{Bridge Hacks:} Centralized validators, key compromise (\$2B+ stolen)
+\item \textbf{Phishing:} Social engineering, verify addresses, revoke approvals
+\item \textbf{Best Practices:} Audits, bug bounties, time-locks, user vigilance
+\end{itemize}
+
+\vspace{4mm}
+\textbf{Next Lesson:} Regulation and future -- MiCA, SEC, real-world assets, careers
+\end{frame}
+
+\end{document}

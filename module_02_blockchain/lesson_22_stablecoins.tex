@@ -1,0 +1,416 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 22: Stablecoins and Terra/Luna Case Study}
+\subtitle{Module 2: Blockchain Fundamentals}
+\author{Digital Finance}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{The Volatility Problem}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_22/crypto_volatility.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Challenge:}
+\begin{itemize}
+\item BTC, ETH too volatile for everyday transactions
+\item Cannot price goods, pay salaries, or lend in volatile assets
+\item Need stable unit of account
+\end{itemize}
+
+\textbf{Solution:} Stablecoins -- cryptocurrencies pegged to stable assets (typically USD)
+\end{frame}
+
+\begin{frame}{What is a Stablecoin?}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Definition:}
+\begin{itemize}
+\item Cryptocurrency designed to maintain stable value
+\item Typically pegged 1:1 to fiat (USD, EUR)
+\item Combines crypto benefits with price stability
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Use Cases:}
+\begin{itemize}
+\item Medium of exchange
+\item Store of value (short-term)
+\item DeFi collateral
+\item Trading pairs (BTC/USDT)
+\item Remittances
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_22/stablecoin_use_cases.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Stablecoin Taxonomy}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{charts/lesson_22/stablecoin_types.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Three Main Types:}
+\begin{enumerate}
+\item \textbf{Fiat-Collateralized:} Backed by USD reserves (USDT, USDC)
+\item \textbf{Crypto-Collateralized:} Over-collateralized with crypto (DAI)
+\item \textbf{Algorithmic:} No collateral, algorithmic supply adjustment (UST -- failed)
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Fiat-Collateralized: Tether (USDT)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Mechanism:}
+\begin{itemize}
+\item 1 USDT = \$1 in bank reserves
+\item Custodian holds fiat
+\item Users trust issuer's solvency
+\item Mint: Deposit \$1 $\rightarrow$ receive 1 USDT
+\item Redeem: Burn 1 USDT $\rightarrow$ receive \$1
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Challenges:}
+\begin{itemize}
+\item Centralization (single point of failure)
+\item Audit transparency (Tether controversy)
+\item Regulatory compliance
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_22/fiat_collateralized_flow.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Tether Controversy: Are Reserves Real?}
+\textbf{Claims:}
+\begin{itemize}
+\item Tether claims 1:1 backing since 2014
+\item Market cap: \$100B+ (2024)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Controversies:}
+\begin{itemize}
+\item Lack of audits (only attestations, not full audits)
+\item NYAG investigation (2021): Admitted reserves not fully in cash (commercial paper, crypto)
+\item \$41M settlement, barred from New York trading
+\item 2024 breakdown: $\sim$85\% T-bills, $\sim$10\% repo, $\sim$5\% other
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Risk:} Bank run scenario -- if everyone redeems simultaneously, can Tether honor?
+\end{frame}
+
+\begin{frame}{USDC: Regulated Alternative}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Circle (issuer):}
+\begin{itemize}
+\item US-based, regulated
+\item Monthly audits (Grant Thornton)
+\item 100\% reserves (cash + short-term Treasuries)
+\item Transparency dashboard
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Advantages:}
+\begin{itemize}
+\item Higher trust (full audits)
+\item Institutional adoption
+\item Regulatory clarity
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_22/usdc_reserves.pdf}
+\end{columns}
+
+\vspace{3mm}
+\textbf{2023 SVB Crisis:} \$3.3B stuck in Silicon Valley Bank (depegged to \$0.87 briefly, recovered)
+\end{frame}
+
+\begin{frame}{Crypto-Collateralized: DAI (MakerDAO)}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_22/dai_mechanism.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Mechanism:}
+\begin{enumerate}
+\item Deposit ETH (or other crypto) into Maker vault
+\item Mint DAI (over-collateralized, e.g., 150\% ratio)
+\item If collateral drops below threshold, liquidated
+\item To reclaim collateral, repay DAI + stability fee (interest)
+\end{enumerate}
+
+\textbf{Decentralization:} No single custodian, governed by MKR token holders
+\end{frame}
+
+\begin{frame}{DAI Stability Mechanisms}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Peg Maintenance:}
+\begin{itemize}
+\item \textbf{DAI $<$ \$1:} Raise stability fee (reduce supply)
+\item \textbf{DAI $>$ \$1:} Lower stability fee (increase supply)
+\item \textbf{DAI Savings Rate (DSR):} Interest for holding DAI
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Collateral Types:}
+\begin{itemize}
+\item ETH (primary)
+\item WBTC, USDC (centralized, controversy)
+\item Real-world assets (RWA)
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_22/dai_peg_history.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Algorithmic Stablecoins: The Dream}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Vision:}
+\begin{itemize}
+\item No collateral required
+\item Pure algorithmic supply/demand
+\item Fully decentralized
+\item Scalable without capital lock-up
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Mechanisms:}
+\begin{itemize}
+\item Rebase (Ampleforth): Change token supply
+\item Seigniorage (Basis, Empty Set): Issue/burn shares
+\item Dual-token (Terra/Luna): Arbitrage mechanism
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_22/algorithmic_concept.pdf}
+\end{columns}
+
+\vspace{3mm}
+\textbf{Reality:} All pure algorithmic stablecoins have failed (Basis, Iron, Terra)
+\end{frame}
+
+\begin{frame}{Terra/Luna: The \$60 Billion Collapse}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_22/terra_ecosystem.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Ecosystem (Pre-Collapse):}
+\begin{itemize}
+\item \textbf{UST:} Algorithmic stablecoin (target \$1)
+\item \textbf{LUNA:} Volatile token, absorbs UST volatility
+\item \textbf{Anchor Protocol:} 20\% APY on UST deposits (unsustainable)
+\item \textbf{Market Cap (May 2022):} UST \$18B, LUNA \$40B
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Terra/Luna Mechanism: Arbitrage Peg}
+\textbf{Design:}
+\begin{itemize}
+\item 1 UST always redeemable for \$1 worth of LUNA (protocol guarantee)
+\item Arbitrageurs maintain peg through minting/burning
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Case 1: UST $<$ \$1 (e.g., \$0.98)}
+\begin{enumerate}
+\item Buy 1 UST for \$0.98
+\item Burn 1 UST $\rightarrow$ mint \$1 of LUNA
+\item Sell LUNA for \$1
+\item Profit: \$0.02 per UST (reduces UST supply, restores peg)
+\end{enumerate}
+
+\vspace{3mm}
+\textbf{Case 2: UST $>$ \$1 (e.g., \$1.02)}
+\begin{enumerate}
+\item Burn \$1 of LUNA $\rightarrow$ mint 1 UST
+\item Sell 1 UST for \$1.02
+\item Profit: \$0.02 (increases UST supply, lowers price)
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{The Death Spiral: May 2022}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{charts/lesson_22/terra_death_spiral.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Timeline:}
+\begin{itemize}
+\item \textbf{May 7:} Large UST withdrawals from Anchor, slight depeg to \$0.98
+\item \textbf{May 8--9:} Panic selling, UST drops to \$0.60, LUNA minted to absorb
+\item \textbf{May 10--11:} Hyperinflation of LUNA (supply: 350M $\rightarrow$ 6.5T), price collapses
+\item \textbf{May 12:} UST at \$0.10, LUNA near \$0, blockchain halted
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Why Did Terra Collapse?}
+\textbf{Structural Flaws:}
+\begin{itemize}
+\item \textbf{Ponzi Dynamics:} Anchor's 20\% APY funded by LUNA inflation (unsustainable)
+\item \textbf{Circular Dependency:} UST backed by LUNA, LUNA value derived from UST demand
+\item \textbf{No External Collateral:} Pure faith-based system
+\item \textbf{Bank Run Vulnerability:} Confidence loss $\rightarrow$ redemptions $\rightarrow$ LUNA dilution $\rightarrow$ further confidence loss
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Trigger:}
+\begin{itemize}
+\item \$2B UST withdrawn from Anchor (possibly coordinated attack)
+\item Luna Foundation Guard's \$3B BTC reserves insufficient to defend peg
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Aftermath:} \$60B market cap evaporated, lawsuits, Do Kwon (founder) arrested in Montenegro
+\end{frame}
+
+\begin{frame}{Terra Collapse: Contagion Effects}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Direct Victims:}
+\begin{itemize}
+\item Retail investors lost life savings
+\item South Korean adoption was high
+\item Pension funds, institutions exposed
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Broader Contagion:}
+\begin{itemize}
+\item 3AC (Three Arrows Capital) hedge fund collapse (LUNA exposure)
+\item Celsius, Voyager bankruptcies (domino effect)
+\item Crypto market crash (2022 bear market)
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_22/contagion_map.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Lessons from Terra/Luna}
+\begin{enumerate}
+\item \textbf{No Free Lunch:} 20\% risk-free yield is impossible sustainably
+\item \textbf{Algorithmic Stablecoins are Fragile:} Require continuous growth, vulnerable to bank runs
+\item \textbf{Circular Dependencies are Dangerous:} UST value depended on LUNA, LUNA on UST
+\item \textbf{Reserves Matter:} \$3B BTC reserves inadequate for \$18B stablecoin
+\item \textbf{Regulation Incoming:} Failures like Terra accelerate regulatory scrutiny
+\item \textbf{Hubris Warning:} Do Kwon's overconfidence (``I don't debate the poor'') ignored critics
+\end{enumerate}
+
+\vspace{3mm}
+\textbf{Quote:} ``If UST depegs, I will personally absorb the loss.'' -- Do Kwon (didn't happen)
+\end{frame}
+
+\begin{frame}{Post-Terra: Industry Response}
+\textbf{Regulatory Push:}
+\begin{itemize}
+\item US: Stablecoin legislation proposed (reserve requirements, audits)
+\item EU: MiCA regulation includes stablecoin provisions
+\item South Korea: Investigated Terra Foundation
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Market Shift:}
+\begin{itemize}
+\item Flight to regulated stablecoins (USDC, USDT)
+\item Algorithmic stablecoins lost trust (FEI, FRAX pivoted to collateralized)
+\item Increased scrutiny on DeFi yields
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Innovation:}
+\begin{itemize}
+\item Frax: Hybrid model (partial collateral + algorithmic)
+\item GHO (Aave): Over-collateralized, DAO-governed
+\item LUSD (Liquity): Immutable, minimum 110\% collateral
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Stablecoin Market Share (2024)}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_22/stablecoin_market_share.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Top Stablecoins:}
+\begin{itemize}
+\item \textbf{USDT (Tether):} \$100B+ (65\%)
+\item \textbf{USDC (Circle):} \$30B+ (20\%)
+\item \textbf{DAI (MakerDAO):} \$5B (3\%)
+\item \textbf{Others:} BUSD (deprecated), TUSD, FRAX, USDD
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Central Bank Digital Currencies (CBDCs)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Concept:}
+\begin{itemize}
+\item Government-issued digital currency
+\item Not a stablecoin (is the fiat itself)
+\item Centralized control
+\item Programmable money
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Examples:}
+\begin{itemize}
+\item China: e-CNY (digital yuan)
+\item Bahamas: Sand Dollar (launched 2020)
+\item EU: Digital euro (pilot phase)
+\item US: Digital dollar (research)
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_22/cbdc_vs_stablecoin.pdf}
+\end{columns}
+
+\vspace{3mm}
+\textbf{Concern:} Surveillance, programmable restrictions (e.g., expiry dates on money)
+\end{frame}
+
+\begin{frame}{Summary}
+\begin{itemize}
+\item \textbf{Stablecoins:} Crypto with stable value, essential for DeFi and payments
+\item \textbf{Fiat-Collateralized:} USDT/USDC, centralized, require trust in custodian
+\item \textbf{Crypto-Collateralized:} DAI, over-collateralized, decentralized but capital-inefficient
+\item \textbf{Algorithmic:} Terra/Luna, no collateral, death spiral vulnerability
+\item \textbf{Terra Collapse:} \$60B lost, Ponzi dynamics (Anchor 20\%), circular dependency
+\item \textbf{Lessons:} Unsustainable yields, importance of real reserves, regulatory response
+\end{itemize}
+
+\vspace{4mm}
+\textbf{Next Lesson:} Security and hacks -- reentrancy, bridge exploits, best practices
+\end{frame}
+
+\end{document}

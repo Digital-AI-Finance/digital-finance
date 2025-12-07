@@ -1,0 +1,714 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{adjustbox}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255, 127, 14}
+\definecolor{mlgreen}{RGB}{44, 160, 44}
+\definecolor{mlred}{RGB}{214, 39, 40}
+
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 1: Introduction to Fintech}
+\subtitle{Module 1: Fintech and Innovation}
+\author{Digital Finance Course}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{What is Fintech?}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Definition:}
+\begin{itemize}
+\item Financial Technology (``Fintech'')
+\item Technology-enabled financial services innovation
+\item Intersection of finance, technology, and business models
+\item Digitization of financial services delivery
+\end{itemize}
+
+\vspace{5mm}
+\textbf{Core Characteristics:}
+\begin{itemize}
+\item Customer-centric design
+\item Digital-first approach
+\item Data-driven decision making
+\item Automation and efficiency
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Not Just About Technology:}
+\begin{itemize}
+\item Business model innovation
+\item Regulatory arbitrage
+\item User experience transformation
+\item Market structure disruption
+\end{itemize}
+
+\vspace{5mm}
+\textbf{Evolution of Term:}
+\begin{itemize}
+\item Pre-2000s: Back-office technology
+\item 2000s-2010: Internet banking, e-payments
+\item 2010s: Startup-driven disruption
+\item 2020s: Embedded finance, DeFi
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Historical Evolution of Fintech}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Era 1 (1866-1967): Foundation}
+\begin{itemize}
+\item 1866: First transatlantic cable
+\item 1918: Fedwire launch
+\item 1950: First credit card (Diners Club)
+\item 1967: First ATM (Barclays, London)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Era 2 (1967-2008): Digitization}
+\begin{itemize}
+\item 1973: SWIFT established
+\item 1983: Bloomberg Terminal
+\item 1994: First online banking
+\item 1998: PayPal founded
+\item 2007: First iPhone launched
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Era 3 (2008-Present): Disruption}
+\begin{itemize}
+\item 2008: Global Financial Crisis
+\item 2009: Bitcoin whitepaper
+\item 2011: Stripe, Square growth
+\item 2013: PSD2 directive (EU)
+\item 2015: Neobank explosion
+\item 2020: Embedded finance rise
+\item 2023: Generative AI in finance
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Key Inflection Point:}
+\begin{itemize}
+\item Post-2008 crisis: Trust erosion in traditional banks
+\item Smartphone adoption enabling mobile-first services
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Key Drivers of Fintech Growth}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Technology Enablers:}
+\begin{itemize}
+\item Cloud computing infrastructure
+\item Mobile device ubiquity (5B+ smartphones)
+\item API economy and microservices
+\item Artificial intelligence and machine learning
+\item Blockchain and distributed ledgers
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Regulatory Drivers:}
+\begin{itemize}
+\item Open banking mandates (PSD2, UK CMA)
+\item Sandbox frameworks (FCA, MAS, FINMA)
+\item Digital identity standards (eIDAS)
+\item Licensing innovation (e-money, payment institutions)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Market Forces:}
+\begin{itemize}
+\item Millennial and Gen Z preferences
+\item Underbanked populations (1.7B globally)
+\item COVID-19 acceleration of digital adoption
+\item Lower customer acquisition costs
+\item Network effects and platform economics
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Economic Factors:}
+\begin{itemize}
+\item Low interest rates driving VC investment
+\item Cost pressure on incumbents
+\item Globalization of financial services
+\item Declining transaction costs
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{The Fintech Ecosystem}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Core Players:}
+\begin{itemize}
+\item Fintech startups (Stripe, Revolut, Wise)
+\item Incumbent banks (JPMorgan, HSBC, DBS)
+\item Big Tech (Apple, Google, Amazon, Ant Group)
+\item Payment networks (Visa, Mastercard, PayPal)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Enablers:}
+\begin{itemize}
+\item Infrastructure providers (Plaid, Adyen)
+\item Core banking platforms (Mambu, Thought Machine)
+\item Cloud providers (AWS, Azure, GCP)
+\item Banking-as-a-Service (Solarisbank, Synapse)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Capital Providers:}
+\begin{itemize}
+\item Venture capital (Sequoia, a16z, Index)
+\item Private equity (KKR, Blackstone)
+\item Corporate venture arms (Goldman Sachs, Citi)
+\item Public markets (IPOs, SPACs)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Support Infrastructure:}
+\begin{itemize}
+\item Regulators (ECB, Fed, FCA, BaFin)
+\item Industry associations (EBA, AFME)
+\item Accelerators (Y Combinator, Techstars)
+\item Professional services (lawyers, auditors)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Global Fintech Market Size}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Investment Trends:}
+\begin{itemize}
+\item 2023: \$113B global fintech VC investment
+\item Peak 2021: \$238B (crypto boom)
+\item 2024: Recovery to \$140B+ (est.)
+\item Shift from growth to profitability
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Regional Distribution (2023):}
+\begin{itemize}
+\item North America: 48\% (\$54B)
+\item Asia-Pacific: 28\% (\$32B)
+\item Europe: 20\% (\$23B)
+\item Rest of World: 4\% (\$4B)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Market Valuation:}
+\begin{itemize}
+\item Global fintech market: \$294B (2023)
+\item Projected 2030: \$1.1 trillion
+\item CAGR 2023-2030: 20.3\%
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Top Fintech Valuations (2024):}
+\begin{itemize}
+\item Ant Group: \$150B (China)
+\item Stripe: \$65B (USA)
+\item Revolut: \$45B (UK)
+\item Chime: \$25B (USA)
+\item Nubank: \$23B (Brazil, public)
+\item Klarna: \$6.7B (Sweden, down from \$46B)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Fintech Categories: Payments}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Digital Payments:}
+\begin{itemize}
+\item Payment processors (Stripe, Adyen, Square)
+\item Mobile wallets (Apple Pay, Google Pay, Alipay)
+\item Cross-border transfers (Wise, Remitly, WorldRemit)
+\item Buy-now-pay-later (Klarna, Affirm, Afterpay)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Market Dynamics:}
+\begin{itemize}
+\item Shift from cash to digital (80\% of transactions by 2025)
+\item Real-time payment networks (FedNow, SEPA Instant)
+\item Embedded payments in non-financial apps
+\item Cryptocurrency payment rails
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Key Innovations:}
+\begin{itemize}
+\item QR code payments (WeChat Pay, Paytm)
+\item Contactless NFC technology
+\item Request-to-pay infrastructure
+\item Account-to-account (A2A) payments
+\end{itemize}
+
+\vspace{3mm}
+\textbf{European Context:}
+\begin{itemize}
+\item PSD2 enabling third-party access
+\item Strong Customer Authentication (SCA)
+\item Instant SEPA Credit Transfer (SCT Inst)
+\item Digital euro development (ECB)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Fintech Categories: Banking and Lending}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Neobanks/Challenger Banks:}
+\begin{itemize}
+\item Mobile-first current accounts
+\item No physical branches
+\item Examples: Revolut, N26, Monzo, Chime
+\item EU: 35M+ neobank customers (2024)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Alternative Lending:}
+\begin{itemize}
+\item Peer-to-peer lending (Funding Circle, LendingClub)
+\item SME financing (Kabbage, OnDeck)
+\item Student loans (SoFi, Earnest)
+\item Invoice financing (BlueVine, Fundbox)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Business Models:}
+\begin{itemize}
+\item Freemium basic accounts
+\item Premium subscriptions (\EUR5-15/month)
+\item Interchange revenue from card spending
+\item FX margin on currency exchange
+\item Embedded finance partnerships
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Technology Advantages:}
+\begin{itemize}
+\item Lower cost-to-serve (CAC \$10-50 vs \$200-400)
+\item Instant account opening (3-5 minutes)
+\item AI-driven underwriting
+\item Real-time spending analytics
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Fintech Categories: Wealth and Investment}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Robo-Advisors:}
+\begin{itemize}
+\item Automated portfolio management
+\item Algorithm-based asset allocation
+\item Examples: Betterment, Wealthfront, Scalable Capital
+\item AUM: \$2.5 trillion globally (2024)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Commission-Free Trading:}
+\begin{itemize}
+\item Zero-fee stock trading (Robinhood, Trade Republic)
+\item Fractional shares investing
+\item Gamification elements
+\item Revenue from payment for order flow (PFOF)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Fee Comparison:}
+\begin{itemize}
+\item Traditional advisor: 1.0\%-2.0\% AUM
+\item Robo-advisor: 0.25\%-0.50\% AUM
+\item Hybrid model: 0.50\%-0.75\% AUM
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Investment Products:}
+\begin{itemize}
+\item ETF-based portfolios
+\item ESG/thematic investing
+\item Tax-loss harvesting
+\item Cryptocurrency access
+\item Alternative investments (Private equity, real estate)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Fintech Categories: Insurance (InsurTech)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Business Model Innovations:}
+\begin{itemize}
+\item Peer-to-peer insurance (Lemonade, Friendsurance)
+\item Usage-based insurance (Root, Metromile)
+\item On-demand insurance (Cuvva, Trov)
+\item Embedded insurance (Qover, Zurich partnerships)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Technology Applications:}
+\begin{itemize}
+\item AI claims processing (90\% automation)
+\item IoT risk monitoring (telematics, wearables)
+\item Parametric insurance (automatic payouts)
+\item Blockchain for fraud prevention
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Market Impact:}
+\begin{itemize}
+\item Global InsurTech investment: \$15B (2023)
+\item Digital insurance penetration: 25\% (2024)
+\item Traditional insurers partnering vs competing
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Product Examples:}
+\begin{itemize}
+\item Pay-per-mile auto insurance
+\item Cyber insurance for SMEs
+\item Crop insurance with satellite data
+\item Flight delay parametric coverage
+\item Pet insurance with vet telemedicine
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Fintech Categories: RegTech and Infrastructure}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{RegTech Solutions:}
+\begin{itemize}
+\item KYC/AML automation (Onfido, ComplyAdvantage)
+\item Transaction monitoring (Featurespace, Napier)
+\item Regulatory reporting (Suade, Apiax)
+\item Risk management (Quantexa, ThetaRay)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Cost Savings:}
+\begin{itemize}
+\item Compliance costs: 4\%-10\% of revenue
+\item RegTech can reduce by 30\%-50\%
+\item Manual KYC: \$50-100 per customer
+\item Automated KYC: \$5-15 per customer
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Infrastructure/BaaS:}
+\begin{itemize}
+\item Core banking (Mambu, Thought Machine)
+\item Banking-as-a-Service (Solarisbank, Railsbank)
+\item Payment infrastructure (Plaid, TrueLayer)
+\item Identity verification (Jumio, Persona)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Enabling Technologies:}
+\begin{itemize}
+\item Natural language processing for regulation
+\item Machine learning for anomaly detection
+\item Graph analytics for network analysis
+\item API-first architecture
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Fintech vs Traditional Banks: Comparison}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Cost Structure:}
+\begin{itemize}
+\item Traditional bank cost-to-income: 55\%-65\%
+\item Fintech cost-to-income: 35\%-50\%
+\item Branch network vs cloud infrastructure
+\item Legacy IT systems vs modern tech stack
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Customer Acquisition:}
+\begin{itemize}
+\item Bank CAC: \$200-\$400
+\item Fintech CAC: \$10-\$50
+\item Viral growth and referrals
+\item Digital-native marketing
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Competitive Advantages (Fintech):}
+\begin{itemize}
+\item Speed: Account opening in minutes vs days
+\item UX: Mobile-first, intuitive design
+\item Pricing: Lower fees, better FX rates
+\item Innovation: Rapid product iteration
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Competitive Advantages (Banks):}
+\begin{itemize}
+\item Trust and brand recognition
+\item Full banking license and deposit insurance
+\item Diversified revenue streams
+\item Regulatory expertise
+\item Physical presence for complex needs
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Challenges and Risks}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Business Challenges:}
+\begin{itemize}
+\item Path to profitability (most still loss-making)
+\item Customer retention and churn
+\item Scaling while maintaining unit economics
+\item Competition from Big Tech
+\item Regulatory compliance costs
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Technology Risks:}
+\begin{itemize}
+\item Cybersecurity threats
+\item System outages and downtime
+\item Third-party vendor dependency
+\item Data privacy concerns
+\item AI bias and fairness
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Regulatory Risks:}
+\begin{itemize}
+\item Licensing requirements
+\item Capital adequacy rules
+\item Consumer protection mandates
+\item Cross-border complexity
+\item Changing regulatory landscape
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Market Risks:}
+\begin{itemize}
+\item Interest rate sensitivity
+\item Credit risk in lending models
+\item Liquidity management
+\item Valuation corrections (2022-2023)
+\item Funding winter and VC pullback
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{European Fintech Landscape}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Leading Markets:}
+\begin{itemize}
+\item UK: \$11B investment (2023), 2,500+ fintechs
+\item Germany: \$3.2B, focus on B2B fintech
+\item France: \$2.8B, strong InsurTech
+\item Netherlands: \$2.1B, payments hub
+\item Sweden: \$1.8B, Klarna dominance
+\end{itemize}
+
+\vspace{3mm}
+\textbf{European Champions:}
+\begin{itemize}
+\item Revolut (UK, \$45B valuation)
+\item Klarna (Sweden, \$6.7B)
+\item N26 (Germany, \$9B)
+\item Adyen (Netherlands, \$50B market cap)
+\item Wise (UK, \$8B market cap)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Regulatory Environment:}
+\begin{itemize}
+\item PSD2: Open banking mandate
+\item MiFID II: Investment services regulation
+\item GDPR: Data protection
+\item MiCA: Crypto-asset regulation
+\item DORA: Digital operational resilience
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Competitive Dynamics:}
+\begin{itemize}
+\item Fragmented market (27 EU countries)
+\item Cross-border passporting under EU rules
+\item Strong incumbent banks (Deutsche Bank, BNP)
+\item Emerging Eastern European hubs (Estonia, Lithuania)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Big Tech in Finance}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Apple:}
+\begin{itemize}
+\item Apple Pay (500M+ users globally)
+\item Apple Card (Goldman Sachs partnership)
+\item Apple Pay Later (BNPL)
+\item Savings account (4.15\% APY)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Google:}
+\begin{itemize}
+\item Google Pay (150M+ users)
+\item Google Wallet integration
+\item Limited banking ambitions
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Amazon:}
+\begin{itemize}
+\item Amazon Pay checkout
+\item SME lending program
+\item Insurance distribution (Europe)
+\item Potential checking account plans
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Chinese Tech Giants:}
+\begin{itemize}
+\item Ant Group: Alipay (1.3B users), Yu'e Bao fund
+\item Tencent: WeChat Pay (900M users)
+\item Super-app model: Payments + commerce + finance
+\item Regulatory crackdown (2021-2023)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Future Trends and Outlook}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Emerging Trends:}
+\begin{itemize}
+\item Embedded finance: Finance in non-financial apps
+\item Open finance: Beyond banking to investments, insurance
+\item Real-time everything: Payments, credit decisions, FX
+\item Generative AI: Personalized advice, fraud detection
+\item Decentralized finance (DeFi) integration
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Technology Evolution:}
+\begin{itemize}
+\item Central Bank Digital Currencies (CBDCs)
+\item Quantum-resistant cryptography
+\item Biometric authentication standards
+\item 5G enabling mobile financial services
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Market Consolidation:}
+\begin{itemize}
+\item M\&A activity increasing (profitability pressure)
+\item Bank acquisitions of fintechs
+\item Platform aggregation (super-apps)
+\item Vertical integration strategies
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Regulatory Evolution:}
+\begin{itemize}
+\item Harmonized EU fintech regulation
+\item AI governance frameworks
+\item Crypto-asset standardization (MiCA)
+\item ESG integration in fintech
+\item Consumer protection enhancements
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Summary and Key Takeaways}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Core Concepts:}
+\begin{itemize}
+\item Fintech = Technology-enabled financial innovation
+\item Driven by mobile, cloud, AI, and regulation
+\item Ecosystem of startups, banks, Big Tech, enablers
+\item Multiple categories: Payments, banking, wealth, insurance, RegTech
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Market Reality:}
+\begin{itemize}
+\item \$113B investment (2023), shift to profitability
+\item European leaders: Revolut, Adyen, Klarna
+\item Path to profitability remains challenging
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Critical Success Factors:}
+\begin{itemize}
+\item Customer experience and trust
+\item Unit economics and scalability
+\item Regulatory compliance
+\item Technology resilience
+\item Sustainable business models
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Looking Ahead:}
+\begin{itemize}
+\item Embedded finance as dominant model
+\item Consolidation and maturation
+\item Collaboration over disruption
+\item Regulatory harmonization
+\item AI-driven personalization
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Next Lesson Preview}
+\begin{center}
+\Large \textbf{Lesson 2: Digital Payments I -- Fundamentals}
+
+\vspace{10mm}
+
+\normalsize
+We will explore:
+\begin{itemize}
+\item Payment lifecycle and infrastructure
+\item Card networks (Visa, Mastercard)
+\item Interchange fees and economics
+\item ACH and SEPA payment systems
+\item Payment processing value chain
+\end{itemize}
+\end{center}
+\end{frame}
+
+\end{document}

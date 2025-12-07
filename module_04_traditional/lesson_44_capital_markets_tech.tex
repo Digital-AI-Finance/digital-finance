@@ -1,0 +1,838 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 44: Capital Markets Technology}
+\subtitle{Module 4: Traditional Digital Finance}
+\author{Digital Finance Course}
+\date{2025}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Learning Objectives}
+\begin{itemize}
+\item Understand the trade lifecycle from order to settlement
+\item Analyze Order Management Systems (OMS), Execution Management Systems (EMS), and Portfolio Management Systems (PMS)
+\item Examine clearing and settlement infrastructure
+\item Evaluate post-trade processing and T+1 settlement
+\item Assess securities lending and repo technology
+\end{itemize}
+\end{frame}
+
+\section{Trade Lifecycle Overview}
+
+\begin{frame}{End-to-End Trade Lifecycle}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Pre-Trade Phase:}
+\begin{enumerate}
+\item \textbf{Investment Decision:} Portfolio manager identifies opportunity
+\item \textbf{Compliance Check:} Pre-trade compliance rules (limits, restrictions)
+\item \textbf{Order Creation:} Order entered into OMS
+\item \textbf{Order Routing:} EMS routes to broker/venue
+\end{enumerate}
+
+\vspace{2mm}
+\textbf{Trade Execution Phase:}
+\begin{enumerate}
+\setcounter{enumi}{4}
+\item \textbf{Market Access:} Order reaches exchange/OTC market
+\item \textbf{Execution:} Order matched and filled
+\item \textbf{Trade Capture:} Execution details recorded
+\item \textbf{Trade Enrichment:} Add settlement instructions, SSIs
+\end{enumerate}
+
+\column{0.48\textwidth}
+\textbf{Post-Trade Phase:}
+\begin{enumerate}
+\setcounter{enumi}{8}
+\item \textbf{Trade Confirmation:} Counterparty agreement (affirmation)
+\item \textbf{Clearing:} Central counterparty (CCP) or bilateral
+\item \textbf{Settlement:} Exchange of securities for cash
+\item \textbf{Custody:} Asset safekeeping and servicing
+\item \textbf{Reporting:} Regulatory and client reporting
+\end{enumerate}
+
+\vspace{3mm}
+\textbf{Typical Timeline (Equities):}
+\begin{itemize}
+\item Execution: Milliseconds to seconds
+\item Confirmation: T+0 (same day)
+\item Settlement: T+1 (US, May 2024) or T+2 (Europe)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Key Systems in Trade Lifecycle}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Front Office Systems:}
+\begin{itemize}
+\item \textbf{PMS (Portfolio Management):} Holdings, analytics, compliance
+\item \textbf{OMS (Order Management):} Order creation, routing, allocation
+\item \textbf{EMS (Execution Management):} Smart order routing, algos, broker connectivity
+\item \textbf{RMS (Risk Management):} Pre/post-trade risk checks
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Middle Office Systems:}
+\begin{itemize}
+\item \textbf{Trade Matching:} Confirm execution details with counterparty
+\item \textbf{P\&L and Attribution:} Explain portfolio performance
+\item \textbf{Collateral Management:} Margin calls, OTC derivatives
+\item \textbf{Corporate Actions:} Dividends, stock splits, tenders
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Back Office Systems:}
+\begin{itemize}
+\item \textbf{Clearing:} CCP novation, netting
+\item \textbf{Settlement:} DVP (Delivery vs Payment) processing
+\item \textbf{Custody:} Safekeeping, asset servicing
+\item \textbf{Reconciliation:} Cash, positions, NAV
+\item \textbf{Reporting:} Regulatory (MiFID II, EMIR), client statements
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Data Management:}
+\begin{itemize}
+\item \textbf{Reference Data:} Securities master, counterparty data
+\item \textbf{Market Data:} Prices, corporate actions
+\item \textbf{Master Data:} Accounts, legal entities (LEI)
+\end{itemize}
+
+\vspace{2mm}
+\textit{Leading platforms: Charles River (PMS/OMS/EMS), Bloomberg AIM, SimCorp Dimension, Aladdin (BlackRock)}
+\end{columns}
+\end{frame}
+
+\section{OMS, EMS, and PMS}
+
+\begin{frame}{Order Management Systems (OMS)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Core OMS Functions:}
+\begin{itemize}
+\item \textbf{Order Entry:} Support all order types (market, limit, algo)
+\item \textbf{Pre-Trade Compliance:} Rule-based checks (concentration limits, restricted lists)
+\item \textbf{Order Routing:} Send to EMS or broker for execution
+\item \textbf{Execution Management:} Track fill status and average price
+\item \textbf{Allocation:} Distribute fills across accounts (pro-rata, FIFO)
+\item \textbf{Audit Trail:} Immutable log of all order events (MiFID II requirement)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Order Lifecycle in OMS:}
+\begin{enumerate}
+\item Created (PM enters order)
+\item Validated (compliance check)
+\item Routed (sent to broker/EMS)
+\item Partially Filled / Filled
+\item Allocated (to client accounts)
+\item Booked (to accounting system)
+\end{enumerate}
+
+\column{0.48\textwidth}
+\textbf{OMS Vendors:}
+\begin{itemize}
+\item \textbf{Charles River IMS:} Multi-asset, buy-side focused
+\item \textbf{Bloomberg AIM:} Integrated with market data and analytics
+\item \textbf{Eze OMS (SS\&C):} Hedge funds and asset managers
+\item \textbf{SimCorp Dimension:} Front-to-back platform
+\item \textbf{Aladdin (BlackRock):} Enterprise investment management
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Integration Points:}
+\begin{itemize}
+\item \textbf{Upstream:} PMS portfolio models, compliance system
+\item \textbf{Downstream:} EMS, brokers (FIX protocol)
+\item \textbf{Lateral:} Market data, reference data, risk analytics
+\item \textbf{Back Office:} Trade booking, settlement systems
+\end{itemize}
+
+\vspace{2mm}
+\textit{Industry trend: Cloud-native OMS (Enfusion, Talos) gaining traction vs legacy on-premise}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Execution Management Systems (EMS)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{EMS Core Capabilities:}
+\begin{itemize}
+\item \textbf{Smart Order Routing (SOR):} Best execution across venues
+\item \textbf{Algorithmic Trading:} VWAP, TWAP, implementation shortfall
+\item \textbf{Direct Market Access (DMA):} Low-latency connectivity
+\item \textbf{Broker Aggregation:} Consolidate execution across brokers
+\item \textbf{TCA (Transaction Cost Analysis):} Post-trade performance measurement
+\item \textbf{FIX Connectivity:} Industry-standard protocol for order routing
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Buy-Side vs Sell-Side EMS:}
+\begin{itemize}
+\item \textbf{Buy-Side:} Broker-neutral, multi-broker connectivity, TCA focus
+\item \textbf{Sell-Side:} Broker-specific, liquidity sourcing, client order handling
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Leading EMS Providers:}
+\begin{itemize}
+\item \textbf{FlexTrade:} Multi-asset, broker-neutral
+\item \textbf{Bloomberg EMSX:} Integrated with Terminal
+\item \textbf{Fidessa (ION):} Equities and derivatives
+\item \textbf{Portware (FactSet):} Algorithmic trading focus
+\item \textbf{TradingScreen:} FX and multi-asset
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Best Execution Framework:}
+\begin{itemize}
+\item \textbf{Pre-Trade:} Venue analysis, liquidity assessment
+\item \textbf{Execution:} SOR optimizes routing decisions
+\item \textbf{Post-Trade:} TCA benchmarks (VWAP, arrival price, implementation shortfall)
+\item \textbf{Reporting:} RTS 27/28 (MiFID II), Rule 606 (US)
+\end{itemize}
+
+\vspace{2mm}
+\textit{Typical EMS connects to 20-50 brokers and 100+ execution venues globally}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Portfolio Management Systems (PMS)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{PMS Core Functions:}
+\begin{itemize}
+\item \textbf{Portfolio Modeling:} Target allocations, rebalancing
+\item \textbf{Performance Measurement:} Time-weighted, money-weighted returns
+\item \textbf{Attribution Analysis:} Decompose returns (allocation vs selection)
+\item \textbf{Risk Analytics:} VaR, tracking error, factor exposures
+\item \textbf{Compliance Monitoring:} Investment guidelines, restrictions
+\item \textbf{Client Reporting:} Customizable statements and factsheets
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Performance Attribution (Brinson Model):}
+$$R_p - R_b = \underbrace{\sum w_i (R_i - R_b)}_{\text{Allocation}} + \underbrace{\sum W_b (r_i - R_i)}_{\text{Selection}} + \underbrace{\sum (w_i - W_b)(r_i - R_i)}_{\text{Interaction}}$$
+
+where $w_i$ = portfolio weight, $W_b$ = benchmark weight, $r_i$ = sector return, $R_i$ = benchmark sector return
+
+\column{0.48\textwidth}
+\textbf{Leading PMS Platforms:}
+\begin{itemize}
+\item \textbf{Aladdin (BlackRock):} Enterprise, institutional scale
+\item \textbf{SimCorp Dimension:} Front-to-back, asset managers
+\item \textbf{Charles River IMS:} Integrated OMS/PMS
+\item \textbf{FactSet:} Analytics and reporting focus
+\item \textbf{Refinitiv (LSEG) Eikon:} Multi-asset portfolio tools
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Data Sources:}
+\begin{itemize}
+\item \textbf{Positions:} From custodians, prime brokers
+\item \textbf{Prices:} Market data vendors (Bloomberg, Refinitiv)
+\item \textbf{Transactions:} OMS, trade confirmations
+\item \textbf{Benchmarks:} Index providers (MSCI, FTSE Russell)
+\item \textbf{Corporate Actions:} Data vendors, custodians
+\end{itemize}
+
+\vspace{2mm}
+\textit{Aladdin serves \$21+ trillion AUM across 13,000+ institutions (2024)}
+\end{columns}
+\end{frame}
+
+\section{Clearing and Settlement}
+
+\begin{frame}{Central Counterparty (CCP) Clearing}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{CCP Role:}
+\begin{itemize}
+\item \textbf{Novation:} CCP becomes buyer to every seller, seller to every buyer
+\item \textbf{Netting:} Reduce number of settlements (multilateral netting)
+\item \textbf{Risk Management:} Margin collection (initial and variation)
+\item \textbf{Default Management:} Mutualized loss-sharing (default fund)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Benefits:}
+\begin{itemize}
+\item Reduce counterparty credit risk
+\item Increase operational efficiency (netting)
+\item Enhance market transparency
+\item Facilitate anonymous trading
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Major CCPs:}
+\begin{itemize}
+\item \textbf{DTCC (US):} Equities, corporate bonds (NSCC)
+\item \textbf{CME Clearing:} Futures, swaps
+\item \textbf{LCH (LSEG):} SwapClear (rates), RepoClear, EquityClear
+\item \textbf{Eurex Clearing:} Derivatives, repo
+\item \textbf{ICE Clear:} CDS, energy
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Margin Requirements:}
+
+\textbf{Initial Margin (IM):}
+\begin{itemize}
+\item Collateral posted at trade inception
+\item Covers potential loss during liquidation period
+\item Calculated via SPAN, VaR, or Expected Shortfall
+\item Typical holding period: 2-10 days
+\end{itemize}
+
+\textbf{Variation Margin (VM):}
+\begin{itemize}
+\item Daily mark-to-market settlements
+\item Cash transfer to reflect P\&L
+\item Mandatory for OTC derivatives (UMR, EMIR)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Default Waterfall:}
+\begin{enumerate}
+\item Defaulter's margin
+\item Defaulter's default fund contribution
+\item CCP skin-in-the-game
+\item Mutualized default fund (survivors)
+\item Assessment powers (additional contributions)
+\end{enumerate}
+
+\vspace{2mm}
+\textit{LCH SwapClear: \$500+ trillion notional cleared (2024)}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Settlement Infrastructure}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Securities Settlement Systems:}
+
+\textbf{Delivery vs Payment (DVP):}
+\begin{itemize}
+\item Simultaneous exchange of securities and cash
+\item Eliminates principal risk
+\item \textbf{DVP Model 1:} Gross trade-by-trade settlement (RTGS)
+\item \textbf{DVP Model 2:} Gross securities, net cash
+\item \textbf{DVP Model 3:} Net securities, net cash (most common)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Central Securities Depositories (CSDs):}
+\begin{itemize}
+\item \textbf{DTC (US):} Equities, corporate bonds
+\item \textbf{Euroclear:} International securities (Belgium-based)
+\item \textbf{Clearstream:} International and German securities
+\item \textbf{National CSDs:} Country-specific (e.g., SIX SIS, Monte Titoli)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Settlement Cycles:}
+
+\textbf{Current (2024):}
+\begin{itemize}
+\item \textbf{US Equities:} T+1 (May 28, 2024)
+\item \textbf{EU Equities:} T+2 (moving to T+1 in 2027)
+\item \textbf{UK Equities:} T+2 (T+1 under consideration)
+\item \textbf{US Treasuries:} T+1 (same-day for some)
+\item \textbf{FX Spot:} T+2 (CLS for major currencies)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{T+1 Benefits:}
+\begin{itemize}
+\item Reduce counterparty credit exposure
+\item Lower margin requirements (shorter exposure)
+\item Improved capital efficiency
+\item Align with faster trading technology
+\end{itemize}
+
+\vspace{2mm}
+\textbf{T+1 Challenges:}
+\begin{itemize}
+\item Compressed affirmation and allocation timeline
+\item FX conversion timing (international trades)
+\item Securities lending recall (1 day notice)
+\item Legacy system upgrades
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Settlement Fails and Penalties}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Causes of Settlement Failures:}
+\begin{itemize}
+\item \textbf{Operational:} Incorrect settlement instructions (SSI mismatch)
+\item \textbf{Liquidity:} Insufficient cash or securities
+\item \textbf{Corporate Actions:} Ex-date timing issues
+\item \textbf{Fails Chains:} Cascading failures (A fails to B, B fails to C)
+\item \textbf{Short Selling:} Failure to deliver borrowed securities
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Fail Rates:}
+\begin{itemize}
+\item US equities: 1-3\% of trades (value basis)
+\item European equities: 3-8\% (varies by market)
+\item Fixed income: Higher in corporate bonds (5-10\%)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{CSDR Settlement Discipline (EU):}
+
+\textbf{Mandatory Buy-Ins:}
+\begin{itemize}
+\item Liquidity-critical securities: 4 business days after intended settlement date (ISD)
+\item Other securities: 7 business days after ISD
+\item Failing party bears costs of buy-in
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Cash Penalties:}
+\begin{itemize}
+\item Daily penalty for each day of fail
+\item Rate based on security type and liquidity
+\item Liquid shares: 1 bp/day, Illiquid: 0.5 bp/day
+\item Bonds: 0.25-0.5 bp/day depending on liquidity
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Implementation:}
+\begin{itemize}
+\item Effective February 2022 (penalties)
+\item Mandatory buy-ins delayed to 2025
+\item Goal: Reduce systemic settlement risk
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\section{Securities Lending and Repo}
+
+\begin{frame}{Securities Lending Technology}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Securities Lending Overview:}
+
+\textbf{Participants:}
+\begin{itemize}
+\item \textbf{Lenders:} Long-term investors (pension funds, mutual funds)
+\item \textbf{Borrowers:} Hedge funds (short selling), market makers (hedging)
+\item \textbf{Agent Lenders:} BNY Mellon, State Street, JPMorgan
+\item \textbf{Principal Lenders:} Goldman Sachs, Morgan Stanley
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Lending Mechanics:}
+\begin{itemize}
+\item \textbf{Collateral:} 102-105\% of security value (cash or non-cash)
+\item \textbf{Rebate Rate:} Interest paid on cash collateral
+\item \textbf{Lending Fee:} Borrower pays (bps per annum)
+\item \textbf{Term:} Open (callable) or fixed-term
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Fee Structure:}
+$$\text{Lender Revenue} = \text{Rebate Spread} + \text{Lending Fee}$$
+Typical: 20-80 bps for general collateral, up to 1000+ bps for hard-to-borrow (specials)
+
+\column{0.48\textwidth}
+\textbf{Technology Platforms:}
+
+\textbf{Agent Lender Systems:}
+\begin{itemize}
+\item \textbf{EquiLend:} Trading, post-trade, analytics
+\item \textbf{FIS Securities Finance:} End-to-end platform
+\item \textbf{Pirum:} Post-trade automation and reconciliation
+\item \textbf{CloudMargin:} Collateral management
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Electronic Trading:}
+\begin{itemize}
+\item \textbf{AQS (EquiLend):} Central limit order book
+\item \textbf{SL-x (IHS Markit):} Automated lending platform
+\item \textbf{Bloomberg SECL:} Integrated with Terminal
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Automation Benefits:}
+\begin{itemize}
+\item Real-time inventory matching
+\item Automated recalls and returns
+\item Collateral optimization (cheapest-to-deliver)
+\item Regulatory reporting (SFTR in EU)
+\end{itemize}
+
+\vspace{2mm}
+\textit{Global securities lending market: \$2.5 trillion on loan (2024)}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Repo Markets and Technology}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Repo (Repurchase Agreement):}
+
+\textbf{Structure:}
+\begin{itemize}
+\item \textbf{Seller:} Sells securities, agrees to repurchase (borrows cash)
+\item \textbf{Buyer:} Buys securities, agrees to resell (lends cash)
+\item \textbf{Repo Rate:} Interest rate on cash loan
+\item \textbf{Haircut:} Collateral value > cash (risk mitigation)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Repo Types:}
+\begin{itemize}
+\item \textbf{Bilateral:} OTC between two parties
+\item \textbf{Tri-Party:} Custodian (BNY Mellon, Euroclear) manages collateral
+\item \textbf{GCF (General Collateral Finance):} Cleared via FICC (DTCC)
+\item \textbf{Term:} Overnight, term (weeks/months), open
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Haircut Example:}
+\begin{itemize}
+\item \$100M Treasury bonds as collateral
+\item 2\% haircut $\rightarrow$ lend \$98M cash
+\item Protects lender from collateral price drop
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Repo Market Size:}
+\begin{itemize}
+\item US Treasury repo: \$4-5 trillion outstanding (2024)
+\item European repo: EUR 9-10 trillion (ICMA survey)
+\item Critical for money markets and liquidity
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Technology Platforms:}
+\begin{itemize}
+\item \textbf{DTCC/FICC:} GCF Repo, DVP Repo clearing
+\item \textbf{BNY Mellon:} Tri-party repo platform (US)
+\item \textbf{Euroclear:} Tri-party repo (Europe)
+\item \textbf{Clearstream:} Tri-party and triparty GC pooling
+\item \textbf{BondIT, MTS Repo:} Electronic trading
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Regulatory Developments:}
+\begin{itemize}
+\item \textbf{SFTR (EU):} Securities Financing Transactions Regulation
+\item \textbf{Transparency:} Trade reporting to regulators
+\item \textbf{Central Clearing:} CCP mandate for standardized repo (proposed)
+\item \textbf{Margin:} Initial margin for non-cleared (BCBS-IOSCO)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\section{Post-Trade Processing and Reconciliation}
+
+\begin{frame}{Trade Matching and Affirmation}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Matching Process:}
+
+\textbf{Pre-Matching (Allocation):}
+\begin{itemize}
+\item Buy-side allocates block order to client accounts
+\item Send allocation instructions to broker/custodian
+\item Deadline: T+0 by 9pm ET (US), EOD (Europe)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Central Matching:}
+\begin{itemize}
+\item \textbf{US:} DTCC Trade Information Warehouse (TIW), Omgeo OASYS
+\item \textbf{EU:} Euroclear, Clearstream, local CSDs
+\item Compare buy-side allocation vs sell-side confirmation
+\item Match on: security, quantity, price, settlement date, SSI
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Affirmation:}
+\begin{itemize}
+\item Both parties confirm trade details
+\item \textbf{DTC ID:} Affirm via DTCC's ID system
+\item \textbf{CTM (Central Trade Manager):} Omgeo platform
+\item Must affirm by T+0 to settle T+1 (US)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Matching Rates:}
+\begin{itemize}
+\item US institutional: 90-95\% affirmed by T+0
+\item Europe: 70-85\% (more fragmented, T+2)
+\item Unmatched trades escalate to manual resolution
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Common Mismatch Reasons:}
+\begin{itemize}
+\item Settlement instructions (SSI) discrepancies
+\item Quantity/price differences (partial fills)
+\item Settlement date disagreements
+\item Missing or incorrect counterparty details
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Technology Solutions:}
+\begin{itemize}
+\item \textbf{Omgeo (DTCC):} CTM (trade matching), Alert (standing instructions)
+\item \textbf{SWIFT:} FIX/SWIFT messaging for confirmations
+\item \textbf{Automation:} Straight-through processing (STP) for matched trades
+\item \textbf{Exception Management:} Manual workflow for breaks
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Reconciliation and Exceptions}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Types of Reconciliation:}
+
+\textbf{1. Trade Reconciliation:}
+\begin{itemize}
+\item Front office (trading system) vs back office (settlement system)
+\item Identify missing or duplicate trades
+\item Frequency: Real-time or EOD
+\end{itemize}
+
+\textbf{2. Position Reconciliation:}
+\begin{itemize}
+\item Internal books vs custodian statements
+\item Detect settlement fails, corporate actions
+\item Frequency: Daily (T+1)
+\end{itemize}
+
+\textbf{3. Cash Reconciliation:}
+\begin{itemize}
+\item Expected cash movements vs bank statements
+\item Dividends, interest, fees, trade settlements
+\item Frequency: Daily
+\end{itemize}
+
+\textbf{4. NAV Reconciliation:}
+\begin{itemize}
+\item Fund accounting vs administrator
+\item Critical for mutual funds (daily NAV publication)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Exception Management:}
+
+\textbf{Common Exceptions:}
+\begin{itemize}
+\item Settlement fails (securities or cash)
+\item Pricing differences (stale or incorrect prices)
+\item Corporate actions not processed
+\item FX conversion errors (multicurrency portfolios)
+\item Custody fees/charges not captured
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Technology Solutions:}
+\begin{itemize}
+\item \textbf{SmartStream TLM:} Transaction lifecycle management
+\item \textbf{Broadridge:} Reconciliation and exception management
+\item \textbf{Gresham (Sandbox):} Multi-asset reconciliation
+\item \textbf{AutoRek:} Automated reconciliation platform
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Automation Impact:}
+\begin{itemize}
+\item Manual reconciliation: 70-90\% of breaks require human intervention
+\item Automated platforms: 30-50\% auto-resolved
+\item Machine learning: Pattern recognition for recurring exceptions
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Corporate Actions Processing}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Corporate Action Types:}
+
+\textbf{Mandatory Events:}
+\begin{itemize}
+\item \textbf{Dividends:} Cash or stock distributions
+\item \textbf{Stock Splits:} Share count increase (e.g., 2-for-1)
+\item \textbf{Mergers:} Cash or share exchange
+\item \textbf{Spinoffs:} New entity distribution
+\item \textbf{Maturities:} Bond redemptions
+\end{itemize}
+
+\textbf{Voluntary Events:}
+\begin{itemize}
+\item \textbf{Tender Offers:} Buyback at premium
+\item \textbf{Rights Issues:} Purchase additional shares at discount
+\item \textbf{Bond Calls:} Optional early redemption
+\end{itemize}
+
+\textbf{Mandatory with Options:}
+\begin{itemize}
+\item \textbf{Dividend Reinvestment:} Cash or shares
+\item \textbf{Elective Stock Dividend:} Cash or stock choice
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Processing Workflow:}
+
+\textbf{1. Announcement:}
+\begin{itemize}
+\item Issuer announces via exchange, newswire
+\item Data vendors (Bloomberg, Refinitiv) publish
+\item Custodian notifies clients
+\end{itemize}
+
+\textbf{2. Entitlement Calculation:}
+\begin{itemize}
+\item Record date: Shareholder of record eligibility
+\item Ex-date: Trading without entitlement
+\item Payment date: Cash/securities distributed
+\end{itemize}
+
+\textbf{3. Client Election (if voluntary):}
+\begin{itemize}
+\item Deadline typically 2-5 days before record date
+\item Default option if no election (protect basis)
+\end{itemize}
+
+\textbf{4. Settlement:}
+\begin{itemize}
+\item Custodian processes entitlements
+\item Update positions and cash balances
+\end{itemize}
+
+\vspace{2mm}
+\textit{Automation rate: 70-80\% for mandatory, 30-50\% for voluntary (require client input)}
+\end{columns}
+\end{frame}
+
+\section{Future Trends: DLT and T+0}
+
+\begin{frame}{Distributed Ledger Technology in Post-Trade}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{DLT/Blockchain Use Cases:}
+
+\textbf{1. Instant Settlement (T+0):}
+\begin{itemize}
+\item Atomic swap of securities and cash
+\item Eliminate settlement risk entirely
+\item Reduced capital requirements (no exposure period)
+\end{itemize}
+
+\textbf{2. Tokenized Securities:}
+\begin{itemize}
+\item Digital native issuance on blockchain
+\item Programmable compliance and corporate actions
+\item 24/7 trading and settlement
+\end{itemize}
+
+\textbf{3. Collateral Management:}
+\begin{itemize}
+\item Real-time margining and collateral mobility
+\item Shared ledger across CCPs and custodians
+\item Reduced operational friction
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Pilot Projects:}
+
+\textbf{ASX CHESS Replacement:}
+\begin{itemize}
+\item DLT-based post-trade platform (VMware Blockchain)
+\item Originally scheduled 2023, delayed to 2025+
+\item Challenges: Scope creep, technology complexity
+\end{itemize}
+
+\textbf{Project Ion (DTCC):}
+\begin{itemize}
+\item Explore DLT for US equity settlement
+\item Proof-of-concept with AWS and Digital Asset
+\item Findings: Feasible but requires industry coordination
+\end{itemize}
+
+\textbf{HQLAX (Eurex):}
+\begin{itemize}
+\item DLT platform for securities lending collateral
+\item Live since 2020 with multiple banks
+\item R3 Corda-based
+\end{itemize}
+
+\vspace{2mm}
+\textit{Consensus: DLT will take 5-10+ years for full adoption in public markets due to legacy infrastructure}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Summary and Key Takeaways}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Trade Lifecycle:}
+\begin{itemize}
+\item Pre-trade (OMS, compliance) $\rightarrow$ Execution (EMS, SOR) $\rightarrow$ Post-trade (clearing, settlement)
+\item Key systems: PMS (analytics), OMS (orders), EMS (routing), clearing, settlement
+\item Settlement: T+1 (US equities May 2024), T+2 (Europe, moving to T+1 by 2027)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Clearing and Settlement:}
+\begin{itemize}
+\item CCP novation reduces counterparty risk
+\item DVP eliminates principal risk
+\item Major CSDs: DTC (US), Euroclear, Clearstream
+\item CSDR penalties: 1 bp/day for fails (EU)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Securities Lending and Repo:}
+\begin{itemize}
+\item \$2.5T securities on loan globally
+\item Repo: \$4-5T US Treasuries, EUR 9-10T Europe
+\item Tri-party platforms: BNY Mellon, Euroclear
+\item SFTR reporting (EU), potential CCP mandate
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Post-Trade Processing:}
+\begin{itemize}
+\item Affirmation by T+0 critical for T+1 settlement
+\item Reconciliation: Trade, position, cash, NAV
+\item Corporate actions: 70-80\% automation (mandatory)
+\item DLT pilots: ASX CHESS, DTCC Ion, HQLAX (live)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\end{document}

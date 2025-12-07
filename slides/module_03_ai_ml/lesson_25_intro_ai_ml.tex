@@ -1,0 +1,722 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Digital Finance 3: Technology in Finance}
+\subtitle{Lesson 25: Introduction to AI/ML in Finance}
+\author{FHGR}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Learning Objectives}
+By the end of this lesson, you will be able to:
+\begin{itemize}
+\item Define artificial intelligence, machine learning, and deep learning
+\item Understand the hierarchy and relationships between AI concepts
+\item Identify key applications of AI/ML in finance
+\item Distinguish between realistic capabilities and overhype
+\item Recognize the evolution of AI in financial services
+\end{itemize}
+\end{frame}
+
+\begin{frame}{What is Artificial Intelligence?}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Broad Definition:}
+\begin{itemize}
+\item Simulation of human intelligence by machines
+\item Systems that can reason, learn, and act autonomously
+\item Originated in 1956 at Dartmouth Conference
+\item Multiple ``AI winters'' and resurgences
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Key Characteristics:}
+\begin{itemize}
+\item Perception (vision, speech)
+\item Reasoning (logic, planning)
+\item Learning (from data, experience)
+\item Natural language processing
+\item Problem-solving
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{The AI Hierarchy: From Broad to Narrow}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Three Nested Concepts:}
+\begin{enumerate}
+\item \textcolor{mlpurple}{\textbf{Artificial Intelligence}} (broadest)\\
+Any technique enabling computers to mimic human intelligence
+
+\item \textcolor{mlblue}{\textbf{Machine Learning}} (subset)\\
+Systems that learn from data without explicit programming
+
+\item \textcolor{mlorange}{\textbf{Deep Learning}} (subset of ML)\\
+Neural networks with multiple layers
+\end{enumerate}
+
+\column{0.48\textwidth}
+\textbf{Analogy:}
+\begin{itemize}
+\item AI = Transportation
+\item ML = Automobiles
+\item Deep Learning = Electric cars
+\end{itemize}
+
+\vspace{1em}
+\textbf{Modern Reality:}\\
+Most ``AI in finance'' today is actually machine learning, specifically supervised learning algorithms.
+\end{columns}
+\end{frame}
+
+\begin{frame}{Machine Learning: The Core Idea}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Traditional Programming:}
+\begin{itemize}
+\item Humans write explicit rules
+\item Input + Rules = Output
+\item Example: ``IF credit score < 600 THEN reject''
+\item Hard to scale for complex patterns
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Machine Learning:}
+\begin{itemize}
+\item Algorithm learns rules from data
+\item Input + Output = Rules (learned)
+\item Example: Discover credit patterns from 1M loan histories
+\item Scales to high-dimensional problems
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Key Insight:}\\
+ML excels when:
+\begin{itemize}
+\item Patterns are complex and non-obvious
+\item Large amounts of data are available
+\item Rules are difficult to articulate explicitly
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Three Types of Machine Learning}
+\begin{columns}[T]
+\column{0.31\textwidth}
+\textbf{Supervised Learning}
+\begin{itemize}
+\item Labeled data (X, Y)
+\item Learn mapping: X → Y
+\item Examples:
+  \begin{itemize}
+  \item Credit scoring
+  \item Fraud detection
+  \item Stock prediction
+  \end{itemize}
+\item \textcolor{mlgreen}{Most common in finance}
+\end{itemize}
+
+\column{0.31\textwidth}
+\textbf{Unsupervised Learning}
+\begin{itemize}
+\item Unlabeled data (X only)
+\item Find hidden structure
+\item Examples:
+  \begin{itemize}
+  \item Customer segmentation
+  \item Anomaly detection
+  \item Portfolio clustering
+  \end{itemize}
+\item Discovery-oriented
+\end{itemize}
+
+\column{0.31\textwidth}
+\textbf{Reinforcement Learning}
+\begin{itemize}
+\item Agent learns via trial/error
+\item Maximize cumulative reward
+\item Examples:
+  \begin{itemize}
+  \item Algorithmic trading
+  \item Dynamic hedging
+  \item Game playing (chess, Go)
+  \end{itemize}
+\item Still research-heavy
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Deep Learning: Neural Networks at Scale}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{What Makes It ``Deep''?}
+\begin{itemize}
+\item Multiple hidden layers (10s to 100s)
+\item Automatic feature learning
+\item Inspired by brain neurons (loosely)
+\item Requires massive data and compute
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Breakthroughs (2012-present):}
+\begin{itemize}
+\item Image recognition (ImageNet 2012)
+\item Speech recognition (Google, Apple)
+\item Language models (GPT, BERT)
+\item Game mastery (AlphaGo 2016)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Finance Applications:}
+\begin{itemize}
+\item Document processing (OCR, contracts)
+\item Sentiment analysis (news, social media)
+\item Time series forecasting (limited success)
+\item Alternative data (satellite, text)
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Reality Check:}\\
+Deep learning excels with:
+\begin{itemize}
+\item Unstructured data (text, images)
+\item Millions of training examples
+\item Pattern recognition tasks
+\end{itemize}
+Not always superior for structured financial data (tabular).
+\end{columns}
+\end{frame}
+
+\begin{frame}{AI/ML Applications in Finance: Overview}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Risk Management:}
+\begin{itemize}
+\item Credit scoring and underwriting
+\item Fraud detection
+\item Anti-money laundering (AML)
+\item Market risk modeling
+\item Stress testing
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Trading and Investment:}
+\begin{itemize}
+\item Algorithmic trading strategies
+\item Portfolio optimization
+\item Market prediction (limited)
+\item Robo-advisors
+\item Alternative data analysis
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Customer Service:}
+\begin{itemize}
+\item Chatbots and virtual assistants
+\item Personalized recommendations
+\item Customer segmentation
+\item Churn prediction
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Operations:}
+\begin{itemize}
+\item Document processing (OCR, NLP)
+\item Regulatory compliance automation
+\item Process optimization
+\item Cybersecurity threat detection
+\end{itemize}
+\end{columns}
+
+\vspace{0.5em}
+\textbf{Common Thread:} Automation of pattern recognition tasks previously requiring human expertise.
+\end{frame}
+
+\begin{frame}{Case Study: Credit Scoring Evolution}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Traditional Approach (1960s-2000s):}
+\begin{itemize}
+\item FICO score (5 factors, fixed weights)
+\item Linear scorecards
+\item Based on credit bureau data only
+\item Transparent, regulated
+\item Limited predictive power
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Limitations:}
+\begin{itemize}
+\item Misses non-linear relationships
+\item Cannot handle alternative data
+\item One-size-fits-all model
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{ML Approach (2010s-present):}
+\begin{itemize}
+\item Gradient boosting (XGBoost, LightGBM)
+\item 100s to 1000s of features
+\item Alternative data (mobile, social, payments)
+\item Dynamic model updates
+\item Higher accuracy (10-30\% improvement)
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{New Challenges:}
+\begin{itemize}
+\item Explainability (``black box'')
+\item Fairness and bias
+\item Regulatory acceptance
+\item Data privacy
+\end{itemize}
+\end{columns}
+
+\vspace{0.5em}
+\textbf{Key Lesson:} Technology enables better predictions but introduces new risks and ethical questions.
+\end{frame}
+
+\begin{frame}{The Hype Cycle: Expectations vs Reality}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Gartner Hype Cycle Phases:}
+\begin{enumerate}
+\item Innovation Trigger
+\item Peak of Inflated Expectations
+\item Trough of Disillusionment
+\item Slope of Enlightenment
+\item Plateau of Productivity
+\end{enumerate}
+
+\vspace{0.5em}
+\textbf{Where is AI/ML in Finance?}
+\begin{itemize}
+\item Overall: Slope of Enlightenment
+\item Deep Learning: Still some hype
+\item Traditional ML: Plateau (established)
+\item Generative AI: Peak (2023-2024)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Common Misconceptions:}
+\begin{itemize}
+\item ``AI will replace all analysts'' (No)
+\item ``ML always outperforms rules'' (No)
+\item ``More data always helps'' (Diminishing returns)
+\item ``Black boxes are always better'' (Transparency matters)
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Realistic Expectations:}
+\begin{itemize}
+\item AI augments, not replaces, humans
+\item ML excels at narrow, repetitive tasks
+\item Domain expertise still critical
+\item Hybrid approaches often best
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{What AI/ML Can and Cannot Do in Finance}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Can Do Well:}
+\begin{itemize}
+\item Pattern recognition (fraud, anomalies)
+\item Classification (credit risk, default)
+\item Prediction with stable patterns (short-term)
+\item Data processing at scale (NLP, OCR)
+\item Optimization (portfolio, pricing)
+\item Personalization (recommendations)
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Success Factors:}
+\begin{itemize}
+\item Large, high-quality datasets
+\item Stable underlying patterns
+\item Clear objective function
+\item Ability to validate and test
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Cannot Do (or Struggles):}
+\begin{itemize}
+\item Predict regime changes (crashes, crises)
+\item Explain ``why'' without human input
+\item Handle novel situations (out-of-sample)
+\item Replace human judgment entirely
+\item Guarantee fairness or ethics
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Fundamental Limits:}
+\begin{itemize}
+\item No free lunch (NFL theorem)
+\item Efficient Market Hypothesis constraints
+\item Overfitting to historical noise
+\item Adversarial dynamics (arms race)
+\end{itemize}
+\end{columns}
+
+\vspace{0.5em}
+\textbf{Bottom Line:} AI/ML is a powerful tool, not magic. Success requires proper problem framing, quality data, and realistic expectations.
+\end{frame}
+
+\begin{frame}{Historical Timeline: AI in Finance}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{1980s-1990s: Expert Systems}
+\begin{itemize}
+\item Rule-based systems (if-then)
+\item Limited success, brittle
+\item Example: MYCIN for medical diagnosis
+\end{itemize}
+
+\vspace{0.3em}
+\textbf{2000s: First ML Wave}
+\begin{itemize}
+\item Support Vector Machines (SVM)
+\item Random Forests
+\item Credit scoring improvements
+\end{itemize}
+
+\vspace{0.3em}
+\textbf{2010s: Deep Learning Era}
+\begin{itemize}
+\item Neural networks for NLP
+\item Algorithmic trading explosion
+\item Robo-advisors launched
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{2015-2020: Maturation}
+\begin{itemize}
+\item Gradient boosting dominance (XGBoost)
+\item Regulatory frameworks emerge
+\item Focus on explainability
+\end{itemize}
+
+\vspace{0.3em}
+\textbf{2020-present: Generative AI}
+\begin{itemize}
+\item Large Language Models (GPT-3/4)
+\item Financial document analysis
+\item Code generation for analysts
+\item New regulatory challenges
+\end{itemize}
+
+\vspace{0.3em}
+\textbf{Future Trends:}
+\begin{itemize}
+\item Federated learning (privacy)
+\item Causal inference integration
+\item Hybrid human-AI systems
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Industry Adoption: Survey Data}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Adoption Rates (2023 surveys):}
+\begin{itemize}
+\item Large banks: 80-90\% have AI initiatives
+\item Asset managers: 60-70\% use ML
+\item Fintechs: 90\%+ (core to business)
+\item Regional banks: 30-50\% (growing)
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Top Use Cases:}
+\begin{enumerate}
+\item Fraud detection (85\%)
+\item Customer service chatbots (70\%)
+\item Credit risk modeling (65\%)
+\item AML/KYC automation (60\%)
+\item Algorithmic trading (50\%)
+\end{enumerate}
+
+\column{0.48\textwidth}
+\textbf{Barriers to Adoption:}
+\begin{itemize}
+\item Data quality/availability (65\%)
+\item Lack of skilled talent (60\%)
+\item Regulatory uncertainty (55\%)
+\item Integration with legacy systems (50\%)
+\item Explainability requirements (45\%)
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Investment Trends:}
+\begin{itemize}
+\item Global AI in finance market: \$10B (2023)
+\item Projected: \$35B by 2030 (CAGR 20\%)
+\item Focus shifting from experimentation to production scaling
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Key Players and Ecosystem}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Large Tech Companies:}
+\begin{itemize}
+\item Google Cloud (AI Platform, AutoML)
+\item Amazon Web Services (SageMaker)
+\item Microsoft Azure (ML Studio)
+\item IBM (Watson Financial Services)
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Specialized Fintechs:}
+\begin{itemize}
+\item Upstart (AI lending)
+\item Kasisto (chatbots)
+\item Kensho (analytics, acquired by S\&P)
+\item Ayasdi (AML)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Traditional Finance + AI:}
+\begin{itemize}
+\item JPMorgan Chase (COiN, IndexGPT)
+\item Goldman Sachs (Marcus, Marquee)
+\item BlackRock (Aladdin platform)
+\item Capital One (credit models)
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Open Source Community:}
+\begin{itemize}
+\item scikit-learn (ML library)
+\item TensorFlow, PyTorch (deep learning)
+\item Hugging Face (NLP models)
+\item Kaggle (competitions, datasets)
+\end{itemize}
+\end{columns}
+
+\vspace{0.5em}
+\textbf{Trend:} Increasing collaboration between big tech, fintechs, and traditional banks.
+\end{frame}
+
+\begin{frame}{Data: The Fuel for AI/ML}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Why Data Matters:}
+\begin{itemize}
+\item ML models are only as good as training data
+\item More data often beats better algorithms
+\item Quality > Quantity (garbage in, garbage out)
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Types of Financial Data:}
+\begin{itemize}
+\item Structured: Prices, returns, accounting
+\item Unstructured: News, reports, social media
+\item Alternative: Satellite, mobile, web scraping
+\item Real-time: Tick data, order books
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Data Challenges:}
+\begin{itemize}
+\item Availability (proprietary, expensive)
+\item Quality (errors, missing values)
+\item Bias (survivorship, selection)
+\item Privacy (GDPR, regulations)
+\item Stationarity (patterns change over time)
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Best Practices:}
+\begin{itemize}
+\item Rigorous data cleaning
+\item Train/validation/test splits
+\item Cross-validation
+\item Out-of-sample testing
+\item Monitor data drift
+\end{itemize}
+\end{columns}
+
+\vspace{0.5em}
+\textbf{Next Lesson:} Deep dive into financial data types and preparation.
+\end{frame}
+
+\begin{frame}{Ethical Considerations}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Fairness and Bias:}
+\begin{itemize}
+\item Models can perpetuate historical discrimination
+\item Protected attributes (race, gender, age)
+\item Proxy variables (zip code = race)
+\item Disparate impact vs. disparate treatment
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Transparency:}
+\begin{itemize}
+\item Right to explanation (GDPR Article 22)
+\item Black box models vs. interpretability
+\item Trade-off: accuracy vs. explainability
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Accountability:}
+\begin{itemize}
+\item Who is responsible for AI decisions?
+\item Human-in-the-loop vs. full automation
+\item Audit trails and governance
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Privacy:}
+\begin{itemize}
+\item Data minimization principle
+\item Consent and purpose limitation
+\item Anonymization challenges
+\item Model inversion attacks
+\end{itemize}
+\end{columns}
+
+\vspace{0.5em}
+\textbf{Regulatory Response:} EU AI Act, algorithmic accountability laws, model risk management frameworks.
+\end{frame}
+
+\begin{frame}{Skills for AI/ML in Finance}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Technical Skills:}
+\begin{itemize}
+\item Programming (Python, R)
+\item Statistics and probability
+\item Linear algebra and calculus
+\item ML algorithms and frameworks
+\item Data manipulation (SQL, pandas)
+\item Cloud platforms (AWS, Azure, GCP)
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Finance Domain Knowledge:}
+\begin{itemize}
+\item Financial markets and instruments
+\item Risk management principles
+\item Regulatory environment
+\item Business context
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Soft Skills:}
+\begin{itemize}
+\item Problem framing
+\item Critical thinking (avoiding overfitting)
+\item Communication (explaining models)
+\item Ethics and responsibility
+\item Collaboration (cross-functional teams)
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Career Paths:}
+\begin{itemize}
+\item Quantitative Analyst
+\item Data Scientist (Finance)
+\item ML Engineer
+\item Risk Modeler
+\item AI Product Manager
+\end{itemize}
+\end{columns}
+
+\vspace{0.5em}
+\textbf{Key Insight:} Success requires combination of technical skills, domain expertise, and ethical awareness.
+\end{frame}
+
+\begin{frame}{Summary and Key Takeaways}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Core Concepts:}
+\begin{itemize}
+\item AI > ML > Deep Learning (hierarchy)
+\item ML learns patterns from data
+\item Supervised learning dominates finance
+\item Deep learning for unstructured data
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Finance Applications:}
+\begin{itemize}
+\item Risk: Credit, fraud, AML
+\item Trading: Algorithms, robo-advisors
+\item Operations: NLP, automation
+\item Customer: Chatbots, personalization
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Reality Check:}
+\begin{itemize}
+\item AI augments, not replaces humans
+\item Data quality is paramount
+\item Hype vs. realistic capabilities
+\item Ethical and regulatory challenges
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Looking Ahead:}
+\begin{itemize}
+\item Next 11 lessons: Detailed exploration
+\item Hands-on understanding (conceptual)
+\item Critical evaluation skills
+\item Practical applications
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Next Lesson Preview}
+\textbf{Lesson 26: Financial Data for AI/ML}
+
+\vspace{0.5em}
+Topics to be covered:
+\begin{itemize}
+\item Structured vs. unstructured data
+\item Data sources and vendors
+\item Alternative data revolution
+\item Data quality and preprocessing
+\item GDPR and privacy considerations
+\item Feature engineering basics
+\end{itemize}
+
+\vspace{1em}
+\textbf{Preparation:}
+\begin{itemize}
+\item Review basic statistics (mean, variance, correlation)
+\item Think about data quality issues in your own experience
+\item Consider: What makes financial data unique?
+\end{itemize}
+\end{frame}
+
+\end{document}

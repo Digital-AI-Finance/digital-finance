@@ -1,0 +1,150 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Digital Finance 3: Technology in Finance}
+\subtitle{Lesson 30: Credit Scoring and Risk Models}
+\author{FHGR}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Learning Objectives}
+By the end of this lesson, you will be able to:
+\begin{itemize}
+\item Compare ML credit scoring with traditional methods (FICO)
+\item Understand gradient boosting and tree-based models
+\item Recognize fairness and bias issues in credit decisioning
+\item Explain explainability requirements (GDPR, SHAP)
+\item Describe regulatory frameworks (EBA guidelines)
+\item Calculate PD and LGD metrics
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Traditional vs. ML Credit Scoring}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{FICO Score (Traditional):}
+\begin{itemize}
+\item Range: 300-850
+\item 5 factors with fixed weights
+\item Linear scorecard model
+\item Only credit bureau data
+\item AUC: 0.65-0.75
+\item Transparent, regulated
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Limitations:}
+\begin{itemize}
+\item Linear assumptions
+\item One-size-fits-all
+\item Limited for thin-file borrowers
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{ML Approach:}
+\begin{itemize}
+\item 100s-1000s of features
+\item Bureau + alternative data
+\item Non-linear (XGBoost, Random Forest)
+\item AUC: 0.75-0.85
+\item Higher accuracy
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Business Impact:}
+\begin{itemize}
+\item 10-30\% default reduction
+\item Or 15-25\% approval increase (same risk)
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Trade-offs:}
+\begin{itemize}
+\item Accuracy vs. interpretability
+\item Regulatory uncertainty
+\item Fairness concerns
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Fairness and Bias}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Protected Attributes:}
+\begin{itemize}
+\item Race, color, national origin
+\item Religion
+\item Sex, gender
+\item Age
+\item Marital status
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{The Problem:}
+\begin{itemize}
+\item ML can learn biased patterns
+\item Proxy variables (zip code = race)
+\item Historical discrimination baked in
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Fairness Metrics:}
+\begin{itemize}
+\item Demographic parity
+\item Equal opportunity
+\item Equalized odds
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Mitigation:}
+\begin{itemize}
+\item Audit for disparate impact
+\item Re-weighting samples
+\item Constrained optimization
+\item Regular monitoring
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Laws:} ECOA, Fair Housing Act, GDPR Article 22
+\end{columns}
+\end{frame}
+
+\begin{frame}{Summary}
+\textbf{Key Takeaways:}
+\begin{itemize}
+\item ML improves credit scoring accuracy by 10-20\%
+\item Gradient boosting (XGBoost) dominates
+\item Fairness and bias are critical concerns
+\item Explainability required (SHAP values)
+\item Regulatory frameworks evolving (EBA guidelines)
+\item PD and LGD are core risk metrics
+\end{itemize}
+
+\vspace{1em}
+\textbf{Next Lesson:} Fraud Detection and AML
+\end{frame}
+
+\end{document}

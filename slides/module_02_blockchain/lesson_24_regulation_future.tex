@@ -1,0 +1,591 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 24: Regulation and the Future}
+\subtitle{Module 2: Blockchain Fundamentals}
+\author{Digital Finance}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{The Regulatory Challenge}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Technology Characteristics:}
+\begin{itemize}
+\item Borderless and global
+\item Pseudonymous transactions
+\item Permissionless innovation
+\item Code-enforced rules
+\item Rapid evolution
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Regulatory Concerns:}
+\begin{itemize}
+\item Investor protection
+\item Money laundering (AML)
+\item Tax evasion
+\item Consumer fraud
+\item Systemic risk
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_24/regulatory_tension.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Regulatory Approaches: Global Landscape}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{charts/lesson_24/global_regulatory_map.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Spectrum:}
+\begin{itemize}
+\item \textbf{Permissive:} Switzerland (Crypto Valley), Singapore, UAE, El Salvador
+\item \textbf{Moderate:} EU (MiCA), UK, Japan, South Korea
+\item \textbf{Restrictive:} US (fragmented), India (mixed signals)
+\item \textbf{Banned:} China, Morocco, Algeria, Egypt (mining/trading bans)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{United States: Regulatory Fragmentation}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Multiple Regulators:}
+\begin{itemize}
+\item \textbf{SEC:} Securities (Howey Test)
+\item \textbf{CFTC:} Commodities (BTC, ETH)
+\item \textbf{FinCEN:} AML/KYC
+\item \textbf{OCC:} Banks and stablecoins
+\item \textbf{IRS:} Taxation (property treatment)
+\item \textbf{State:} Money transmitter licenses
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Challenges:}
+\begin{itemize}
+\item Overlapping jurisdiction
+\item Regulation by enforcement
+\item Unclear token classifications
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_24/us_regulatory_agencies.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{The Howey Test: Security vs Commodity}
+\textbf{Supreme Court Test (1946):} Four criteria for a security
+\begin{enumerate}
+\item Investment of money
+\item In a common enterprise
+\item With expectation of profits
+\item Derived from efforts of others
+\end{enumerate}
+
+\vspace{3mm}
+\textbf{Application to Crypto:}
+\begin{itemize}
+\item \textbf{Bitcoin:} Commodity (sufficiently decentralized, no central promoter)
+\item \textbf{Ethereum:} Gray area (was security at ICO, now commodity per SEC)
+\item \textbf{Most ICO tokens:} Securities (team-driven, profit expectation)
+\item \textbf{XRP:} Lawsuit ongoing (Ripple vs SEC, mixed rulings)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Implication:} Securities require registration, compliance costs prohibitive for many projects
+\end{frame}
+
+\begin{frame}{SEC Enforcement Actions}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_24/sec_enforcement_timeline.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Major Cases:}
+\begin{itemize}
+\item \textbf{2020:} Telegram (TON), \$1.2B returned to investors, project cancelled
+\item \textbf{2020--present:} Ripple (XRP), \$1.3B penalty sought, partial win for Ripple (2023)
+\item \textbf{2023:} Coinbase, Binance sued for operating unregistered exchanges
+\item \textbf{2023:} Kraken settled staking-as-securities case (\$30M)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{European Union: MiCA Regulation}
+\textbf{Markets in Crypto-Assets (MiCA):} Comprehensive framework (effective 2024)
+
+\vspace{3mm}
+\textbf{Key Provisions:}
+\begin{itemize}
+\item \textbf{Stablecoins:} Reserve requirements, redemption rights, daily transaction limits
+\item \textbf{Crypto Exchanges:} Licensing, consumer protection, segregation of funds
+\item \textbf{Token Issuers:} Whitepaper requirements, disclosures
+\item \textbf{AML/KYC:} Travel Rule (identify transaction parties)
+\item \textbf{DeFi:} Unclear, may require centralized interfaces to comply
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Impact:}
+\begin{itemize}
+\item Clarity for institutional adoption
+\item Compliance costs favor established players
+\item Potential stifling of innovation
+\end{itemize}
+\end{frame}
+
+\begin{frame}{MiCA: Stablecoin Provisions}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Requirements:}
+\begin{itemize}
+\item 1:1 reserve backing (audited)
+\item Redemption at par value
+\item Daily transaction cap: 200M EUR
+\item Issuers must be EU-based or licensed
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Implications:}
+\begin{itemize}
+\item Tether may exit EU market (lack of transparency)
+\item Circle (USDC) likely compliant
+\item Boost for EUR-denominated stablecoins
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_24/mica_stablecoin_framework.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{AML/KYC and the Travel Rule}
+\textbf{FATF Travel Rule (2019):}
+\begin{itemize}
+\item Virtual Asset Service Providers (VASPs) must share customer info for transactions $>$\$1000
+\item Sender and receiver identity transmitted
+\item Same as traditional banking wire transfers
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Challenges for Crypto:}
+\begin{itemize}
+\item Self-hosted wallets (DeFi, DEX) exempt (for now)
+\item Privacy coins (Monero, Zcash) incompatible
+\item Cross-jurisdictional enforcement difficult
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Industry Response:}
+\begin{itemize}
+\item Exchanges implement Travel Rule solutions (Chainalysis, Elliptic)
+\item Privacy advocacy (coin mixing, zero-knowledge proofs)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Taxation: Reporting and Compliance}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{US (IRS):}
+\begin{itemize}
+\item Crypto = property (capital gains tax)
+\item Every trade is taxable event
+\item Form 1099-DA (2024): Exchanges report trades
+\item Penalties for non-compliance
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Challenges:}
+\begin{itemize}
+\item Tracking DeFi transactions
+\item Cost basis calculation (FIFO, LIFO)
+\item Cross-chain complexity
+\item NFT sales, staking rewards
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_24/crypto_tax_flow.pdf}
+\end{columns}
+
+\vspace{3mm}
+\textbf{Tools:} CoinTracker, Koinly, TaxBit (automated reporting)
+\end{frame}
+
+\begin{frame}{DeFi Regulation: The Frontier}
+\textbf{Regulatory Dilemma:}
+\begin{itemize}
+\item DeFi protocols are code (no company, no office)
+\item DAO governance (token holders, pseudonymous)
+\item Borderless, permissionless access
+\item How to regulate code?
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Regulatory Strategies:}
+\begin{itemize}
+\item \textbf{Front-End Restrictions:} Geo-blocking, compliance layers (Uniswap blocks US users from interface)
+\item \textbf{Developer Liability:} Tornado Cash sanctions (OFAC), developer arrested
+\item \textbf{DAO as Legal Entity:} Wyoming DAO LLC, attempting legal clarity
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Debate:} Can truly decentralized protocols be regulated, or only centralized intermediaries?
+\end{frame}
+
+\begin{frame}{Tornado Cash Sanctions (2022)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Background:}
+\begin{itemize}
+\item Tornado Cash: Privacy mixer (breaks transaction links)
+\item Used by North Korean hackers to launder \$455M
+\item Also used for legitimate privacy
+\end{itemize}
+
+\vspace{3mm}
+\textbf{OFAC Action:}
+\begin{itemize}
+\item Sanctioned Tornado Cash smart contracts
+\item Interacting = illegal for US persons
+\item Developer Alexey Pertsev arrested (Netherlands)
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_24/tornado_cash_timeline.pdf}
+\end{columns}
+
+\vspace{3mm}
+\textbf{Controversy:} Sanctioning code vs people, chilling effect on privacy tech, First Amendment debate
+\end{frame}
+
+\begin{frame}{Real-World Assets (RWA): Tokenization Trend}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_24/rwa_categories.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Concept:} Tokenize real-world assets on blockchain (ownership represented by tokens)
+
+\vspace{2mm}
+\textbf{Examples:}
+\begin{itemize}
+\item \textbf{Real Estate:} Fractional ownership of properties (Propy, RealT)
+\item \textbf{Bonds:} US Treasury tokens (Ondo Finance, Franklin Templeton)
+\item \textbf{Commodities:} Gold (PAXG), carbon credits
+\item \textbf{Private Credit:} Centrifuge, Goldfinch (on-chain lending to businesses)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{RWA: Benefits and Challenges}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Benefits:}
+\begin{itemize}
+\item 24/7 trading (vs traditional hours)
+\item Fractional ownership (democratization)
+\item Programmable compliance (automatic KYC)
+\item Global liquidity pools
+\item Reduced intermediaries
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Challenges:}
+\begin{itemize}
+\item Legal enforceability (blockchain vs courts)
+\item Custody of physical assets
+\item Regulatory complexity (securities laws)
+\item Oracles for off-chain events
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_24/rwa_market_size.pdf}
+\end{columns}
+
+\vspace{3mm}
+\textbf{Projected Market:} \$16 trillion by 2030 (BCG estimate)
+\end{frame}
+
+\begin{frame}{CBDCs: Central Bank Competition}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Motivations:}
+\begin{itemize}
+\item Compete with private stablecoins
+\item Financial inclusion (unbanked)
+\item Efficient cross-border payments
+\item Monetary policy tools
+\item Surveillance and control
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Status (2024):}
+\begin{itemize}
+\item 130+ countries exploring
+\item 11 launched (e-CNY, Sand Dollar, eNaira)
+\item EU digital euro (pilot)
+\item US digital dollar (research)
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_24/cbdc_adoption_map.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{CBDCs vs Crypto: Fundamental Differences}
+\begin{center}
+\begin{tabular}{@{}p{3.5cm}p{5cm}p{5cm}@{}}
+\toprule
+\textbf{Aspect} & \textbf{CBDCs} & \textbf{Cryptocurrencies} \\
+\midrule
+Issuer & Central bank & Decentralized protocol \\
+\midrule
+Control & Centralized (programmable restrictions) & User sovereignty \\
+\midrule
+Privacy & Tracked by government & Pseudonymous (varies) \\
+\midrule
+Monetary Policy & Central bank sets supply & Algorithmic or fixed supply \\
+\midrule
+Censorship & Possible (freeze accounts) & Resistant (non-custodial wallets) \\
+\midrule
+Innovation & Limited (government pace) & Permissionless \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{3mm}
+\textbf{Concern:} CBDCs may enable unprecedented surveillance and control over spending
+\end{frame}
+
+\begin{frame}{Institutional Adoption: The Turning Point}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_24/institutional_adoption_timeline.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Milestones:}
+\begin{itemize}
+\item \textbf{2020:} MicroStrategy buys \$425M BTC (corporate treasury)
+\item \textbf{2021:} Tesla (\$1.5B BTC), Coinbase IPO, Bitcoin ETFs in Canada
+\item \textbf{2024:} Bitcoin Spot ETFs approved in US (BlackRock, Fidelity), \$50B+ inflows
+\item \textbf{2024:} Ethereum ETFs approved (slower adoption)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Bitcoin ETFs: Wall Street Embraces Crypto}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Why ETFs Matter:}
+\begin{itemize}
+\item Easy access for traditional investors
+\item No self-custody complexities
+\item Regulated products (SEC oversight)
+\item Institutional allocations unlocked
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Jan 2024 Approval:}
+\begin{itemize}
+\item 11 spot Bitcoin ETFs (BlackRock IBIT, Fidelity FBTC, Grayscale GBTC)
+\item Record inflows: \$50B in 10 months
+\item Bitcoin price: \$40K $\rightarrow$ \$100K+
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_24/btc_etf_inflows.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Emerging Use Cases: Beyond Speculation}
+\begin{itemize}
+\item \textbf{Supply Chain:} IBM Food Trust, VeChain (provenance tracking)
+\item \textbf{Identity:} Self-sovereign identity (Civic, uPort)
+\item \textbf{Healthcare:} Medical records on blockchain (MedRec)
+\item \textbf{Voting:} Secure, transparent elections (experimental)
+\item \textbf{Energy:} Peer-to-peer energy trading (Power Ledger)
+\item \textbf{Gaming:} Play-to-earn, NFT ownership (Axie Infinity, Decentraland)
+\item \textbf{Music/IP:} Royalty distribution, rights management (Audius)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Caveat:} Many pilots, few scaled solutions (infrastructure, UX, regulation still barriers)
+\end{frame}
+
+\begin{frame}{Scalability: The Path Forward}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Current Bottlenecks:}
+\begin{itemize}
+\item Ethereum: 15 tx/s
+\item Bitcoin: 7 tx/s
+\item High fees during congestion
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Solutions:}
+\begin{itemize}
+\item \textbf{Layer 2:} Rollups (Arbitrum, Optimism, zkSync), sidechains (Polygon)
+\item \textbf{Sharding:} Ethereum roadmap (data availability sampling)
+\item \textbf{Alt Layer 1s:} Solana (65K tx/s), Avalanche, Sui
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_24/scalability_solutions.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Rollups: Scaling Ethereum}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_24/rollup_architecture.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Mechanism:}
+\begin{itemize}
+\item Execute transactions off-chain (Layer 2)
+\item Bundle hundreds of transactions
+\item Post compressed data to Ethereum (Layer 1)
+\item Inherit Ethereum security
+\end{itemize}
+
+\textbf{Types:} Optimistic (fraud proofs, 7-day withdrawal) vs ZK (validity proofs, instant finality)
+\end{frame}
+
+\begin{frame}{Careers in Blockchain}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Technical Roles:}
+\begin{itemize}
+\item Smart contract developer (Solidity, Rust)
+\item Blockchain engineer (protocol dev)
+\item Security auditor
+\item DevOps (node infrastructure)
+\item Data analyst (on-chain analytics)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Non-Technical:}
+\begin{itemize}
+\item Product manager
+\item Compliance/legal specialist
+\item Community manager
+\item Business development
+\item Tokenomics designer
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_24/career_paths.pdf}
+\end{columns}
+
+\vspace{3mm}
+\textbf{Salaries (2024):} Smart contract dev: \$100K--\$250K, auditor: \$150K--\$300K+
+\end{frame}
+
+\begin{frame}{Learning Pathways}
+\textbf{For Developers:}
+\begin{enumerate}
+\item Learn Solidity (CryptoZombies, Ethernaut challenges)
+\item Study OpenZeppelin contracts (best practices)
+\item Build projects (token, DEX, NFT marketplace)
+\item Contribute to open source (DAO, protocol development)
+\item Participate in hackathons (ETHGlobal)
+\end{enumerate}
+
+\vspace{3mm}
+\textbf{For Business/Finance:}
+\begin{enumerate}
+\item Understand fundamentals (this course)
+\item Use DeFi protocols hands-on (testnet first)
+\item Follow industry (Twitter/X crypto, podcasts)
+\item Certifications (Certified Blockchain Professional)
+\item Join communities (DAOs, Discord servers)
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{The Future: Predictions and Trends}
+\textbf{Likely (5 years):}
+\begin{itemize}
+\item Regulatory clarity in major jurisdictions (MiCA model spreads)
+\item Mass adoption of stablecoins for payments (especially developing countries)
+\item Institutional Bitcoin/ETH holdings normalized (pension funds, endowments)
+\item Layer 2 dominance (Ethereum as settlement layer)
+\item RWA tokenization (\$1T+ market)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Speculative:}
+\begin{itemize}
+\item National Bitcoin reserves (El Salvador precedent)
+\item DeFi replaces significant traditional finance (DEXs $>$ CEXs volume)
+\item Zero-knowledge proofs mainstream (privacy + compliance)
+\item Interoperability solved (seamless cross-chain)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Philosophical Questions}
+\begin{itemize}
+\item \textbf{Decentralization vs Efficiency:} Can we have both, or must we choose?
+\item \textbf{Code is Law:} Should immutable contracts override legal recourse?
+\item \textbf{Privacy vs Transparency:} How to balance anti-money laundering with individual privacy?
+\item \textbf{Inequality:} Does crypto democratize finance or amplify wealth concentration?
+\item \textbf{Environmental Impact:} Is PoW's energy use justified by its security?
+\item \textbf{Governance:} Can token-based voting be truly democratic, or plutocratic?
+\end{itemize}
+
+\vspace{3mm}
+\textbf{No Easy Answers:} These trade-offs define the ongoing evolution of blockchain technology
+\end{frame}
+
+\begin{frame}{Summary: Module 2 Complete}
+\textbf{Journey Recap (Lessons 13--24):}
+\begin{itemize}
+\item \textbf{Foundations:} Blockchain structure, hashing, cryptography
+\item \textbf{Consensus:} PoW vs PoS, energy trade-offs
+\item \textbf{Architectures:} Bitcoin UTXO, Ethereum smart contracts, gas
+\item \textbf{Tokens:} ERC-20, NFTs, tokenomics
+\item \textbf{DeFi:} AMMs, lending, flash loans, impermanent loss
+\item \textbf{Stablecoins:} Terra/Luna collapse, design trade-offs
+\item \textbf{Security:} Hacks, best practices, audits
+\item \textbf{Regulation:} MiCA, SEC, CBDCs, RWA, future trends
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Final Thoughts}
+\textbf{Blockchain is:}
+\begin{itemize}
+\item Not a panacea for all problems
+\item Not inherently good or bad (tool, like the internet)
+\item Still experimental (expect volatility, failures, evolution)
+\item Requires critical thinking (hype vs reality)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Your Role:}
+\begin{itemize}
+\item Stay informed (technology evolves rapidly)
+\item Experiment responsibly (testnet first, small amounts)
+\item Question assumptions (``decentralized'' often isn't)
+\item Focus on use cases (technology is means, not end)
+\end{itemize}
+
+\vspace{4mm}
+\textbf{Thank you for engaging with Module 2: Blockchain Fundamentals}
+\end{frame}
+
+\end{document}

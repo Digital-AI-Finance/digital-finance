@@ -1,0 +1,198 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Digital Finance 3: Technology in Finance}
+\subtitle{Lesson 29: Algorithmic Trading Concepts}
+\author{FHGR}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Learning Objectives}
+By the end of this lesson, you will be able to:
+\begin{itemize}
+\item Classify different types of algorithmic trading strategies
+\item Design and execute backtesting frameworks
+\item Identify and avoid common backtesting pitfalls
+\item Understand overfitting in trading models
+\item Account for transaction costs and market impact
+\item Set realistic performance expectations
+\end{itemize}
+\end{frame}
+
+\begin{frame}{What is Algorithmic Trading?}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Definition:}
+\begin{itemize}
+\item Automated execution based on rules
+\item No human intervention
+\item Computer algorithms make decisions
+\item Processes data faster than humans
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Market Share:}
+\begin{itemize}
+\item US equities: 70-80\% of volume
+\item Futures: 60-70\%
+\item FX: 50-60\%
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Key Advantages:}
+\begin{itemize}
+\item Speed (microseconds)
+\item Consistency (no emotions)
+\item Backtesting capability
+\item Scalability
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Challenges:}
+\begin{itemize}
+\item Overfitting to historical data
+\item Model decay (regime changes)
+\item Technology costs
+\item Regulatory scrutiny
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Types of Strategies}
+\begin{columns}[T]
+\column{0.31\textwidth}
+\textbf{Execution Algorithms:}
+\begin{itemize}
+\item VWAP, TWAP
+\item Minimize market impact
+\item Cost minimization
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Market Making:}
+\begin{itemize}
+\item Provide liquidity
+\item Profit from spread
+\item High-frequency trading
+\end{itemize}
+
+\column{0.31\textwidth}
+\textbf{Statistical Arbitrage:}
+\begin{itemize}
+\item Mean reversion
+\item Pair trading
+\item Market-neutral
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Momentum:}
+\begin{itemize}
+\item Follow trends
+\item Breakout strategies
+\item Moving averages
+\end{itemize}
+
+\column{0.31\textwidth}
+\textbf{ML-Based:}
+\begin{itemize}
+\item Prediction models
+\item Alternative data
+\item Classification/regression
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{HFT:}
+\begin{itemize}
+\item Ultra-short holding
+\item Latency arbitrage
+\item Co-location required
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Backtesting Framework}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Steps:}
+\begin{enumerate}
+\item Define strategy rules
+\item Acquire historical data
+\item Simulate trades
+\item Calculate returns (net of costs)
+\item Evaluate metrics
+\item Iterate and refine
+\end{enumerate}
+
+\vspace{0.5em}
+\textbf{Key Metrics:}
+\begin{itemize}
+\item Total return
+\item Sharpe ratio (risk-adjusted)
+\item Maximum drawdown
+\item Win rate
+\item Profit factor
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Realistic Targets:}
+\begin{itemize}
+\item Sharpe > 1.5: Good
+\item Sharpe > 2.0: Very good
+\item Sharpe > 3.0: Exceptional (or overfitting?)
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Common Pitfalls:}
+\begin{itemize}
+\item Look-ahead bias
+\item Survivorship bias
+\item Data snooping
+\item Ignoring costs
+\item Market impact
+\item Overfitting
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Warning:} Backtest performance usually overstates live performance.
+\end{columns}
+\end{frame}
+
+\begin{frame}{Summary}
+\textbf{Key Takeaways:}
+\begin{itemize}
+\item Algorithmic trading dominates modern markets
+\item Many strategy types (execution, market making, stat arb, ML)
+\item Backtesting essential but has pitfalls
+\item Overfitting is the central danger
+\item Transaction costs matter (0.2-0.5\% per round-trip)
+\item Realistic expectations: Alpha is scarce
+\end{itemize}
+
+\vspace{1em}
+\textbf{Next Lesson:} Credit Scoring and Risk Models
+\end{frame}
+
+\end{document}

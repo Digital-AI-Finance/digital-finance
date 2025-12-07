@@ -1,0 +1,560 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{adjustbox}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255, 127, 14}
+\definecolor{mlgreen}{RGB}{44, 160, 44}
+\definecolor{mlred}{RGB}{214, 39, 40}
+
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 13: What is Blockchain?}
+\subtitle{Module 2: Blockchain and Cryptocurrencies}
+\author{Digital Finance}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{The Trust Problem in Digital Transactions}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Traditional Digital Payments:}
+\begin{itemize}
+\item Require trusted intermediary (bank)
+\item Centralized ledger control
+\item Single point of failure
+\item Gatekeeping and censorship risk
+\item High transaction fees
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{The Double-Spending Problem:}
+\begin{itemize}
+\item Digital files can be copied
+\item Same money spent twice
+\item Who determines truth?
+\item Intermediaries solve this... at a cost
+\end{itemize}
+\end{columns}
+
+\vspace{5mm}
+\centering
+\textit{``How can strangers transact without trusting each other or a central authority?''}
+\end{frame}
+
+\begin{frame}{The Evolution of Digital Cash}
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lll}
+\toprule
+\textbf{Year} & \textbf{Innovation} & \textbf{Limitation} \\
+\midrule
+1983 & DigiCash (Chaum) & Required central bank \\
+1997 & Hashcash (Back) & No transfer mechanism \\
+1998 & b-money (Dai) & Theoretical only \\
+2005 & Bit Gold (Szabo) & No implementation \\
+2008 & \textcolor{mlpurple}{\textbf{Bitcoin (Nakamoto)}} & \textcolor{mlgreen}{\textbf{First working solution}} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{3mm}
+\textbf{Key Insight:} All prior attempts failed to solve Byzantine Generals Problem in decentralized networks
+\end{frame}
+
+\begin{frame}{Satoshi Nakamoto's Breakthrough (October 2008)}
+\begin{columns}[T]
+\column{0.58\textwidth}
+\textbf{Bitcoin Whitepaper:}
+\begin{itemize}
+\item ``Bitcoin: A Peer-to-Peer Electronic Cash System''
+\item 9 pages, published on cryptography mailing list
+\item Combined existing cryptographic primitives in novel way
+\item Genesis block mined January 3, 2009
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Core Innovations:}
+\begin{itemize}
+\item Proof-of-Work consensus
+\item Decentralized timestamp server
+\item Longest chain rule
+\item Economic incentives (mining rewards)
+\end{itemize}
+
+\column{0.38\textwidth}
+\textbf{Mystery Identity:}
+\begin{itemize}
+\item Unknown person/group
+\item Disappeared April 2011
+\item Owns ~1M BTC (never moved)
+\item Multiple theories, no proof
+\end{itemize}
+
+\vspace{3mm}
+\small
+\textit{Genesis block message:}\\
+``The Times 03/Jan/2009\\
+Chancellor on brink of\\
+second bailout for banks''
+\end{columns}
+\end{frame}
+
+\begin{frame}{What is a Blockchain? Core Definition}
+\textbf{Blockchain:} A distributed, immutable ledger of transactions organized in cryptographically linked blocks
+
+\vspace{3mm}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Key Components:}
+\begin{enumerate}
+\item \textbf{Blocks:} Batches of transactions
+\item \textbf{Chain:} Cryptographic links between blocks
+\item \textbf{Network:} Distributed nodes maintaining copies
+\item \textbf{Consensus:} Agreement mechanism (PoW/PoS)
+\item \textbf{Cryptography:} Hash functions + digital signatures
+\end{enumerate}
+
+\column{0.48\textwidth}
+\textbf{Essential Properties:}
+\begin{itemize}
+\item \textcolor{mlpurple}{\textbf{Decentralization:}} No single controller
+\item \textcolor{mlpurple}{\textbf{Transparency:}} All transactions visible
+\item \textcolor{mlpurple}{\textbf{Immutability:}} Cannot alter history
+\item \textcolor{mlpurple}{\textbf{Security:}} Cryptographic protection
+\item \textcolor{mlpurple}{\textbf{Pseudonymity:}} Addresses, not names
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Centralized vs Decentralized Systems}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Centralized (Traditional):}
+\begin{itemize}
+\item Single authority controls ledger
+\item Fast transaction processing
+\item Easy to upgrade/modify
+\item Single point of failure
+\item Requires trust in intermediary
+\item Examples: Banks, PayPal, Visa
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Advantages:}
+\begin{itemize}
+\item Efficiency and speed
+\item Clear governance
+\item Customer support
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Decentralized (Blockchain):}
+\begin{itemize}
+\item Multiple nodes maintain ledger
+\item Slower (consensus overhead)
+\item Difficult to change rules
+\item No single point of failure
+\item Trustless operation
+\item Examples: Bitcoin, Ethereum
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Advantages:}
+\begin{itemize}
+\item Censorship resistance
+\item Transparency
+\item No intermediary needed
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{The Blockchain Trilemma}
+\centering
+\textbf{Impossible to maximize all three simultaneously:}
+
+\vspace{5mm}
+\begin{columns}[c]
+\column{0.32\textwidth}
+\centering
+\textcolor{mlpurple}{\textbf{DECENTRALIZATION}}\\
+\small
+Number of independent validators\\
+Resistance to control
+
+\column{0.32\textwidth}
+\centering
+\textcolor{mlpurple}{\textbf{SECURITY}}\\
+\small
+Cost to attack network\\
+Immutability guarantees
+
+\column{0.32\textwidth}
+\centering
+\textcolor{mlpurple}{\textbf{SCALABILITY}}\\
+\small
+Transactions per second\\
+Low fees
+\end{columns}
+
+\vspace{8mm}
+\begin{table}[h]
+\centering
+\footnotesize
+\begin{tabular}{lccc}
+\toprule
+\textbf{Network} & \textbf{Decentralization} & \textbf{Security} & \textbf{Scalability} \\
+\midrule
+Bitcoin & High & High & Low (7 TPS) \\
+Ethereum & High & High & Medium (15-30 TPS) \\
+BSC & Low & Medium & High (100+ TPS) \\
+Solana & Medium & Medium & Very High (3000+ TPS) \\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}{How Blockchain Works: Simplified Flow}
+\textbf{Transaction Lifecycle (6 Steps):}
+
+\vspace{3mm}
+\begin{enumerate}
+\item \textbf{Initiation:} User broadcasts transaction to network
+\item \textbf{Validation:} Nodes verify signature and sufficient balance
+\item \textbf{Mempool:} Valid transactions wait in memory pool
+\item \textbf{Block Creation:} Miner/validator selects transactions for new block
+\item \textbf{Consensus:} Network agrees on new block (PoW/PoS)
+\item \textbf{Finalization:} Block added to chain, transaction confirmed
+\end{enumerate}
+
+\vspace{5mm}
+\textbf{Typical Confirmation Times:}
+\begin{itemize}
+\item Bitcoin: ~10 minutes per block (6 blocks for finality = 1 hour)
+\item Ethereum: ~12 seconds per block (32 blocks for finality = 6-7 minutes)
+\item Solana: ~400ms per block (instant practical finality)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Public vs Private Blockchains}
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{p{3cm}p{5cm}p{5cm}}
+\toprule
+\textbf{Feature} & \textbf{Public (Permissionless)} & \textbf{Private (Permissioned)} \\
+\midrule
+Access & Anyone can join & Invited participants only \\
+Validators & Anyone can become validator & Pre-approved validators \\
+Transparency & Fully transparent & Controlled visibility \\
+Speed & Slower (global consensus) & Faster (known validators) \\
+Energy & High (PoW) or Medium (PoS) & Low (simple consensus) \\
+Use Cases & Cryptocurrencies, DeFi & Enterprise, supply chain \\
+Examples & Bitcoin, Ethereum & Hyperledger, R3 Corda \\
+Trust Model & Trustless & Trust in consortium \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{3mm}
+\textbf{Hybrid Models:} Some networks (e.g., VeChain) combine public chain with private enterprise features
+\end{frame}
+
+\begin{frame}{Blockchain Use Cases Beyond Cryptocurrency}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Financial Services:}
+\begin{itemize}
+\item Cross-border payments (Ripple)
+\item Securities settlement (ASX)
+\item Trade finance (we.trade)
+\item Insurance claims (Etherisc)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Supply Chain:}
+\begin{itemize}
+\item Food traceability (Walmart + IBM)
+\item Pharmaceutical tracking
+\item Luxury goods authentication
+\item Carbon credit tracking
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Digital Identity:}
+\begin{itemize}
+\item Self-sovereign identity (DID)
+\item Academic credentials
+\item Government IDs (Estonia)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Other Applications:}
+\begin{itemize}
+\item Voting systems
+\item Real estate registries
+\item Intellectual property
+\item Healthcare records (HIPAA-compliant)
+\item Energy grid management
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Real-World Example: Walmart Food Traceability}
+\textbf{Problem:} 2018 E. coli outbreak in romaine lettuce took weeks to trace source
+
+\vspace{3mm}
+\textbf{Solution:} Walmart + IBM Food Trust (Hyperledger Fabric)
+
+\vspace{3mm}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Before Blockchain:}
+\begin{itemize}
+\item Manual record keeping
+\item 7 days to trace mango origin
+\item Paper-based documentation
+\item Information silos
+\item Difficult recalls
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{After Blockchain:}
+\begin{itemize}
+\item Digital immutable records
+\item 2.2 seconds to trace origin
+\item Real-time visibility
+\item Shared data access
+\item Precise, fast recalls
+\end{itemize}
+\end{columns}
+
+\vspace{5mm}
+\textbf{Impact:} Reduced food waste, improved consumer safety, lower liability costs
+\end{frame}
+
+\begin{frame}{Limitations and Challenges}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Technical Limitations:}
+\begin{itemize}
+\item \textcolor{mlred}{Scalability:} Low TPS vs Visa (24,000 TPS)
+\item \textcolor{mlred}{Energy:} Bitcoin uses ~150 TWh/year
+\item \textcolor{mlred}{Storage:} Bitcoin blockchain > 500 GB
+\item \textcolor{mlred}{Finality:} Long confirmation times
+\item \textcolor{mlred}{Irreversibility:} No undo for mistakes
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Adoption Barriers:}
+\begin{itemize}
+\item Regulatory uncertainty
+\item User experience complexity
+\item Integration with legacy systems
+\item Lack of interoperability
+\item Environmental concerns (PoW)
+\item Volatility (for crypto)
+\end{itemize}
+\end{columns}
+
+\vspace{5mm}
+\centering
+\textbf{Key Insight:} Blockchain is not a universal solution - use only when decentralization and immutability are critical requirements
+\end{frame}
+
+\begin{frame}{Blockchain vs Traditional Database}
+\begin{table}[h]
+\centering
+\footnotesize
+\begin{tabular}{p{3.5cm}p{5cm}p{5cm}}
+\toprule
+\textbf{Criterion} & \textbf{Traditional Database} & \textbf{Blockchain} \\
+\midrule
+Control & Centralized administrator & Distributed consensus \\
+CRUD Operations & Create, Read, Update, Delete & Create, Read only (append) \\
+Performance & Very fast (ms latency) & Slow (seconds to minutes) \\
+Data Integrity & Trust in administrator & Cryptographic guarantees \\
+Transparency & Opaque to external parties & Transparent to all participants \\
+Cost & Low operational cost & High (consensus overhead) \\
+Failure Tolerance & Backup/replication needed & Inherently redundant \\
+Auditability & Depends on logging & Complete audit trail \\
+\textbf{Best For} & Most business applications & Multi-party distrust scenarios \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{3mm}
+\textbf{Decision Rule:} Use blockchain ONLY if multiple parties need shared write access without mutual trust
+\end{frame}
+
+\begin{frame}{The Hype Cycle: Where Are We?}
+\textbf{Gartner Hype Cycle for Blockchain (2015-2024):}
+
+\vspace{3mm}
+\begin{itemize}
+\item \textbf{2015-2017:} Peak of Inflated Expectations - ``Blockchain will change everything''
+\item \textbf{2018-2020:} Trough of Disillusionment - ICO crash, failed enterprise pilots
+\item \textbf{2021-2022:} Slope of Enlightenment - Real use cases emerge (DeFi, NFTs, CBDCs)
+\item \textbf{2023-2024:} Plateau of Productivity - Mature applications in specific domains
+\end{itemize}
+
+\vspace{5mm}
+\textbf{Current Reality (2024):}
+\begin{itemize}
+\item Cryptocurrencies: Established asset class (total market cap ~\$2T)
+\item DeFi: \$50B+ total value locked, real financial infrastructure
+\item Enterprise: Selective adoption where justified (supply chain, trade finance)
+\item CBDCs: 130+ countries exploring, 11 launched (e.g., Nigeria eNaira, Bahamas Sand Dollar)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Bitcoin Network Statistics (2024)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Network Metrics:}
+\begin{itemize}
+\item \textbf{Hash Rate:} ~600 EH/s
+\item \textbf{Active Addresses:} ~1M/day
+\item \textbf{Transactions:} ~400k/day
+\item \textbf{Block Size:} 1-2 MB average
+\item \textbf{Nodes:} ~17,000 reachable
+\item \textbf{Mining Difficulty:} Adjusts every 2016 blocks
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Economic Metrics:}
+\begin{itemize}
+\item \textbf{Market Cap:} ~\$850B
+\item \textbf{Circulating Supply:} 19.5M BTC
+\item \textbf{Max Supply:} 21M (hard cap)
+\item \textbf{Block Reward:} 6.25 BTC (halves every 4 years)
+\item \textbf{Fees:} \$2-50 per transaction
+\item \textbf{Energy:} ~150 TWh/year (0.5\% global)
+\end{itemize}
+\end{columns}
+
+\vspace{3mm}
+\footnotesize
+\textit{Next halving: April 2024 (reward drops to 3.125 BTC)}
+\end{frame}
+
+\begin{frame}{Ethereum Network Statistics (2024)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Post-Merge Metrics:}
+\begin{itemize}
+\item \textbf{Consensus:} Proof-of-Stake (Sept 2022)
+\item \textbf{Validators:} ~950,000
+\item \textbf{Staked ETH:} ~32M (~27\% of supply)
+\item \textbf{Transactions:} ~1.2M/day
+\item \textbf{Smart Contracts:} ~50M deployed
+\item \textbf{Energy:} 99.95\% reduction vs PoW
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{DeFi Ecosystem:}
+\begin{itemize}
+\item \textbf{TVL:} ~\$25B
+\item \textbf{DEX Volume:} ~\$50B/month
+\item \textbf{NFT Sales:} ~\$500M/month
+\item \textbf{Gas Fees:} \$1-20 (varies)
+\item \textbf{ERC-20 Tokens:} ~500k
+\item \textbf{Layer 2 Adoption:} Growing (Arbitrum, Optimism)
+\end{itemize}
+\end{columns}
+
+\vspace{3mm}
+\footnotesize
+\textit{EIP-4844 (Proto-Danksharding) expected 2024 - major scalability upgrade}
+\end{frame}
+
+\begin{frame}{Key Terminology Summary}
+\begin{multicols}{2}
+\footnotesize
+\textbf{Block:} Batch of transactions\\[1mm]
+\textbf{Blockchain:} Chain of cryptographically linked blocks\\[1mm]
+\textbf{Node:} Computer maintaining blockchain copy\\[1mm]
+\textbf{Miner:} Node creating new blocks (PoW)\\[1mm]
+\textbf{Validator:} Node validating blocks (PoS)\\[1mm]
+\textbf{Consensus:} Agreement mechanism\\[1mm]
+\textbf{Hash:} Cryptographic fingerprint\\[1mm]
+\textbf{Nonce:} Number used once (PoW)\\[1mm]
+\textbf{Difficulty:} Mining puzzle hardness\\[1mm]
+\textbf{Mempool:} Pending transactions pool\\[1mm]
+\textbf{UTXO:} Unspent transaction output\\[1mm]
+\textbf{Gas:} Transaction fee unit (Ethereum)\\[1mm]
+\textbf{Smart Contract:} Self-executing code\\[1mm]
+\textbf{DeFi:} Decentralized finance\\[1mm]
+\textbf{Layer 1:} Base blockchain\\[1mm]
+\textbf{Layer 2:} Scaling solution on top\\[1mm]
+\textbf{Fork:} Protocol rule change\\[1mm]
+\textbf{51\% Attack:} Majority control threat\\[1mm]
+\end{multicols}
+\end{frame}
+
+\begin{frame}{Next Lesson Preview}
+\begin{center}
+\Large\textbf{Lesson 14: Blocks and Cryptographic Hashing}
+\end{center}
+
+\vspace{5mm}
+\textbf{What We'll Cover:}
+\begin{itemize}
+\item Block structure and anatomy
+\item SHA-256 hash function in depth
+\item Avalanche effect demonstration
+\item Hash pointers and Merkle trees
+\item Why blockchain is immutable
+\item Practical examples and calculations
+\end{itemize}
+
+\vspace{5mm}
+\textbf{Prepare:}
+\begin{itemize}
+\item Review basic binary and hexadecimal notation
+\item Understand exponential growth (important for hash space)
+\item Install Bitcoin Core or blockchain explorer for hands-on exploration
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Summary: Key Takeaways}
+\begin{enumerate}
+\item \textbf{Trust Problem:} Blockchain solves double-spending without intermediaries
+\item \textbf{Satoshi's Innovation:} Combined existing cryptography with economic incentives
+\item \textbf{Core Properties:} Decentralization, transparency, immutability, security
+\item \textbf{Trilemma:} Cannot maximize decentralization, security, and scalability simultaneously
+\item \textbf{Not a Panacea:} Use only when multiple parties need shared, tamper-proof records
+\item \textbf{Real Adoption:} Cryptocurrencies, DeFi, supply chain, identity - but still early stage
+\item \textbf{Public vs Private:} Different trust models and use cases
+\item \textbf{Evolution:} From hype (2017) to practical applications (2024)
+\end{enumerate}
+
+\vspace{3mm}
+\centering
+\textit{``Blockchain is a solution looking for the right problems - choose wisely.''}
+\end{frame}
+
+\end{document}

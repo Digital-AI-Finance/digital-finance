@@ -1,0 +1,439 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 15: Public Key Cryptography \& Digital Signatures}
+\subtitle{Module 2: Blockchain Fundamentals}
+\author{Digital Finance}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{The Problem: Secure Communication Over Insecure Channels}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Challenge:}
+\begin{itemize}
+\item How do two parties communicate securely without meeting?
+\item How do you verify someone's identity online?
+\item How do you prove authorship of a message?
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Traditional Solution:}
+\begin{itemize}
+\item Symmetric cryptography (shared secret)
+\item Problem: Key distribution
+\item Requires secure channel to share key
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_15/symmetric_vs_asymmetric.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Symmetric vs Asymmetric Cryptography}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_15/crypto_comparison.pdf}
+\end{center}
+\vspace{-3mm}
+\begin{itemize}
+\item \textbf{Symmetric}: Same key for encryption and decryption (AES, DES)
+\item \textbf{Asymmetric}: Key pair -- public key encrypts, private key decrypts
+\item \textbf{Blockchain Use}: Asymmetric for identity, symmetric for bulk data
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Public Key Cryptography: Revolutionary Idea}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Key Pair Structure:}
+\begin{itemize}
+\item \textcolor{mlgreen}{Public Key}: Shared openly
+\item \textcolor{mlred}{Private Key}: Kept secret
+\item Mathematical relationship
+\item One-way function (easy to compute, hard to reverse)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Properties:}
+\begin{itemize}
+\item Encrypt with public $\rightarrow$ decrypt with private
+\item Sign with private $\rightarrow$ verify with public
+\item Cannot derive private from public
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_15/key_pair_generation.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Mathematical Foundation: Trapdoor Functions}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{One-Way Function:}
+\[
+y = f(x) \quad \text{(easy)}
+\]
+\[
+x = f^{-1}(y) \quad \text{(hard)}
+\]
+
+\vspace{3mm}
+\textbf{Examples:}
+\begin{itemize}
+\item Factoring large primes (RSA)
+\item Discrete logarithm (Diffie-Hellman)
+\item Elliptic curve discrete log (ECDSA)
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_15/trapdoor_function.pdf}
+
+\vspace{2mm}
+\small
+\textbf{Trapdoor:} Secret information (private key) makes inverse easy
+\end{columns}
+\end{frame}
+
+\begin{frame}{RSA Cryptography (Classic Approach)}
+\textbf{Key Generation:}
+\begin{enumerate}
+\item Choose two large primes: $p, q$
+\item Compute $n = p \times q$ (modulus)
+\item Compute $\phi(n) = (p-1)(q-1)$
+\item Choose public exponent $e$ (commonly 65537)
+\item Compute private exponent $d \equiv e^{-1} \pmod{\phi(n)}$
+\end{enumerate}
+
+\vspace{2mm}
+\textbf{Encryption/Decryption:}
+\[
+\text{Ciphertext: } c = m^e \bmod n \quad |\quad \text{Plaintext: } m = c^d \bmod n
+\]
+
+\vspace{2mm}
+\textbf{Example:} $p=61, q=53, n=3233, e=17, d=2753$
+\begin{itemize}
+\item Message $m=123$: $c = 123^{17} \bmod 3233 = 855$
+\item Decrypt: $m = 855^{2753} \bmod 3233 = 123$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Elliptic Curve Cryptography (ECC)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Why ECC?}
+\begin{itemize}
+\item Smaller key sizes (256-bit ECC $\approx$ 3072-bit RSA)
+\item Faster computations
+\item Lower bandwidth
+\item Standard in Bitcoin/Ethereum
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Curve Equation:}
+\[
+y^2 = x^3 + ax + b
+\]
+
+\vspace{2mm}
+\textbf{Bitcoin uses:} secp256k1
+\[
+y^2 = x^3 + 7
+\]
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_15/elliptic_curve.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{ECC Point Addition: The Core Operation}
+\begin{center}
+\includegraphics[width=0.7\textwidth]{charts/lesson_15/ecc_point_addition.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Operations:}
+\begin{itemize}
+\item \textbf{Point Addition}: $P + Q = R$ (draw line through $P$ and $Q$, reflect third intersection)
+\item \textbf{Point Doubling}: $P + P = 2P$ (tangent line at $P$)
+\item \textbf{Scalar Multiplication}: $nP = P + P + \ldots + P$ (n times)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{ECC Security: Discrete Logarithm Problem}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Easy Problem:}
+\begin{itemize}
+\item Given point $G$ and scalar $k$
+\item Compute $P = k \cdot G$
+\item Fast using double-and-add
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Hard Problem (ECDLP):}
+\begin{itemize}
+\item Given points $G$ and $P$
+\item Find scalar $k$ such that $P = k \cdot G$
+\item No efficient algorithm known
+\item This is the \textcolor{mlred}{private key}
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_15/ecdlp_visualization.pdf}
+
+\vspace{2mm}
+\small
+\textbf{Security:} Best attack takes $\mathcal{O}(\sqrt{n})$ operations for $n$-bit key
+\end{columns}
+\end{frame}
+
+\begin{frame}{Digital Signatures: Proving Authorship}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Purpose:}
+\begin{itemize}
+\item Prove message was created by you
+\item Ensure message wasn't altered
+\item Non-repudiation (can't deny)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Process:}
+\begin{enumerate}
+\item Hash the message
+\item Encrypt hash with private key
+\item Attach signature to message
+\item Verify: Decrypt with public key, compare hash
+\end{enumerate}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_15/digital_signature_flow.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{ECDSA: Elliptic Curve Digital Signature Algorithm}
+\textbf{Signature Generation:}
+\begin{enumerate}
+\item Message $m$, private key $d$, public key $Q = d \cdot G$
+\item Hash message: $z = \text{hash}(m)$
+\item Choose random $k$, compute $R = k \cdot G = (x_R, y_R)$
+\item Compute $r = x_R \bmod n$
+\item Compute $s = k^{-1}(z + rd) \bmod n$
+\item Signature: $(r, s)$
+\end{enumerate}
+
+\vspace{2mm}
+\textbf{Signature Verification:}
+\begin{enumerate}
+\item Compute $w = s^{-1} \bmod n$
+\item Compute $u_1 = zw \bmod n$, $u_2 = rw \bmod n$
+\item Compute $P = u_1 \cdot G + u_2 \cdot Q$
+\item Valid if $x_P \equiv r \pmod{n}$
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{ECDSA Visualization}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_15/ecdsa_process.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Key Properties:}
+\begin{itemize}
+\item Signature size: 64 bytes (256-bit $r$ + 256-bit $s$)
+\item Cannot forge without private key
+\item Each signature requires unique random $k$ (reuse breaks security!)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Cryptocurrency Wallets: Key Management}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Wallet Components:}
+\begin{itemize}
+\item Private key (spend authority)
+\item Public key (derived from private)
+\item Address (hash of public key)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Key Derivation:}
+\[
+\text{Private Key} \xrightarrow{\text{ECC}} \text{Public Key} \xrightarrow{\text{Hash}} \text{Address}
+\]
+
+\vspace{3mm}
+\textbf{One-way:} Cannot derive private from address
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_15/wallet_key_hierarchy.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Bitcoin Address Generation}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{charts/lesson_15/bitcoin_address_generation.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Steps:}
+\begin{enumerate}
+\item Generate 256-bit private key (random number)
+\item Compute public key: $\text{PubKey} = \text{PrivKey} \times G$ (secp256k1)
+\item Hash public key: SHA256, then RIPEMD160
+\item Add version byte, compute checksum
+\item Base58 encode $\rightarrow$ Address (e.g., 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa)
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Hierarchical Deterministic (HD) Wallets}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Problem:}
+\begin{itemize}
+\item Managing multiple random keys
+\item Backup complexity
+\item Privacy (address reuse)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Solution (BIP-32/44):}
+\begin{itemize}
+\item Master seed (12/24 words)
+\item Derive infinite keys deterministically
+\item Hierarchical tree structure
+\item One backup for all keys
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_15/hd_wallet_tree.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Mnemonic Seed Phrases (BIP-39)}
+\begin{center}
+\includegraphics[width=0.75\textwidth]{charts/lesson_15/mnemonic_generation.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{12-Word Example:}
+\begin{center}
+\small\texttt{witch collapse practice feed shame open despair creek road again ice least}
+\end{center}
+
+\vspace{2mm}
+\textbf{Properties:}
+\begin{itemize}
+\item 128-bit entropy $\rightarrow$ 12 words, 256-bit $\rightarrow$ 24 words
+\item 2048-word dictionary (BIP-39)
+\item Checksum ensures validity
+\item Human-readable backup
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Wallet Types: Hot vs Cold}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_15/wallet_types_comparison.pdf}
+\end{center}
+\vspace{-3mm}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Hot Wallets:}
+\begin{itemize}
+\item Connected to internet
+\item Software/mobile wallets
+\item Convenient but vulnerable
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Cold Wallets:}
+\begin{itemize}
+\item Offline storage
+\item Hardware wallets, paper wallets
+\item Secure but less convenient
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Security Best Practices}
+\textbf{Never Share:}
+\begin{itemize}
+\item Private keys
+\item Seed phrases
+\item Wallet files without encryption
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Recommendations:}
+\begin{itemize}
+\item Use hardware wallets for large amounts (Ledger, Trezor)
+\item Backup seed phrase offline (metal, paper in safe)
+\item Multi-signature for institutional custody
+\item Never store keys on cloud services
+\item Verify addresses carefully (malware can swap addresses)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Warning:} \textcolor{mlred}{Lost private key = Lost funds permanently}
+\end{frame}
+
+\begin{frame}{Real-World Implications}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Benefits:}
+\begin{itemize}
+\item Self-custody (be your own bank)
+\item No intermediaries
+\item Censorship resistance
+\item Programmable ownership
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Challenges:}
+\begin{itemize}
+\item User error (lost keys)
+\item No password reset
+\item Irreversible transactions
+\item Phishing attacks
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_15/key_security_threats.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Summary}
+\begin{itemize}
+\item \textbf{Public Key Cryptography}: Two keys (public/private), trapdoor functions
+\item \textbf{ECC}: Efficient, smaller keys, basis for Bitcoin/Ethereum signatures
+\item \textbf{ECDSA}: Digital signatures prove transaction authorship
+\item \textbf{Wallets}: Manage private keys, addresses derived from public keys
+\item \textbf{HD Wallets}: One seed generates infinite keys (BIP-32/39/44)
+\item \textbf{Security}: Private key = ownership, loss is permanent
+\end{itemize}
+
+\vspace{4mm}
+\textbf{Next Lesson:} Proof of Work -- how cryptography secures the blockchain
+\end{frame}
+
+\end{document}

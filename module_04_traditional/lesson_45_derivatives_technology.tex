@@ -1,0 +1,804 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 45: Derivatives Technology}
+\subtitle{Module 4: Traditional Digital Finance}
+\author{Digital Finance Course}
+\date{2025}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Learning Objectives}
+\begin{itemize}
+\item Understand derivatives pricing and risk systems architecture
+\item Analyze futures and options trading platforms
+\item Examine OTC derivatives lifecycle and central clearing (CCPs)
+\item Evaluate EMIR and Dodd-Frank technology requirements
+\item Assess margin systems and collateral optimization
+\end{itemize}
+\end{frame}
+
+\section{Derivatives Overview and Market Structure}
+
+\begin{frame}{Derivatives Market Landscape}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Market Size (BIS, June 2024):}
+\begin{itemize}
+\item \textbf{OTC Derivatives:} \$715 trillion notional outstanding
+\begin{itemize}
+\item Interest rate derivatives: \$590T (82\%)
+\item FX derivatives: \$100T (14\%)
+\item Equity derivatives: \$7T (1\%)
+\item Credit derivatives: \$9T (1\%)
+\item Commodity derivatives: \$2T
+\end{itemize}
+\item \textbf{Exchange-Traded Derivatives:} 45 billion contracts (2023)
+\begin{itemize}
+\item Futures: 30B contracts
+\item Options: 15B contracts
+\end{itemize}
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Trading Venues:}
+
+\textbf{Exchange-Traded:}
+\begin{itemize}
+\item \textbf{CME Group:} Rates, equity indices, commodities, FX
+\item \textbf{Eurex:} European equity and rates derivatives
+\item \textbf{ICE:} Energy, agriculture, financial futures
+\item \textbf{Cboe:} Equity options, VIX futures
+\end{itemize}
+
+\textbf{OTC:}
+\begin{itemize}
+\item Bilateral negotiation (historically)
+\item SEFs (Swap Execution Facilities) - US
+\item MTFs (Multilateral Trading Facilities) - EU
+\item Electronic platforms: Bloomberg SEF, Tradeweb, MarketAxess
+\end{itemize}
+
+\vspace{2mm}
+\textit{Post-2008 trend: 75\%+ of interest rate swaps now cleared via CCPs (vs 20\% pre-crisis)}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Derivatives Product Types}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Futures:}
+\begin{itemize}
+\item Standardized exchange-traded contracts
+\item Daily mark-to-market and margin
+\item \textbf{Financial:} Equity indices (E-Mini S\&P), rates (Eurodollar), FX
+\item \textbf{Commodities:} Oil (WTI, Brent), metals (gold), agriculture (corn, wheat)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Options:}
+\begin{itemize}
+\item \textbf{Call:} Right to buy at strike price
+\item \textbf{Put:} Right to sell at strike price
+\item \textbf{American:} Exercise any time before expiry
+\item \textbf{European:} Exercise only at expiry
+\item \textbf{Exotic:} Barriers, Asians, lookbacks, digitals
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Swaps:}
+\begin{itemize}
+\item \textbf{Interest Rate Swaps (IRS):} Fixed-for-floating (LIBOR/SOFR)
+\item \textbf{Cross-Currency Swaps:} Principal and interest in different currencies
+\item \textbf{Equity Swaps:} Index return vs floating rate
+\item \textbf{Commodity Swaps:} Fixed price vs floating (spot)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Credit Derivatives:}
+\begin{itemize}
+\item \textbf{CDS (Credit Default Swaps):} Insurance against default
+\item \textbf{Index CDS:} CDX (US), iTraxx (Europe)
+\item \textbf{Tranches:} First-loss, mezzanine, senior
+\end{itemize}
+
+\vspace{2mm}
+\textit{IRS: Most liquid OTC derivative (80\%+ of notional outstanding)}
+\end{columns}
+\end{frame}
+
+\section{Pricing and Risk Systems}
+
+\begin{frame}{Derivatives Pricing Models}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Equity Options (Black-Scholes):}
+
+$$C = S_0 N(d_1) - K e^{-rT} N(d_2)$$
+$$P = K e^{-rT} N(-d_2) - S_0 N(-d_1)$$
+
+where
+$$d_1 = \frac{\ln(S_0/K) + (r + \sigma^2/2)T}{\sigma\sqrt{T}}$$
+$$d_2 = d_1 - \sigma\sqrt{T}$$
+
+\textbf{Inputs:} $S_0$ = spot price, $K$ = strike, $r$ = risk-free rate, $\sigma$ = volatility, $T$ = time to expiry
+
+\vspace{2mm}
+\textbf{Limitations:}
+\begin{itemize}
+\item Constant volatility assumption (implied vol smile/skew observed)
+\item No early exercise (American options need binomial/FDM)
+\item No dividends in simple version
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Interest Rate Swaps:}
+
+\textbf{Fixed Leg PV:}
+$$PV_{fixed} = N \times c \times \sum_{i=1}^{n} \tau_i \times DF(t_i)$$
+
+\textbf{Floating Leg PV:}
+$$PV_{float} = N \times \sum_{i=1}^{n} F(t_{i-1}, t_i) \times \tau_i \times DF(t_i)$$
+
+where $N$ = notional, $c$ = fixed coupon, $\tau_i$ = accrual fraction, $DF(t_i)$ = discount factor, $F$ = forward rate
+
+\vspace{2mm}
+\textbf{Par Swap Rate:}
+$$c = \frac{1 - DF(T_n)}{\sum_{i=1}^{n} \tau_i \times DF(t_i)}$$
+
+\vspace{2mm}
+\textbf{Curve Construction:}
+\begin{itemize}
+\item Bootstrap discount curve from market instruments (deposits, FRAs, swaps)
+\item Multi-curve framework post-2008 (OIS discounting vs LIBOR/SOFR projection)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Greeks and Risk Management}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{First-Order Greeks:}
+
+\textbf{Delta ($\Delta$):} Sensitivity to underlying price
+$$\Delta = \frac{\partial V}{\partial S}$$
+Call delta: 0 to 1, Put delta: -1 to 0
+
+\textbf{Vega ($\mathcal{V}$):} Sensitivity to volatility
+$$\mathcal{V} = \frac{\partial V}{\partial \sigma}$$
+Long options: positive vega (benefit from vol increase)
+
+\textbf{Theta ($\Theta$):} Time decay
+$$\Theta = \frac{\partial V}{\partial t}$$
+Typically negative (options lose value over time)
+
+\textbf{Rho ($\rho$):} Interest rate sensitivity
+$$\rho = \frac{\partial V}{\partial r}$$
+
+\column{0.48\textwidth}
+\textbf{Second-Order Greeks:}
+
+\textbf{Gamma ($\Gamma$):} Curvature of delta
+$$\Gamma = \frac{\partial^2 V}{\partial S^2} = \frac{\partial \Delta}{\partial S}$$
+Maximum at-the-money, near expiry (high gamma risk)
+
+\textbf{Vanna:} Delta sensitivity to volatility
+$$\text{Vanna} = \frac{\partial^2 V}{\partial S \partial \sigma}$$
+
+\textbf{Volga (Vomma):} Vega sensitivity to volatility
+$$\text{Volga} = \frac{\partial^2 V}{\partial \sigma^2}$$
+
+\vspace{2mm}
+\textbf{Portfolio Greeks Aggregation:}
+\begin{itemize}
+\item Sum across positions for linear Greeks (Delta, Vega)
+\item Gamma concentration risk (short gamma in crash)
+\item Hedge Greeks dynamically (delta-neutral, vega-neutral)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Derivatives Valuation Systems}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{System Architecture:}
+
+\textbf{Core Components:}
+\begin{itemize}
+\item \textbf{Trade Capture:} Front-office booking (Murex, Calypso, Summit)
+\item \textbf{Market Data:} Live and historical prices, curves, vols
+\item \textbf{Pricing Library:} Quantitative models (C++/Python)
+\item \textbf{Risk Engine:} Calculate sensitivities and VaR
+\item \textbf{P\&L Attribution:} Explain daily P\&L by risk factor
+\item \textbf{Valuation Adjustments:} XVA (CVA, FVA, MVA)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Calculation Methods:}
+\begin{itemize}
+\item \textbf{Closed-Form:} Black-Scholes, bond formulas
+\item \textbf{Lattice:} Binomial/trinomial trees for American options
+\item \textbf{Finite Difference:} PDE solvers for complex derivatives
+\item \textbf{Monte Carlo:} Path-dependent, multi-asset options
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Leading Platforms:}
+\begin{itemize}
+\item \textbf{Murex (Global):} Front-to-risk for derivatives
+\item \textbf{Calypso:} Multi-asset capital markets
+\item \textbf{SunGard (FIS) Adaptiv:} Counterparty risk and CVA
+\item \textbf{Numerix:} Pricing analytics and XVA
+\item \textbf{Bloomberg DLIB:} Derivatives pricing library
+\item \textbf{QuantLib:} Open-source quantitative finance (C++)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Performance Optimization:}
+\begin{itemize}
+\item \textbf{Grid Computing:} Distribute Monte Carlo simulations
+\item \textbf{GPU Acceleration:} 10-100x speedup for pricing
+\item \textbf{AAD (Adjoint Algorithmic Differentiation):} Fast Greeks
+\item \textbf{Approximations:} Least-squares Monte Carlo, proxy models
+\end{itemize}
+
+\vspace{2mm}
+\textit{Large bank derivatives book: 100k-1M positions, EOD risk calc in 2-4 hours}
+\end{columns}
+\end{frame}
+
+\section{Exchange-Traded Derivatives}
+
+\begin{frame}{Futures Trading Platforms}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Major Futures Exchanges:}
+
+\textbf{CME Group:}
+\begin{itemize}
+\item CME Globex electronic platform
+\item Products: E-Mini S\&P, Eurodollar, Treasury futures, FX, commodities
+\item Avg daily volume: 25-30 million contracts (2024)
+\item Latency: 50-100 microseconds (co-located)
+\end{itemize}
+
+\textbf{Eurex:}
+\begin{itemize}
+\item European equity index futures (DAX, Euro Stoxx)
+\item Fixed income (Bund, Schatz, Bobl)
+\item T7 matching engine
+\end{itemize}
+
+\textbf{ICE Futures:}
+\begin{itemize}
+\item Energy: WTI crude, Brent, natural gas
+\item Agriculture: Sugar, coffee, cotton
+\item Financial: FTSE, MSCI indices
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Futures Trading Technology:}
+
+\textbf{Order Types:}
+\begin{itemize}
+\item Outright: Single contract month
+\item Calendar spreads: Long one month, short another
+\item Butterfly: 1-2-1 ratio across 3 maturities
+\item Inter-commodity spreads: Related contracts (e.g., crack spread)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Execution Venues:}
+\begin{itemize}
+\item Exchange electronic (CME Globex, Eurex T7)
+\item Broker platforms (CQG, Trading Technologies, Bloomberg EMSX)
+\item Algorithmic execution (VWAP, TWAP for large orders)
+\item Direct market access (DMA) for speed
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Market Making:}
+\begin{itemize}
+\item HFT firms provide liquidity (Citadel, Virtu, Jump)
+\item Capture bid-ask spread (1-2 ticks typically)
+\item Delta-hedge with underlying or options
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Options Trading and Volatility Markets}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Options Exchanges:}
+
+\textbf{US:}
+\begin{itemize}
+\item \textbf{Cboe:} Largest options exchange, VIX futures/options
+\item \textbf{ISE (Nasdaq):} Electronic equity options
+\item \textbf{NYSE Arca:} Equity and ETF options
+\item \textbf{MIAX, PHLX, BOX, BZX:} Regional and new entrants
+\end{itemize}
+
+\textbf{Europe:}
+\begin{itemize}
+\item \textbf{Eurex:} Equity index options (ODAX, OESX)
+\item \textbf{Euronext:} Individual equity options
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Options Volume:}
+\begin{itemize}
+\item US equity options: 10-12 billion contracts/year (2024)
+\item 50\%+ volume in SPY, QQQ, AAPL, TSLA
+\item 0DTE (zero days to expiry) options: 40-50\% of SPX volume (2024)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Volatility Trading:}
+
+\textbf{Implied Volatility Surface:}
+\begin{itemize}
+\item Volatility varies by strike (smile/skew) and tenor
+\item \textbf{At-the-Money (ATM):} Reference volatility
+\item \textbf{Out-of-the-Money Puts:} Higher vol (tail risk premium)
+\item \textbf{Skew:} Put vol - call vol (negative for equities)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{VIX (CBOE Volatility Index):}
+\begin{itemize}
+\item 30-day implied volatility of S\&P 500 options
+\item Weighted average of OTM calls and puts
+\item Typically 12-20 (calm), spikes to 40-80 (crisis)
+\item VIX futures and options tradeable (hedge tail risk)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Variance Swaps:}
+$$\text{Payoff} = N \times (\sigma_{realized}^2 - K_{var})$$
+where $N$ = variance notional, $K_{var}$ = strike variance, $\sigma_{realized}$ = realized volatility
+\end{columns}
+\end{frame}
+
+\section{OTC Derivatives and Central Clearing}
+
+\begin{frame}{OTC Derivatives Lifecycle}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Pre-Trade:}
+\begin{enumerate}
+\item \textbf{Credit Check:} Verify counterparty limits
+\item \textbf{Legal Documentation:} ISDA Master Agreement, CSA
+\item \textbf{Pricing:} Request quotes from dealers (RFQ)
+\item \textbf{Negotiation:} Economic terms (notional, tenor, fixed rate)
+\end{enumerate}
+
+\vspace{2mm}
+\textbf{Execution:}
+\begin{enumerate}
+\setcounter{enumi}{4}
+\item \textbf{Trade Capture:} Book in derivatives system (Murex, Calypso)
+\item \textbf{Trade Confirmation:} Electronic (MarkitServ, AcadiaSoft) or manual
+\item \textbf{Trade Reporting:} Regulatory (EMIR, Dodd-Frank) to TR
+\end{enumerate}
+
+\column{0.48\textwidth}
+\textbf{Post-Trade:}
+\begin{enumerate}
+\setcounter{enumi}{7}
+\item \textbf{Clearing Determination:} Mandatory clearing (standardized) or bilateral
+\item \textbf{Novation to CCP:} If cleared, CCP becomes central counterparty
+\item \textbf{Margin:} Initial and variation margin posting
+\item \textbf{Valuation:} Daily mark-to-market (independent price verification)
+\item \textbf{Lifecycle Events:} Resets, coupons, compressions, amendments
+\item \textbf{Termination:} Maturity or early unwind
+\end{enumerate}
+
+\vspace{3mm}
+\textbf{ISDA Documentation:}
+\begin{itemize}
+\item Master Agreement: Legal framework for all trades
+\item Schedule: Customizations (jurisdiction, netting, events of default)
+\item CSA (Credit Support Annex): Collateral terms
+\item Confirmations: Trade-specific economics
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Central Counterparty Clearing (CCPs)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{CCP Clearing Mandate (Post-2008):}
+
+\textbf{Dodd-Frank (US):}
+\begin{itemize}
+\item Mandatory clearing for standardized swaps
+\item SEF trading requirement (pre-trade transparency)
+\item Trade reporting to Swap Data Repositories (SDRs)
+\end{itemize}
+
+\textbf{EMIR (EU):}
+\begin{itemize}
+\item Clearing obligation for IRS (EUR, GBP, USD), index CDS
+\item Reporting to Trade Repositories (TRs)
+\item Risk mitigation for non-cleared (margin, dispute resolution)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Clearing Rate (2024):}
+\begin{itemize}
+\item Interest rate swaps: 75-80\% cleared
+\item Credit derivatives: 50-60\% (index CDS higher)
+\item FX derivatives: 5-10\% (mostly bilateral)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Major CCPs:}
+
+\textbf{LCH (LSEG):}
+\begin{itemize}
+\item SwapClear: \$500T+ notional (IRS, OIS, FRAs)
+\item CDSClear: Index and single-name CDS
+\item RepoClear: Repo and securities lending
+\end{itemize}
+
+\textbf{CME Clearing:}
+\begin{itemize}
+\item IRS clearing (US and global)
+\item Futures and options across all asset classes
+\end{itemize}
+
+\textbf{ICE Clear:}
+\begin{itemize}
+\item ICE Clear Credit: CDS clearing (North America, Europe)
+\item ICE Clear Europe: Energy and commodity derivatives
+\end{itemize}
+
+\vspace{2mm}
+\textbf{CCP Risk Management:}
+\begin{itemize}
+\item Initial margin (SPAN, VaR-based)
+\item Variation margin (daily MTM settlement)
+\item Default fund (mutualized loss-sharing)
+\item Stress testing and concentration limits
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Margin and Collateral Systems}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Initial Margin (IM):}
+
+\textbf{CCP IM Calculation:}
+\begin{itemize}
+\item \textbf{SPAN (Standard Portfolio Analysis of Risk):} CME method
+\begin{itemize}
+\item Scenario-based approach (16+ price/vol scenarios)
+\item Accounts for offsets within product families
+\end{itemize}
+\item \textbf{VaR-Based:} LCH, Eurex (99\% 5-day VaR)
+\item \textbf{Expected Shortfall:} Emerging standard (coherent measure)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Non-Cleared IM (UMR):}
+\begin{itemize}
+\item Uncleared Margin Rules (Basel/IOSCO, BCBS-IOSCO 2015)
+\item Mandatory for firms with \$50B+ derivatives notional
+\item Phased implementation (2016-2023)
+\item SIMM (Standard Initial Margin Model): ISDA standard
+\item Segregation requirement: Third-party custodian
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Variation Margin (VM):}
+\begin{itemize}
+\item Daily exchange of collateral based on MTM
+\item Mandatory for all OTC derivatives (Dodd-Frank, EMIR)
+\item Cash or high-quality securities (government bonds)
+\item Dispute resolution (valuation differences)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Collateral Optimization:}
+\begin{itemize}
+\item \textbf{Cheapest-to-Deliver:} Post lowest-opportunity-cost asset
+\item \textbf{Substitution:} Replace collateral to free up better assets
+\item \textbf{Transformation:} Borrow higher-quality collateral (upgrade trades)
+\item \textbf{Triparty Agents:} BNY Mellon, Euroclear manage pools
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Technology Platforms:}
+\begin{itemize}
+\item \textbf{AcadiaSoft:} Margin calculation and optimization
+\item \textbf{CloudMargin:} Collateral management platform
+\item \textbf{Calypso Margin:} Integrated with trade processing
+\item \textbf{TriOptima (CME):} Compression and optimization
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\section{Regulatory Reporting: EMIR and Dodd-Frank}
+
+\begin{frame}{EMIR Reporting Requirements}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{European Market Infrastructure Regulation (EMIR):}
+
+\textbf{Reporting Obligations:}
+\begin{itemize}
+\item \textbf{Scope:} All derivatives (OTC and exchange-traded)
+\item \textbf{Counterparties:} Both sides report (or delegate)
+\item \textbf{Timing:} T+1 (next working day)
+\item \textbf{Destination:} Trade Repositories (TRs)
+\item \textbf{Fields:} 203 fields (EMIR REFIT, 2024)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{EMIR REFIT (2024):}
+\begin{itemize}
+\item Simplified reporting for smaller firms
+\item Standardized data formats (ISO 20022)
+\item UTI (Unique Trade Identifier) mandatory
+\item LEI (Legal Entity Identifier) for all counterparties
+\item Backloading of historical trades
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Trade Repositories (TRs):}
+\begin{itemize}
+\item \textbf{DTCC GTR (Global Trade Repository):} Multi-asset
+\item \textbf{UnaVista (LSEG):} EMIR and MiFID II reporting
+\item \textbf{Regis-TR:} European focused
+\item \textbf{CME Trade Repository:} Commodities and derivatives
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Reporting Challenges:}
+\begin{itemize}
+\item Data quality (reconciliation breaks)
+\item Lifecycle event reporting (amendments, compressions)
+\item Backloading for old trades
+\item Cross-border coordination (EMIR vs Dodd-Frank)
+\item LEI adoption and validation
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Vendor Solutions:}
+\begin{itemize}
+\item Cappitech, ABIDE Financial, Primatics
+\item Integrated with derivatives platforms (Murex, Calypso)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Dodd-Frank Swap Data Reporting}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Dodd-Frank Act (2010):}
+
+\textbf{Title VII - Derivatives:}
+\begin{itemize}
+\item Mandatory clearing for standardized swaps
+\item SEF (Swap Execution Facility) trading
+\item Swap Data Repository (SDR) reporting
+\item Enhanced capital and margin (Volcker Rule)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Reporting Requirements:}
+\begin{itemize}
+\item \textbf{Part 45:} Real-time reporting to SDRs
+\item \textbf{Part 43:} Public dissemination (anonymized)
+\item \textbf{Reporting Parties:} Swap dealers (SDs), major participants (MSPs)
+\item \textbf{Timing:} As soon as technologically practicable (minutes)
+\item \textbf{Block Trades:} 15-minute delay for large notional
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Swap Data Repositories (SDRs):}
+\begin{itemize}
+\item \textbf{DTCC SDR:} Credit, equity, rates
+\item \textbf{CME SDR:} Commodities, FX
+\item \textbf{ICE Trade Vault:} Multi-asset
+\end{itemize}
+
+\vspace{2mm}
+\textbf{SEF Trading:}
+\begin{itemize}
+\item Electronic platforms for swap execution
+\item Bloomberg SEF, Tradeweb, MarketAxess, ICE Swap Trade
+\item Pre-trade transparency (executable quotes)
+\item Request-for-quote (RFQ) dominant model
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Harmonization Efforts:}
+\begin{itemize}
+\item CFTC-ESMA cooperation (cross-border)
+\item Substituted compliance (equivalence)
+\item UTI and UPI standards (global identifiers)
+\item Critical trade information (CTI) standardization
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\section{Emerging Trends in Derivatives Technology}
+
+\begin{frame}{SOFR Transition and IBOR Reform}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{LIBOR Cessation (2021-2023):}
+\begin{itemize}
+\item USD LIBOR ended June 30, 2023
+\item GBP, EUR, CHF, JPY LIBOR ended Dec 31, 2021
+\item Legacy contracts: Fallback language (ISDA protocol)
+\item Estimated \$300+ trillion notional affected globally
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Replacement Rates:}
+\begin{itemize}
+\item \textbf{USD:} SOFR (Secured Overnight Financing Rate)
+\item \textbf{GBP:} SONIA (Sterling Overnight Index Average)
+\item \textbf{EUR:} ESTR (Euro Short-Term Rate)
+\item \textbf{CHF:} SARON (Swiss Average Rate Overnight)
+\item \textbf{JPY:} TONAR (Tokyo Overnight Average Rate)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{SOFR Characteristics:}
+\begin{itemize}
+\item Overnight rate (vs forward-looking LIBOR tenors)
+\item Based on Treasury repo transactions (\$1T+ daily volume)
+\item No credit risk premium (secured rate)
+\item Requires compounding for term rates (Term SOFR available)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Technology Impact:}
+\begin{itemize}
+\item \textbf{Curve Construction:} Multi-curve framework (OIS discounting, SOFR projection)
+\item \textbf{Fallback Implementation:} ISDA fallback spreads, waterfall logic
+\item \textbf{Historical Data:} Limited SOFR history (started 2018)
+\item \textbf{Systems Upgrade:} Pricing, risk, reporting systems updated
+\item \textbf{Vendor Solutions:} Bloomberg, Refinitiv SOFR calculators
+\end{itemize}
+
+\vspace{2mm}
+\textit{CME SOFR futures: \$10+ trillion notional outstanding (2024), primary hedging instrument}
+\end{columns}
+\end{frame}
+
+\begin{frame}{DLT and Smart Derivatives Contracts}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Blockchain in Derivatives:}
+
+\textbf{Use Cases:}
+\begin{itemize}
+\item \textbf{Trade Confirmation:} Shared ledger eliminates reconciliation
+\item \textbf{Lifecycle Events:} Automated coupons, resets, terminations
+\item \textbf{Collateral Management:} Real-time margin calls and settlements
+\item \textbf{Regulatory Reporting:} Single source of truth for regulators
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Pilot Projects:}
+\begin{itemize}
+\item \textbf{ISDA CDM (Common Domain Model):} Standardized data model
+\item \textbf{Axoni (AxCore):} Equity swaps post-trade (DTCC partnership)
+\item \textbf{Digital Asset (DAML):} Smart contract language for derivatives
+\item \textbf{Project Guardian (MAS):} Tokenized bonds and FX swaps
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Smart Derivatives Contracts:}
+
+\textbf{ISDA Common Domain Model (CDM):}
+\begin{itemize}
+\item Machine-executable representation of derivatives
+\item Event processing (lifecycle automation)
+\item Legal certainty (code = contract)
+\item Implemented in DAML, Solidity, Java
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Benefits:}
+\begin{itemize}
+\item Reduce operational risk (eliminate manual processing)
+\item Faster settlement (T+0 for collateral)
+\item Lower costs (remove intermediaries)
+\item Enhanced transparency (shared audit trail)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Challenges:}
+\begin{itemize}
+\item Legal enforceability (code vs traditional contracts)
+\item Scalability (blockchain performance for high volumes)
+\item Interoperability (multiple DLT platforms)
+\item Regulatory acceptance (still evolving)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Summary and Key Takeaways}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Derivatives Market:}
+\begin{itemize}
+\item \$715T OTC notional (82\% interest rate swaps)
+\item 45B exchange contracts/year (futures + options)
+\item Post-2008: 75-80\% of IRS now cleared via CCPs
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Pricing and Risk:}
+\begin{itemize}
+\item Black-Scholes for equity options (constant vol limitation)
+\item Greeks: Delta, gamma, vega for risk management
+\item Platforms: Murex, Calypso, Numerix for valuation
+\item GPU acceleration: 10-100x speedup for Monte Carlo
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Exchange-Traded:}
+\begin{itemize}
+\item CME Globex: 25-30M contracts/day (50-100 microsecond latency)
+\item VIX futures/options for volatility trading
+\item 0DTE options: 40-50\% of SPX volume (2024)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{OTC and Clearing:}
+\begin{itemize}
+\item ISDA documentation: Master Agreement + CSA
+\item CCPs: LCH SwapClear (\$500T+), CME, ICE Clear
+\item Initial margin (SPAN, VaR) + variation margin (daily MTM)
+\item UMR: Mandatory IM for \$50B+ notional (segregated)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Regulatory Reporting:}
+\begin{itemize}
+\item EMIR: 203 fields, T+1 reporting to TRs
+\item Dodd-Frank: Real-time SDR reporting, SEF trading
+\item UTI, LEI, UPI standardization for cross-border
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Emerging Trends:}
+\begin{itemize}
+\item SOFR transition (LIBOR ended 2023): \$300T+ impacted
+\item ISDA CDM: Machine-executable derivatives contracts
+\item DLT pilots: Axoni, Digital Asset, Project Guardian
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\end{document}

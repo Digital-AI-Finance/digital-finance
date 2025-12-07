@@ -1,0 +1,735 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 41: Market Microstructure and HFT}
+\subtitle{Module 4: Traditional Digital Finance}
+\author{Digital Finance Course}
+\date{2025}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Learning Objectives}
+\begin{itemize}
+\item Understand market microstructure theory and empirical regularities
+\item Analyze bid-ask spreads and their components
+\item Examine market maker economics and inventory management
+\item Evaluate high-frequency trading strategies and market impact
+\item Assess flash crashes and systemic stability concerns
+\end{itemize}
+\end{frame}
+
+\section{Market Microstructure Foundations}
+
+\begin{frame}{Microstructure Theory Overview}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Core Questions:}
+\begin{itemize}
+\item How are prices formed in continuous trading?
+\item What determines bid-ask spreads?
+\item How does information get incorporated into prices?
+\item What is the role of market makers and liquidity providers?
+\item How do trading protocols affect efficiency?
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Key Concepts:}
+\begin{itemize}
+\item \textbf{Price Discovery:} Aggregating dispersed information
+\item \textbf{Liquidity:} Ability to trade without price impact
+\item \textbf{Market Depth:} Volume available at various prices
+\item \textbf{Resilience:} Speed of price recovery after shocks
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Trading Costs Framework:}
+\begin{itemize}
+\item \textbf{Explicit Costs:} Commissions, fees, taxes
+\item \textbf{Implicit Costs:} Spread, impact, opportunity
+\item \textbf{Total Cost:} $TC = \text{Spread} + \text{Impact} + \text{Delay}$
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Market Quality Metrics:}
+\begin{itemize}
+\item \textbf{Efficiency:} Prices reflect available information
+\item \textbf{Liquidity:} Low cost, high volume capacity
+\item \textbf{Transparency:} Order flow and trade visibility
+\item \textbf{Stability:} Resistance to manipulation and crashes
+\item \textbf{Fairness:} Equal access and opportunity
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Bid-Ask Spread Fundamentals}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Spread Definitions:}
+\begin{itemize}
+\item \textbf{Quoted Spread:} $S_Q = P_{ask} - P_{bid}$
+\item \textbf{Percent Spread:} $S_{\%} = \frac{P_{ask} - P_{bid}}{P_{mid}} \times 100$
+\item \textbf{Effective Spread:} $S_E = 2|P_{trade} - P_{mid}|$
+\item \textbf{Realized Spread:} $S_R = 2(P_{trade} - P_{mid+5min}) \times D$
+\end{itemize}
+where $D = +1$ for buyer-initiated, $-1$ for seller-initiated
+
+\vspace{2mm}
+\textbf{Example:}
+\begin{itemize}
+\item Bid: \$99.98, Ask: \$100.02
+\item Quoted spread: \$0.04 (4 cents)
+\item Percent spread: 0.04\%
+\item Trade at \$100.01 (price improvement)
+\item Effective spread: 2 $\times$ (\$100.01 - \$100.00) = \$0.02
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Spread Components (Stoll 1989):}
+\begin{itemize}
+\item \textbf{Order Processing:} Fixed costs (40-50\%)
+\item \textbf{Inventory Holding:} Risk aversion costs (10-20\%)
+\item \textbf{Adverse Selection:} Informed trading (30-50\%)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Determinants of Spreads:}
+\begin{itemize}
+\item \textbf{Volume:} Higher volume $\rightarrow$ tighter spreads
+\item \textbf{Volatility:} Higher volatility $\rightarrow$ wider spreads
+\item \textbf{Competition:} More market makers $\rightarrow$ tighter
+\item \textbf{Tick Size:} Minimum increment constraint
+\item \textbf{Information Asymmetry:} More informed trading $\rightarrow$ wider
+\end{itemize}
+
+\vspace{2mm}
+\textit{US large-cap spreads: 1-3 bps; small-cap: 10-50 bps (2024)}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Adverse Selection and Information Models}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Glosten-Milgrom Model (1985):}
+\begin{itemize}
+\item Sequential trade model with information asymmetry
+\item Informed traders know true value $V$
+\item Uninformed traders are noise/liquidity traders
+\item Market maker sets bid-ask to break even
+\item Spread compensates for adverse selection
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Key Implications:}
+\begin{itemize}
+\item Spread widens with more informed trading
+\item Price update after each trade (Bayesian learning)
+\item Bid-ask bounce causes negative autocorrelation
+\item Larger trades signal more information
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Kyle Model (1985):}
+\begin{itemize}
+\item Batch auction with strategic informed trader
+\item Informed trader optimizes profit vs price impact
+\item Market depth (lambda): $\lambda = \frac{dP}{dQ}$
+\item Price impact linear in order flow
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Kyle's Lambda:}
+$$\lambda = \frac{\sigma_v}{2\sigma_u}$$
+where $\sigma_v$ = value volatility, $\sigma_u$ = noise trading volatility
+
+\vspace{2mm}
+\textbf{Empirical Evidence:}
+\begin{itemize}
+\item Larger trades move prices more (concave impact)
+\item Block trades have 5-10x impact vs VWAP execution
+\item Price impact persists 30-60 minutes post-trade
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\section{Market Makers and Liquidity Provision}
+
+\begin{frame}{Market Maker Role and Economics}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Market Maker Functions:}
+\begin{itemize}
+\item Continuous two-sided quotes (bid and ask)
+\item Absorb temporary order imbalances
+\item Facilitate price discovery
+\item Reduce search costs for traders
+\item Profit from bid-ask spread capture
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Designated Market Makers (DMM):}
+\begin{itemize}
+\item \textbf{NYSE:} DMM obligations for assigned stocks
+\item \textbf{Nasdaq:} Competitive market makers (no exclusivity)
+\item \textbf{Obligations:} Maintain fair and orderly markets
+\item \textbf{Benefits:} Informational advantages, rebates
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Profitability Sources:}
+\begin{itemize}
+\item \textbf{Spread Capture:} Buy bid, sell ask
+\item \textbf{Maker Rebates:} 0.15-0.30 cents/share (US equities)
+\item \textbf{Order Flow Internalization:} Payment for order flow (PFOF)
+\item \textbf{Statistical Arbitrage:} Short-term mean reversion
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Risks:}
+\begin{itemize}
+\item \textbf{Inventory Risk:} Directional exposure
+\item \textbf{Adverse Selection:} Losing to informed traders
+\item \textbf{Volatility Spikes:} Widening spreads, reduced depth
+\item \textbf{Technology Failures:} Latency, connectivity issues
+\end{itemize}
+
+\vspace{2mm}
+\textit{Top HFT market makers: Citadel Securities, Virtu, Jane Street, Jump Trading}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Inventory Management Models}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Stoll (1978) Inventory Model:}
+\begin{itemize}
+\item Market maker adjusts quotes based on inventory
+\item High long inventory $\rightarrow$ lower ask, lower bid
+\item High short inventory $\rightarrow$ higher bid, higher ask
+\item Inventory mean-reversion via asymmetric quotes
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Quote Adjustment:}
+$$P_{bid} = P_{mid} - \frac{S}{2} - \alpha \cdot I$$
+$$P_{ask} = P_{mid} + \frac{S}{2} - \alpha \cdot I$$
+where $I$ = inventory position, $\alpha$ = inventory aversion
+
+\vspace{2mm}
+\textbf{Example:}
+\begin{itemize}
+\item Neutral: Bid \$99.98, Ask \$100.02
+\item Long 10k shares: Bid \$99.96, Ask \$100.00 (skewed to sell)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Avellaneda-Stoikov Model (2008):}
+\begin{itemize}
+\item Optimal market making with risk aversion
+\item Maximizes expected utility of terminal wealth
+\item Incorporates arrival rates and fill probabilities
+\item Dynamic spread and mid-price adjustments
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Optimal Quotes:}
+$$\delta_{bid}^* = \frac{1}{\gamma} \ln\left(1 + \frac{\gamma}{\kappa}\right) + \frac{\gamma \sigma^2 (T-t)}{2} q$$
+$$\delta_{ask}^* = \frac{1}{\gamma} \ln\left(1 + \frac{\gamma}{\kappa}\right) - \frac{\gamma \sigma^2 (T-t)}{2} q$$
+where $\gamma$ = risk aversion, $\kappa$ = order arrival intensity, $q$ = inventory
+
+\vspace{2mm}
+\textbf{Modern Enhancements:}
+\begin{itemize}
+\item Machine learning for arrival rate prediction
+\item Multi-venue inventory optimization
+\item Reinforcement learning for quote placement
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Payment for Order Flow (PFOF)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{PFOF Mechanics:}
+\begin{itemize}
+\item Retail broker routes orders to wholesaler
+\item Wholesaler internalizes (does not send to exchange)
+\item Wholesaler pays broker 0.1-0.5 cents/share
+\item Retail order receives NBBO or better (price improvement)
+\item Wholesaler profits from spread capture + rebates
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Major Wholesalers (2024):}
+\begin{itemize}
+\item Citadel Securities: 40-45\% retail market share
+\item Virtu Financial: 25-30\%
+\item Jane Street: 10-15\%
+\item Two Sigma Securities: 5-10\%
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Volume:}
+40-45\% of US equity volume is off-exchange (largely PFOF)
+
+\column{0.48\textwidth}
+\textbf{Controversies:}
+\begin{itemize}
+\item \textbf{Conflict of Interest:} Broker incentive vs best execution
+\item \textbf{Market Segmentation:} Uninformed (retail) vs informed (institutional)
+\item \textbf{Reduced Exchange Volume:} Less price discovery on lit markets
+\item \textbf{GameStop (2021):} PFOF scrutiny after meme stock frenzy
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Regulatory Responses:}
+\begin{itemize}
+\item SEC considering PFOF ban (2022-2024 discussions)
+\item MiFID II (EU): PFOF banned for equities (2018)
+\item Enhanced Rule 606 disclosures (quarterly routing reports)
+\item Best execution analysis requirements
+\end{itemize}
+
+\vspace{2mm}
+\textit{Retail traders receive average 0.5-1 cent price improvement per share vs NBBO}
+\end{columns}
+\end{frame}
+
+\section{High-Frequency Trading}
+
+\begin{frame}{HFT Definition and Characteristics}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{HFT Defining Features:}
+\begin{itemize}
+\item \textbf{Ultra-Low Latency:} Microsecond execution speeds
+\item \textbf{High Order-to-Trade Ratio:} 100:1 to 1000:1
+\item \textbf{High Daily Volume:} Millions of shares/contracts
+\item \textbf{Flat Overnight Positions:} Minimal directional risk
+\item \textbf{Co-Location:} Servers at exchange data centers
+\item \textbf{Direct Market Access:} Sponsored access or memberships
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Market Share:}
+\begin{itemize}
+\item US equities: 50-55\% of volume (down from 60-65\% in 2010)
+\item Futures: 60-70\% of volume
+\item FX: 20-30\% of spot volume
+\item European equities: 30-40\% of volume
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Technology Infrastructure:}
+\begin{itemize}
+\item \textbf{Co-Location Costs:} \$10k-50k/month per exchange
+\item \textbf{Market Data Feeds:} Direct feeds vs consolidated (SIP)
+\item \textbf{FPGA Acceleration:} Hardware-based order processing
+\item \textbf{Microwave Networks:} Chicago-NYC in 4.1 milliseconds
+\item \textbf{Kernel Bypass:} User-space networking (10-100x faster)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Latency Benchmarks:}
+\begin{itemize}
+\item Matching engine: 10-50 microseconds
+\item Co-located order entry: 50-200 microseconds
+\item Cross-venue arbitrage window: 100-500 microseconds
+\item Human reaction time: 200,000 microseconds (200 ms)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{HFT Strategies}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Market Making:}
+\begin{itemize}
+\item Provide liquidity via limit orders
+\item Profit from spread capture + maker rebates
+\item Inventory risk management critical
+\item Accounts for 40-50\% of HFT volume
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Statistical Arbitrage:}
+\begin{itemize}
+\item Mean-reversion strategies (tick-level)
+\item Pairs trading at microsecond horizons
+\item Order book imbalance signals
+\item Typical hold time: seconds to minutes
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Latency Arbitrage:}
+\begin{itemize}
+\item Exploit slow price updates across venues
+\item React to information faster than competitors
+\item Requires fastest infrastructure
+\item Controversial (``arms race'' criticism)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Event Arbitrage:}
+\begin{itemize}
+\item News parsing and trading (microseconds)
+\item Economic data releases (e.g., NFP, FOMC)
+\item Earnings announcements
+\item Machine-readable news (MRN) feeds
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Order Anticipation:}
+\begin{itemize}
+\item Detect large institutional orders
+\item Trade ahead of expected price impact
+\item Legal gray area (vs illegal front-running)
+\item Detects via order book patterns
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Index Arbitrage:}
+\begin{itemize}
+\item ETF vs underlying basket discrepancies
+\item Futures vs cash basis trades
+\item Dividend arbitrage around ex-dates
+\item Holds positions minutes to hours
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{HFT Market Impact Debate}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Positive Contributions:}
+\begin{itemize}
+\item \textbf{Tighter Spreads:} Increased competition narrows bid-ask
+\item \textbf{Increased Liquidity:} Higher quoted depth
+\item \textbf{Faster Price Discovery:} Information incorporated quicker
+\item \textbf{Lower Trading Costs:} Spreads down 50-70\% since 2000
+\item \textbf{Cross-Market Integration:} Arbitrage keeps markets aligned
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Empirical Evidence (Brogaard et al., 2014):}
+\begin{itemize}
+\item HFT trades align with permanent price changes
+\item Net provision of liquidity (market making)
+\item Faster incorporation of public information
+\item No evidence of systematic predatory behavior
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Criticisms and Concerns:}
+\begin{itemize}
+\item \textbf{Adverse Selection:} Institutional orders picked off
+\item \textbf{Phantom Liquidity:} Quotes vanish in stress periods
+\item \textbf{Flash Crashes:} Amplify volatility (e.g., 2010)
+\item \textbf{Unfair Advantage:} Speed and co-location benefits
+\item \textbf{Socially Wasteful:} Arms race with low social value
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Market Stability Risks:}
+\begin{itemize}
+\item Simultaneous withdrawal during stress
+\item Correlated algorithmic behavior
+\item Feedback loops and cascades
+\item Fragility due to speed dependencies
+\end{itemize}
+
+\vspace{2mm}
+\textit{``HFT is like GPS: improves efficiency but introduces new failure modes''} -- SEC Commissioner (2014)
+\end{columns}
+\end{frame}
+
+\section{Flash Crashes and Market Disruptions}
+
+\begin{frame}{May 6, 2010 Flash Crash}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Event Timeline:}
+\begin{itemize}
+\item \textbf{14:32 ET:} Large mutual fund executes \$4.1B E-Mini sell program
+\item \textbf{14:41-14:45:} Dow drops 600 points in 5 minutes
+\item \textbf{14:45:} Markets recover 70\% of losses in minutes
+\item \textbf{End of Day:} Dow closes down 348 points
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Trigger Mechanism:}
+\begin{itemize}
+\item Aggressive VWAP algorithm floods market
+\item HFT firms initially absorb selling
+\item Hot potato: HFTs trade among themselves
+\item Liquidity withdrawal as inventory limits hit
+\item Prices collapse due to lack of buyers
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Key Findings (CFTC-SEC Report):}
+\begin{itemize}
+\item E-Mini futures led equities down
+\item Cross-market arbitrage transmitted stress
+\item Stub quotes executed (e.g., Accenture to \$0.01)
+\item 20,000+ trades broken (clearly erroneous)
+\item HFT exacerbated but did not cause crash
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Regulatory Responses:}
+\begin{itemize}
+\item \textbf{Limit Up-Limit Down (2012):} Single-stock circuit breakers
+\item \textbf{Clearly Erroneous Trades:} Standardized break criteria
+\item \textbf{Reg SCI (2015):} Systems compliance for critical infrastructure
+\item \textbf{Market-Wide Breakers:} 7\%, 13\%, 20\% thresholds
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Other Notable Flash Events}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{October 15, 2014 Treasury Flash Rally:}
+\begin{itemize}
+\item 10-year yield drops 37 bps in 12 minutes
+\item Largest intraday move in decades
+\item No fundamental news trigger
+\item Joint Staff Report: HFT amplified volatility
+\item Highlighted fragility in Treasury market structure
+\end{itemize}
+
+\vspace{2mm}
+\textbf{August 24, 2015 ETF Flash Crash:}
+\begin{itemize}
+\item 1100+ trading halts in first 36 minutes
+\item 20\% of ETFs trade 10\%+ away from NAV
+\item LULD breakers overwhelmed by volume
+\item Exposing ETF market making fragility
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{GBP Flash Crash (October 7, 2016):}
+\begin{itemize}
+\item Sterling drops 9\% vs USD in minutes (Asian hours)
+\item Thin liquidity + algorithmic selling spiral
+\item Recovered within 30 minutes
+\item Highlighted FX market vulnerabilities
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Common Patterns:}
+\begin{itemize}
+\item Initial shock (fundamental or algorithmic)
+\item Liquidity provider withdrawal
+\item Cascading sell orders (stop losses, algos)
+\item Feedback loop amplification
+\item Recovery once human oversight intervenes
+\end{itemize}
+
+\vspace{2mm}
+\textit{VPIN (toxicity indicator) spiked to 0.98 before 2010 Flash Crash (normal < 0.5)}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Market Stability Mechanisms}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Circuit Breakers (US Equities):}
+\begin{itemize}
+\item \textbf{LULD Bands:} 5-20\% depending on tier and time
+\item \textbf{Tier 1:} S\&P 500, Russell 1000 (5\% bands)
+\item \textbf{Tier 2:} Other NMS stocks (10\% bands)
+\item \textbf{Trading Halt:} 5-minute pause if limit breached
+\item \textbf{Market-Wide:} 7\%, 13\%, 20\% S\&P 500 declines
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Clearly Erroneous Trades:}
+\begin{itemize}
+\item Numerical thresholds for breaking trades
+\item \$0-\$25 stocks: 10\% from reference price
+\item \$25-\$50: 5\%, Over \$50: 3\%
+\item Must be reported within 30 minutes
+\item Exchange decision (not automatic)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Kill Switch Requirements (MiFID II):}
+\begin{itemize}
+\item Ability to cancel all orders in under 2 seconds
+\item Mandatory for algorithmic traders
+\item Pre-trade risk controls on parameters
+\item Post-trade monitoring and alerts
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Volatility Auctions:}
+\begin{itemize}
+\item European markets use volatility interruptions
+\item 2-5 minute random auction when thresholds hit
+\item Allows human intervention and price discovery
+\item Less disruptive than hard halts
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Speed Bumps:}
+\begin{itemize}
+\item IEX: 350-microsecond delay on all orders
+\item Prevents latency arbitrage strategies
+\item Controversial: reduces efficiency vs stability
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\section{Empirical Market Microstructure}
+
+\begin{frame}{Intraday Patterns and Anomalies}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{U-Shaped Volume Pattern:}
+\begin{itemize}
+\item High volume at open (09:30-10:00 ET)
+\item Low volume midday (11:00-14:00)
+\item High volume at close (15:30-16:00)
+\item Opening 30 min: 15-20\% of daily volume
+\item Closing 30 min: 20-25\% of daily volume
+\end{itemize}
+
+\vspace{2mm}
+\textbf{U-Shaped Volatility:}
+\begin{itemize}
+\item Spreads widest at open (information asymmetry)
+\item Tightest spreads midday (steady state)
+\item Widening into close (position squaring)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Bid-Ask Bounce:}
+\begin{itemize}
+\item Trades alternate between bid and ask
+\item Induces negative autocorrelation in returns
+\item Roll (1984) model: $\text{Spread} = 2\sqrt{-\text{Cov}(r_t, r_{t-1})}$
+\item Empirically: first-order autocorr = -0.05 to -0.15
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Price Impact Asymmetry:}
+\begin{itemize}
+\item Buy orders have larger impact than sells
+\item More pronounced for small-cap stocks
+\item Attributed to short-sale constraints
+\item Temporary component decays exponentially
+\end{itemize}
+
+\vspace{2mm}
+\textit{Opening cross (NYSE, Nasdaq): 5-10\% of daily volume in single batch auction}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Tick Size and Market Quality}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{US Tick Size Evolution:}
+\begin{itemize}
+\item Pre-2001: 1/16 dollar (\$0.0625)
+\item 2001: Decimalization to \$0.01
+\item Result: Spreads compressed 30-50\%
+\item But: Depth per price level declined
+\item Trade-off: Tighter spreads vs lower depth
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Tick Size Pilot (2016-2018):}
+\begin{itemize}
+\item SEC mandated \$0.05 tick for 1200 small-cap stocks
+\item Goal: Improve liquidity and market making economics
+\item Results: Wider spreads, lower volume, minimal IPO impact
+\item Pilot ended; no permanent changes adopted
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Optimal Tick Size Theory:}
+\begin{itemize}
+\item Too small: Excessive queue jumping, minimal profit
+\item Too large: Constrained price discovery, wide spreads
+\item Optimal tick proportional to stock price
+\item Harris (1994): Tick-to-price ratio = 0.1-0.5\%
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Empirical Regularities:}
+\begin{itemize}
+\item Quotes cluster at round numbers
+\item Spreads often exactly 1 tick (minimum)
+\item 60-70\% of stocks trade at 1-cent spread
+\item Sub-penny trading banned for most stocks (Reg NMS)
+\end{itemize}
+
+\vspace{2mm}
+\textit{European markets: varying tick sizes by price range (MiFID II tick size regime)}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Summary and Key Takeaways}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Microstructure Foundations:}
+\begin{itemize}
+\item Bid-ask spreads compensate for order processing, inventory, and adverse selection
+\item Market makers provide liquidity and earn spread via inventory management
+\item Information asymmetry drives adverse selection costs
+\item PFOF internalizes retail flow (40-45\% of US volume)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{High-Frequency Trading:}
+\begin{itemize}
+\item 50-55\% of US equity volume (microsecond speeds)
+\item Strategies: market making, stat arb, latency arb
+\item Tighter spreads but phantom liquidity concerns
+\item Regulatory focus on stability and fairness
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Flash Crashes and Stability:}
+\begin{itemize}
+\item May 6, 2010: 600-point drop in 5 minutes
+\item Liquidity withdrawal amplifies shocks
+\item LULD circuit breakers now standard
+\item Kill switches and risk controls mandatory (MiFID II, Reg SCI)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Market Quality:}
+\begin{itemize}
+\item U-shaped volume and volatility patterns
+\item Decimalization tightened spreads (2001)
+\item Tick size pilot failed to improve small-cap liquidity
+\item Trade-off: efficiency vs stability in design
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\end{document}

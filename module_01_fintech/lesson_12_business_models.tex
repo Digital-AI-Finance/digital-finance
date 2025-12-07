@@ -1,0 +1,277 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 12: Fintech Business Models}
+\subtitle{Module 1: FinTech Fundamentals}
+\author{Digital Finance}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Fintech Business Model Taxonomy}
+\begin{center}
+\includegraphics[width=0.88\textwidth]{figures/fintech_business_models.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Platform Models}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Two-Sided Marketplaces}
+\begin{itemize}
+\item Connect supply and demand
+\item Transaction fee monetization
+\item Network effects critical
+\item Examples: P2P lending, exchanges
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/platform_model.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Embedded Finance}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Financial Services in Non-Financial Apps}
+\begin{itemize}
+\item Shopify Capital
+\item Uber Money
+\item Tesla Insurance
+\item \$7T market by 2030
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/embedded_finance_growth.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Embedded Finance Examples}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/embedded_finance_examples.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Banking-as-a-Service (BaaS)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Infrastructure Layer}
+\begin{itemize}
+\item White-label banking
+\item API-driven services
+\item Regulatory license rental
+\item Examples: Synapse, Marqeta
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/baas_architecture.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{BaaS Value Chain}
+\begin{center}
+\includegraphics[width=0.82\textwidth]{figures/baas_value_chain.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Marqeta Case Study}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Card Issuing Platform}
+\begin{itemize}
+\item Founded: 2010
+\item \$6B valuation (2021 IPO)
+\item Customers: Square, DoorDash
+\item Real-time card issuance API
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/marqeta_model.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Revenue Model Comparison}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/revenue_model_comparison.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Subscription Models}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Recurring Revenue}
+\begin{itemize}
+\item N26 Metal: \euro 16.90/month
+\item Revolut Premium: \pounds 6.99/month
+\item Predictable cash flow
+\item Higher LTV
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/subscription_tiers.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Freemium Strategy}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Free + Premium Tiers}
+\begin{itemize}
+\item 5-10\% conversion typical
+\item Viral growth driver
+\item Upsell opportunities
+\item Requires scale
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/freemium_funnel.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Data Monetization}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Insights-as-a-Service}
+\begin{itemize}
+\item Aggregated spending patterns
+\item Credit risk signals
+\item Merchant analytics
+\item Privacy considerations
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/data_monetization_model.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Unit Economics Deep Dive}
+\begin{center}
+\includegraphics[width=0.82\textwidth]{figures/fintech_unit_economics.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Customer Lifetime Value (LTV)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{LTV Calculation}
+\begin{itemize}
+\item Average revenue per user
+\item Churn rate
+\item Gross margin
+\item LTV = ARPU $\times$ Margin / Churn
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/ltv_calculation.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{LTV/CAC Ratio Benchmarks}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Health Metrics}
+\begin{itemize}
+\item $<$ 1: Unprofitable growth
+\item 1-3: Breakeven zone
+\item 3+: Sustainable business
+\item Best-in-class: 5-7x
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/ltv_cac_benchmarks.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Network Effects}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/network_effects_types.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Cross-Network Effects}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Marketplace Dynamics}
+\begin{itemize}
+\item More lenders $\to$ better rates
+\item More borrowers $\to$ more lenders
+\item Liquidity threshold
+\item Winner-take-most markets
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/marketplace_network_effects.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Future: Super-App Convergence}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{All-in-One Platforms}
+\begin{itemize}
+\item Banking + payments + investing
+\item Revolut model (35M users)
+\item Ecosystem lock-in
+\item Cross-sell efficiency
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/superapp_model.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Decentralized Finance (DeFi)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Protocol-Based Models}
+\begin{itemize}
+\item No intermediary fees
+\item Governance token incentives
+\item Liquidity mining rewards
+\item Regulatory uncertainty
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/defi_vs_traditional.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Future Trends}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/fintech_future_trends.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Key Takeaways}
+\begin{itemize}
+\item \textbf{Embedded Finance}: \$7T market by 2030, integration everywhere
+\item \textbf{BaaS}: Infrastructure layer enabling non-banks to offer banking
+\item \textbf{Unit Economics}: LTV/CAC $>$ 3 for sustainability
+\item \textbf{Network Effects}: Winner-take-most in marketplace models
+\item \textbf{Future}: Super-app convergence + DeFi disruption
+\end{itemize}
+\end{frame}
+
+\end{document}

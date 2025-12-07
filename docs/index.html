@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSc Digital Finance - Course Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #0f172a;
+            background: #f8fafc;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 36px;
+            background: #0f172a;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 1000;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 36px;
+            left: 0;
+            width: 160px;
+            height: calc(100vh - 36px);
+            background: white;
+            border-right: 1px solid #e2e8f0;
+            padding: 16px 0;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .sidebar-section {
+            margin-bottom: 20px;
+        }
+
+        .sidebar-title {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #64748b;
+            padding: 0 12px 6px 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .sidebar-nav a {
+            display: block;
+            padding: 6px 12px;
+            color: #475569;
+            text-decoration: none;
+            font-size: 12px;
+            transition: all 0.15s;
+        }
+
+        .sidebar-nav a:hover {
+            background: #f1f5f9;
+            color: #3b82f6;
+        }
+
+        .sidebar-badge {
+            margin: 8px 12px;
+        }
+
+        .sidebar-badge img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 160px;
+            margin-top: 36px;
+            padding: 32px;
+            min-height: calc(100vh - 36px);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            border-radius: 8px;
+            padding: 40px;
+            color: white;
+            margin-bottom: 32px;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-subtitle {
+            font-size: 15px;
+            opacity: 0.95;
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Section Styles */
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 28px;
+            margin-bottom: 24px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: #3b82f6;
+            border-radius: 2px;
+        }
+
+        /* Module Cards */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+
+        .module-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 16px;
+            transition: all 0.2s;
+        }
+
+        .module-card:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+        }
+
+        .module-header {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #0f172a;
+        }
+
+        .module-number {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 3px;
+            margin-right: 6px;
+            font-weight: 600;
+        }
+
+        .topic-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .topic-pill {
+            background: white;
+            border: 1px solid #e2e8f0;
+            color: #475569;
+            font-size: 10px;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        /* Lessons Section */
+        .module-section {
+            margin-bottom: 20px;
+        }
+
+        .module-toggle {
+            background: #f1f5f9;
+            border: none;
+            width: 100%;
+            padding: 12px 16px;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 600;
+            color: #0f172a;
+            cursor: pointer;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s;
+        }
+
+        .module-toggle:hover {
+            background: #e2e8f0;
+        }
+
+        .module-toggle.active {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .toggle-icon {
+            transition: transform 0.2s;
+        }
+
+        .module-toggle.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .module-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .module-content.active {
+            max-height: 2000px;
+            padding-top: 12px;
+        }
+
+        .lessons-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .lessons-table th {
+            background: #f8fafc;
+            padding: 8px 12px;
+            text-align: left;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #64748b;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .lessons-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 12px;
+        }
+
+        .lessons-table tr:hover {
+            background: #f8fafc;
+        }
+
+        .lesson-number {
+            color: #64748b;
+            font-weight: 600;
+            width: 40px;
+        }
+
+        .pdf-link {
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 11px;
+            padding: 4px 10px;
+            border: 1px solid #3b82f6;
+            border-radius: 4px;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .pdf-link:hover {
+            background: #3b82f6;
+            color: white;
+        }
+
+        /* Demo Cards */
+        .demos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .demo-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 16px;
+            transition: all 0.2s;
+        }
+
+        .demo-card:hover {
+            border-color: #f59e0b;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+        }
+
+        .demo-badge {
+            display: inline-block;
+            background: #fef3c7;
+            color: #92400e;
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 3px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .demo-title {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #0f172a;
+        }
+
+        .demo-desc {
+            font-size: 11px;
+            color: #64748b;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .demo-links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .demo-link {
+            color: #f59e0b;
+            text-decoration: none;
+            font-size: 11px;
+            padding: 4px 10px;
+            border: 1px solid #f59e0b;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .demo-link:hover {
+            background: #f59e0b;
+            color: white;
+        }
+
+        /* Assessment Cards */
+        .assessment-info {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .tracks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+
+        .track-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 16px;
+        }
+
+        .track-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #0f172a;
+        }
+
+        .track-desc {
+            font-size: 11px;
+            color: #64748b;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .track-list {
+            list-style: none;
+        }
+
+        .track-list li {
+            font-size: 11px;
+            padding: 4px 0;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .track-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            background: #3b82f6;
+            border-radius: 50%;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e2e8f0;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 24px;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: -26px;
+            top: 4px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #3b82f6;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px #e2e8f0;
+        }
+
+        .timeline-week {
+            font-size: 11px;
+            font-weight: 600;
+            color: #64748b;
+            margin-bottom: 4px;
+        }
+
+        .timeline-content {
+            font-size: 13px;
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 24px 32px;
+            margin-left: 160px;
+            margin-top: 40px;
+            font-size: 11px;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .sidebar {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .footer {
+                margin-left: 0;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .main-content {
+                padding: 16px;
+            }
+
+            .hero {
+                padding: 24px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        BSC DIGITAL FINANCE
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-section">
+            <div class="sidebar-title">Navigation</div>
+            <div class="sidebar-nav">
+                <a href="#overview">Overview</a>
+                <a href="#modules">Modules</a>
+                <a href="#lessons">Lessons</a>
+                <a href="#demos">Demos</a>
+                <a href="#assessments">Assessments</a>
+                <a href="#schedule">Schedule</a>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">External</div>
+            <div class="sidebar-nav">
+                <a href="https://github.com/Digital-AI-Finance/DigitalFinance" target="_blank">GitHub Repository</a>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-badge">
+                <img src="https://img.shields.io/badge/Lessons-48-3b82f6?style=flat-square" alt="Lessons Count">
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <div class="hero" id="overview">
+                <h1>BSc Digital Finance</h1>
+                <div class="hero-subtitle">Fintech, Blockchain, AI/ML & Traditional Finance</div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">48</div>
+                        <div class="stat-label">Lessons</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">4</div>
+                        <div class="stat-label">Modules</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">36</div>
+                        <div class="stat-label">Hours</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">CC BY-NC-SA</div>
+                        <div class="stat-label">License</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modules Section -->
+            <div class="section" id="modules">
+                <h2 class="section-title">Course Modules</h2>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <div class="module-header">
+                            <span class="module-number">Module 1</span>Fintech
+                        </div>
+                        <div class="topic-pills">
+                            <span class="topic-pill">Mobile Payments</span>
+                            <span class="topic-pill">Neobanks</span>
+                            <span class="topic-pill">Open Banking</span>
+                            <span class="topic-pill">P2P Lending</span>
+                            <span class="topic-pill">InsurTech</span>
+                            <span class="topic-pill">RegTech</span>
+                        </div>
+                    </div>
+
+                    <div class="module-card">
+                        <div class="module-header">
+                            <span class="module-number">Module 2</span>Blockchain
+                        </div>
+                        <div class="topic-pills">
+                            <span class="topic-pill">Cryptography</span>
+                            <span class="topic-pill">Consensus</span>
+                            <span class="topic-pill">Bitcoin</span>
+                            <span class="topic-pill">Ethereum</span>
+                            <span class="topic-pill">DeFi</span>
+                            <span class="topic-pill">Stablecoins</span>
+                        </div>
+                    </div>
+
+                    <div class="module-card">
+                        <div class="module-header">
+                            <span class="module-number">Module 3</span>AI/ML in Finance
+                        </div>
+                        <div class="topic-pills">
+                            <span class="topic-pill">Machine Learning</span>
+                            <span class="topic-pill">Regression</span>
+                            <span class="topic-pill">Classification</span>
+                            <span class="topic-pill">NLP</span>
+                            <span class="topic-pill">Risk Models</span>
+                        </div>
+                    </div>
+
+                    <div class="module-card">
+                        <div class="module-header">
+                            <span class="module-number">Module 4</span>Traditional Finance
+                        </div>
+                        <div class="topic-pills">
+                            <span class="topic-pill">Trading</span>
+                            <span class="topic-pill">Risk Management</span>
+                            <span class="topic-pill">Capital Markets</span>
+                            <span class="topic-pill">CBDC</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lessons Section -->
+            <div class="section" id="lessons">
+                <h2 class="section-title">Course Lessons</h2>
+
+                <!-- Module 1 -->
+                <div class="module-section">
+                    <button class="module-toggle" onclick="toggleModule(0)">
+                        <span>Module 1: Fintech</span>
+                        <span class="toggle-icon">▼</span>
+                    </button>
+                    <div class="module-content">
+                        <table class="lessons-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Title</th>
+                                    <th>PDF</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="lesson-number">01</td>
+                                    <td>Introduction to Fintech</td>
+                                    <td><a href="slides/module_01/lesson_01_intro_fintech.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">02</td>
+                                    <td>Mobile Payments & Digital Wallets</td>
+                                    <td><a href="slides/module_01/lesson_02_mobile_payments.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">03</td>
+                                    <td>Neobanks & Challenger Banks</td>
+                                    <td><a href="slides/module_01/lesson_03_neobanks.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">04</td>
+                                    <td>Open Banking & APIs</td>
+                                    <td><a href="slides/module_01/lesson_04_open_banking.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">05</td>
+                                    <td>P2P Lending Platforms</td>
+                                    <td><a href="slides/module_01/lesson_05_p2p_lending.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">06</td>
+                                    <td>InsurTech Innovations</td>
+                                    <td><a href="slides/module_01/lesson_06_insurtech.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">07</td>
+                                    <td>RegTech & Compliance</td>
+                                    <td><a href="slides/module_01/lesson_07_regtech.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">08</td>
+                                    <td>WealthTech & Robo-Advisors</td>
+                                    <td><a href="slides/module_01/lesson_08_wealthtech.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">09</td>
+                                    <td>Embedded Finance</td>
+                                    <td><a href="slides/module_01/lesson_09_embedded_finance.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">10</td>
+                                    <td>Fintech Business Models</td>
+                                    <td><a href="slides/module_01/lesson_10_business_models.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">11</td>
+                                    <td>Payment Systems & Infrastructure</td>
+                                    <td><a href="slides/module_01/lesson_11_payment_systems.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">12</td>
+                                    <td>Fintech Regulation & Policy</td>
+                                    <td><a href="slides/module_01/lesson_12_regulation.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="module-section">
+                    <button class="module-toggle" onclick="toggleModule(1)">
+                        <span>Module 2: Blockchain</span>
+                        <span class="toggle-icon">▼</span>
+                    </button>
+                    <div class="module-content">
+                        <table class="lessons-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Title</th>
+                                    <th>PDF</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="lesson-number">13</td>
+                                    <td>Blockchain Fundamentals</td>
+                                    <td><a href="slides/module_02/lesson_13_blockchain_fundamentals.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">14</td>
+                                    <td>Cryptographic Foundations</td>
+                                    <td><a href="slides/module_02/lesson_14_cryptography.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">15</td>
+                                    <td>Consensus Mechanisms</td>
+                                    <td><a href="slides/module_02/lesson_15_consensus.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">16</td>
+                                    <td>Bitcoin Protocol</td>
+                                    <td><a href="slides/module_02/lesson_16_bitcoin.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">17</td>
+                                    <td>Ethereum & Smart Contracts</td>
+                                    <td><a href="slides/module_02/lesson_17_ethereum.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">18</td>
+                                    <td>DeFi Protocols</td>
+                                    <td><a href="slides/module_02/lesson_18_defi.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">19</td>
+                                    <td>Stablecoins & CBDC</td>
+                                    <td><a href="slides/module_02/lesson_19_stablecoins.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">20</td>
+                                    <td>NFTs & Digital Assets</td>
+                                    <td><a href="slides/module_02/lesson_20_nfts.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">21</td>
+                                    <td>Layer 2 Solutions</td>
+                                    <td><a href="slides/module_02/lesson_21_layer2.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">22</td>
+                                    <td>Blockchain Scalability</td>
+                                    <td><a href="slides/module_02/lesson_22_scalability.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">23</td>
+                                    <td>Security & Privacy</td>
+                                    <td><a href="slides/module_02/lesson_23_security.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">24</td>
+                                    <td>Enterprise Blockchain</td>
+                                    <td><a href="slides/module_02/lesson_24_enterprise.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="module-section">
+                    <button class="module-toggle" onclick="toggleModule(2)">
+                        <span>Module 3: AI/ML in Finance</span>
+                        <span class="toggle-icon">▼</span>
+                    </button>
+                    <div class="module-content">
+                        <table class="lessons-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Title</th>
+                                    <th>PDF</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="lesson-number">25</td>
+                                    <td>Introduction to ML in Finance</td>
+                                    <td><a href="slides/module_03/lesson_25_ml_intro.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">26</td>
+                                    <td>Linear Regression</td>
+                                    <td><a href="slides/module_03/lesson_26_regression.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">27</td>
+                                    <td>Logistic Regression & Classification</td>
+                                    <td><a href="slides/module_03/lesson_27_classification.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">28</td>
+                                    <td>Decision Trees & Random Forests</td>
+                                    <td><a href="slides/module_03/lesson_28_trees.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">29</td>
+                                    <td>Support Vector Machines</td>
+                                    <td><a href="slides/module_03/lesson_29_svm.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">30</td>
+                                    <td>Neural Networks & Deep Learning</td>
+                                    <td><a href="slides/module_03/lesson_30_neural_networks.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">31</td>
+                                    <td>Natural Language Processing</td>
+                                    <td><a href="slides/module_03/lesson_31_nlp.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">32</td>
+                                    <td>Time Series Analysis</td>
+                                    <td><a href="slides/module_03/lesson_32_time_series.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">33</td>
+                                    <td>Risk Modeling & Credit Scoring</td>
+                                    <td><a href="slides/module_03/lesson_33_risk_models.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">34</td>
+                                    <td>Fraud Detection</td>
+                                    <td><a href="slides/module_03/lesson_34_fraud_detection.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">35</td>
+                                    <td>Algorithmic Trading</td>
+                                    <td><a href="slides/module_03/lesson_35_algo_trading.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">36</td>
+                                    <td>Explainable AI & Model Governance</td>
+                                    <td><a href="slides/module_03/lesson_36_explainable_ai.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Module 4 -->
+                <div class="module-section">
+                    <button class="module-toggle" onclick="toggleModule(3)">
+                        <span>Module 4: Traditional Finance</span>
+                        <span class="toggle-icon">▼</span>
+                    </button>
+                    <div class="module-content">
+                        <table class="lessons-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Title</th>
+                                    <th>PDF</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="lesson-number">37</td>
+                                    <td>Financial Markets Overview</td>
+                                    <td><a href="slides/module_04/lesson_37_markets_overview.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">38</td>
+                                    <td>Trading Mechanisms & Market Structure</td>
+                                    <td><a href="slides/module_04/lesson_38_trading.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">39</td>
+                                    <td>Risk Management Fundamentals</td>
+                                    <td><a href="slides/module_04/lesson_39_risk_management.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">40</td>
+                                    <td>Fixed Income Securities</td>
+                                    <td><a href="slides/module_04/lesson_40_fixed_income.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">41</td>
+                                    <td>Derivatives & Options</td>
+                                    <td><a href="slides/module_04/lesson_41_derivatives.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">42</td>
+                                    <td>Portfolio Management</td>
+                                    <td><a href="slides/module_04/lesson_42_portfolio.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">43</td>
+                                    <td>Capital Markets & Investment Banking</td>
+                                    <td><a href="slides/module_04/lesson_43_capital_markets.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">44</td>
+                                    <td>Central Bank Digital Currencies</td>
+                                    <td><a href="slides/module_04/lesson_44_cbdc.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">45</td>
+                                    <td>Financial Regulation & Basel Accords</td>
+                                    <td><a href="slides/module_04/lesson_45_regulation.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">46</td>
+                                    <td>Systemic Risk & Financial Stability</td>
+                                    <td><a href="slides/module_04/lesson_46_systemic_risk.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">47</td>
+                                    <td>ESG & Sustainable Finance</td>
+                                    <td><a href="slides/module_04/lesson_47_esg.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="lesson-number">48</td>
+                                    <td>Future of Finance</td>
+                                    <td><a href="slides/module_04/lesson_48_future.pdf" class="pdf-link">Download</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Python Demos Section -->
+            <div class="section" id="demos">
+                <h2 class="section-title">Python Demonstrations</h2>
+                <div class="demos-grid">
+                    <!-- Module 1 Demos -->
+                    <div class="demo-card">
+                        <div class="demo-badge">Module 1</div>
+                        <div class="demo-title">Payment Flow Simulation</div>
+                        <div class="demo-desc">Simulates mobile payment transactions with fraud detection</div>
+                        <div class="demo-links">
+                            <a href="demos/module_01/payment_flow.py" class="demo-link">Source</a>
+                            <a href="demos/module_01/payment_flow.pdf" class="demo-link">Output</a>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <div class="demo-badge">Module 1</div>
+                        <div class="demo-title">Neobank Dashboard</div>
+                        <div class="demo-desc">Interactive customer analytics for digital banking</div>
+                        <div class="demo-links">
+                            <a href="demos/module_01/neobank_dashboard.py" class="demo-link">Source</a>
+                            <a href="demos/module_01/neobank_dashboard.pdf" class="demo-link">Output</a>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <div class="demo-badge">Module 1</div>
+                        <div class="demo-title">P2P Lending Calculator</div>
+                        <div class="demo-desc">Risk assessment and return calculations for P2P loans</div>
+                        <div class="demo-links">
+                            <a href="demos/module_01/p2p_calculator.py" class="demo-link">Source</a>
+                            <a href="demos/module_01/p2p_calculator.pdf" class="demo-link">Output</a>
+                        </div>
+                    </div>
+
+                    <!-- Module 2 Demos -->
+                    <div class="demo-card">
+                        <div class="demo-badge">Module 2</div>
+                        <div class="demo-title">Blockchain Simulator</div>
+                        <div class="demo-desc">Simple blockchain implementation with mining</div>
+                        <div class="demo-links">
+                            <a href="demos/module_02/blockchain_sim.py" class="demo-link">Source</a>
+                            <a href="demos/module_02/blockchain_sim.pdf" class="demo-link">Output</a>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <div class="demo-badge">Module 2</div>
+                        <div class="demo-title">Smart Contract Analyzer</div>
+                        <div class="demo-desc">Ethereum smart contract gas optimization analysis</div>
+                        <div class="demo-links">
+                            <a href="demos/module_02/smart_contract.py" class="demo-link">Source</a>
+                            <a href="demos/module_02/smart_contract.pdf" class="demo-link">Output</a>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <div class="demo-badge">Module 2</div>
+                        <div class="demo-title">DeFi Protocol Metrics</div>
+                        <div class="demo-desc">TVL, APY, and liquidity pool analytics</div>
+                        <div class="demo-links">
+                            <a href="demos/module_02/defi_metrics.py" class="demo-link">Source</a>
+                            <a href="demos/module_02/defi_metrics.pdf" class="demo-link">Output</a>
+                        </div>
+                    </div>
+
+                    <!-- Module 3 Demos -->
+                    <div class="demo-card">
+                        <div class="demo-badge">Module 3</div>
+                        <div class="demo-title">Stock Price Predictor</div>
+                        <div class="demo-desc">LSTM neural network for stock price forecasting</div>
+                        <div class="demo-links">
+                            <a href="demos/module_03/stock_predictor.py" class="demo-link">Source</a>
+                            <a href="demos/module_03/stock_predictor.pdf" class="demo-link">Output</a>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <div class="demo-badge">Module 3</div>
+                        <div class="demo-title">Credit Risk Model</div>
+                        <div class="demo-desc">Random forest classifier for credit default prediction</div>
+                        <div class="demo-links">
+                            <a href="demos/module_03/credit_risk.py" class="demo-link">Source</a>
+                            <a href="demos/module_03/credit_risk.pdf" class="demo-link">Output</a>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <div class="demo-badge">Module 3</div>
+                        <div class="demo-title">Sentiment Analysis</div>
+                        <div class="demo-desc">NLP for financial news sentiment classification</div>
+                        <div class="demo-links">
+                            <a href="demos/module_03/sentiment_analysis.py" class="demo-link">Source</a>
+                            <a href="demos/module_03/sentiment_analysis.pdf" class="demo-link">Output</a>
+                        </div>
+                    </div>
+
+                    <!-- Module 4 Demos -->
+                    <div class="demo-card">
+                        <div class="demo-badge">Module 4</div>
+                        <div class="demo-title">Option Pricing Calculator</div>
+                        <div class="demo-desc">Black-Scholes and binomial tree models</div>
+                        <div class="demo-links">
+                            <a href="demos/module_04/option_pricing.py" class="demo-link">Source</a>
+                            <a href="demos/module_04/option_pricing.pdf" class="demo-link">Output</a>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <div class="demo-badge">Module 4</div>
+                        <div class="demo-title">Portfolio Optimizer</div>
+                        <div class="demo-desc">Modern portfolio theory with efficient frontier</div>
+                        <div class="demo-links">
+                            <a href="demos/module_04/portfolio_optimizer.py" class="demo-link">Source</a>
+                            <a href="demos/module_04/portfolio_optimizer.pdf" class="demo-link">Output</a>
+                        </div>
+                    </div>
+
+                    <div class="demo-card">
+                        <div class="demo-badge">Module 4</div>
+                        <div class="demo-title">VaR Calculator</div>
+                        <div class="demo-desc">Value at Risk using historical and Monte Carlo methods</div>
+                        <div class="demo-links">
+                            <a href="demos/module_04/var_calculator.py" class="demo-link">Source</a>
+                            <a href="demos/module_04/var_calculator.pdf" class="demo-link">Output</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Assessments Section -->
+            <div class="section" id="assessments">
+                <h2 class="section-title">Course Assessment</h2>
+                <div class="assessment-info">
+                    <strong>Final Project (100%)</strong> - Students choose one of three tracks based on their interests and career goals.
+                </div>
+                <div class="tracks-grid">
+                    <div class="track-card">
+                        <div class="track-title">Technical Track</div>
+                        <div class="track-desc">Build a working application using course technologies</div>
+                        <ul class="track-list">
+                            <li>DeFi protocol implementation</li>
+                            <li>ML-based trading bot</li>
+                            <li>Smart contract dApp</li>
+                            <li>Payment system integration</li>
+                        </ul>
+                    </div>
+
+                    <div class="track-card">
+                        <div class="track-title">Research Track</div>
+                        <div class="track-desc">Academic research paper on emerging finance topics</div>
+                        <ul class="track-list">
+                            <li>Literature review (25+ sources)</li>
+                            <li>Empirical analysis</li>
+                            <li>Original contribution</li>
+                            <li>Conference-style presentation</li>
+                        </ul>
+                    </div>
+
+                    <div class="track-card">
+                        <div class="track-title">Business Track</div>
+                        <div class="track-desc">Business case study and strategic analysis</div>
+                        <ul class="track-list">
+                            <li>Market analysis</li>
+                            <li>Business model design</li>
+                            <li>Financial projections</li>
+                            <li>Regulatory compliance plan</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Schedule Section -->
+            <div class="section" id="schedule">
+                <h2 class="section-title">Course Schedule</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-week">Weeks 1-3</div>
+                        <div class="timeline-content">Module 1: Fintech Foundations</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-week">Weeks 4-6</div>
+                        <div class="timeline-content">Module 2: Blockchain & Cryptocurrency</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-week">Week 7</div>
+                        <div class="timeline-content">Midterm Review & Project Proposals</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-week">Weeks 8-10</div>
+                        <div class="timeline-content">Module 3: AI/ML in Finance</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-week">Weeks 11-13</div>
+                        <div class="timeline-content">Module 4: Traditional Finance Integration</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-week">Week 14</div>
+                        <div class="timeline-content">Final Project Presentations</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div>
+            Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> |
+            <a href="https://github.com/Digital-AI-Finance/DigitalFinance">GitHub Repository</a>
+        </div>
+        <div style="margin-top: 8px;">Copyright 2025 - BSc Digital Finance Course</div>
+    </div>
+
+    <script>
+        function toggleModule(index) {
+            const toggles = document.querySelectorAll('.module-toggle');
+            const contents = document.querySelectorAll('.module-content');
+
+            toggles[index].classList.toggle('active');
+            contents[index].classList.toggle('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 50;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

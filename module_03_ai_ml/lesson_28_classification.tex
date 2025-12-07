@@ -1,0 +1,810 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Digital Finance 3: Technology in Finance}
+\subtitle{Lesson 28: Supervised Learning - Classification}
+\author{FHGR}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Learning Objectives}
+By the end of this lesson, you will be able to:
+\begin{itemize}
+\item Explain classification problems and contrast with regression
+\item Understand logistic regression and probability estimation
+\item Interpret confusion matrices and classification metrics
+\item Calculate and interpret accuracy, precision, recall, and F1-score
+\item Use ROC curves and AUC for model evaluation
+\item Apply classification to credit scoring and fraud detection
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Classification vs. Regression}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Regression (Lesson 27):}
+\begin{itemize}
+\item Predict continuous values
+\item $Y \in \mathbb{R}$ (e.g., stock return, price)
+\item Example: Predict bond yield (3.2\%)
+\item Metrics: $R^2$, RMSE, MAE
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Classification (Today):}
+\begin{itemize}
+\item Predict discrete categories
+\item $Y \in \{0, 1, 2, \ldots, K\}$
+\item Binary: Default (Yes/No)
+\item Multi-class: Credit rating (AAA, AA, A, ...)
+\item Metrics: Accuracy, precision, recall
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Finance Examples:}
+
+\vspace{0.3em}
+\textit{Binary Classification:}
+\begin{itemize}
+\item Loan default (Yes/No)
+\item Fraud transaction (Fraud/Legitimate)
+\item Stock direction (Up/Down)
+\item M\&A success (Completed/Failed)
+\end{itemize}
+
+\vspace{0.3em}
+\textit{Multi-class:}
+\begin{itemize}
+\item Credit ratings (10 grades)
+\item Customer segments (5 types)
+\item Market regime (Bull/Bear/Sideways)
+\end{itemize}
+\end{columns}
+
+\vspace{0.5em}
+\textbf{Focus Today:} Binary classification (most common in finance).
+\end{frame}
+
+\begin{frame}{Logistic Regression: The Model}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Why Not Linear Regression?}
+\begin{itemize}
+\item For binary $Y \in \{0,1\}$, OLS can predict $\hat{Y} < 0$ or $\hat{Y} > 1$
+\item Violates probability interpretation
+\item Residuals not normal
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Logistic Regression:}
+\begin{itemize}
+\item Predict probability: $P(Y=1 | X)$
+\item Output constrained to $[0, 1]$
+\item Use logistic (sigmoid) function
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Model:}
+\[
+P(Y=1 | X) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 X_1 + \cdots + \beta_p X_p)}}
+\]
+
+\column{0.48\textwidth}
+\textbf{Logit Form:}
+\[
+\log\left(\frac{P}{1-P}\right) = \beta_0 + \beta_1 X_1 + \cdots + \beta_p X_p
+\]
+\begin{itemize}
+\item Left side: Log-odds (logit)
+\item Right side: Linear combination (like linear regression)
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Interpretation:}
+\begin{itemize}
+\item $\beta_j > 0$: Increase in $X_j$ increases probability of $Y=1$
+\item $\beta_j < 0$: Decrease probability
+\item Magnitude: Change in log-odds per unit $X_j$
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Estimation:} Maximum Likelihood (not OLS).
+\end{columns}
+\end{frame}
+
+\begin{frame}{Example: Loan Default Prediction}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Problem:}
+\begin{itemize}
+\item Predict default (1) vs. repayment (0)
+\item Features:
+  \begin{itemize}
+  \item Credit score
+  \item Debt-to-income ratio
+  \item Loan amount
+  \item Employment status
+  \end{itemize}
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Fitted Model:}
+\begin{align*}
+\log\left(\frac{P(\text{Default})}{1-P(\text{Default})}\right) = 2.5 &- 0.015 \times \text{CreditScore} \\
+&+ 1.2 \times \text{DebtToIncome}
+\end{align*}
+
+\column{0.48\textwidth}
+\textbf{Interpretation:}
+\begin{itemize}
+\item \textbf{Credit Score} ($\beta = -0.015$):
+  \begin{itemize}
+  \item 10-point increase → log-odds decrease by 0.15
+  \item Higher score → lower default probability
+  \end{itemize}
+\item \textbf{Debt-to-Income} ($\beta = 1.2$):
+  \begin{itemize}
+  \item 0.1 increase (10 pp) → log-odds increase by 0.12
+  \item Higher debt burden → higher default risk
+  \end{itemize}
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Example Prediction:}\\
+Credit Score = 650, D/I = 0.4:
+\[
+\log(\text{odds}) = 2.5 - 0.015(650) + 1.2(0.4) = -7.28
+\]
+\[
+P(\text{Default}) = \frac{1}{1+e^{7.28}} = 0.0007 \text{ (0.07\%)}
+\]
+\end{columns}
+\end{frame}
+
+\begin{frame}{Making Predictions: Decision Threshold}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{From Probabilities to Classes:}
+\begin{itemize}
+\item Logistic regression outputs $P(Y=1|X) \in [0,1]$
+\item Need decision rule to classify
+\item Default threshold: 0.5
+  \begin{itemize}
+  \item If $P \geq 0.5$ → predict 1
+  \item If $P < 0.5$ → predict 0
+  \end{itemize}
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Custom Thresholds:}
+\begin{itemize}
+\item Threshold is tunable hyperparameter
+\item Lower threshold (0.3): More sensitive (more positives)
+\item Higher threshold (0.7): More specific (fewer false positives)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Example (Fraud Detection):}
+\begin{itemize}
+\item Transaction 1: $P(\text{Fraud}) = 0.8$ → Flag as fraud
+\item Transaction 2: $P(\text{Fraud}) = 0.3$ → Depends on threshold
+  \begin{itemize}
+  \item Threshold = 0.5 → Legitimate
+  \item Threshold = 0.2 → Fraud (more cautious)
+  \end{itemize}
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Threshold Selection:}
+\begin{itemize}
+\item Depends on cost of errors
+\item Fraud: False negative costly (miss fraud) → low threshold
+\item Spam: False positive costly (block good email) → high threshold
+\item Use ROC curve for tuning (later)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Confusion Matrix}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{2x2 Table of Predictions vs. Actuals:}
+
+\vspace{0.5em}
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+& \textbf{Actual 0} & \textbf{Actual 1} \\
+\midrule
+\textbf{Predict 0} & TN (True Neg) & FN (False Neg) \\
+\textbf{Predict 1} & FP (False Pos) & TP (True Pos) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.5em}
+\textbf{Definitions:}
+\begin{itemize}
+\item \textbf{TP:} Correctly predicted positive (fraud caught)
+\item \textbf{TN:} Correctly predicted negative (legit confirmed)
+\item \textbf{FP:} False alarm (Type I error, legit flagged as fraud)
+\item \textbf{FN:} Missed positive (Type II error, fraud missed)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Example (Fraud Detection):}\\
+Out of 1000 transactions:
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+& \textbf{Not Fraud} & \textbf{Fraud} \\
+\midrule
+\textbf{Predict Not} & 920 (TN) & 10 (FN) \\
+\textbf{Predict Fraud} & 30 (FP) & 40 (TP) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.5em}
+\textbf{Interpretation:}
+\begin{itemize}
+\item 40 frauds caught (TP)
+\item 10 frauds missed (FN) - costly!
+\item 30 false alarms (FP) - customer inconvenience
+\item 920 correct legitimate (TN)
+\end{itemize}
+
+\vspace{0.5em}
+All metrics derived from this matrix.
+\end{columns}
+\end{frame}
+
+\begin{frame}{Classification Metrics: Accuracy}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Accuracy:}
+\[
+\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
+\]
+\begin{itemize}
+\item Proportion of correct predictions
+\item Range: $[0, 1]$ (higher is better)
+\item Intuitive, widely reported
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Example (previous slide):}
+\[
+\text{Accuracy} = \frac{40 + 920}{1000} = 0.96 \text{ (96\%)}
+\]
+
+\vspace{0.5em}
+Looks great! But...
+
+\column{0.48\textwidth}
+\textbf{Problem: Imbalanced Classes}
+
+\vspace{0.5em}
+Suppose only 50 frauds (5\%) in 1000 transactions.
+
+\vspace{0.3em}
+\textbf{Naive Model:} Predict all as ``Not Fraud''
+\[
+\text{Accuracy} = \frac{950}{1000} = 95\%
+\]
+
+\vspace{0.3em}
+High accuracy, but useless model (misses all fraud)!
+
+\vspace{0.5em}
+\textbf{Lesson:}
+\begin{itemize}
+\item Accuracy misleading for imbalanced data
+\item Common in finance (fraud 1-2\%, default 2-5\%)
+\item Need better metrics: Precision, Recall
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Precision and Recall}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Precision (Positive Predictive Value):}
+\[
+\text{Precision} = \frac{TP}{TP + FP}
+\]
+\begin{itemize}
+\item Of predicted positives, how many are correct?
+\item Answers: ``When model says fraud, is it really fraud?''
+\item High precision: Few false alarms
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Recall (Sensitivity, True Positive Rate):}
+\[
+\text{Recall} = \frac{TP}{TP + FN}
+\]
+\begin{itemize}
+\item Of actual positives, how many did we catch?
+\item Answers: ``What fraction of fraud did we detect?''
+\item High recall: Few missed positives
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Example (Fraud):}\\
+TP=40, FP=30, FN=10, TN=920
+
+\[
+\text{Precision} = \frac{40}{40+30} = 0.571 \text{ (57\%)}
+\]
+\[
+\text{Recall} = \frac{40}{40+10} = 0.80 \text{ (80\%)}
+\]
+
+\vspace{0.5em}
+\textbf{Interpretation:}
+\begin{itemize}
+\item 57\% of flagged transactions are actual fraud (43\% false alarms)
+\item 80\% of frauds are caught (20\% missed)
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Trade-off:}
+\begin{itemize}
+\item Lower threshold → Higher recall, lower precision
+\item Higher threshold → Higher precision, lower recall
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{F1-Score: Balancing Precision and Recall}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{F1-Score:}
+\[
+F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}
+\]
+\begin{itemize}
+\item Harmonic mean of precision and recall
+\item Range: $[0, 1]$ (higher is better)
+\item Balances both concerns
+\item Single metric for model comparison
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Example:}\\
+Precision = 0.571, Recall = 0.80
+\[
+F1 = 2 \times \frac{0.571 \times 0.80}{0.571 + 0.80} = 0.667
+\]
+
+\column{0.48\textwidth}
+\textbf{When to Use F1:}
+\begin{itemize}
+\item Imbalanced classes (fraud, default)
+\item Need balance between precision and recall
+\item No strong preference for one over the other
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Weighted F1:}\\
+If costs unequal:
+\[
+F_\beta = (1+\beta^2) \times \frac{\text{Prec} \times \text{Rec}}{\beta^2 \times \text{Prec} + \text{Rec}}
+\]
+\begin{itemize}
+\item $\beta > 1$: Favor recall (e.g., $\beta=2$)
+\item $\beta < 1$: Favor precision (e.g., $\beta=0.5$)
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Alternative:} Directly optimize business metric (expected cost/profit).
+\end{columns}
+\end{frame}
+
+\begin{frame}{ROC Curve and AUC}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{ROC (Receiver Operating Characteristic):}
+\begin{itemize}
+\item Plot TPR (Recall) vs. FPR across all thresholds
+\item \textbf{TPR} (True Positive Rate) = Recall = $\frac{TP}{TP+FN}$
+\item \textbf{FPR} (False Positive Rate) = $\frac{FP}{FP+TN}$
+\item X-axis: FPR (0 to 1)
+\item Y-axis: TPR (0 to 1)
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Interpretation:}
+\begin{itemize}
+\item Each point: Different threshold
+\item Top-left corner: Perfect classifier (TPR=1, FPR=0)
+\item Diagonal: Random guessing
+\item Further from diagonal: Better model
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{AUC (Area Under Curve):}
+\begin{itemize}
+\item Aggregate metric: Area under ROC curve
+\item Range: $[0, 1]$
+\item AUC = 0.5: Random (no skill)
+\item AUC = 1.0: Perfect classifier
+\item AUC = 0.7-0.8: Good
+\item AUC = 0.8-0.9: Very good
+\item AUC > 0.9: Excellent (or overfitting?)
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Advantages:}
+\begin{itemize}
+\item Threshold-independent
+\item Single number for model comparison
+\item Handles imbalanced classes
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Finance:} AUC 0.7-0.8 typical for credit/fraud models.
+\end{columns}
+\end{frame}
+
+\begin{frame}{Application: Credit Scoring}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Problem:}
+\begin{itemize}
+\item Predict loan default (1) vs. repayment (0)
+\item Features: Credit score, income, debt, employment, history
+\item Imbalanced: 2-5\% default rate
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Model Comparison:}
+\begin{itemize}
+\item \textbf{Logistic Regression:} AUC = 0.72
+\item \textbf{Random Forest:} AUC = 0.76
+\item \textbf{Gradient Boosting:} AUC = 0.78
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Deployment:}
+\begin{itemize}
+\item Set threshold based on business objective
+\item Example: Approve top 60\% (by score)
+\item Monitor performance over time
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Cost-Benefit Analysis:}
+\begin{itemize}
+\item \textbf{True Negative:} Correctly reject bad loan → \$0 loss avoided
+\item \textbf{False Positive:} Reject good borrower → Lost profit (\$500)
+\item \textbf{True Positive:} Approve good loan → Profit (\$500)
+\item \textbf{False Negative:} Approve bad loan → Loss (\$5000)
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Optimal Threshold:}
+\begin{itemize}
+\item Not 0.5! Depends on costs
+\item FN (miss bad loan) 10x worse than FP (reject good)
+\item Use higher threshold (more conservative)
+\item Maximize expected profit, not accuracy
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Regulatory:} Must ensure fairness (no discrimination).
+\end{columns}
+\end{frame}
+
+\begin{frame}{Application: Fraud Detection}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Problem:}
+\begin{itemize}
+\item Real-time detection of fraudulent transactions
+\item Highly imbalanced: 0.1-0.5\% fraud rate
+\item Features:
+  \begin{itemize}
+  \item Transaction amount
+  \item Time of day, day of week
+  \item Merchant category
+  \item Location (IP, GPS)
+  \item User behavior patterns (deviations)
+  \end{itemize}
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Challenges:}
+\begin{itemize}
+\item Extreme imbalance (99.5\% legitimate)
+\item Real-time requirement (< 100ms)
+\item Adversarial (fraudsters adapt)
+\item False positives costly (block legit transactions)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Approach:}
+\begin{itemize}
+\item Class reweighting or SMOTE (oversample minority)
+\item Ensemble methods (Random Forest, XGBoost)
+\item Anomaly detection (isolation forest, autoencoders)
+\item Multi-stage: Rules + ML
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Typical Performance:}
+\begin{itemize}
+\item Precision: 10-20\% (many false positives)
+\item Recall: 60-80\% (catch most fraud)
+\item F1: 0.20-0.30
+\item AUC: 0.85-0.95
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Evolution:}
+\begin{itemize}
+\item Fraudsters constantly evolve
+\item Models decay over time (concept drift)
+\item Continuous retraining required
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Multi-Class Classification}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Extension to K Classes:}
+\begin{itemize}
+\item Binary: $Y \in \{0, 1\}$
+\item Multi-class: $Y \in \{1, 2, \ldots, K\}$
+\item Example: Credit ratings (AAA, AA, A, BBB, ...)
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Approaches:}
+\begin{enumerate}
+\item \textbf{One-vs-Rest (OvR):}
+  \begin{itemize}
+  \item Train K binary classifiers
+  \item Class 1 vs. All, Class 2 vs. All, etc.
+  \item Predict class with highest probability
+  \end{itemize}
+\item \textbf{One-vs-One (OvO):}
+  \begin{itemize}
+  \item Train $\binom{K}{2}$ binary classifiers
+  \item All pairwise comparisons
+  \item Majority vote
+  \end{itemize}
+\item \textbf{Softmax Regression (Multinomial Logistic):}
+  \begin{itemize}
+  \item Direct K-class model
+  \item Outputs probabilities for all K classes
+  \end{itemize}
+\end{enumerate}
+
+\column{0.48\textwidth}
+\textbf{Softmax Model:}
+\[
+P(Y=k | X) = \frac{e^{\beta_k^T X}}{\sum_{j=1}^{K} e^{\beta_j^T X}}
+\]
+\begin{itemize}
+\item K sets of coefficients: $\beta_1, \ldots, \beta_K$
+\item Probabilities sum to 1
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Evaluation:}
+\begin{itemize}
+\item Confusion matrix now $K \times K$
+\item Multi-class accuracy, precision, recall (per class)
+\item Macro vs. Micro averaging
+\item AUC: One-vs-rest approach
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Finance Example:}\\
+Predict credit rating transition:
+\begin{itemize}
+\item Features: Financial ratios, macro indicators
+\item Classes: Upgrade, Stable, Downgrade
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Handling Imbalanced Data}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Problem:}
+\begin{itemize}
+\item Minority class underrepresented
+\item Model biased toward majority
+\item Poor recall for rare events
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Resampling Techniques:}
+\begin{itemize}
+\item \textbf{Undersampling:} Randomly remove majority class
+  \begin{itemize}
+  \item Pro: Balanced dataset
+  \item Con: Lose information
+  \end{itemize}
+\item \textbf{Oversampling:} Duplicate minority class
+  \begin{itemize}
+  \item Pro: Keep all data
+  \item Con: Overfitting risk
+  \end{itemize}
+\item \textbf{SMOTE:} Synthetic Minority Oversampling
+  \begin{itemize}
+  \item Generate synthetic examples (interpolation)
+  \item Better than simple duplication
+  \end{itemize}
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Algorithmic Approaches:}
+\begin{itemize}
+\item \textbf{Class weights:} Penalize misclassifying minority more
+  \begin{itemize}
+  \item In logistic regression: $w_1 = n_0 / n_1$
+  \item Automatically adjusts loss function
+  \end{itemize}
+\item \textbf{Ensemble methods:} Bagging with balanced samples
+\item \textbf{Anomaly detection:} Treat minority as anomalies
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Best Practice:}
+\begin{itemize}
+\item Try multiple approaches
+\item Use stratified cross-validation
+\item Optimize F1 or AUC, not accuracy
+\item Domain expertise for feature engineering
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Finance:} Imbalance is the norm (default, fraud, rare events).
+\end{columns}
+\end{frame}
+
+\begin{frame}{Probability Calibration}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Problem:}
+\begin{itemize}
+\item Model outputs: Not always true probabilities
+\item Example: Predicts $P=0.7$, but only 50\% of such cases are positive
+\item Miscalibration common in ML
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Why It Matters:}
+\begin{itemize}
+\item Cost-benefit analysis requires true probabilities
+\item Regulatory reporting (PD, LGD in Basel)
+\item Decision-making (set reserves)
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Calibration Methods:}
+\begin{itemize}
+\item \textbf{Platt scaling:} Fit logistic regression on validation set
+\item \textbf{Isotonic regression:} Non-parametric calibration
+\item \textbf{Beta calibration:} Generalization of Platt
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Evaluation:}
+\begin{itemize}
+\item \textbf{Calibration plot:} Predicted prob vs. observed frequency
+\item \textbf{Brier score:}
+  \[
+  BS = \frac{1}{n} \sum_{i=1}^{n} (p_i - y_i)^2
+  \]
+  \begin{itemize}
+  \item Lower is better
+  \item Measures both calibration and discrimination
+  \end{itemize}
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Finance Application:}
+\begin{itemize}
+\item Credit models: PD (probability of default) must be well-calibrated
+\item Regulatory requirement (IFRS 9, CECL)
+\item Miscalibration → Wrong provisions, capital requirements
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Note:} Logistic regression often well-calibrated out-of-the-box; tree models often need calibration.
+\end{columns}
+\end{frame}
+
+\begin{frame}{Summary and Key Takeaways}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Core Concepts:}
+\begin{itemize}
+\item Classification: Predict discrete categories
+\item Logistic regression: Model probabilities
+\item Confusion matrix: TP, TN, FP, FN
+\item Threshold selection: Tune for business objective
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Metrics:}
+\begin{itemize}
+\item Accuracy: Misleading for imbalanced data
+\item Precision: Fraction of predicted positives correct
+\item Recall: Fraction of actual positives caught
+\item F1: Harmonic mean of precision and recall
+\item AUC: Threshold-independent performance
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Finance Applications:}
+\begin{itemize}
+\item Credit scoring: Default prediction
+\item Fraud detection: Real-time anomaly detection
+\item Both face severe class imbalance
+\item Cost-benefit analysis crucial
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Practical Considerations:}
+\begin{itemize}
+\item Handle imbalanced data (resampling, class weights)
+\item Calibrate probabilities for decision-making
+\item Monitor model decay over time
+\item Ensure fairness and explainability
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Next Lesson Preview}
+\textbf{Lesson 29: Algorithmic Trading Concepts}
+
+\vspace{0.5em}
+Topics to be covered:
+\begin{itemize}
+\item Types of algorithmic trading strategies
+\item Backtesting framework and pitfalls
+\item Overfitting in trading models
+\item Transaction costs and market impact
+\item Risk management in algo trading
+\item Realistic performance expectations
+\end{itemize}
+
+\vspace{1em}
+\textbf{Preparation:}
+\begin{itemize}
+\item Review time series concepts (stationarity, autocorrelation)
+\item Think: How would you test a trading strategy?
+\end{itemize}
+\end{frame}
+
+\end{document}

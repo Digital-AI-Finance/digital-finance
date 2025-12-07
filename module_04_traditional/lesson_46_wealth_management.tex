@@ -1,0 +1,639 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{adjustbox}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Color definitions
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255, 127, 14}
+\definecolor{mlgreen}{RGB}{44, 160, 44}
+\definecolor{mlred}{RGB}{214, 39, 40}
+\definecolor{mlgray}{RGB}{127, 127, 127}
+\definecolor{lightgray}{RGB}{240, 240, 240}
+\definecolor{midgray}{RGB}{180, 180, 180}
+
+% Apply custom colors to Madrid theme
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{palette quaternary}{bg=mlpurple,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{title}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamercolor{block title}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{block body}{bg=mllavender4,fg=black}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{enumerate items}[default]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
+
+\title{Lesson 46: Wealth Management Systems}
+\subtitle{Module 4: Traditional Digital Finance}
+\author{BSc Digital Finance}
+\institute{Platforms, Hybrid Models, and Technology}
+\date{}
+
+\begin{document}
+
+% ==================== TITLE ====================
+\begin{frame}[plain]
+\titlepage
+\end{frame}
+
+% ==================== LEARNING OBJECTIVES ====================
+\begin{frame}[t]{Learning Objectives}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{By the end of this lesson, you will be able to:}
+\begin{enumerate}
+\item Understand wealth management technology stack
+\item Compare private banking vs. mass affluent platforms
+\item Explain hybrid human-digital advisory models
+\item Analyze portfolio management systems
+\item Evaluate client onboarding technologies
+\end{enumerate}
+
+\column{0.48\textwidth}
+\begin{center}
+\framebox[0.9\columnwidth][c]{
+\rule{0pt}{5cm}
+\textcolor{midgray}{[Wealth Management Stack]}
+}
+\end{center}
+\end{columns}
+
+\bottomnote{Technology transforming how wealth is managed}
+\end{frame}
+
+% ==================== WEALTH MANAGEMENT LANDSCAPE ====================
+\begin{frame}[t]{The Wealth Management Landscape}
+\begin{center}
+\framebox[0.95\textwidth][c]{
+\rule{0pt}{5cm}
+\textcolor{midgray}{[Chart: Wealth Management Market Segments by AUM and Client Count]}
+}
+\end{center}
+
+\begin{columns}[T]
+\column{0.31\textwidth}
+\textbf{UHNW/Private Banking}
+\begin{itemize}
+\item \$30M+ assets
+\item Dedicated relationship manager
+\item Bespoke solutions
+\end{itemize}
+
+\column{0.31\textwidth}
+\textbf{HNW/Affluent}
+\begin{itemize}
+\item \$1M-\$30M assets
+\item Team-based service
+\item Tiered offerings
+\end{itemize}
+
+\column{0.31\textwidth}
+\textbf{Mass Affluent/Retail}
+\begin{itemize}
+\item \$100K-\$1M assets
+\item Digital-first approach
+\item Standardized products
+\end{itemize}
+\end{columns}
+
+\bottomnote{Global wealth: \$463 trillion AUM (2023), growing 5\% annually}
+\end{frame}
+
+% ==================== CORE TECHNOLOGY COMPONENTS ====================
+\begin{frame}[t]{Wealth Management Technology Stack}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Front Office Systems}
+\begin{itemize}
+\item Client Relationship Management (CRM)
+\item Financial planning tools
+\item Client portal/mobile apps
+\item Advisor workstation
+\item Document management
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Middle Office Systems}
+\begin{itemize}
+\item Portfolio management
+\item Performance measurement
+\item Risk analytics
+\item Compliance monitoring
+\end{itemize}
+
+\column{0.48\textwidth}
+\begin{center}
+\framebox[0.9\columnwidth][c]{
+\rule{0pt}{5.5cm}
+\textcolor{midgray}{[Technology Stack Diagram]}
+}
+\end{center}
+\end{columns}
+
+\bottomnote{Integrated platforms vs. best-of-breed component approach}
+\end{frame}
+
+% ==================== PORTFOLIO MANAGEMENT SYSTEMS ====================
+\begin{frame}[t]{Portfolio Management Systems (PMS)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Key Vendor Landscape}
+
+\begin{table}[h]
+\footnotesize
+\begin{tabular}{ll}
+\toprule
+\textbf{Vendor} & \textbf{Focus} \\
+\midrule
+SS\&C Advent & Multi-asset PMS \\
+BlackRock Aladdin & Risk + Portfolio \\
+Charles River & IBOR platform \\
+SimCorp & Buy-side suite \\
+Temenos & Private banking \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{0.3em}
+\textbf{Core Functions:}
+\begin{itemize}
+\item Position keeping
+\item Trade order management
+\item NAV calculation
+\item Client reporting
+\end{itemize}
+
+\column{0.48\textwidth}
+\begin{center}
+\framebox[0.9\columnwidth][c]{
+\rule{0pt}{5.5cm}
+\textcolor{midgray}{[PMS Data Flow Diagram]}
+}
+\end{center}
+\end{columns}
+
+\bottomnote{IBOR (Investment Book of Record) becoming central to modern architecture}
+\end{frame}
+
+% ==================== CLIENT ONBOARDING ====================
+\begin{frame}[t]{Digital Client Onboarding}
+\begin{center}
+\framebox[0.95\textwidth][c]{
+\rule{0pt}{4.5cm}
+\textcolor{midgray}{[Process Flow: Digital Onboarding Journey]}
+}
+\end{center}
+
+\begin{columns}[T]
+\column{0.23\textwidth}
+\textbf{Step 1: Identity}
+\begin{itemize}
+\item eKYC verification
+\item Document upload
+\item Biometric capture
+\end{itemize}
+
+\column{0.23\textwidth}
+\textbf{Step 2: Suitability}
+\begin{itemize}
+\item Risk profiling
+\item Investment goals
+\item Time horizon
+\end{itemize}
+
+\column{0.23\textwidth}
+\textbf{Step 3: Account}
+\begin{itemize}
+\item Account opening
+\item Agreement signing
+\item Funding setup
+\end{itemize}
+
+\column{0.23\textwidth}
+\textbf{Step 4: Portfolio}
+\begin{itemize}
+\item IPS creation
+\item Asset allocation
+\item Investment mandate
+\end{itemize}
+\end{columns}
+
+\bottomnote{Digital onboarding reduces time from weeks to hours}
+\end{frame}
+
+% ==================== HYBRID ADVISORY MODELS ====================
+\begin{frame}[t]{Hybrid Human-Digital Advisory Models}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Pure Digital (Robo)}
+\begin{itemize}
+\item[\textcolor{mlgreen}{+}] Low cost (0.25-0.50\%)
+\item[\textcolor{mlgreen}{+}] 24/7 availability
+\item[\textcolor{mlgreen}{+}] Consistent advice
+\item[\textcolor{mlorange}{-}] Limited personalization
+\item[\textcolor{mlorange}{-}] No emotional support
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Hybrid Model}
+\begin{itemize}
+\item Digital for routine tasks
+\item Human for complex decisions
+\item Video calls on demand
+\item Scalable yet personal
+\end{itemize}
+
+\column{0.48\textwidth}
+\begin{center}
+\framebox[0.9\columnwidth][c]{
+\rule{0pt}{5.5cm}
+\textcolor{midgray}{[Hybrid Model Economics Chart]}
+}
+\end{center}
+\end{columns}
+
+\bottomnote{Vanguard Personal Advisor Services: hybrid at 0.30\% with \$200B+ AUM}
+\end{frame}
+
+% ==================== FINANCIAL PLANNING TECHNOLOGY ====================
+\begin{frame}[t]{Financial Planning Technology}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Planning Software Features}
+\begin{itemize}
+\item Goal-based planning
+\item Monte Carlo simulation
+\item Tax optimization
+\item Estate planning integration
+\item Insurance analysis
+\item Retirement projections
+\end{itemize}
+
+\vspace{0.3em}
+\textbf{Leading Platforms:}
+\begin{itemize}
+\item eMoney Advisor
+\item MoneyGuidePro
+\item RightCapital
+\item Orion Planning
+\end{itemize}
+
+\column{0.48\textwidth}
+\begin{center}
+\framebox[0.9\columnwidth][c]{
+\rule{0pt}{5.5cm}
+\textcolor{midgray}{[Monte Carlo Simulation Output]}
+}
+\end{center}
+\end{columns}
+
+\bottomnote{Monte Carlo: 1000+ scenarios to estimate probability of meeting goals}
+\end{frame}
+
+% ==================== PERFORMANCE MEASUREMENT ====================
+\begin{frame}[t]{Performance Measurement and Attribution}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Return Calculation Methods}
+
+\textbf{Time-Weighted Return (TWR):}
+$$R_{TWR} = \prod_{t=1}^{n}(1 + R_t) - 1$$
+\begin{itemize}
+\item Removes cash flow impact
+\item Standard for manager comparison
+\end{itemize}
+
+\textbf{Money-Weighted Return (MWR/IRR):}
+\begin{itemize}
+\item Includes timing of flows
+\item Reflects client experience
+\end{itemize}
+
+\column{0.48\textwidth}
+\begin{center}
+\framebox[0.9\columnwidth][c]{
+\rule{0pt}{5.5cm}
+\textcolor{midgray}{[Performance Attribution Chart]}
+}
+\end{center}
+\end{columns}
+
+\bottomnote{GIPS (Global Investment Performance Standards) ensure comparability}
+\end{frame}
+
+% ==================== CLIENT REPORTING ====================
+\begin{frame}[t]{Client Reporting and Dashboards}
+\begin{center}
+\framebox[0.95\textwidth][c]{
+\rule{0pt}{5cm}
+\textcolor{midgray}{[Sample Client Dashboard: Portfolio Summary, Asset Allocation, Performance]}
+}
+\end{center}
+
+\begin{columns}[T]
+\column{0.31\textwidth}
+\textbf{Standard Reports}
+\begin{itemize}
+\item Monthly statements
+\item Quarterly reviews
+\item Annual tax documents
+\end{itemize}
+
+\column{0.31\textwidth}
+\textbf{Interactive Features}
+\begin{itemize}
+\item Real-time valuations
+\item Drill-down analytics
+\item Document vault
+\end{itemize}
+
+\column{0.31\textwidth}
+\textbf{Delivery Channels}
+\begin{itemize}
+\item Client portal
+\item Mobile app
+\item API access
+\end{itemize}
+\end{columns}
+
+\bottomnote{Self-service reporting reduces advisor burden by 30-40\%}
+\end{frame}
+
+% ==================== MODEL PORTFOLIOS ====================
+\begin{frame}[t]{Model Portfolios and Rebalancing}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Model Portfolio Approach}
+\begin{itemize}
+\item Centralized investment decisions
+\item Consistent client experience
+\item Scalable implementation
+\item Tax-efficient transitions
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Rebalancing Strategies:}
+\begin{enumerate}
+\item Calendar-based (quarterly)
+\item Threshold-based (5\% drift)
+\item Tax-aware opportunistic
+\item Cash flow rebalancing
+\end{enumerate}
+
+\column{0.48\textwidth}
+\begin{center}
+\framebox[0.9\columnwidth][c]{
+\rule{0pt}{5.5cm}
+\textcolor{midgray}{[Rebalancing Decision Tree]}
+}
+\end{center}
+\end{columns}
+
+\bottomnote{Direct indexing: customized model portfolios at individual security level}
+\end{frame}
+
+% ==================== DIRECT INDEXING ====================
+\begin{frame}[t]{Direct Indexing and Tax-Loss Harvesting}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{How Direct Indexing Works}
+\begin{itemize}
+\item Own individual securities (not fund)
+\item Track index performance
+\item Harvest tax losses daily
+\item Apply ESG/custom screens
+\end{itemize}
+
+\vspace{0.3em}
+\textbf{Tax Alpha Potential:}
+$$\text{After-Tax Alpha} = T \times L \times r$$
+Where:
+\begin{itemize}
+\item $T$ = tax rate (e.g., 37\%)
+\item $L$ = harvested losses
+\item $r$ = reinvestment return
+\end{itemize}
+
+\column{0.48\textwidth}
+\begin{center}
+\framebox[0.9\columnwidth][c]{
+\rule{0pt}{5.5cm}
+\textcolor{midgray}{[Tax Alpha vs. Traditional Indexing]}
+}
+\end{center}
+\end{columns}
+
+\bottomnote{Parametric, Aperio, Wealthfront pioneering direct indexing technology}
+\end{frame}
+
+% ==================== REGULATORY TECHNOLOGY ====================
+\begin{frame}[t]{Regulatory Compliance in Wealth Management}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Key Regulatory Requirements}
+\begin{itemize}
+\item MiFID II (EU) - suitability, costs
+\item Reg BI (US) - best interest standard
+\item AML/KYC - client identification
+\item Cross-border taxation (FATCA, CRS)
+\end{itemize}
+
+\vspace{0.3em}
+\textbf{Technology Solutions:}
+\begin{itemize}
+\item Suitability testing engines
+\item Cost disclosure automation
+\item Transaction monitoring
+\item Regulatory reporting
+\end{itemize}
+
+\column{0.48\textwidth}
+\begin{center}
+\framebox[0.9\columnwidth][c]{
+\rule{0pt}{5.5cm}
+\textcolor{midgray}{[Compliance Workflow Automation]}
+}
+\end{center}
+\end{columns}
+
+\bottomnote{MiFID II requires detailed cost disclosure and suitability documentation}
+\end{frame}
+
+% ==================== FAMILY OFFICE TECHNOLOGY ====================
+\begin{frame}[t]{Family Office Technology}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Single Family Office (SFO) Needs}
+\begin{itemize}
+\item Consolidated reporting
+\item Private equity/alternatives
+\item Multi-entity structures
+\item Bill pay and accounting
+\item Estate/trust management
+\end{itemize}
+
+\vspace{0.3em}
+\textbf{Specialized Platforms:}
+\begin{itemize}
+\item Addepar (aggregation)
+\item Archway Technology
+\item Eton Solutions
+\item Masttro
+\end{itemize}
+
+\column{0.48\textwidth}
+\begin{center}
+\framebox[0.9\columnwidth][c]{
+\rule{0pt}{5.5cm}
+\textcolor{midgray}{[Family Office Technology Ecosystem]}
+}
+\end{center}
+\end{columns}
+
+\bottomnote{10,000+ family offices globally managing \$6 trillion in assets}
+\end{frame}
+
+% ==================== CASE STUDY ====================
+\begin{frame}[t]{Case Study: UBS Wealth Management Transformation}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{UBS Digital Strategy}
+\begin{itemize}
+\item \$4 trillion AUM globally
+\item ``One UBS'' technology platform
+\item Hybrid advisory at scale
+\item AI-powered insights
+\end{itemize}
+
+\vspace{0.3em}
+\textbf{Key Initiatives:}
+\begin{enumerate}
+\item UBS Advice Advantage platform
+\item Digital onboarding globally
+\item Portfolio analytics tools
+\item Client mobile experience
+\end{enumerate}
+
+\column{0.48\textwidth}
+\begin{center}
+\framebox[0.9\columnwidth][c]{
+\rule{0pt}{5.5cm}
+\textcolor{midgray}{[UBS Digital Platform Overview]}
+}
+\end{center}
+\end{columns}
+
+\bottomnote{UBS spent \$3.5B annually on technology (2023)}
+\end{frame}
+
+% ==================== FUTURE TRENDS ====================
+\begin{frame}[t]{Future of Wealth Technology}
+\begin{columns}[T]
+\column{0.31\textwidth}
+\textbf{Personalization}
+\begin{itemize}
+\item AI-driven insights
+\item Behavioral finance nudges
+\item Hyper-personalized UX
+\item Next-best-action
+\end{itemize}
+
+\column{0.31\textwidth}
+\textbf{Integration}
+\begin{itemize}
+\item Embedded wealth services
+\item Banking + investment unified
+\item Alternative data sources
+\item Ecosystem partnerships
+\end{itemize}
+
+\column{0.31\textwidth}
+\textbf{Democratization}
+\begin{itemize}
+\item Lower minimums
+\item Fractional everything
+\item Financial wellness focus
+\item Intergenerational transfer
+\end{itemize}
+\end{columns}
+
+\vspace{0.5em}
+\begin{center}
+\framebox[0.8\textwidth][c]{
+\rule{0pt}{3cm}
+\textcolor{midgray}{[Wealth Tech Evolution Timeline]}
+}
+\end{center}
+
+\bottomnote{\$84 trillion wealth transfer to millennials by 2045}
+\end{frame}
+
+% ==================== KEY TAKEAWAYS ====================
+\begin{frame}[t]{Key Takeaways}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Technology Components}
+\begin{enumerate}
+\item PMS/IBOR for portfolio operations
+\item Financial planning software
+\item Digital onboarding/KYC
+\item Performance attribution
+\item Client reporting platforms
+\end{enumerate}
+
+\column{0.48\textwidth}
+\textbf{Strategic Themes}
+\begin{enumerate}
+\item Hybrid human-digital models win
+\item Direct indexing disrupts funds
+\item Tax optimization adds alpha
+\item Regulation drives technology
+\item Personalization differentiates
+\end{enumerate}
+\end{columns}
+
+\vspace{0.5em}
+\begin{center}
+\framebox[0.7\textwidth][c]{
+\rule{0pt}{3cm}
+\textcolor{midgray}{[Wealth Management Ecosystem Summary]}
+}
+\end{center}
+
+\bottomnote{Next lesson: Financial Data Vendors (Bloomberg, LSEG, Alternative Data)}
+\end{frame}
+
+% ==================== CLOSING ====================
+\begin{frame}[plain]
+\vspace{3cm}
+\begin{center}
+{\Large Questions?}\\[2cm]
+{\normalsize Lesson 46: Wealth Management Systems}\\[0.5cm]
+{\small Module 4: Traditional Digital Finance}
+\end{center}
+\end{frame}
+
+\end{document}

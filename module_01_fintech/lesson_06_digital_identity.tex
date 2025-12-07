@@ -1,0 +1,255 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 6: Digital Identity and Authentication}
+\subtitle{Module 1: FinTech Fundamentals}
+\author{Digital Finance}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Digital Identity Challenge}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Identity Verification Problem}
+\begin{itemize}
+\item 1.7B unbanked adults
+\item Lack of identity documents
+\item Fraud losses: \$5.8B (2023)
+\item Remote onboarding need
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/identity_challenge.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{KYC Regulatory Requirements}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/kyc_requirements.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Traditional vs Digital KYC}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Process Comparison}
+\begin{itemize}
+\item Traditional: 7-14 days
+\item Digital: 5-10 minutes
+\item Cost: \$60 vs \$5
+\item Drop-off: 40\% vs 15\%
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/kyc_comparison.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{eIDAS Framework}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{EU Digital Identity}
+\begin{itemize}
+\item Electronic ID recognition
+\item Trust services regulation
+\item Cross-border validity
+\item Three assurance levels
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/eidas_framework.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{eIDAS Assurance Levels}
+\begin{center}
+\includegraphics[width=0.80\textwidth]{figures/eidas_assurance_levels.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Biometric Authentication}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Modalities}
+\begin{itemize}
+\item Fingerprint: 99.8\% accuracy
+\item Face recognition: 99.5\%
+\item Iris scan: 99.99\%
+\item Voice: 95\% accuracy
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/biometric_modalities.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Facial Recognition Flow}
+\begin{center}
+\includegraphics[width=0.82\textwidth]{figures/facial_recognition_flow.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Liveness Detection}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Anti-Spoofing}
+\begin{itemize}
+\item Active: User actions
+\item Passive: Texture analysis
+\item 3D depth sensing
+\item Challenge-response
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/liveness_detection.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Document Verification Technology}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/document_verification.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{OCR and NFC Chip Reading}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Automated Extraction}
+\begin{itemize}
+\item Optical character recognition
+\item Machine-readable zone (MRZ)
+\item NFC chip data (ePassports)
+\item Security features check
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/ocr_nfc_process.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Multi-Factor Authentication (MFA)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Authentication Factors}
+\begin{itemize}
+\item Knowledge: Password/PIN
+\item Possession: OTP token
+\item Inherence: Biometric
+\item Reduces fraud 99.9\%
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/mfa_factors.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Identity Verification Providers}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/idv_provider_landscape.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Jumio Case Study}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{AI-Powered KYC}
+\begin{itemize}
+\item 1B+ verifications
+\item 5 minute verification
+\item 95\% automation rate
+\item 200+ countries
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/jumio_workflow.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Self-Sovereign Identity (SSI)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Decentralized Model}
+\begin{itemize}
+\item User controls credentials
+\item Blockchain-based
+\item Verifiable credentials
+\item Privacy-preserving
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/ssi_architecture.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Privacy Concerns}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Data Protection}
+\begin{itemize}
+\item GDPR compliance
+\item Biometric template storage
+\item Data minimization
+\item Right to erasure
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/privacy_framework.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Global Identity Programs}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/global_identity_map.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Future: Digital Wallets}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{EU Digital Identity Wallet}
+\begin{itemize}
+\item eIDAS 2.0 mandate
+\item 2026 rollout target
+\item Universal EU acceptance
+\item Private sector integration
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/eu_digital_wallet.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Key Takeaways}
+\begin{itemize}
+\item \textbf{KYC}: Digital verification reduces cost 90\% and time 95\%
+\item \textbf{eIDAS}: EU framework for cross-border identity
+\item \textbf{Biometrics}: Face + liveness detection standard approach
+\item \textbf{MFA}: Multi-factor prevents 99.9\% of fraud
+\item \textbf{Future}: Self-sovereign identity and digital wallets
+\end{itemize}
+\end{frame}
+
+\end{document}

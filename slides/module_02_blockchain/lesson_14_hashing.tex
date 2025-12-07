@@ -1,0 +1,711 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{adjustbox}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255, 127, 14}
+\definecolor{mlgreen}{RGB}{44, 160, 44}
+\definecolor{mlred}{RGB}{214, 39, 40}
+
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 14: Blocks and Cryptographic Hashing}
+\subtitle{Module 2: Blockchain and Cryptocurrencies}
+\author{Digital Finance}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Block Structure: Anatomy of a Bitcoin Block}
+\textbf{Every Bitcoin block contains two main parts:}
+
+\vspace{3mm}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Block Header (80 bytes):}
+\begin{itemize}
+\item \textcolor{mlpurple}{\textbf{Version}} (4 bytes): Protocol version
+\item \textcolor{mlpurple}{\textbf{Previous Hash}} (32 bytes): Link to parent
+\item \textcolor{mlpurple}{\textbf{Merkle Root}} (32 bytes): Transaction summary
+\item \textcolor{mlpurple}{\textbf{Timestamp}} (4 bytes): Block creation time
+\item \textcolor{mlpurple}{\textbf{Difficulty Target}} (4 bytes): Mining threshold
+\item \textcolor{mlpurple}{\textbf{Nonce}} (4 bytes): Mining puzzle solution
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Block Body (Variable):}
+\begin{itemize}
+\item \textcolor{mlpurple}{\textbf{Transaction Counter}}: Number of transactions
+\item \textcolor{mlpurple}{\textbf{Transactions}}: Actual transaction data
+\item Typical: 2000-3000 transactions
+\item Max size: 4 MB (with SegWit)
+\item Average: 1.5-2 MB
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Block Hash:}
+\begin{itemize}
+\item SHA-256 hash of the header
+\item Uniquely identifies block
+\item Must meet difficulty target
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Example: Bitcoin Block 800,000}
+\footnotesize
+\begin{table}[h]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Field} & \textbf{Value} \\
+\midrule
+\textbf{Block Hash} & \texttt{00000000000000000002a7c4c1e48d76c5a37902165a270156b7a8d72728a054} \\
+\textbf{Previous Hash} & \texttt{000000000000000000012117ad9f72c1c0e42329492e8c18f9e945a5d0f1b9a4} \\
+\textbf{Merkle Root} & \texttt{7e1c6b0f5e9c8d9e3a2f1b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4} \\
+\textbf{Timestamp} & 2023-07-13 20:42:05 UTC \\
+\textbf{Difficulty} & 53,911,173,001,054 \\
+\textbf{Nonce} & 1,868,822,685 \\
+\textbf{Transactions} & 3,285 \\
+\textbf{Block Size} & 1,582,419 bytes (1.58 MB) \\
+\textbf{Block Reward} & 6.25 BTC \\
+\textbf{Total Fees} & 0.183 BTC \\
+\midrule
+\textbf{Height} & 800,000 \\
+\textbf{Confirmations} & 50,000+ (as of Dec 2024) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{2mm}
+\textbf{Note:} Hash starts with 19 leading zeros - probability of finding this: $1/2^{76}$
+\end{frame}
+
+\begin{frame}{What is a Hash Function?}
+\textbf{Hash Function:} Mathematical algorithm that maps arbitrary data to fixed-size output
+
+\vspace{3mm}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Properties:}
+\begin{enumerate}
+\item \textbf{Deterministic:} Same input always produces same output
+\item \textbf{Fast:} Quick to compute
+\item \textbf{One-way:} Cannot reverse (pre-image resistance)
+\item \textbf{Collision-resistant:} Hard to find two inputs with same hash
+\item \textbf{Avalanche effect:} Tiny input change drastically changes output
+\end{enumerate}
+
+\column{0.48\textwidth}
+\textbf{Examples:}
+\begin{itemize}
+\item MD5: 128 bits (broken, not secure)
+\item SHA-1: 160 bits (deprecated)
+\item SHA-256: 256 bits (Bitcoin)
+\item SHA-3: Variable (latest standard)
+\item BLAKE2: 256/512 bits (faster)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Output Size:}
+\begin{itemize}
+\item SHA-256: 64 hex characters
+\item SHA-256: $2^{256}$ possible outputs
+\item More atoms in universe: $\approx 2^{265}$
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{SHA-256: The Bitcoin Hash Function}
+\textbf{SHA-256} (Secure Hash Algorithm 256-bit) - designed by NSA, published 2001
+
+\vspace{3mm}
+\textbf{Input/Output:}
+\begin{itemize}
+\item Input: Any data (message, file, block header)
+\item Output: 256-bit hash (64 hexadecimal characters)
+\item Example: \texttt{SHA256("Hello") = 185f8db32271fe25f561a6fc938b2e264306ec304eda518007d1764826381969}
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Algorithm Steps (Simplified):}
+\begin{enumerate}
+\item \textbf{Padding:} Add bits to make length $\equiv 448 \pmod{512}$
+\item \textbf{Append Length:} Add 64-bit message length
+\item \textbf{Initialize:} Set 8 hash values (constants)
+\item \textbf{Process:} 64 rounds of bitwise operations per 512-bit chunk
+\item \textbf{Output:} Concatenate final 8 values = 256-bit hash
+\end{enumerate}
+
+\vspace{3mm}
+\textbf{Security:} No known practical attacks - best attack requires $2^{128}$ operations (infeasible)
+\end{frame}
+
+\begin{frame}{The Avalanche Effect: Demonstration}
+\textbf{Small input change causes completely different hash:}
+
+\vspace{3mm}
+\footnotesize
+\begin{table}[h]
+\centering
+\begin{tabular}{lp{9cm}}
+\toprule
+\textbf{Input} & \textbf{SHA-256 Hash} \\
+\midrule
+\texttt{Hello World} & \texttt{a591a6d40bf420404a011733cfb7b190d62c65bf0bcda32b57b277d9ad9f146e} \\
+\texttt{Hello World!} & \texttt{7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069} \\
+\texttt{hello world} & \texttt{b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9} \\
+\texttt{Hello Worle} & \texttt{44896a8f3e6ec4f93c8d3c92d72c8df3e3c74b5d6e9e8f3a5b6c7d8e9f0a1b2c} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{3mm}
+\textbf{Analysis:}
+\begin{itemize}
+\item Adding single character (\texttt{!}) changes 100\% of hash bits
+\item Changing case (\texttt{H} to \texttt{h}) changes entire hash
+\item Changing one letter (\texttt{d} to \texttt{e}) produces unrelated hash
+\item No pattern or correlation between similar inputs
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Implication:} Cannot predict hash output - must compute to verify
+\end{frame}
+
+\begin{frame}{Hash Space and Collision Resistance}
+\textbf{SHA-256 produces $2^{256}$ possible hashes - how big is that?}
+
+\vspace{3mm}
+\begin{itemize}
+\item $2^{256} \approx 1.16 \times 10^{77}$ different hashes
+\item Estimated atoms in observable universe: $10^{80}$
+\item Estimated grains of sand on Earth: $10^{24}$
+\item Age of universe in seconds: $4.3 \times 10^{17}$
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Birthday Paradox and Collision Probability:}
+\begin{itemize}
+\item To find collision with 50\% probability: Need to hash $2^{128}$ inputs
+\item At 1 trillion hashes/second: Would take $10^{25}$ years
+\item For comparison: Sun will die in $5 \times 10^9$ years
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Practical Conclusion:} SHA-256 collisions are computationally infeasible
+\end{frame}
+
+\begin{frame}{Pre-image Resistance: The One-Way Property}
+\textbf{Given a hash, can you find the original input?}
+
+\vspace{3mm}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Forward (Easy):}
+\[
+\text{Input} \xrightarrow{\text{SHA-256}} \text{Hash}
+\]
+\begin{itemize}
+\item Instant computation
+\item Example: \texttt{SHA256("Bitcoin")} = \texttt{b4056df6...}
+\item Deterministic and fast
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Reverse (Impossible):}
+\[
+\text{Hash} \xrightarrow{\text{???}} \text{Input}
+\]
+\begin{itemize}
+\item No mathematical inverse
+\item Only option: Brute force
+\item Try all possible inputs
+\item Computationally infeasible
+\end{itemize}
+\end{columns}
+
+\vspace{5mm}
+\textbf{Example Attack:} Find input for hash \texttt{000000000019d6689c085ae165831e93...}
+\begin{itemize}
+\item Average attempts needed: $2^{255}$ (half the hash space)
+\item At 1 quadrillion attempts/second: $10^{61}$ years
+\item Even with all computers on Earth: Still infeasible
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Hash Pointers: Linking Blocks Together}
+\textbf{Hash Pointer:} Data structure that contains both location AND cryptographic hash of data
+
+\vspace{3mm}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Regular Pointer:}
+\begin{itemize}
+\item Points to memory address
+\item Can retrieve data
+\item No integrity check
+\item Data can be tampered
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Example:}
+\begin{itemize}
+\item Pointer: \texttt{0x7ffe5367e044}
+\item Data at address: \texttt{"Alice pays Bob 5 BTC"}
+\item If data changes: No detection
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Hash Pointer:}
+\begin{itemize}
+\item Points to data location
+\item Contains hash of data
+\item Can retrieve AND verify
+\item Tamper-evident
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Example:}
+\begin{itemize}
+\item Location: Block 100
+\item Hash: \texttt{00000000000080b66c911bd5ba14a74db...}
+\item If data changes: Hash mismatch detected
+\end{itemize}
+\end{columns}
+
+\vspace{5mm}
+\textbf{Blockchain Application:} Each block header contains hash pointer to previous block
+\end{frame}
+
+\begin{frame}{Why Blockchain is Immutable}
+\textbf{Changing a single transaction breaks the entire chain:}
+
+\vspace{3mm}
+\textbf{Scenario:} Attacker tries to modify transaction in Block 100
+
+\vspace{2mm}
+\begin{enumerate}
+\item Modify transaction data in Block 100
+\item Merkle root changes (transaction hash changed)
+\item Block 100 hash changes (header data changed)
+\item Block 101's ``Previous Hash'' field no longer matches
+\item Block 101 becomes invalid
+\item Must recalculate Block 101 hash (requires solving PoW puzzle)
+\item Block 102's ``Previous Hash'' no longer matches
+\item Must recalculate Block 102, 103, 104... all subsequent blocks
+\item While attacker recalculates, honest miners add new blocks
+\item Attacker must outpace entire network (51\% attack)
+\end{enumerate}
+
+\vspace{3mm}
+\textbf{Conclusion:} Older blocks are exponentially harder to modify - after 6 confirmations (1 hour), considered practically irreversible
+\end{frame}
+
+\begin{frame}{Merkle Trees: Efficient Transaction Verification}
+\textbf{Merkle Tree:} Binary tree of hashes allowing efficient verification of large datasets
+
+\vspace{3mm}
+\textbf{Structure (Bottom-up):}
+\begin{enumerate}
+\item \textbf{Leaf Nodes:} Hash of each transaction
+\item \textbf{Parent Nodes:} Hash of concatenated child hashes
+\item \textbf{Root:} Final hash (Merkle root) in block header
+\end{enumerate}
+
+\vspace{3mm}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Benefits:}
+\begin{itemize}
+\item Compact representation of all transactions
+\item Verify transaction inclusion with $O(\log n)$ hashes
+\item SPV (Simplified Payment Verification) for light clients
+\item Only need block headers + Merkle proof
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Example (8 transactions):}
+\begin{itemize}
+\item Full verification: Download all 8 transactions
+\item Merkle proof: Download 3 hashes only
+\item Proof size: $\log_2(8) = 3$ hashes
+\item For 2000 transactions: Only 11 hashes needed
+\end{itemize}
+\end{columns}
+
+\vspace{3mm}
+\textbf{SPV Use Case:} Mobile Bitcoin wallet verifies payment without downloading full blockchain (500+ GB)
+\end{frame}
+
+\begin{frame}{Merkle Tree Example: 4 Transactions}
+\textbf{Constructing Merkle Root:}
+
+\vspace{3mm}
+\footnotesize
+\begin{align*}
+\text{Transactions:} \quad & T_1 = \text{``Alice to Bob 1 BTC''} \\
+& T_2 = \text{``Carol to Dave 2 BTC''} \\
+& T_3 = \text{``Eve to Frank 0.5 BTC''} \\
+& T_4 = \text{``Grace to Heidi 3 BTC''}
+\end{align*}
+
+\vspace{2mm}
+\textbf{Step 1 - Leaf Hashes:}
+\begin{align*}
+H_1 &= \text{SHA256}(T_1) = \texttt{a3c8...} \\
+H_2 &= \text{SHA256}(T_2) = \texttt{7f4b...} \\
+H_3 &= \text{SHA256}(T_3) = \texttt{9e2d...} \\
+H_4 &= \text{SHA256}(T_4) = \texttt{1c5a...}
+\end{align*}
+
+\vspace{2mm}
+\textbf{Step 2 - Parent Hashes:}
+\begin{align*}
+H_{12} &= \text{SHA256}(H_1 \| H_2) = \texttt{d8f3...} \\
+H_{34} &= \text{SHA256}(H_3 \| H_4) = \texttt{6b9e...}
+\end{align*}
+
+\vspace{2mm}
+\textbf{Step 3 - Merkle Root:}
+\[
+\text{MerkleRoot} = \text{SHA256}(H_{12} \| H_{34}) = \texttt{4e7a...}
+\]
+\end{frame}
+
+\begin{frame}{Merkle Proof: Verifying Transaction Inclusion}
+\textbf{Problem:} Light client wants to verify $T_2$ is in block, without downloading all transactions
+
+\vspace{3mm}
+\textbf{Solution:} Full node provides Merkle proof (3 hashes):
+\begin{itemize}
+\item $H_1$ (sibling of $T_2$)
+\item $H_{34}$ (sibling of $H_{12}$)
+\item Merkle root from block header
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Verification Steps:}
+\begin{enumerate}
+\item Client has $T_2$ and computes $H_2 = \text{SHA256}(T_2)$
+\item Receives $H_1$ from proof, computes $H_{12} = \text{SHA256}(H_1 \| H_2)$
+\item Receives $H_{34}$ from proof, computes $\text{MerkleRoot} = \text{SHA256}(H_{12} \| H_{34})$
+\item Compares computed Merkle root with block header
+\item If match: Transaction confirmed in block
+\end{enumerate}
+
+\vspace{3mm}
+\textbf{Efficiency:} For $n$ transactions, proof size = $O(\log_2 n)$ hashes
+\begin{itemize}
+\item 1,000 transactions: 10 hashes (320 bytes)
+\item 1,000,000 transactions: 20 hashes (640 bytes)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Difficulty Target and Leading Zeros}
+\textbf{Bitcoin Mining Puzzle:} Find nonce such that block hash < target
+
+\vspace{3mm}
+\textbf{Target Representation:}
+\begin{itemize}
+\item Difficulty target: Maximum allowed hash value
+\item Higher difficulty = Lower target = More leading zeros required
+\item Current (Dec 2024): ~19 leading zeros
+\end{itemize}
+
+\vspace{3mm}
+\begin{table}[h]
+\centering
+\footnotesize
+\begin{tabular}{lll}
+\toprule
+\textbf{Leading Zeros} & \textbf{Probability} & \textbf{Average Attempts} \\
+\midrule
+1 & $1/16$ & 16 \\
+4 & $1/65,536$ & 65,536 \\
+8 & $1/4.3 \times 10^9$ & 4.3 billion \\
+16 & $1/1.8 \times 10^{19}$ & 18 quintillion \\
+19 & $1/1.5 \times 10^{23}$ & 150 sextillion \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{3mm}
+\textbf{Example Valid Hash:}
+\texttt{00000000000000000002a7c4c1e48d76c5a37902165a270156b7a8d72728a054}
+\end{frame}
+
+\begin{frame}{Difficulty Adjustment Mechanism}
+\textbf{Goal:} Maintain ~10 minute average block time despite changing network hash rate
+
+\vspace{3mm}
+\textbf{Algorithm:}
+\begin{itemize}
+\item Every 2,016 blocks (~2 weeks)
+\item Calculate actual time taken vs. expected time (20,160 minutes)
+\item Adjust difficulty: $\text{NewDifficulty} = \text{OldDifficulty} \times \frac{\text{Expected Time}}{\text{Actual Time}}$
+\item Maximum adjustment: 4x increase or 1/4 decrease per period
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Example (2023):}
+\begin{itemize}
+\item Period: Blocks 780,000 - 782,015
+\item Expected: 20,160 minutes (14 days)
+\item Actual: 18,900 minutes (13.125 days) - blocks came faster
+\item Adjustment: Difficulty increased by 6.3\%
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Historical Trend:}
+\begin{itemize}
+\item 2009: Difficulty = 1 (CPU mining)
+\item 2024: Difficulty = 73 trillion (ASIC mining)
+\item $10^{13}$ times harder than genesis block
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Hash Rate: Network Computing Power}
+\textbf{Hash Rate:} Total number of hash computations per second across network
+
+\vspace{3mm}
+\begin{table}[h]
+\centering
+\footnotesize
+\begin{tabular}{lll}
+\toprule
+\textbf{Period} & \textbf{Hash Rate} & \textbf{Mining Technology} \\
+\midrule
+2009 & ~5 MH/s & CPU (Satoshi solo mining) \\
+2010 & ~200 GH/s & GPU mining begins \\
+2013 & ~20 TH/s & ASIC mining begins \\
+2017 & ~10 EH/s & Industrial mining farms \\
+2021 & ~180 EH/s & Peak before China ban \\
+2024 & ~600 EH/s & Post-halving recovery \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{3mm}
+\textbf{Scale:}
+\begin{itemize}
+\item 600 EH/s = 600,000,000,000,000,000,000 hashes per second
+\item More computing power than top 500 supercomputers combined
+\item Each hash attempt: $\approx 1/600$ quintillion chance of success
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Block Propagation and Orphan Blocks}
+\textbf{Problem:} Network latency - two miners find valid blocks simultaneously
+
+\vspace{3mm}
+\textbf{Scenario:}
+\begin{enumerate}
+\item Miner A finds Block 700,000 at 12:00:00
+\item Miner B finds different Block 700,000 at 12:00:01
+\item Both blocks are valid and propagate through network
+\item Network temporarily splits (some nodes see A, others see B)
+\item Miners start working on both competing chains
+\item Miner C finds Block 700,001 building on Block A
+\item Longest chain rule: Block A chain wins
+\item Block B becomes ``orphan block'' - discarded
+\item Miner B loses 6.25 BTC reward
+\end{enumerate}
+
+\vspace{3mm}
+\textbf{Statistics:}
+\begin{itemize}
+\item Orphan rate: ~0.5\% of blocks (rare but happens)
+\item Average propagation time: 1-2 seconds globally
+\item Why 10 minutes?: Minimize orphans while maintaining decentralization
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Blockchain Data Structures Summary}
+\begin{table}[h]
+\centering
+\footnotesize
+\begin{tabular}{p{3cm}p{5cm}p{5cm}}
+\toprule
+\textbf{Structure} & \textbf{Purpose} & \textbf{Properties} \\
+\midrule
+Hash Function & Fingerprint data & Deterministic, one-way, collision-resistant, avalanche effect \\
+Hash Pointer & Link + verify & Points to data + contains hash for integrity \\
+Merkle Tree & Efficient verification & $O(\log n)$ proof size, enables SPV \\
+Block Header & Minimal representation & 80 bytes contains all block metadata \\
+Blockchain & Tamper-evident ledger & Chain of hash pointers, immutable \\
+Difficulty Target & Mining puzzle & Adjusts to maintain 10-min block time \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{3mm}
+\textbf{Key Insight:} All blockchain security stems from cryptographic hash functions - if SHA-256 breaks, Bitcoin breaks
+\end{frame}
+
+\begin{frame}{Security Analysis: What Could Go Wrong?}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Hash Function Attacks:}
+\begin{itemize}
+\item \textcolor{mlred}{Pre-image:} Find input from hash
+\item \textcolor{mlred}{Collision:} Find two inputs with same hash
+\item \textcolor{mlred}{Length extension:} Exploit hash construction
+\end{itemize}
+
+\vspace{3mm}
+\textbf{SHA-256 Status:}
+\begin{itemize}
+\item \textcolor{mlgreen}{Pre-image:} $2^{256}$ security (safe)
+\item \textcolor{mlgreen}{Collision:} $2^{128}$ security (safe)
+\item \textcolor{mlgreen}{Length extension:} Not applicable to Bitcoin (double hashing)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Quantum Computing Threat:}
+\begin{itemize}
+\item Grover's algorithm: $\sqrt{2^{256}} = 2^{128}$ speedup
+\item Still computationally infeasible
+\item Bigger threat: Public key crypto (covered next lesson)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Mitigation Strategies:}
+\begin{itemize}
+\item SHA-3 ready as backup
+\item Post-quantum hash functions (SPHINCS+)
+\item Bitcoin can hard fork if needed
+\end{itemize}
+\end{columns}
+
+\vspace{3mm}
+\centering
+\textbf{Current Assessment:} No practical threat to SHA-256 in foreseeable future
+\end{frame}
+
+\begin{frame}{Practical Exercise: Computing Block Hash}
+\textbf{Simplified Example:} Calculate hash for mini-block
+
+\vspace{3mm}
+\textbf{Block Header (simplified):}
+\begin{itemize}
+\item Previous Hash: \texttt{00000000000000000001}
+\item Merkle Root: \texttt{abcdef123456}
+\item Timestamp: \texttt{1702000000}
+\item Nonce: \texttt{?}
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Task:} Find nonce such that hash starts with 4 zeros (\texttt{0000...})
+
+\vspace{3mm}
+\textbf{Brute Force Approach:}
+\begin{enumerate}
+\item Concatenate header: \texttt{00000000000000000001|abcdef123456|1702000000|0}
+\item Compute SHA-256: \texttt{7a3b2c1d...} (no leading zeros)
+\item Increment nonce: Try \texttt{1}, then \texttt{2}, then \texttt{3}...
+\item Keep trying until hash starts with \texttt{0000}
+\item Expected attempts: $2^{16} = 65,536$
+\end{enumerate}
+
+\vspace{3mm}
+\textbf{Solution:} Nonce \texttt{45,892} produces \texttt{0000f7a3b2c1d...}
+\end{frame}
+
+\begin{frame}{Block Finality: How Many Confirmations?}
+\textbf{Confirmations:} Number of blocks built on top of transaction's block
+
+\vspace{3mm}
+\begin{table}[h]
+\centering
+\footnotesize
+\begin{tabular}{clp{6cm}}
+\toprule
+\textbf{Confirmations} & \textbf{Time} & \textbf{Security Level} \\
+\midrule
+0 & 0 min & Unconfirmed - in mempool only, easily reversible \\
+1 & ~10 min & Low - vulnerable to accidental orphaning \\
+3 & ~30 min & Medium - coffee purchase acceptable \\
+6 & ~60 min & High - exchanges require this, 99.9\% final \\
+100 & ~17 hours & Very High - coinbase maturity (mining reward) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\vspace{3mm}
+\textbf{Attack Cost Analysis (6 confirmations):}
+\begin{itemize}
+\item Attacker must mine 7 blocks faster than honest network
+\item Requires 51\% hash rate for extended period
+\item Cost: ~\$500,000/hour in electricity + equipment
+\item Only profitable for large transaction values
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Rule of Thumb:} Value < \$1,000: 1-3 confirmations; Value > \$10,000: 6+ confirmations
+\end{frame}
+
+\begin{frame}{Next Lesson Preview}
+\begin{center}
+\Large\textbf{Lesson 15: Public Key Cryptography and Signatures}
+\end{center}
+
+\vspace{5mm}
+\textbf{What We'll Cover:}
+\begin{itemize}
+\item Symmetric vs asymmetric encryption
+\item Elliptic Curve Cryptography (ECC) fundamentals
+\item Public/private key pairs in Bitcoin
+\item Digital signatures (ECDSA)
+\item Address generation and wallet structure
+\item Security best practices
+\end{itemize}
+
+\vspace{5mm}
+\textbf{Prepare:}
+\begin{itemize}
+\item Review basic modular arithmetic ($a \bmod n$)
+\item Understand concept of mathematical groups
+\item Install Bitcoin wallet for hands-on key generation
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Summary: Key Takeaways}
+\begin{enumerate}
+\item \textbf{Block Structure:} 80-byte header + variable transaction body
+\item \textbf{SHA-256:} One-way, collision-resistant hash with $2^{256}$ output space
+\item \textbf{Avalanche Effect:} Tiny input change completely alters hash
+\item \textbf{Hash Pointers:} Enable tamper-evident data structures
+\item \textbf{Merkle Trees:} Efficient verification with $O(\log n)$ proof size
+\item \textbf{Immutability:} Changing old block requires recalculating all subsequent blocks
+\item \textbf{Difficulty:} Adjusts every 2016 blocks to maintain 10-min average
+\item \textbf{Finality:} 6 confirmations (~1 hour) considered irreversible
+\end{enumerate}
+
+\vspace{3mm}
+\centering
+\textit{``Blockchain security is reducible to hash function security - SHA-256 is the foundation.''}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,610 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{adjustbox}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255, 127, 14}
+\definecolor{mlgreen}{RGB}{44, 160, 44}
+\definecolor{mlred}{RGB}{214, 39, 40}
+
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Payment Rails and SWIFT}
+\subtitle{Module 4: Traditional Digital Finance --- Lesson 39}
+\author{Digital Finance}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Learning Objectives}
+\begin{itemize}
+\item Understand global payment infrastructure: SWIFT, SEPA, ACH, real-time systems
+\item Analyze SWIFT messaging protocols and correspondent banking networks
+\item Evaluate alternatives to SWIFT: instant payment systems, blockchain
+\item Comprehend cross-border payment challenges and emerging solutions
+\end{itemize}
+\end{frame}
+
+\section{Payment Systems Overview}
+
+\begin{frame}{Payment Rails Landscape}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Domestic Systems}
+\begin{itemize}
+\item ACH (US)
+\item SEPA (Europe)
+\item BACS/Faster Payments (UK)
+\item CHIPS (US large value)
+\item Fedwire (US real-time)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{International Systems}
+\begin{itemize}
+\item SWIFT
+\item Correspondent banking
+\item TARGET2 (EU)
+\item CIPS (China)
+\item CLS (FX settlement)
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Global Volume}: 700B+ non-cash transactions annually, \$2 quadrillion value
+\end{frame}
+
+\begin{frame}{Payment System Characteristics}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Real-Time Gross Settlement (RTGS)}
+\begin{itemize}
+\item Immediate finality
+\item High value payments
+\item Central bank operated
+\item Fedwire, TARGET2, CHAPS
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Deferred Net Settlement (DNS)}
+\begin{itemize}
+\item Batch processing
+\item Netting efficiency
+\item Lower cost
+\item ACH, BACS, SEPA (some)
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Instant Payments}: Real-time retail, 24/7/365 availability, irrevocable
+\end{frame}
+
+\section{SEPA: Single Euro Payments Area}
+
+\begin{frame}{SEPA Overview}
+\textbf{Coverage}: 36 countries, 500M+ citizens, euro-denominated payments
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{SEPA Instruments}
+\begin{itemize}
+\item SEPA Credit Transfer (SCT)
+\item SEPA Instant Credit Transfer (SCT Inst)
+\item SEPA Direct Debit (SDD)
+\item SEPA Card Framework
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Key Features}
+\begin{itemize}
+\item Uniform pricing (domestic = cross-border)
+\item IBAN/BIC identifiers
+\item ISO 20022 messaging
+\item T+1 settlement (SCT)
+\item 10 seconds (SCT Inst)
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Volume}: 46B SEPA transactions (2023), 80\% SCT, 20\% SDD
+\end{frame}
+
+\begin{frame}{SEPA Credit Transfer}
+\textbf{Use Cases}: Salaries, invoices, person-to-person, e-commerce
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Process Flow}
+\begin{enumerate}
+\item Originator submits to bank
+\item Bank validates IBAN
+\item Routing via clearing house
+\item Settlement in T+1
+\item Beneficiary notification
+\end{enumerate}
+
+\column{0.48\textwidth}
+\textbf{Technical Details}
+\begin{itemize}
+\item Maximum 999,999,999.99 EUR
+\item pain.001 XML message
+\item EPC Rulebook compliance
+\item IBAN validation (checksum)
+\item BIC optional (since 2016)
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Infrastructure}: EBA Clearing (RT1, STEP2), TARGET2, local CSMs
+\end{frame}
+
+\begin{frame}{SEPA Instant Credit Transfer (SCT Inst)}
+\textbf{Launch}: November 2017, adoption accelerating (2024: 80\% coverage)
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Specifications}
+\begin{itemize}
+\item 10-second processing
+\item 24/7/365 availability
+\item 100,000 EUR limit
+\item Irrevocable settlement
+\item ISO 20022 pacs.008
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Use Cases}
+\begin{itemize}
+\item P2P transfers
+\item E-commerce checkout
+\item Bill payments
+\item Request-to-pay
+\item Digital wallets
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Adoption}: 11B SCT Inst (2023), growing 70\% YoY, mandatory for EU banks (2025)
+\end{frame}
+
+\begin{frame}{SEPA Direct Debit}
+\textbf{Purpose}: Recurring payments (subscriptions, utilities, insurance)
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{SDD Core (B2C)}
+\begin{itemize}
+\item Consumer protection
+\item 8-week refund right
+\item Pre-notification required
+\item D-1 submission
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{SDD B2B (Business)}
+\begin{itemize}
+\item No refund right
+\item Bank verification
+\item D-1 submission
+\item Mandate management
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Mandate}: Signed authorization, unique mandate reference (UMR), IBAN, creditor ID
+\end{frame}
+
+\section{ACH: Automated Clearing House}
+
+\begin{frame}{ACH Network (United States)}
+\textbf{Operator}: Nacha (National Automated Clearing House Association)
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{ACH Transaction Types}
+\begin{itemize}
+\item ACH Credit (push)
+\item ACH Debit (pull)
+\item Same-Day ACH
+\item International ACH (IAT)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Use Cases}
+\begin{itemize}
+\item Direct deposit payroll
+\item Bill payments
+\item Business-to-business
+\item Tax refunds
+\item Government benefits
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Volume}: 31B transactions (2023), \$76 trillion value
+\end{frame}
+
+\begin{frame}{ACH Processing Timeline}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Standard ACH}
+\begin{itemize}
+\item T+1 settlement (Next Day)
+\item Batch processing (4x daily)
+\item Cut-off times
+\item Lower cost (\$0.20-0.50)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Same-Day ACH}
+\begin{itemize}
+\item Same-day settlement
+\item Two windows (10:30, 15:00 ET)
+\item \$1M limit per transaction
+\item Higher fee (\$0.50-1.00)
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{2024 Enhancements}: Same-Day ACH \$1M limit (up from \$100k), third window added
+\end{frame}
+
+\section{SWIFT Network}
+
+\begin{frame}{SWIFT: Society for Worldwide Interbank Financial Telecommunication}
+\textbf{Founded}: 1973 (Brussels), 11,500+ institutions, 200+ countries
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Functions}
+\begin{itemize}
+\item Secure messaging network
+\item Standardized formats
+\item No funds transfer (messaging only)
+\item Member-owned cooperative
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Message Types}
+\begin{itemize}
+\item Payments (MT103, MT202)
+\item Securities (MT54x)
+\item Treasury (MT300, MT320)
+\item Trade finance (MT700)
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Volume}: 45M messages/day (2024), 11B annually
+\end{frame}
+
+\begin{frame}{SWIFT Message Structure: MT103}
+\textbf{Use}: Customer credit transfer (cross-border wire)
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Key Fields}
+\begin{itemize}
+\item Sender/Receiver BIC
+\item Transaction reference
+\item Value date
+\item Currency and amount
+\item Ordering customer
+\item Beneficiary
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Optional Fields}
+\begin{itemize}
+\item Intermediary banks
+\item Charges (OUR/SHA/BEN)
+\item Purpose of payment
+\item Regulatory reporting
+\item Remittance information
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Example}: :20:TRN12345 :32A:241207USD10000,00 :50K:Sender Name :59:Beneficiary
+\end{frame}
+
+\begin{frame}{SWIFT gpi (Global Payments Innovation)}
+\textbf{Launch}: 2017, modernization initiative, 4,000+ banks
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Features}
+\begin{itemize}
+\item End-to-end tracking
+\item Same-day use of funds
+\item Transparent fees
+\item Rich remittance data
+\item Status updates
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Performance}
+\begin{itemize}
+\item 50\% complete <30 min
+\item 90\% complete <24 hours
+\item 100\% tracking coverage
+\item Reduced inquiries 60\%
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Technology}: SWIFT gpi Tracker database, Unique End-to-End Transaction Reference (UETR)
+\end{frame}
+
+\begin{frame}{ISO 20022 Migration}
+\textbf{Timeline}: March 2023 coexistence, November 2025 full migration
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{MT (Legacy)}
+\begin{itemize}
+\item Fixed field format
+\item Limited data capacity
+\item 78 characters/line
+\item Cryptic structure
+\item Established since 1970s
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{ISO 20022 (XML)}
+\begin{itemize}
+\item Rich structured data
+\item pacs.008, pain.001 messages
+\item Extended remittance
+\item Regulatory data
+\item Future-proof
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Benefits}: Better STP (80\% to 95\%+), compliance automation, fraud detection
+\end{frame}
+
+\section{Correspondent Banking}
+
+\begin{frame}{Correspondent Banking Model}
+\textbf{Purpose}: Enable cross-border payments without direct relationships
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Nostro/Vostro Accounts}
+\begin{itemize}
+\item Nostro: Our account with you
+\item Vostro: Your account with us
+\item Pre-funded balances
+\item Currency settlement
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Payment Flow}
+\begin{enumerate}
+\item Customer instructs Bank A
+\item Bank A debits customer
+\item Bank A sends MT103 via SWIFT
+\item Intermediary banks relay
+\item Bank Z credits beneficiary
+\end{enumerate}
+\end{columns}
+
+\vspace{1em}
+\textbf{Challenges}: 3-5 days settlement, opaque fees, multiple intermediaries
+\end{frame}
+
+\begin{frame}{De-Risking and Compliance}
+\textbf{Trend}: Banks exiting correspondent relationships (30\% reduction 2011-2021)
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Drivers}
+\begin{itemize}
+\item AML/CFT compliance costs
+\item Sanctions screening
+\item Regulatory penalties risk
+\item Low profitability corridors
+\item KYC burden
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Impact}
+\begin{itemize}
+\item Reduced access (developing markets)
+\item Higher costs for SMEs
+\item Longer processing times
+\item Financial exclusion risk
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Solutions}: Utility models (SWIFT KYC Registry), shared infrastructure, fintechs
+\end{frame}
+
+\section{Instant Payment Systems}
+
+\begin{frame}{Real-Time Payment Rails}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Global Systems}
+\begin{itemize}
+\item UK Faster Payments (2008)
+\item SEPA SCT Inst (2017)
+\item US FedNow (2023)
+\item US RTP (TCH, 2017)
+\item India UPI (2016)
+\item Brazil PIX (2020)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Characteristics}
+\begin{itemize}
+\item 10-second settlement
+\item 24/7/365 availability
+\item Irrevocable
+\item Low/zero cost
+\item Mobile-first UX
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Adoption}: 118B instant payments globally (2023), 64\% in Asia-Pacific
+\end{frame}
+
+\begin{frame}{India UPI: Unified Payments Interface}
+\textbf{Launch}: 2016, operated by NPCI (National Payments Corporation of India)
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Features}
+\begin{itemize}
+\item Virtual Payment Address (VPA)
+\item QR code payments
+\item Request-to-pay
+\item Interoperable apps
+\item Free for consumers
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Scale}
+\begin{itemize}
+\item 12B transactions/month
+\item 500M+ users
+\item 300+ banks
+\item 50M+ merchants
+\item \$200B+ monthly value
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Success Factors}: Government push, mobile penetration, zero MDR, interoperability
+\end{frame}
+
+\begin{frame}{US FedNow Service}
+\textbf{Launch}: July 2023, operated by Federal Reserve
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Capabilities}
+\begin{itemize}
+\item Instant payments 24/7
+\item \$500k transaction limit
+\item ISO 20022 messaging
+\item Request for payment
+\item Fraud monitoring tools
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Adoption Status}
+\begin{itemize}
+\item 700+ institutions (2024)
+\item Competing with RTP (TCH)
+\item Slow initial uptake
+\item Focus on billers, payroll
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Challenge}: Dual infrastructure (FedNow + RTP), consumer awareness, use case development
+\end{frame}
+
+\section{SWIFT Alternatives}
+
+\begin{frame}{Emerging Alternatives to SWIFT}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{CIPS (China)}
+\begin{itemize}
+\item Cross-Border Interbank Payment System
+\item RMB internationalization
+\item 1,400+ participants
+\item 80 trillion RMB (2023)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{SPFS (Russia)}
+\begin{itemize}
+\item System for Transfer of Financial Messages
+\item Sanctions mitigation
+\item 500+ Russian banks
+\item Limited international use
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Geopolitical Context}: Russia excluded from SWIFT (2022), Iran, North Korea restrictions
+\end{frame}
+
+\begin{frame}{Blockchain-Based Payments}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Ripple (XRP)}
+\begin{itemize}
+\item On-Demand Liquidity (ODL)
+\item 3-5 second settlement
+\item Low cost (\$0.0002)
+\item 70+ corridors
+\item Regulatory challenges (US)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Stablecoins}
+\begin{itemize}
+\item USDC, USDT cross-border
+\item 24/7 settlement
+\item Blockchain rails (Ethereum, Solana)
+\item Programmability
+\item Regulatory uncertainty
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Pilot Projects}: JPM Coin (JPMorgan), Utility Settlement Coin (Fnality), mBridge (BIS)
+\end{frame}
+
+\begin{frame}{Summary}
+\begin{itemize}
+\item Payment rails enable domestic and cross-border value transfer
+\item SEPA unifies euro payments across 36 countries with instant settlement (SCT Inst)
+\item ACH processes 31B US transactions annually with same-day options
+\item SWIFT provides secure messaging for 11,500+ institutions, 45M messages/day
+\item Correspondent banking enables cross-border payments via nostro/vostro accounts
+\item Instant payment systems (UPI, FedNow, PIX) offer real-time, low-cost transfers
+\item Alternatives emerging: CIPS, blockchain, stablecoins challenge SWIFT dominance
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Further Reading}
+\begin{itemize}
+\item Bank for International Settlements (2024). \textit{CPMI Statistics on Payment Systems}. BIS.
+\item European Payments Council (2023). \textit{SEPA Credit Transfer Scheme Rulebook}. EPC.
+\item Nacha (2024). \textit{ACH Network Rules}. Nacha.
+\item SWIFT (2023). \textit{SWIFT gpi: The New Standard in Cross-Border Payments}. SWIFT.
+\item World Bank (2022). \textit{Payment Systems Worldwide: A Snapshot}. World Bank.
+\end{itemize}
+\end{frame}
+
+\end{document}

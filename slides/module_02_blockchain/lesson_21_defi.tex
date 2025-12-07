@@ -1,0 +1,466 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 21: DeFi Fundamentals}
+\subtitle{Module 2: Blockchain Fundamentals}
+\author{Digital Finance}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{DeFi: Decentralized Finance Revolution}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Traditional Finance (TradFi):}
+\begin{itemize}
+\item Banks, brokers, exchanges
+\item Intermediaries control access
+\item Centralized custody
+\item Limited hours, geographic restrictions
+\item KYC/AML required
+\end{itemize}
+
+\vspace{3mm}
+\textbf{DeFi:}
+\begin{itemize}
+\item Smart contracts replace intermediaries
+\item Permissionless access (anyone with wallet)
+\item Self-custody
+\item 24/7 global access
+\item Pseudonymous (no KYC)
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_21/tradfi_vs_defi.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{DeFi Primitives}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_21/defi_stack.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Core Building Blocks:}
+\begin{itemize}
+\item \textbf{Asset Layer:} Tokens (ERC-20, stablecoins)
+\item \textbf{Protocol Layer:} Lending, DEXs, derivatives
+\item \textbf{Application Layer:} Aggregators, wallets, dashboards
+\item \textbf{Composability:} ``Money Legos'' -- protocols interact seamlessly
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Decentralized Exchanges (DEXs): The Problem}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Centralized Exchanges (CEXs):}
+\begin{itemize}
+\item Order book model
+\item Custodial (exchange holds funds)
+\item Counterparty risk (FTX collapse)
+\item KYC requirements
+\item Single point of failure
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Challenges for DEX:}
+\begin{itemize}
+\item On-chain order book too expensive
+\item Liquidity fragmentation
+\item Constant price updates
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_21/orderbook_gas_costs.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{AMM: Automated Market Maker}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_21/amm_concept.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Key Idea:}
+\begin{itemize}
+\item Liquidity pools replace order books
+\item Algorithmic pricing via bonding curve
+\item Anyone can provide liquidity (LP)
+\item Passive market making
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Constant Product Formula: $x \times y = k$}
+\textbf{Uniswap V2 Model:}
+\[
+x \times y = k
+\]
+where $x$ = reserve of token A, $y$ = reserve of token B, $k$ = constant
+
+\vspace{3mm}
+\textbf{Example:} ETH/USDC pool with 100 ETH and 200,000 USDC
+\[
+k = 100 \times 200{,}000 = 20{,}000{,}000
+\]
+
+\vspace{3mm}
+\textbf{Trade:} Buy 10 ETH
+\begin{itemize}
+\item New ETH reserve: $x' = 100 - 10 = 90$
+\item New USDC reserve: $y' = k / x' = 20{,}000{,}000 / 90 = 222{,}222$
+\item USDC paid: $222{,}222 - 200{,}000 = 22{,}222$ (effective price $\sim$\$2,222/ETH)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{AMM Bonding Curve Visualization}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_21/bonding_curve.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Properties:}
+\begin{itemize}
+\item Price = slope of curve at current point: $P = y/x$
+\item Larger trades move price more (slippage)
+\item Infinite liquidity (asymptotic, but expensive for large trades)
+\item No order book needed
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Price Impact and Slippage}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Price Impact:}
+\begin{itemize}
+\item How much your trade moves the price
+\item Larger trade $\rightarrow$ worse price
+\item Function of trade size relative to pool depth
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Slippage:}
+\begin{itemize}
+\item Difference between expected and executed price
+\item Set slippage tolerance (e.g., 0.5\%)
+\item Trade reverts if exceeded
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_21/slippage_curve.pdf}
+\end{columns}
+
+\vspace{3mm}
+\textbf{Formula:} Price impact $\approx \Delta x / (x + \Delta x)$
+\end{frame}
+
+\begin{frame}{Liquidity Providers: Earning Fees}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{How it Works:}
+\begin{enumerate}
+\item Deposit equal value of both tokens
+\item Receive LP tokens (claim on pool share)
+\item Earn 0.3\% of all trades (Uniswap V2)
+\item Withdraw anytime (burn LP tokens)
+\end{enumerate}
+
+\vspace{3mm}
+\textbf{Example:}
+\begin{itemize}
+\item Pool: 1,000 ETH + 2M USDC
+\item You deposit: 10 ETH + 20K USDC (1\%)
+\item Daily volume: 500K USDC
+\item Your daily fees: $500{,}000 \times 0.003 \times 0.01 = \$15$
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_21/liquidity_provision.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Impermanent Loss: The Hidden Cost}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_21/impermanent_loss.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Definition:} Loss compared to holding tokens vs providing liquidity
+
+\vspace{2mm}
+\textbf{Example:}
+\begin{itemize}
+\item Deposit 1 ETH (\$2000) + 2000 USDC when ETH = \$2000
+\item ETH rises to \$3000
+\item Pool rebalances: 0.816 ETH + 2449 USDC = \$4449 total
+\item Holding: 1 ETH + 2000 USDC = \$5000
+\item Impermanent loss: \$551 (11\%)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Impermanent Loss Formula}
+\textbf{Exact Formula:}
+\[
+\text{IL} = \frac{2\sqrt{r}}{1 + r} - 1
+\]
+where $r$ = price ratio change (final price / initial price)
+
+\vspace{3mm}
+\begin{center}
+\begin{tabular}{@{}p{4cm}p{4cm}p{4cm}@{}}
+\toprule
+\textbf{Price Change} & \textbf{Ratio ($r$)} & \textbf{Impermanent Loss} \\
+\midrule
++25\% & 1.25 & -0.6\% \\
++50\% & 1.5 & -2.0\% \\
++100\% (2x) & 2.0 & -5.7\% \\
++400\% (5x) & 5.0 & -25.5\% \\
+-50\% & 0.5 & -5.7\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{2mm}
+\textbf{Mitigation:} Fees earned over time can offset IL (especially in high-volume pairs)
+\end{frame}
+
+\begin{frame}{Uniswap V3: Concentrated Liquidity}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{V2 Limitation:}
+\begin{itemize}
+\item Liquidity spread across entire price range
+\item Capital inefficient
+\item Most liquidity never used
+\end{itemize}
+
+\vspace{3mm}
+\textbf{V3 Innovation:}
+\begin{itemize}
+\item Concentrated liquidity in price ranges
+\item LPs choose custom ranges
+\item Up to 4000x capital efficiency
+\item Active management required
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_21/uniswap_v3_ranges.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Lending Protocols: Aave and Compound}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_21/lending_protocol_architecture.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Mechanism:}
+\begin{itemize}
+\item \textbf{Lenders:} Deposit assets, earn interest (aTokens/cTokens)
+\item \textbf{Borrowers:} Post collateral, borrow assets, pay interest
+\item \textbf{Interest Rates:} Algorithmically determined by utilization
+\item \textbf{Liquidation:} If collateral drops below threshold, liquidators repay loan, seize collateral at discount
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Over-Collateralization Requirement}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Why Over-Collateralize?}
+\begin{itemize}
+\item No credit checks (permissionless)
+\item Price volatility protection
+\item Liquidation buffer
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Example (Aave):}
+\begin{itemize}
+\item Deposit: 10 ETH (\$20K)
+\item Max LTV: 80\%
+\item Borrow: 16K USDC
+\item Liquidation threshold: 85\%
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_21/collateral_ratio.pdf}
+\end{columns}
+
+\vspace{3mm}
+\textbf{Risk:} If ETH drops $>$15\%, position liquidated
+\end{frame}
+
+\begin{frame}{Interest Rate Model}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_21/interest_rate_curve.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Utilization Rate:}
+\[
+U = \frac{\text{Total Borrowed}}{\text{Total Supplied}}
+\]
+
+\textbf{Interest Rates:}
+\begin{itemize}
+\item Low utilization: Low rates (encourage borrowing)
+\item High utilization: High rates (incentivize deposits, discourage borrowing)
+\item Kinked model: Sharp increase near optimal utilization (e.g., 80\%)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Flash Loans: Zero-Collateral Instant Loans}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Concept:}
+\begin{itemize}
+\item Borrow any amount
+\item No collateral required
+\item Must repay within same transaction
+\item If not repaid, entire transaction reverts
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Use Cases:}
+\begin{itemize}
+\item Arbitrage (exploit price differences)
+\item Collateral swaps
+\item Liquidations
+\item Refinancing
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_21/flash_loan_flow.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Flash Loan Attack Example}
+\textbf{Scenario: Exploit Price Oracle Manipulation (2020, bZx attack)}
+\begin{enumerate}
+\item Flash loan 10,000 ETH from dYdX
+\item Swap 5,000 ETH for WBTC on Uniswap (moves price)
+\item Use manipulated WBTC price to borrow over-collateralized assets on bZx
+\item Repay flash loan, keep profit
+\item Exploit: \$350K profit
+\end{enumerate}
+
+\vspace{3mm}
+\textbf{Defense:}
+\begin{itemize}
+\item Time-weighted average price (TWAP) oracles
+\item Multiple oracle sources (Chainlink)
+\item Borrow caps
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Note:} Flash loans are not inherently bad, but enable rapid exploitation of vulnerabilities
+\end{frame}
+
+\begin{frame}{Yield Farming: Chasing Returns}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Strategy:}
+\begin{itemize}
+\item Provide liquidity or lend assets
+\item Earn fees + protocol token rewards
+\item Compound yields (reinvest)
+\item Move capital to highest APY
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Yield Sources:}
+\begin{itemize}
+\item Trading fees (0.3\% on Uniswap)
+\item Borrow interest (Aave, Compound)
+\item Token incentives (governance tokens)
+\item Staking rewards
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_21/yield_farming_stack.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{DeFi Summer 2020: Liquidity Mining Explosion}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{charts/lesson_21/defi_tvl_history.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Catalyst:} Compound launches COMP token distribution (June 2020)
+
+\vspace{2mm}
+\textbf{Result:}
+\begin{itemize}
+\item Total Value Locked (TVL): \$1B $\rightarrow$ \$100B+ (2021 peak)
+\item APYs: 100--1000\%+ (unsustainable, token inflation)
+\item Copycat protocols, ``DeFi Degen'' culture
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Risks in DeFi}
+\begin{itemize}
+\item \textbf{Smart Contract Risk:} Bugs, exploits (e.g., The DAO, bZx)
+\item \textbf{Impermanent Loss:} Price divergence reduces LP returns
+\item \textbf{Oracle Manipulation:} Flash loan attacks on price feeds
+\item \textbf{Liquidation Risk:} Volatile collateral leads to forced sales
+\item \textbf{Rug Pulls:} Developers drain liquidity (unaudited projects)
+\item \textbf{Regulatory Risk:} Securities classification, AML/KYC future requirements
+\item \textbf{Composability Risk:} Cascading failures (one protocol exploited affects others)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Mitigation:} Use audited protocols, diversify, understand risks, start small
+\end{frame}
+
+\begin{frame}{DeFi vs CeFi: Trade-offs}
+\begin{center}
+\begin{tabular}{@{}p{3.5cm}p{5cm}p{5cm}@{}}
+\toprule
+\textbf{Aspect} & \textbf{DeFi} & \textbf{CeFi} \\
+\midrule
+Custody & Self-custody (your keys) & Custodial (exchange holds) \\
+\midrule
+Access & Permissionless (anyone) & KYC/AML required \\
+\midrule
+Transparency & Open-source, on-chain & Opaque (trust exchange) \\
+\midrule
+Execution & Slower (block time), higher fees & Instant, low fees \\
+\midrule
+Risk & Smart contract risk & Counterparty risk (FTX) \\
+\midrule
+Liquidity & Fragmented across DEXs & Concentrated on CEX \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}{Summary}
+\begin{itemize}
+\item \textbf{DeFi:} Permissionless financial services via smart contracts
+\item \textbf{AMMs:} Constant product formula ($x \times y = k$), liquidity pools replace order books
+\item \textbf{Impermanent Loss:} LPs lose vs holding when prices diverge
+\item \textbf{Lending:} Over-collateralized loans, algorithmic interest rates, liquidations
+\item \textbf{Flash Loans:} Uncollateralized loans repaid in same transaction
+\item \textbf{Risks:} Smart contract bugs, IL, oracle manipulation, liquidations
+\end{itemize}
+
+\vspace{4mm}
+\textbf{Next Lesson:} Stablecoins and Terra/Luna collapse case study
+\end{frame}
+
+\end{document}

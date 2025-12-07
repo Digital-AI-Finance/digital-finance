@@ -1,0 +1,271 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 8: Robo-Advisors and Digital Wealth}
+\subtitle{Module 1: FinTech Fundamentals}
+\author{Digital Finance}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Robo-Advisor Definition}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Automated Wealth Management}
+\begin{itemize}
+\item Algorithm-driven allocation
+\item Low minimum investment
+\item Passive ETF strategies
+\item Tax optimization
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/robo_vs_traditional.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Market Leaders}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/robo_market_leaders.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Betterment Case Study}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{First Robo-Advisor}
+\begin{itemize}
+\item Founded: 2008
+\item \$40B AUM (2023)
+\item 800,000+ customers
+\item 0.25\% annual fee
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/betterment_growth.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Customer Onboarding Flow}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/robo_onboarding.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Risk Profiling}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Questionnaire Inputs}
+\begin{itemize}
+\item Time horizon
+\item Risk tolerance
+\item Financial goals
+\item Liquidity needs
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/risk_profiling_output.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Portfolio Construction}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Modern Portfolio Theory}
+\begin{itemize}
+\item Mean-variance optimization
+\item Efficient frontier
+\item ETF-only implementation
+\item Global diversification
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/efficient_frontier.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Asset Allocation Examples}
+\begin{center}
+\includegraphics[width=0.82\textwidth]{figures/asset_allocation_profiles.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Automatic Rebalancing}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Drift Management}
+\begin{itemize}
+\item Threshold: 5\% deviation
+\item Calendar-based triggers
+\item Tax-aware trading
+\item Transaction cost minimization
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/rebalancing_process.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Tax-Loss Harvesting}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Automated Tax Optimization}
+\begin{itemize}
+\item Sell losing positions
+\item Buy similar ETF (avoid wash sale)
+\item \$3,000 annual deduction
+\item 0.77\% alpha (Betterment)
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/tax_loss_harvesting.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Fee Comparison}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/fee_comparison_wealth.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Fee Impact Over Time}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{30-Year Projection}
+\begin{itemize}
+\item Portfolio: \$100,000 initial
+\item Return: 7\% annually
+\item Robo (0.25\%): \$652,000
+\item Advisor (1\%): \$574,000
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/fee_impact_projection.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Business Model Economics}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Unit Economics}
+\begin{itemize}
+\item CAC: \$150-300
+\item AUM per customer: \$50,000
+\item Revenue: \$125/year (0.25\%)
+\item Breakeven: 2-3 years
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/robo_unit_economics.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Hybrid Models}
+\begin{center}
+\includegraphics[width=0.82\textwidth]{figures/hybrid_advisor_model.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Vanguard Personal Advisor}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Hybrid Success}
+\begin{itemize}
+\item 0.30\% fee tier
+\item Human advisor access
+\item \$250B AUM (largest)
+\item \$50,000 minimum
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/vanguard_hybrid.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Incumbent Response}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Traditional Firms Enter}
+\begin{itemize}
+\item Schwab Intelligent Portfolios
+\item Fidelity Go
+\item Morgan Stanley Access Investing
+\item Fee pressure on advisors
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/incumbent_robo_offerings.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Global Adoption Rates}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/robo_global_adoption.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Challenges and Limitations}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Current Issues}
+\begin{itemize}
+\item Behavioral coaching gap
+\item Complex planning needs
+\item Low profitability margins
+\item Commoditization pressure
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/robo_challenges.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Future: AI-Powered Advisors}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Next Generation}
+\begin{itemize}
+\item ChatGPT financial planning
+\item Real-time sentiment analysis
+\item Behavioral nudges
+\item Holistic financial wellness
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/ai_advisor_future.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Key Takeaways}
+\begin{itemize}
+\item \textbf{Fees}: 0.25\% vs 1\% saves \$78K over 30 years
+\item \textbf{Strategy}: Passive ETF allocation + rebalancing + tax optimization
+\item \textbf{Market}: \$2.5T AUM globally, dominated by incumbents
+\item \textbf{Evolution}: Pure robo $\to$ hybrid models winning
+\item \textbf{Future}: AI personalization and behavioral coaching
+\end{itemize}
+\end{frame}
+
+\end{document}

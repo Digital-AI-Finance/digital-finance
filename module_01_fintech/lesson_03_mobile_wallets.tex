@@ -1,0 +1,233 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 3: Digital Payments II -- Mobile Wallets}
+\subtitle{Module 1: FinTech Fundamentals}
+\author{Digital Finance}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Mobile Wallet Revolution}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Evolution of Payments}
+\begin{itemize}
+\item Cash $\to$ Cards $\to$ Mobile
+\item 2014: Apple Pay launch
+\item 2023: \$16T global volume
+\item Smartphone = payment terminal
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/mobile_wallet_adoption.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Near Field Communication (NFC) Technology}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Technical Foundation}
+\begin{itemize}
+\item 13.56 MHz radio frequency
+\item Range: 4-10 cm proximity
+\item EMV tokenization standard
+\item Secure Element (SE) storage
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/nfc_technology_diagram.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Apple Pay Architecture}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/apple_pay_flow.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Tokenization Security}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Dynamic Token Generation}
+\begin{itemize}
+\item PAN replaced by token
+\item One-time cryptogram
+\item Device-specific identifier
+\item Reduces fraud by 98\%
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/tokenization_process.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{M-Pesa: Mobile Money Pioneer}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Kenya Success Story}
+\begin{itemize}
+\item Launch: 2007 by Safaricom
+\item 51M users (2023)
+\item 96\% adult penetration
+\item SMS-based transactions
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/mpesa_growth.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{M-Pesa Ecosystem}
+\begin{center}
+\includegraphics[width=0.88\textwidth]{figures/mpesa_ecosystem.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Alipay and WeChat Pay Dominance}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Chinese Market Leaders}
+\begin{itemize}
+\item Alipay: 1.3B users
+\item WeChat Pay: 1.0B users
+\item QR code-based
+\item 92\% mobile payment share
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/china_wallet_comparison.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{QR Code vs NFC Technology}
+\begin{center}
+\includegraphics[width=0.80\textwidth]{figures/qr_vs_nfc_comparison.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Super-App Strategy}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{WeChat Ecosystem}
+\begin{itemize}
+\item Messaging + Payments
+\item E-commerce integration
+\item Mini-programs platform
+\item 1M+ services embedded
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/superapp_architecture.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Global Wallet Market Share}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/global_wallet_share.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Mobile Wallet Business Models}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Revenue Streams}
+\begin{itemize}
+\item Transaction fees (0.15\%-3\%)
+\item Data monetization
+\item Cross-selling services
+\item Merchant partnerships
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/wallet_revenue_mix.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Security Layers}
+\begin{center}
+\includegraphics[width=0.82\textwidth]{figures/mobile_wallet_security.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Emerging Markets Leapfrogging}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Infrastructure Bypass}
+\begin{itemize}
+\item Skip card infrastructure
+\item Mobile-first adoption
+\item Agent network model
+\item Financial inclusion impact
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/mobile_wallet_penetration.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Regulatory Challenges}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Global Fragmentation}
+\begin{itemize}
+\item Cross-border restrictions
+\item Data localization laws
+\item Licensing requirements
+\item Interoperability gaps
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/wallet_regulatory_map.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Future: Embedded Wallets}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Next Generation}
+\begin{itemize}
+\item IoT payment devices
+\item Wearables integration
+\item Biometric authentication
+\item CBDC compatibility
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/future_wallet_timeline.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Key Takeaways}
+\begin{itemize}
+\item \textbf{Technology}: NFC for proximity, QR codes for scalability
+\item \textbf{Regional Patterns}: Super-apps in Asia, NFC in West, SMS in Africa
+\item \textbf{Business Models}: Transaction fees + ecosystem monetization
+\item \textbf{Security}: Tokenization reduces fraud dramatically
+\item \textbf{Impact}: Financial inclusion through mobile-first design
+\end{itemize}
+\end{frame}
+
+\end{document}

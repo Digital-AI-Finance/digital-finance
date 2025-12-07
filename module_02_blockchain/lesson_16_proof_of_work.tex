@@ -1,0 +1,429 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 16: Proof of Work}
+\subtitle{Module 2: Blockchain Fundamentals}
+\author{Digital Finance}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{The Double-Spending Problem}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Digital Money Challenge:}
+\begin{itemize}
+\item Digital files are copyable
+\item How to prevent spending same coin twice?
+\item Traditional solution: Central authority (bank)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Decentralized Challenge:}
+\begin{itemize}
+\item No central ledger
+\item Network latency
+\item Conflicting transactions
+\item Malicious actors
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_16/double_spending_scenario.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Consensus Problem: Agreeing on Transaction Order}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_16/consensus_problem.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Key Questions:}
+\begin{itemize}
+\item Which transaction came first?
+\item Who decides the canonical order?
+\item How to prevent censorship or manipulation?
+\item How to incentivize honest behavior?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Proof of Work: The Solution}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Core Idea:}
+\begin{itemize}
+\item Make block creation expensive
+\item Require computational work
+\item Probability-based selection
+\item Longest chain wins
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Properties:}
+\begin{itemize}
+\item Sybil resistance (one CPU = one vote)
+\item Objective chain selection rule
+\item Economic security
+\item No coordination needed
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_16/pow_concept.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Hash Puzzle: Finding the Nonce}
+\textbf{Mining Goal:} Find nonce such that block hash is below target
+
+\[
+\text{SHA256}(\text{Block Header}) < \text{Target}
+\]
+
+\vspace{3mm}
+\textbf{Block Header Contains:}
+\begin{itemize}
+\item Previous block hash
+\item Merkle root (transaction summary)
+\item Timestamp
+\item Difficulty target
+\item \textcolor{mlred}{Nonce} (number to vary)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Example:}
+\small
+\begin{align*}
+\text{Target:} & \quad 0000000000000000000f1a2b3c4d... \\
+\text{Hash attempt 1:} & \quad 8a3f2e1d9c... \quad \text{(too high)} \\
+\text{Hash attempt 2:} & \quad 0000000000000000000a1b2c3d... \quad \text{(success!)}
+\end{align*}
+\end{frame}
+
+\begin{frame}{Mining Process Visualization}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{charts/lesson_16/mining_process.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Steps:}
+\begin{enumerate}
+\item Collect transactions from mempool
+\item Build Merkle tree, create block header
+\item Try different nonces (brute force search)
+\item Hash until target reached
+\item Broadcast valid block to network
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Difficulty Target: Controlling Block Time}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Target Representation:}
+\[
+\text{Target} = \text{coefficient} \times 2^{8(\text{exponent}-3)}
+\]
+
+\vspace{3mm}
+\textbf{Difficulty:}
+\[
+\text{Difficulty} = \frac{\text{Max Target}}{\text{Current Target}}
+\]
+
+\vspace{3mm}
+\textbf{Bitcoin:}
+\begin{itemize}
+\item Target block time: 10 minutes
+\item Adjusts every 2016 blocks (2 weeks)
+\item Difficulty $\propto$ total hashrate
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_16/difficulty_adjustment.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Difficulty Over Time: Bitcoin Example}
+\begin{center}
+\includegraphics[width=0.95\textwidth]{charts/lesson_16/bitcoin_difficulty_history.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Observations:}
+\begin{itemize}
+\item Exponential growth from 2009 to 2024
+\item Difficulty in 2024: $\sim 10^{13}$ times harder than 2009
+\item Hashrate: From CPU mining to specialized ASICs
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Mining Probability and Expected Time}
+\textbf{Probability of Success per Hash:}
+\[
+P(\text{success}) = \frac{\text{Target}}{2^{256}}
+\]
+
+\vspace{3mm}
+\textbf{Expected Number of Hashes:}
+\[
+E[\text{hashes}] = \frac{2^{256}}{\text{Target}} = \text{Difficulty} \times 2^{32}
+\]
+
+\vspace{3mm}
+\textbf{Expected Time to Find Block:}
+\[
+T = \frac{\text{Difficulty} \times 2^{32}}{\text{Hashrate}}
+\]
+
+\vspace{3mm}
+\textbf{Example:} Difficulty = 50 trillion, Hashrate = 100 TH/s
+\[
+T = \frac{50 \times 10^{12} \times 2^{32}}{100 \times 10^{12}} \approx 2147 \text{ seconds} \approx 36 \text{ minutes}
+\]
+\end{frame}
+
+\begin{frame}{Mining Difficulty vs Hashrate}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{charts/lesson_16/hashrate_vs_difficulty.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Relationship:}
+\begin{itemize}
+\item Hashrate increases $\rightarrow$ blocks found faster
+\item Difficulty adjusts upward $\rightarrow$ restores 10-min average
+\item Self-regulating system maintains predictable issuance
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Blockchain Security: The 51\% Attack}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Attack Scenario:}
+\begin{itemize}
+\item Attacker controls $>$50\% hashrate
+\item Can create longest chain
+\item Rewrite transaction history
+\item Double-spend attack
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Limitations:}
+\begin{itemize}
+\item Cannot steal others' coins
+\item Cannot create coins from nothing
+\item Cannot change protocol rules
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_16/51_percent_attack.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Confirmation Depth: Security Over Time}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_16/confirmation_depth.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Probability of Reversal:}
+\[
+P(\text{reorg after } z \text{ blocks}) \approx \left(\frac{q}{p}\right)^z
+\]
+where $p$ = honest hashrate fraction, $q$ = attacker hashrate fraction
+
+\vspace{2mm}
+\textbf{Bitcoin Standard:} 6 confirmations ($\sim$1 hour) for high-value transactions
+\end{frame}
+
+\begin{frame}{Mining Economics: Costs and Rewards}
+\textbf{Revenue:}
+\begin{itemize}
+\item Block reward: 3.125 BTC (as of 2024, halves every 4 years)
+\item Transaction fees: Variable (0.1--2 BTC per block)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Costs:}
+\begin{itemize}
+\item Hardware (ASICs): \$3,000--\$15,000 per unit
+\item Electricity: 3--6 cents per kWh (industrial rates)
+\item Cooling, maintenance, facility
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Profitability Equation:}
+\[
+\text{Profit} = (\text{Block Reward} + \text{Fees}) \times \text{BTC Price} - \text{Electricity Cost}
+\]
+
+\vspace{2mm}
+\textbf{Break-even:} Electricity cost $\approx$ 40--60\% of revenue at scale
+\end{frame}
+
+\begin{frame}{Mining Hardware Evolution}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{charts/lesson_16/mining_hardware_evolution.pdf}
+\end{center}
+\vspace{-3mm}
+\begin{itemize}
+\item \textbf{2009--2010:} CPU mining (1--10 MH/s)
+\item \textbf{2010--2012:} GPU mining (100--500 MH/s)
+\item \textbf{2013+:} ASIC mining (1--200+ TH/s)
+\item \textbf{Modern ASICs:} Antminer S19 Pro (110 TH/s, 3250W)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Energy Consumption: The Elephant in the Room}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Bitcoin Network (2024):}
+\begin{itemize}
+\item Total hashrate: $\sim$600 EH/s
+\item Power consumption: $\sim$150 TWh/year
+\item Comparable to Argentina or Netherlands
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Per Transaction:}
+\begin{itemize}
+\item $\sim$700 kWh per transaction
+\item vs Visa: $\sim$0.001 kWh
+\item But: Bitcoin = settlement layer
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_16/energy_consumption.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Energy Sources: Renewable Debate}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_16/mining_energy_sources.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Estimates (2024):}
+\begin{itemize}
+\item Renewable energy: 40--60\% (hydroelectric, wind, solar)
+\item Natural gas: 20--30\%
+\item Coal: 10--20\%
+\item Nuclear: 5--10\%
+\end{itemize}
+\textbf{Trend:} Miners seek cheap, stranded renewable energy (e.g., flare gas, curtailed hydro)
+\end{frame}
+
+\begin{frame}{Environmental Criticisms and Counterarguments}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Criticisms:}
+\begin{itemize}
+\item Massive carbon footprint
+\item E-waste from obsolete ASICs
+\item Inefficient compared to databases
+\item Competes with useful computing
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Counterarguments:}
+\begin{itemize}
+\item Energy = security (makes attacks expensive)
+\item Incentivizes renewable buildout
+\item Banking system also energy-intensive
+\item Enables censorship-resistant money
+\end{itemize}
+\end{columns}
+
+\vspace{4mm}
+\textbf{Trade-off:} Security vs energy efficiency (Proof of Stake addresses this)
+\end{frame}
+
+\begin{frame}{Mining Centralization Risks}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_16/mining_pool_distribution.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Concerns:}
+\begin{itemize}
+\item Top 5 pools control $>$70\% hashrate
+\item Geographic concentration (China historically dominant, now US/Kazakhstan)
+\item Pool operators could censor transactions
+\end{itemize}
+\textbf{Mitigation:} Miners can switch pools, Stratum V2 protocol improves decentralization
+\end{frame}
+
+\begin{frame}{Selfish Mining Attack}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Strategy:}
+\begin{enumerate}
+\item Miner finds block, keeps secret
+\item Continues mining on private chain
+\item Reveals when ahead by 2+ blocks
+\item Honest chain orphaned
+\end{enumerate}
+
+\vspace{3mm}
+\textbf{Result:}
+\begin{itemize}
+\item Unfair revenue (more than hashrate share)
+\item Effective with $>$25\% hashrate
+\item Wastes other miners' work
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_16/selfish_mining.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Alternatives to Proof of Work}
+\begin{center}
+\begin{tabular}{@{}p{3cm}p{4cm}p{4cm}p{3cm}@{}}
+\toprule
+\textbf{Mechanism} & \textbf{Selection} & \textbf{Pros} & \textbf{Cons} \\
+\midrule
+Proof of Work & Computational power & Proven security, decentralized & Energy intensive \\
+\midrule
+Proof of Stake & Staked capital & Energy efficient & Rich get richer, slashing risk \\
+\midrule
+Proof of Authority & Approved validators & Fast, low energy & Centralized, permissioned \\
+\midrule
+Proof of Space & Disk storage & Lower energy than PoW & New, unproven security \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{3mm}
+\textbf{Note:} Ethereum switched from PoW to PoS in 2022 (The Merge)
+\end{frame}
+
+\begin{frame}{Summary}
+\begin{itemize}
+\item \textbf{Double-Spending Problem:} Solved by probabilistic consensus via PoW
+\item \textbf{Mining:} Find nonce making block hash $<$ target (SHA256 puzzle)
+\item \textbf{Difficulty:} Auto-adjusts to maintain constant block time (10 min for Bitcoin)
+\item \textbf{Security:} 51\% attack possible but expensive; confirmation depth increases safety
+\item \textbf{Economics:} Revenue (block reward + fees) vs costs (hardware + electricity)
+\item \textbf{Energy Debate:} $\sim$150 TWh/year, trade-off between security and efficiency
+\end{itemize}
+
+\vspace{4mm}
+\textbf{Next Lesson:} Proof of Stake -- energy-efficient alternative consensus
+\end{frame}
+
+\end{document}

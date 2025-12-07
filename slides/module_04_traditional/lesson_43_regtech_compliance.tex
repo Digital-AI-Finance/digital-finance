@@ -1,0 +1,835 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 43: RegTech and Compliance}
+\subtitle{Module 4: Traditional Digital Finance}
+\author{Digital Finance Course}
+\date{2025}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Learning Objectives}
+\begin{itemize}
+\item Understand RegTech scope and technology applications
+\item Analyze Basel III capital and liquidity requirements
+\item Examine IFRS 9 expected credit loss implementation
+\item Evaluate regulatory reporting automation (EMIR, MiFID II)
+\item Assess AML/KYC technology and transaction monitoring
+\end{itemize}
+\end{frame}
+
+\section{RegTech Overview}
+
+\begin{frame}{RegTech Definition and Scope}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{RegTech Definition:}
+
+\textit{Use of technology (especially information technology) to enhance regulatory processes, compliance, and reporting.}
+
+\vspace{2mm}
+\textbf{Key Drivers:}
+\begin{itemize}
+\item Post-2008 regulatory explosion (Dodd-Frank, MiFID II, EMIR)
+\item Rising compliance costs (10-15\% of bank operating costs)
+\item Manual processes prone to errors and delays
+\item Regulatory demands for real-time reporting
+\item Availability of AI/ML, cloud, and big data tools
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{RegTech Applications:}
+\begin{enumerate}
+\item \textbf{Regulatory Reporting:} Automated data extraction and submission
+\item \textbf{Risk Management:} Real-time risk analytics and stress testing
+\item \textbf{Compliance:} Policy enforcement and monitoring
+\item \textbf{Identity Management:} KYC/AML automation
+\item \textbf{Transaction Monitoring:} Fraud and market abuse detection
+\item \textbf{Regulatory Intelligence:} Track and interpret rule changes
+\end{enumerate}
+
+\vspace{2mm}
+\textbf{Market Size:}
+\begin{itemize}
+\item Global RegTech market: \$12B (2023), projected \$50B+ by 2030
+\item 20-30\% CAGR driven by regulatory complexity
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{RegTech Technology Stack}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Core Technologies:}
+\begin{itemize}
+\item \textbf{Machine Learning:} AML pattern detection, risk scoring
+\item \textbf{Natural Language Processing:} Regulatory text parsing, contract analysis
+\item \textbf{Robotic Process Automation (RPA):} Data extraction from legacy systems
+\item \textbf{Cloud Computing:} Scalable infrastructure, vendor solutions
+\item \textbf{Blockchain:} Immutable audit trails, shared KYC utilities
+\item \textbf{Big Data:} Transaction monitoring across terabytes
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Leading RegTech Vendors:}
+\begin{itemize}
+\item \textbf{Compliance:} ComplyAdvantage, Chainalysis, Elliptic
+\item \textbf{Regulatory Reporting:} Wolters Kluwer, Moody's Analytics, ABIDE Financial
+\item \textbf{KYC/AML:} Refinitiv World-Check, LexisNexis, Trulioo
+\item \textbf{Transaction Monitoring:} NICE Actimize, SAS, Feedzai
+\item \textbf{Risk Analytics:} Axiom, Quantexa, Ayasdi
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Build vs Buy:}
+\begin{itemize}
+\item Large banks: Hybrid (build core, buy specialized)
+\item Regional banks: Primarily vendor solutions
+\item Fintechs: Cloud-native RegTech-as-a-Service
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\section{Basel III Capital Framework}
+
+\begin{frame}{Basel III Overview}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Historical Context:}
+\begin{itemize}
+\item \textbf{Basel I (1988):} Simple risk weights by asset class
+\item \textbf{Basel II (2004):} Internal models, three pillars
+\item \textbf{Basel III (2010):} Post-crisis reforms
+\item \textbf{Basel III Finalization (2017):} Output floor, standardized approach revisions
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Three Pillars:}
+\begin{enumerate}
+\item \textbf{Minimum Capital:} CET1, Tier 1, Total Capital ratios
+\item \textbf{Supervisory Review:} Stress testing, Pillar 2 add-ons
+\item \textbf{Market Discipline:} Public disclosure requirements
+\end{enumerate}
+
+\column{0.48\textwidth}
+\textbf{Capital Adequacy Ratios:}
+\begin{itemize}
+\item \textbf{CET1 Ratio:} $\geq$ 4.5\% (Core equity / RWA)
+\item \textbf{Tier 1 Ratio:} $\geq$ 6\% (CET1 + AT1 / RWA)
+\item \textbf{Total Capital Ratio:} $\geq$ 8\% (Tier 1 + Tier 2 / RWA)
+\item \textbf{Capital Conservation Buffer:} 2.5\% above minimums
+\item \textbf{Countercyclical Buffer:} 0-2.5\% (jurisdiction-specific)
+\item \textbf{G-SIB Surcharge:} 1-3.5\% for systemically important banks
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Effective CET1 Requirement (G-SIB):}
+$$4.5\% + 2.5\% + 1\% + 2.5\% = 10.5\% \text{ CET1}$$
+(Minimum + Conservation + Countercyclical + G-SIB)
+\end{columns}
+\end{frame}
+
+\begin{frame}{Risk-Weighted Assets (RWA) Calculation}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Credit Risk RWA:}
+
+\textbf{Standardized Approach:}
+\begin{itemize}
+\item Fixed risk weights by exposure class
+\item AAA-AA: 20\%, A+/A: 50\%, BBB+/BBB-: 100\%
+\item Residential mortgages: 35\% (low LTV)
+\item Corporate: 100\% (unrated)
+\item Sovereign: 0\% (OECD), 100\% (others)
+\end{itemize}
+
+\textbf{IRB Approach (Internal Ratings-Based):}
+$$\text{RWA} = K \times 12.5 \times \text{EAD}$$
+where $K$ = capital requirement function of PD, LGD, M
+
+\vspace{1mm}
+$$K = [\text{LGD} \times N(\sqrt{\frac{1}{1-R}} \cdot N^{-1}(\text{PD}) + \sqrt{\frac{R}{1-R}} \cdot N^{-1}(0.999)) - \text{PD} \times \text{LGD}] \times (1 + (M-2.5) \times b)$$
+
+where $R$ = correlation, $M$ = maturity
+
+\column{0.48\textwidth}
+\textbf{Market Risk RWA:}
+\begin{itemize}
+\item Standardized Approach (SA): Sensitivity-based
+\item Internal Models Approach (IMA): Expected Shortfall
+\item FRTB (Fundamental Review): $\text{RWA} = 12.5 \times \text{Capital}$
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Operational Risk RWA (Standardized):}
+$$\text{OR Capital} = \text{BIC} \times \text{ILM}$$
+where BIC = Business Indicator Component, ILM = Internal Loss Multiplier
+
+\vspace{2mm}
+\textbf{Output Floor (Basel III Finalization):}
+$$\text{RWA}_{IRB} \geq 72.5\% \times \text{RWA}_{Standardized}$$
+
+\textit{Limits internal model benefit, effective January 2023 (phased to 2028)}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Liquidity Requirements: LCR and NSFR}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Liquidity Coverage Ratio (LCR):}
+
+$$\text{LCR} = \frac{\text{High-Quality Liquid Assets}}{\text{Net Cash Outflows (30-day stress)}} \geq 100\%$$
+
+\vspace{2mm}
+\textbf{HQLA Categories:}
+\begin{itemize}
+\item \textbf{Level 1:} Cash, central bank reserves, sovereign debt (0\% haircut)
+\item \textbf{Level 2A:} High-quality corporate/covered bonds (15\% haircut)
+\item \textbf{Level 2B:} Lower-rated corporates, equities (50\% haircut)
+\item \textbf{Cap:} Level 2 max 40\% of HQLA, Level 2B max 15\%
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Net Cash Outflows:}
+\begin{itemize}
+\item Retail deposits: 3-10\% runoff (stable to less stable)
+\item Wholesale deposits: 25-100\% runoff
+\item Committed facilities: 30-100\% drawdown
+\item Derivatives collateral calls
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Net Stable Funding Ratio (NSFR):}
+
+$$\text{NSFR} = \frac{\text{Available Stable Funding}}{\text{Required Stable Funding}} \geq 100\%$$
+
+\vspace{2mm}
+\textbf{ASF Factors (by liability type):}
+\begin{itemize}
+\item Equity, long-term debt (>1 year): 100\%
+\item Stable retail deposits: 95\%
+\item Less stable retail, SME deposits: 90\%
+\item Wholesale deposits (<1 year): 50\%
+\item Short-term wholesale (<6 months): 0\%
+\end{itemize}
+
+\vspace{2mm}
+\textbf{RSF Factors (by asset type):}
+\begin{itemize}
+\item Cash, reserves: 0\%
+\item Sovereign bonds (< 6m maturity): 5\%
+\item High-quality bonds: 10-15\%
+\item Residential mortgages: 65\%
+\item Corporate loans, other assets: 85-100\%
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\section{IFRS 9 Expected Credit Loss}
+
+\begin{frame}{IFRS 9 Overview and ECL Model}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Key Changes from IAS 39:}
+\begin{itemize}
+\item \textbf{Incurred Loss $\rightarrow$ Expected Loss:} Forward-looking provisioning
+\item \textbf{3-Stage Model:} Based on credit deterioration
+\item \textbf{Lifetime ECL:} For Stage 2 and 3 assets
+\item \textbf{Effective Date:} January 1, 2018 (EU/IFRS jurisdictions)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Three-Stage Classification:}
+\begin{enumerate}
+\item \textbf{Stage 1 (Performing):} 12-month ECL
+\begin{itemize}
+\item No significant credit deterioration since origination
+\item Interest revenue on gross carrying amount
+\end{itemize}
+
+\item \textbf{Stage 2 (Underperforming):} Lifetime ECL
+\begin{itemize}
+\item Significant increase in credit risk (SICR)
+\item Not yet credit-impaired
+\item Interest on gross carrying amount
+\end{itemize}
+\end{enumerate}
+
+\column{0.48\textwidth}
+\textbf{3. Stage 3 (Non-Performing):} Lifetime ECL
+\begin{itemize}
+\item Credit-impaired (objective evidence of default)
+\item Typically 90+ days past due
+\item Interest on net carrying amount (after provisions)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{ECL Formula:}
+$$\text{ECL} = \text{PD} \times \text{LGD} \times \text{EAD}$$
+
+\textbf{Stage 1:} 12-month PD \\
+\textbf{Stage 2/3:} Lifetime PD (sum over maturity)
+
+$$\text{Lifetime ECL} = \sum_{t=1}^{T} \text{PD}_t \times \text{LGD}_t \times \text{EAD}_t \times \text{DF}_t$$
+
+where $\text{DF}_t$ = discount factor, $T$ = contractual maturity
+\end{columns}
+\end{frame}
+
+\begin{frame}{SICR Criteria and Implementation}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Significant Increase in Credit Risk (SICR):}
+
+\textbf{Quantitative Triggers:}
+\begin{itemize}
+\item Absolute change in PD (e.g., +200 bps)
+\item Relative change in PD (e.g., 2x origination PD)
+\item 30+ days past due (rebuttable backstop)
+\item Internal rating downgrade (3+ notches)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Qualitative Indicators:}
+\begin{itemize}
+\item Forbearance or restructuring
+\item Watchlist/early warning flags
+\item Significant financial difficulty
+\item Covenant breaches
+\item Macroeconomic deterioration in sector
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Implementation Challenges:}
+\begin{itemize}
+\item \textbf{Data Requirements:} Origination PD, lifetime PD curves
+\item \textbf{Model Development:} PD, LGD, EAD models for each portfolio
+\item \textbf{Forward-Looking Information:} Macroeconomic scenarios
+\item \textbf{Systems:} Calculate ECL for millions of exposures
+\item \textbf{Governance:} SICR criteria approval and monitoring
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Technology Solutions:}
+\begin{itemize}
+\item \textbf{Moody's Analytics:} CreditLens, RiskCalc
+\item \textbf{SAS:} Expected Credit Loss solution
+\item \textbf{Wolters Kluwer:} OneSumX for Finance, Risk \& Regulatory Reporting
+\item \textbf{Oracle:} IFRS 9 ECL module (OFSAA)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Macroeconomic Scenarios and Probability Weighting}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Forward-Looking Scenarios:}
+
+IFRS 9 requires incorporating reasonable and supportable macroeconomic forecasts.
+
+\vspace{2mm}
+\textbf{Typical Scenario Framework:}
+\begin{itemize}
+\item \textbf{Base Case (50-60\% weight):} Consensus forecast (GDP, unemployment, property prices)
+\item \textbf{Upside (15-25\% weight):} Optimistic economic conditions
+\item \textbf{Downside (15-30\% weight):} Recession or stress scenario
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Key Macroeconomic Variables:}
+\begin{itemize}
+\item GDP growth
+\item Unemployment rate
+\item Interest rates (policy rate, term structure)
+\item Property prices (residential, commercial)
+\item Equity indices
+\item Commodity prices (for relevant sectors)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Probability-Weighted ECL:}
+$$\text{ECL} = \sum_{i=1}^{n} p_i \times \text{ECL}_i$$
+where $p_i$ = scenario probability, $\text{ECL}_i$ = ECL under scenario $i$
+
+\vspace{2mm}
+\textbf{Example (Mortgage Portfolio):}
+\begin{center}
+\footnotesize
+\begin{tabular}{lrr}
+\textbf{Scenario} & \textbf{Prob.} & \textbf{ECL (bps)} \\
+\midrule
+Upside & 20\% & 15 \\
+Base & 60\% & 30 \\
+Downside & 20\% & 80 \\
+\midrule
+\textbf{Weighted ECL} & & \textbf{36 bps} \\
+\end{tabular}
+\end{center}
+
+\vspace{2mm}
+\textbf{COVID-19 Impact (2020):}
+\begin{itemize}
+\item Banks increased downside weights to 30-50\%
+\item ECL provisions doubled or tripled
+\item Subsequent releases as economies recovered (2021-2022)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\section{Regulatory Reporting Automation}
+
+\begin{frame}{EMIR Trade Reporting}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{European Market Infrastructure Regulation (EMIR):}
+
+\textbf{Objectives:}
+\begin{itemize}
+\item Increase derivatives market transparency
+\item Reduce systemic risk via central clearing
+\item Standardize OTC derivatives
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Reporting Obligations:}
+\begin{itemize}
+\item \textbf{Scope:} All derivatives (OTC and exchange-traded)
+\item \textbf{Counterparties:} Both sides report (or delegate to Trade Repository)
+\item \textbf{Timing:} T+1 (next working day)
+\item \textbf{Trade Repositories:} DTCC, Regis-TR, UnaVista, etc.
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Reporting Fields (EMIR REFIT):}
+\begin{itemize}
+\item 203 fields per trade (effective 2024)
+\item Counterparty identifiers (LEI mandatory)
+\item Trade economics (notional, price, maturity)
+\item Collateral and margin details
+\item Valuation and lifecycle events (novations, compressions)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Technology Challenges:}
+\begin{itemize}
+\item Data extraction from multiple systems
+\item LEI management and validation
+\item Reconciliation between counterparties (UTI matching)
+\item Error handling and resubmissions
+\item Regulatory feedback and breaks
+\end{itemize}
+
+\vspace{2mm}
+\textit{Industry-wide reconciliation break rate: 5-15\% of trades (falling over time)}
+\end{columns}
+\end{frame}
+
+\begin{frame}{MiFID II Reporting and Transaction Monitoring}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{MiFID II Transaction Reporting:}
+
+\textbf{Scope:}
+\begin{itemize}
+\item All transactions in financial instruments (equities, bonds, derivatives)
+\item Executed on EU venues or by EU firms
+\item Reported to national competent authorities (NCAs)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Reporting Timeline:}
+\begin{itemize}
+\item \textbf{T+1:} Next working day by end-of-day
+\item \textbf{Real-Time:} Pre/post-trade transparency (lit venues)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Data Fields (65+ fields):}
+\begin{itemize}
+\item Instrument identifiers (ISIN, MIC, CFI)
+\item Client identifiers (national ID, LEI)
+\item Execution details (price, quantity, timestamp)
+\item Flags (waiver, algo, short selling, commodities derivative)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Best Execution Reporting (RTS 27/28):}
+\begin{itemize}
+\item \textbf{RTS 27:} Venues publish execution quality statistics
+\item \textbf{RTS 28:} Firms disclose top 5 venues by asset class
+\item Quarterly publication requirement
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Market Abuse Detection:}
+\begin{itemize}
+\item Suspicious Transaction and Order Reports (STORs)
+\item Algorithmic trading flags and identifiers
+\item High-frequency trading (HFT) identification
+\item Order book reconstruction for surveillance
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Vendor Solutions:}
+\begin{itemize}
+\item FCA's GRID (regulatory data platform)
+\item Cappitech, ABIDE Financial, Primatics
+\item Managed reporting services (outsourced compliance)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{US Regulatory Reporting (Dodd-Frank)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Dodd-Frank Swap Data Reporting:}
+
+\textbf{Reporting Entities:}
+\begin{itemize}
+\item Swap Dealers (SDs) and Major Swap Participants (MSPs)
+\item Report to Swap Data Repositories (SDRs)
+\item DTCC (credit, equity, rates), CME (commodities, FX)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Real-Time Public Dissemination:}
+\begin{itemize}
+\item Block trades: 15-minute delay
+\item Non-block: Real-time (as soon as technologically practicable)
+\item Capped dissemination to protect counterparty identity
+\end{itemize}
+
+\vspace{2mm}
+\textbf{CFTC Part 45 Reporting:}
+\begin{itemize}
+\item Primary Economic Terms (PET)
+\item Continuation data (valuation, collateral)
+\item Lifecycle events (assignments, terminations)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{CAT (Consolidated Audit Trail):}
+
+\textbf{Objectives:}
+\begin{itemize}
+\item Track all equity and options orders across US markets
+\item Reconstruct market events for surveillance
+\item Detect market manipulation and insider trading
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Reporting Requirements:}
+\begin{itemize}
+\item All SRO members and broker-dealers
+\item Report customer and proprietary orders
+\item Lifecycle: receipt, routing, execution, allocation
+\item Timestamps: Millisecond granularity
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Implementation Challenges:}
+\begin{itemize}
+\item 58 billion records per day (estimated)
+\item Data privacy concerns (customer PII)
+\item Cybersecurity of centralized database
+\item Delayed go-live (originally 2017, phased 2020-2024)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\section{AML and KYC Technology}
+
+\begin{frame}{KYC and Customer Due Diligence}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{KYC Requirements (FATF, EU 4AMLD/5AMLD):}
+
+\textbf{Customer Identification:}
+\begin{itemize}
+\item Full name, date of birth, address
+\item Government-issued ID verification
+\item Beneficial ownership (25\%+ threshold)
+\item Source of funds and wealth
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Risk-Based Approach:}
+\begin{itemize}
+\item \textbf{Simplified Due Diligence (SDD):} Low-risk customers (e.g., domestic individuals, small balances)
+\item \textbf{Customer Due Diligence (CDD):} Standard risk
+\item \textbf{Enhanced Due Diligence (EDD):} High-risk (PEPs, high-risk jurisdictions, correspondent banking)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Technology Solutions:}
+\begin{itemize}
+\item \textbf{Digital Identity Verification:} Jumio, Onfido, Trulioo
+\begin{itemize}
+\item Document scanning and OCR
+\item Facial recognition and liveness detection
+\item Biometric authentication
+\end{itemize}
+
+\item \textbf{Screening Databases:}
+\begin{itemize}
+\item Sanctions lists (OFAC, UN, EU)
+\item PEP databases (Politically Exposed Persons)
+\item Adverse media screening
+\item Refinitiv World-Check, Dow Jones Risk \& Compliance
+\end{itemize}
+
+\item \textbf{Utility Models:}
+\begin{itemize}
+\item Shared KYC platforms (e.g., SWIFT KYC Registry)
+\item Reduce duplication across institutions
+\item Blockchain-based KYC consortia (pilot stage)
+\end{itemize}
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Transaction Monitoring and AML}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{AML Transaction Monitoring:}
+
+\textbf{Typologies Detected:}
+\begin{itemize}
+\item \textbf{Structuring (Smurfing):} Multiple small deposits under reporting threshold
+\item \textbf{Rapid Movement:} Funds in and out within short period
+\item \textbf{Round-Tripping:} Circular fund flows
+\item \textbf{Layering:} Complex web of transactions to obscure origin
+\item \textbf{High-Risk Jurisdictions:} Transfers to/from sanctioned countries
+\item \textbf{Unusual Patterns:} Deviations from customer profile
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Rule-Based Systems:}
+\begin{itemize}
+\item Threshold-based alerts (e.g., cash deposit > \$10k)
+\item Velocity rules (e.g., 5+ wire transfers in 24 hours)
+\item High false positive rates: 95-99\% of alerts
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Machine Learning Approaches:}
+\begin{itemize}
+\item \textbf{Supervised Learning:} Train on historical SAR filings
+\item \textbf{Unsupervised Learning:} Anomaly detection (clustering, autoencoders)
+\item \textbf{Network Analysis:} Graph algorithms to detect suspicious networks
+\item \textbf{NLP:} Adverse media and document analysis
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Benefits of ML:}
+\begin{itemize}
+\item Reduce false positives by 30-70\%
+\item Detect novel typologies (zero-day AML)
+\item Prioritize high-risk alerts for investigators
+\item Adapt to evolving criminal tactics
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Regulatory Acceptance:}
+\begin{itemize}
+\item UK FCA: Supportive but requires explainability
+\item US FinCEN: Pilot programs encouraged
+\item Model validation and governance critical
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Sanctions Screening and Trade Surveillance}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Sanctions Screening:}
+
+\textbf{Screening Points:}
+\begin{itemize}
+\item \textbf{Onboarding:} Customer and beneficiary names
+\item \textbf{Real-Time Payments:} SWIFT messages, wire transfers
+\item \textbf{Trade Finance:} Parties in LC and documentary collections
+\item \textbf{Securities:} Issuer and counterparty screening
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Sanctions Lists:}
+\begin{itemize}
+\item \textbf{OFAC (US):} SDN list (6000+ entities), sectoral sanctions
+\item \textbf{UN:} Security Council consolidated list
+\item \textbf{EU:} CFSP sanctions, national lists
+\item \textbf{Others:} UK HMT, Canada, Australia
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Fuzzy Matching:}
+\begin{itemize}
+\item Name variations, transliterations, typos
+\item Phonetic algorithms (Soundex, Metaphone)
+\item Machine learning name-matching engines
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Trade Surveillance (Market Abuse):}
+
+\textbf{Surveillance Patterns:}
+\begin{itemize}
+\item \textbf{Insider Trading:} Abnormal trading before announcements
+\item \textbf{Market Manipulation:} Spoofing, layering, wash trades
+\item \textbf{Front-Running:} Broker trades ahead of client orders
+\item \textbf{Pump and Dump:} Artificially inflate price, sell at peak
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Technology Solutions:}
+\begin{itemize}
+\item \textbf{NICE Actimize:} Cross-asset surveillance
+\item \textbf{SAS:} AML and trade surveillance
+\item \textbf{IPC Connexus:} Voice and eComms surveillance
+\item \textbf{Behavox:} AI-driven conduct risk monitoring
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Data Inputs:}
+\begin{itemize}
+\item Order and trade data (CAT, blue sheets)
+\item Communications (emails, chats, voice)
+\item Employee trading (personal account dealing)
+\item Market announcements and news
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\section{Emerging RegTech Trends}
+
+\begin{frame}{SupTech and Machine-Readable Regulation}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{SupTech (Supervisory Technology):}
+
+\textit{Use of technology by regulators to enhance supervision and surveillance.}
+
+\vspace{2mm}
+\textbf{Applications:}
+\begin{itemize}
+\item \textbf{Data Analytics:} Identify outliers and systemic risks
+\item \textbf{Virtual Assistants:} Chatbots for regulated entity queries
+\item \textbf{Real-Time Monitoring:} Dashboards of market activity
+\item \textbf{Network Analysis:} Systemic risk mapping (inter-bank exposures)
+\item \textbf{NLP:} Analyze disclosure documents at scale
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Examples:}
+\begin{itemize}
+\item \textbf{FCA (UK):} Data and Analytics Hub for market surveillance
+\item \textbf{MAS (Singapore):} SupTech initiatives (API-based data collection)
+\item \textbf{ESMA (EU):} FIRDS (Financial Instruments Reference Data System)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Machine-Readable Regulation:}
+
+\textbf{Concept:}
+\begin{itemize}
+\item Translate regulatory rules into code
+\item Automate compliance checks via smart contracts or rule engines
+\item Reduce interpretation ambiguity
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Initiatives:}
+\begin{itemize}
+\item \textbf{BIS Innovation Hub:} Project Genesis (machine-executable regulations)
+\item \textbf{FCA Digital Regulatory Reporting:} Pilot with 5 banks (2021-2023)
+\item \textbf{ACPR (France):} Regulatory data dictionary
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Challenges:}
+\begin{itemize}
+\item Principles-based regulation hard to codify
+\item Legal liability for automated decisions
+\item Maintenance as regulations evolve
+\item Standardization across jurisdictions
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Summary and Key Takeaways}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{RegTech Overview:}
+\begin{itemize}
+\item Technology-driven regulatory compliance
+\item Global market: \$12B (2023) to \$50B+ (2030)
+\item Core tech: ML, NLP, RPA, cloud, blockchain
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Basel III:}
+\begin{itemize}
+\item CET1 minimum 4.5\% + buffers (effective 10-13\%)
+\item RWA calculation: Standardized vs IRB
+\item Liquidity: LCR (30-day) and NSFR (1-year) both $\geq$ 100\%
+\item FRTB: Expected Shortfall replaces VaR
+\end{itemize}
+
+\vspace{2mm}
+\textbf{IFRS 9:}
+\begin{itemize}
+\item 3-stage model: 12-month ECL (Stage 1), Lifetime ECL (Stage 2/3)
+\item SICR triggers: PD changes, 30 DPD, rating downgrades
+\item Probability-weighted macroeconomic scenarios
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Regulatory Reporting:}
+\begin{itemize}
+\item EMIR: Derivatives reporting (203 fields, T+1)
+\item MiFID II: Transaction reporting (65+ fields, T+1)
+\item Dodd-Frank: Swap data to SDRs, CAT for equities
+\end{itemize}
+
+\vspace{2mm}
+\textbf{AML/KYC:}
+\begin{itemize}
+\item Digital ID verification (Jumio, Onfido)
+\item Sanctions screening: OFAC, UN, EU lists
+\item Transaction monitoring: ML reduces false positives 30-70\%
+\item Trade surveillance: Detect spoofing, insider trading
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Emerging Trends:}
+\begin{itemize}
+\item SupTech: Regulators using tech for supervision
+\item Machine-readable regulation: Rules as code
+\item Cloud-native RegTech-as-a-Service
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\end{document}

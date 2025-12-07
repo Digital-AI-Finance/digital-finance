@@ -1,0 +1,881 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{adjustbox}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255, 127, 14}
+\definecolor{mlgreen}{RGB}{44, 160, 44}
+\definecolor{mlred}{RGB}{214, 39, 40}
+
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 2: Digital Payments I -- Fundamentals}
+\subtitle{Module 1: Fintech and Innovation}
+\author{Digital Finance Course}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Payment Fundamentals: Overview}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{What is a Payment?}
+\begin{itemize}
+\item Transfer of monetary value from payer to payee
+\item Settlement of obligation or exchange
+\item Requires: Authorization, clearing, settlement
+\item Involves multiple intermediaries
+\end{itemize}
+
+\vspace{5mm}
+\textbf{Payment Ecosystem Participants:}
+\begin{itemize}
+\item Payer (consumer/business)
+\item Payee (merchant/recipient)
+\item Issuing bank (payer's bank)
+\item Acquiring bank (merchant's bank)
+\item Payment network (Visa, Mastercard)
+\item Payment processors (Stripe, Adyen)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Key Payment Characteristics:}
+\begin{itemize}
+\item Speed (real-time vs batch)
+\item Cost (fees and FX spread)
+\item Security (fraud prevention)
+\item Finality (irrevocable vs reversible)
+\item Reach (domestic vs cross-border)
+\end{itemize}
+
+\vspace{5mm}
+\textbf{Payment Types:}
+\begin{itemize}
+\item Push: Payer initiates (credit transfer)
+\item Pull: Payee initiates (direct debit)
+\item Card: Network-based (Visa/MC)
+\item A2A: Account-to-account (open banking)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Payment Lifecycle: Four Stages}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{1. Authorization:}
+\begin{itemize}
+\item Merchant requests payment approval
+\item Issuer checks funds/credit availability
+\item Response: Approve or decline
+\item Duration: 1-3 seconds
+\item Holds funds on card (authorization hold)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{2. Authentication:}
+\begin{itemize}
+\item Verify cardholder identity
+\item 3D Secure (3DS): Password/OTP
+\item Strong Customer Authentication (SCA, PSD2)
+\item Biometrics (fingerprint, face ID)
+\item Reduces fraud, increases approval rates
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{3. Clearing:}
+\begin{itemize}
+\item Batch processing of transactions
+\item Exchange of transaction details
+\item Calculation of net positions
+\item Typically occurs daily (end-of-day)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{4. Settlement:}
+\begin{itemize}
+\item Actual movement of funds
+\item Issuer pays acquirer (via network)
+\item Merchant receives funds (minus fees)
+\item T+1 to T+3 for card payments
+\item Instant for real-time payment rails
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Card Payment Flow: Step-by-Step}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Transaction Steps:}
+\begin{enumerate}
+\item Customer presents card at merchant POS/online
+\item Merchant sends authorization request to acquirer
+\item Acquirer routes to card network (Visa/MC)
+\item Network routes to issuing bank
+\item Issuer checks account and responds (approve/decline)
+\item Response travels back through chain
+\item Merchant receives approval, completes sale
+\item Clearing batch sent at end of day
+\item Settlement occurs (funds transferred)
+\item Merchant receives payment (T+1 to T+3)
+\end{enumerate}
+
+\column{0.48\textwidth}
+\textbf{Messaging Standards:}
+\begin{itemize}
+\item ISO 8583: Card transaction messaging
+\item EMV: Chip card standards
+\item 3D Secure: Online authentication protocol
+\item PCI DSS: Security standards for card data
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Approval Rate Factors:}
+\begin{itemize}
+\item Sufficient funds/credit limit
+\item Card not blocked/expired
+\item Fraud screening passed
+\item Correct CVV and address
+\item Industry average: 85\%-90\%
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Card Networks: Visa and Mastercard}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Visa Inc:}
+\begin{itemize}
+\item Founded: 1958 (BankAmericard)
+\item Market cap: \$530B (2024)
+\item Cards in circulation: 4.2B globally
+\item Transaction volume: \$14.8 trillion (2023)
+\item Revenue: \$32.7B (FY2023)
+\item Net margin: 51\%
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Mastercard Inc:}
+\begin{itemize}
+\item Founded: 1966 (Interbank Card)
+\item Market cap: \$410B (2024)
+\item Cards in circulation: 3.1B globally
+\item Transaction volume: \$9.0 trillion (2023)
+\item Revenue: \$25.1B (FY2023)
+\item Net margin: 46\%
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Business Model:}
+\begin{itemize}
+\item Four-party scheme (issuer, acquirer, network, cardholder)
+\item Do NOT issue cards or acquire merchants
+\item Revenue from transaction fees
+\item License brand to financial institutions
+\item Operate global payment networks
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Revenue Streams:}
+\begin{itemize}
+\item Service fees: 0.13\%-0.15\% per transaction
+\item Cross-border assessment fees: 1.0\%-1.1\%
+\item Volume-based rebates and incentives
+\item Value-added services (fraud, analytics)
+\item Licensing and certification
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Interchange Fees: The Hidden Economy}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{What is Interchange?}
+\begin{itemize}
+\item Fee paid by acquirer to issuer
+\item Compensation for fraud risk, funding, processing
+\item Set by card networks (Visa, Mastercard)
+\item Largest component of merchant fees
+\item Controversial and heavily regulated
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Interchange Rate Factors:}
+\begin{itemize}
+\item Card type (debit vs credit, premium)
+\item Merchant category code (MCC)
+\item Transaction type (card-present vs online)
+\item Region (EU capped, US market-driven)
+\item Card acceptance method (chip vs swipe)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Typical Interchange Rates (EU):}
+\begin{itemize}
+\item Consumer debit: 0.2\% (capped by regulation)
+\item Consumer credit: 0.3\% (capped by regulation)
+\item Commercial cards: Uncapped (1.5\%-2.5\%)
+\item Cross-border: Additional 0.4\%-0.8\%
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Typical Rates (USA, unregulated):}
+\begin{itemize}
+\item Debit card: 1.0\%-1.5\%
+\item Credit card: 1.5\%-3.0\%
+\item Premium rewards cards: 2.5\%-3.5\%
+\item Example: \$100 purchase = \$2-\$3 interchange
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Merchant Discount Rate (MDR): Total Cost}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{MDR Components:}
+\begin{itemize}
+\item Interchange fee (70\%-80\% of MDR)
+\item Card network fee (0.13\%-0.15\%)
+\item Acquirer markup (0.10\%-0.50\%)
+\item Payment processor fee (if applicable)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Total MDR Examples (EU):}
+\begin{itemize}
+\item Debit card: 0.5\%-1.0\%
+\item Credit card: 0.8\%-1.5\%
+\item American Express: 2.0\%-3.5\% (three-party)
+\item Large merchants: Negotiate lower rates
+\item Small merchants: Pay higher rates
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Merchant Cost Analysis:}
+\begin{itemize}
+\item \EUR100 credit card purchase (EU)
+\item Interchange: \EUR0.30 (0.3\% cap)
+\item Network fee: \EUR0.14 (0.14\%)
+\item Acquirer margin: \EUR0.25 (0.25\%)
+\item Total MDR: \EUR0.69 (0.69\%)
+\item Merchant receives: \EUR99.31
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Impact on Business:}
+\begin{itemize}
+\item Low-margin sectors (supermarkets: 2\%-3\%)
+\item Payment fees = significant cost
+\item Incentive for cash or A2A payments
+\item Volume discounts for large merchants
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Interchange Fee Regulation}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{European Union (IFR 2015):}
+\begin{itemize}
+\item Consumer debit cap: 0.2\%
+\item Consumer credit cap: 0.3\%
+\item Commercial cards: Exempt
+\item Cross-border treated as domestic
+\item Saved merchants \EUR1.2B annually
+\end{itemize}
+
+\vspace{3mm}
+\textbf{United Kingdom (Post-Brexit):}
+\begin{itemize}
+\item Maintained EU caps for domestic
+\item Cross-border EEA: Caps removed (2021)
+\item Interchange tripled on EU cards (1.5\%)
+\item PSR reviewing commercial card fees
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{United States:}
+\begin{itemize}
+\item Durbin Amendment (2010): Debit cap \$0.21 + 0.05\%
+\item Applies only to large banks (\$10B+ assets)
+\item Credit cards: Unregulated
+\item Ongoing litigation (merchant class actions)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Australia:}
+\begin{itemize}
+\item RBA regulation since 2003
+\item Weighted average caps
+\item Credit: 0.5\%, Debit: 0.2\% (2017)
+\item Allowed surcharging (pass cost to consumer)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{ACH: Automated Clearing House}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{What is ACH?}
+\begin{itemize}
+\item Electronic batch payment system (US)
+\item Operated by Nacha (formerly NACHA)
+\item Bank-to-bank transfers
+\item Low cost, high volume, batch processing
+\item 31B transactions, \$76 trillion (2023)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{ACH Transaction Types:}
+\begin{itemize}
+\item Direct deposit (payroll, benefits)
+\item Direct debit (bill payments, subscriptions)
+\item B2B payments (vendor payments)
+\item P2P transfers (Venmo, Cash App backend)
+\item Tax payments and refunds
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{ACH Processing:}
+\begin{itemize}
+\item Batch processing (4 times daily)
+\item Standard: T+1 settlement
+\item Same-Day ACH: Settlement same day (since 2016)
+\item Cost: \$0.20-\$1.50 per transaction
+\item Pull (debit) or Push (credit)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{ACH vs Wire Transfer:}
+\begin{itemize}
+\item ACH: Batch, low cost, T+1, reversible
+\item Wire: Real-time, high cost (\$15-\$30), irrevocable
+\item ACH volume: 100x higher than wire
+\item Wires for large/urgent payments
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{SEPA: Single Euro Payments Area}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{What is SEPA?}
+\begin{itemize}
+\item Harmonized euro payment system
+\item Covers 36 countries (EU + EEA + others)
+\item Launched: 2008 (credit transfer), 2009 (direct debit)
+\item Treats cross-border like domestic
+\item 500M+ citizens, 20M+ businesses
+\end{itemize}
+
+\vspace{3mm}
+\textbf{SEPA Instruments:}
+\begin{itemize}
+\item SEPA Credit Transfer (SCT): Push payments
+\item SEPA Instant Credit Transfer (SCT Inst): Real-time
+\item SEPA Direct Debit (SDD): Pull payments
+\item SEPA Card Framework (less successful)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{SEPA Credit Transfer (SCT):}
+\begin{itemize}
+\item Settlement: T+1 (next business day)
+\item No amount limit
+\item IBAN and BIC required
+\item ISO 20022 XML messaging
+\item Cost: Same as domestic
+\end{itemize}
+
+\vspace{3mm}
+\textbf{SEPA Instant (SCT Inst):}
+\begin{itemize}
+\item Launched: November 2017
+\item Settlement: 10 seconds maximum
+\item Limit: \EUR100,000 per transaction (raised from \EUR15k in 2024)
+\item Available 24/7/365
+\item Adoption: 70\%+ of EU banks (2024)
+\item Mandatory for banks by 2025 (EU regulation)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{SEPA Direct Debit}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{SDD Core Scheme:}
+\begin{itemize}
+\item Consumer pull payments
+\item Requires signed mandate
+\item Pre-notification required (14 days default)
+\item Refund rights: 8 weeks (authorized), 13 months (unauthorized)
+\item Settlement: T+1 or T+2
+\end{itemize}
+
+\vspace{3mm}
+\textbf{SDD B2B Scheme:}
+\begin{itemize}
+\item Business-to-business only
+\item No refund right (authorized mandate)
+\item Bank verification of mandate
+\item Lower fraud risk
+\item Separate scheme identifier
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Mandate Requirements:}
+\begin{itemize}
+\item Unique Mandate Reference (UMR)
+\item Creditor Identifier (CI)
+\item Debtor IBAN
+\item Debtor signature (physical or electronic)
+\item Electronic mandates: PSD2 SCA required
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Use Cases:}
+\begin{itemize}
+\item Recurring bills (utilities, telecom)
+\item Subscriptions (streaming, gym)
+\item Loan repayments
+\item Insurance premiums
+\item Variable amount collections
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Payment Processing Value Chain}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Frontend Processors:}
+\begin{itemize}
+\item Gateway providers (Stripe, Adyen, Checkout.com)
+\item Authorization routing
+\item Fraud screening
+\item 3D Secure authentication
+\item Merchant dashboard and APIs
+\item Revenue: Payment processing fees
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Backend Processors:}
+\begin{itemize}
+\item Clearing and settlement
+\item Reconciliation services
+\item Chargeback handling
+\item FIS, Fiserv, TSYS (now Fiserv)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Acquirer vs Gateway:}
+\begin{itemize}
+\item Acquirer: Licensed bank, holds funds, settles
+\item Gateway: Technology layer, routes transactions
+\item Full-stack processors: Combine both (Adyen, Stripe)
+\item Traditional: Separate acquirer + gateway
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Modern Payment Stack:}
+\begin{itemize}
+\item Merchant integration: API/SDK
+\item Payment orchestration: Routing logic
+\item Multiple acquirers: Redundancy, optimization
+\item Network tokens: Enhanced security
+\item Real-time reporting: Analytics
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Payment Service Providers (PSPs)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Leading PSPs:}
+\begin{itemize}
+\item Stripe: \$1 trillion TPV (2023), 100+ countries
+\item Adyen: \EUR786B TPV (2023), unified platform
+\item PayPal/Braintree: \$1.5 trillion TPV (2023)
+\item Worldpay (FIS): \$2.2 trillion TPV
+\item Square/Block: \$211B TPV (2023)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{PSP Value Proposition:}
+\begin{itemize}
+\item Single API for multiple payment methods
+\item Global reach with local acquiring
+\item Fraud prevention tools
+\item PCI compliance management
+\item Fast onboarding (hours vs months)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Pricing Models:}
+\begin{itemize}
+\item Blended rate: e.g., 2.9\% + \$0.30 per transaction
+\item Interchange plus: IC + 0.5\% + \$0.10
+\item Custom enterprise pricing (volume discounts)
+\item Monthly subscription fees (optional)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Feature Comparison:}
+\begin{itemize}
+\item Stripe: Developer-first, excellent APIs
+\item Adyen: Enterprise focus, single platform
+\item PayPal: Consumer brand, checkout conversion
+\item Square: SMB focus, integrated POS
+\item Checkout.com: High customization, flexible
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Payment Security: PCI DSS}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{PCI DSS Overview:}
+\begin{itemize}
+\item Payment Card Industry Data Security Standard
+\item Managed by PCI Security Standards Council
+\item Mandatory for all card payment entities
+\item Current version: PCI DSS 4.0 (March 2022)
+\item Compliance deadline: March 2025
+\end{itemize}
+
+\vspace{3mm}
+\textbf{12 Requirements (6 Goals):}
+\begin{enumerate}
+\item Build and maintain secure network
+\item Protect cardholder data
+\item Maintain vulnerability management
+\item Implement strong access controls
+\item Monitor and test networks
+\item Maintain information security policy
+\end{enumerate}
+
+\column{0.48\textwidth}
+\textbf{Compliance Levels (Visa):}
+\begin{itemize}
+\item Level 1: 6M+ transactions/year (annual audit)
+\item Level 2: 1M-6M transactions (annual SAQ)
+\item Level 3: 20k-1M e-commerce (annual SAQ)
+\item Level 4: <20k e-commerce (annual SAQ)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Key Technical Controls:}
+\begin{itemize}
+\item Encryption of cardholder data
+\item Tokenization (replace PAN with token)
+\item Firewall and network segmentation
+\item Vulnerability scanning
+\item Penetration testing
+\item Log monitoring and SIEM
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Payment Fraud: Types and Prevention}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Fraud Types:}
+\begin{itemize}
+\item Card-not-present (CNP): Online fraud
+\item Card-present: Counterfeit, stolen cards
+\item Account takeover (ATO): Credential theft
+\item Friendly fraud: Chargeback abuse
+\item Refund fraud: Return scams
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Fraud Statistics (Global):}
+\begin{itemize}
+\item Total card fraud: \$32B annually (2023)
+\item CNP fraud: 75\% of total fraud
+\item Fraud rate: 0.15\%-0.20\% of volume
+\item Chargebacks: 0.6\%-1.0\% of transactions
+\item Cost to merchants: 3.6x transaction value
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Prevention Technologies:}
+\begin{itemize}
+\item 3D Secure 2.0: Frictionless authentication
+\item Machine learning fraud scoring
+\item Device fingerprinting
+\item Behavioral biometrics
+\item Address Verification System (AVS)
+\item CVV/CVC verification
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Liability Shift:}
+\begin{itemize}
+\item EMV chip: Shift to non-compliant party
+\item 3DS: Shift to issuer (if authenticated)
+\item Merchants incentivized to adopt
+\item Reduces fraud and chargebacks
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Chargebacks: Process and Impact}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Chargeback Reasons:}
+\begin{itemize}
+\item Fraud: Card used without authorization
+\item Processing error: Duplicate charge, wrong amount
+\item Consumer dispute: Product not received/as described
+\item Authorization issue: Expired authorization
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Chargeback Process:}
+\begin{enumerate}
+\item Cardholder disputes with issuer (120 days)
+\item Issuer initiates chargeback
+\item Merchant notified via acquirer
+\item Merchant provides evidence (10-45 days)
+\item Issuer reviews and decides
+\item Pre-arbitration or arbitration (if disputed)
+\item Final decision (issuer or network)
+\end{enumerate}
+
+\column{0.48\textwidth}
+\textbf{Merchant Impact:}
+\begin{itemize}
+\item Chargeback fee: \$20-\$100 per case
+\item Lost revenue from sale
+\item Lost merchandise (if shipped)
+\item Administrative time
+\item High ratios: Monitoring programs
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Excessive Chargeback Programs:}
+\begin{itemize}
+\item Visa: >0.9\% ratio or 100/month
+\item Mastercard: >1.5\% ratio or 100/month
+\item Penalties: Fines, higher MDR, termination
+\item Prevention: Fraud tools, clear policies
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Real-Time Payments: Global Overview}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Key Characteristics:}
+\begin{itemize}
+\item Settlement in seconds (<10 seconds)
+\item 24/7/365 availability
+\item Immediate funds availability
+\item Irrevocable payment
+\item ISO 20022 messaging standard
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Global RTP Systems:}
+\begin{itemize}
+\item UK: Faster Payments Service (2008)
+\item India: UPI (2016, 12B txns/month)
+\item Brazil: PIX (2020, 3.6B txns/month)
+\item USA: FedNow (2023), RTP Network (2017)
+\item EU: SEPA Instant (2017)
+\item China: Alipay/WeChat (proprietary)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{UPI Success (India):}
+\begin{itemize}
+\item Volume: 12.8B transactions/month (Oct 2024)
+\item Value: \$240B/month
+\item Zero transaction fees (government subsidy)
+\item QR code-based payments
+\item 500M+ active users
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Benefits:}
+\begin{itemize}
+\item Improved cash flow
+\item Reduced fraud (account verified)
+\item Lower cost than cards
+\item Enhanced customer experience
+\item Financial inclusion (no card needed)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{FedNow: US Real-Time Payments}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{FedNow Service:}
+\begin{itemize}
+\item Launched: July 2023
+\item Operated by Federal Reserve
+\item Competing with RTP Network (Clearing House)
+\item Instant settlement (seconds)
+\item No transaction amount limit (initially \$500k)
+\item Available to all US depository institutions
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Adoption Challenges:}
+\begin{itemize}
+\item Requires bank system upgrades
+\item Competition from existing RTP
+\item Zelle dominance in P2P
+\item Limited initial use cases
+\item 700+ financial institutions signed up (2024)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{RTP Network (Clearing House):}
+\begin{itemize}
+\item Launched: 2017
+\item Private sector alternative
+\item Owned by 22 major banks
+\item 400+ participants
+\item Similar functionality to FedNow
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Use Cases:}
+\begin{itemize}
+\item Emergency disbursements (disaster relief)
+\item Instant refunds and rebates
+\item Just-in-time payroll
+\item Gig economy payments
+\item Bill pay with immediate credit
+\item Business liquidity management
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Payment Method Comparison}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Cards:}
+\begin{itemize}
+\item Speed: 2-4 seconds authorization, T+1-3 settlement
+\item Cost: 1\%-3\% MDR
+\item Reach: Global
+\item Security: Strong (EMV, 3DS)
+\item Consumer protection: Chargebacks
+\item Best for: E-commerce, POS
+\end{itemize}
+
+\vspace{3mm}
+\textbf{ACH/SEPA:}
+\begin{itemize}
+\item Speed: T+1 (standard), same-day available
+\item Cost: \$0.20-\$1.50 or 0.2\%-0.5\%
+\item Reach: Domestic/regional
+\item Security: Bank-level
+\item Best for: Recurring, B2B, large amounts
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Real-Time Payments:}
+\begin{itemize}
+\item Speed: <10 seconds
+\item Cost: Low (often free to consumer)
+\item Reach: Domestic
+\item Security: Bank-verified accounts
+\item Irrevocable: Limited consumer protection
+\item Best for: P2P, urgent payments
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Wire Transfer:}
+\begin{itemize}
+\item Speed: Same-day
+\item Cost: \$15-\$50 per transaction
+\item Reach: Global (SWIFT)
+\item Security: High, irrevocable
+\item Best for: Large, urgent, cross-border
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Summary and Key Takeaways}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Payment Lifecycle:}
+\begin{itemize}
+\item Authorization → Authentication → Clearing → Settlement
+\item Multiple intermediaries (issuer, acquirer, network)
+\item Card payments: 2-3 days for merchant settlement
+\item Real-time rails: Seconds
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Card Networks:}
+\begin{itemize}
+\item Visa and Mastercard dominate globally
+\item Four-party model (efficient network effects)
+\item Interchange = largest merchant cost component
+\item EU regulation caps interchange (0.2\%-0.3\%)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Payment Systems:}
+\begin{itemize}
+\item ACH: US batch system, low cost, T+1
+\item SEPA: EU harmonized system, instant available
+\item Real-time: Growing globally, instant settlement
+\item Trade-offs: Speed vs cost vs security
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Emerging Trends:}
+\begin{itemize}
+\item Real-time payment adoption accelerating
+\item Account-to-account (A2A) challenging cards
+\item ISO 20022 standardization
+\item Open banking enabling payment initiation
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Next Lesson Preview}
+\begin{center}
+\Large \textbf{Lesson 3: Digital Payments II -- Mobile Wallets}
+
+\vspace{10mm}
+
+\normalsize
+We will explore:
+\begin{itemize}
+\item NFC technology and contactless payments
+\item Tokenization and security
+\item Apple Pay, Google Pay architecture
+\item M-Pesa and mobile money in emerging markets
+\item Alipay, WeChat Pay, and super-app models
+\end{itemize}
+\end{center}
+\end{frame}
+
+\end{document}

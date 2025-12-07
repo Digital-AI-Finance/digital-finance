@@ -1,0 +1,331 @@
+======================================================================
+DIGITAL FINANCE COURSE - FILE MANIFEST FOR GITHUB
+Generated: 2025-12-07 21:37:21
+======================================================================
+
+REPOSITORY STRUCTURE:
+----------------------------------------------------------------------
+module_XX/       - Source files (TEX, PDF, scripts)
+slides/          - Organized lesson files by module
+demos/           - Python demos and examples
+charts/          - Chart generation scripts
+assessments/     - Rubrics and guidelines
+syllabus/        - Syllabus documents
+docs/            - GitHub Pages website
+  slides/        - PDFs for online viewing
+
+
+Module 01 - FinTech (40 files)
+----------------------------------------------------------------------
+  module_01_fintech/COMPLETION_REPORT.md
+  module_01_fintech/LESSONS_SUMMARY.md
+  module_01_fintech/README.md
+  module_01_fintech/figures/apple_pay_flow.pdf
+  module_01_fintech/figures/cac_comparison.pdf
+  module_01_fintech/figures/china_wallet_comparison.pdf
+  module_01_fintech/figures/global_wallet_share.pdf
+  module_01_fintech/figures/mobile_wallet_adoption.pdf
+  module_01_fintech/figures/mpesa_growth.pdf
+  module_01_fintech/figures/neobank_market_leaders.pdf
+  module_01_fintech/figures/neobank_unit_economics.pdf
+  module_01_fintech/figures/neobank_vs_traditional.pdf
+  module_01_fintech/figures/nfc_technology_diagram.pdf
+  module_01_fintech/figures/qr_vs_nfc_comparison.pdf
+  module_01_fintech/figures/revolut_growth.pdf
+  module_01_fintech/generate_all_charts.py
+  module_01_fintech/lesson_01_intro_fintech.pdf
+  module_01_fintech/lesson_01_intro_fintech.tex
+  module_01_fintech/lesson_02_payments_fundamentals.pdf
+  module_01_fintech/lesson_02_payments_fundamentals.tex
+  module_01_fintech/lesson_03_mobile_wallets.pdf
+  module_01_fintech/lesson_03_mobile_wallets.tex
+  module_01_fintech/lesson_04_neobanks.pdf
+  module_01_fintech/lesson_04_neobanks.tex
+  module_01_fintech/lesson_05_open_banking.pdf
+  module_01_fintech/lesson_05_open_banking.tex
+  module_01_fintech/lesson_06_digital_identity.pdf
+  module_01_fintech/lesson_06_digital_identity.tex
+  module_01_fintech/lesson_07_p2p_lending.pdf
+  module_01_fintech/lesson_07_p2p_lending.tex
+  module_01_fintech/lesson_08_robo_advisors.pdf
+  module_01_fintech/lesson_08_robo_advisors.tex
+  module_01_fintech/lesson_09_insurtech.pdf
+  module_01_fintech/lesson_09_insurtech.tex
+  module_01_fintech/lesson_10_regtech.pdf
+  module_01_fintech/lesson_10_regtech.tex
+  module_01_fintech/lesson_11_regulatory_frameworks.pdf
+  module_01_fintech/lesson_11_regulatory_frameworks.tex
+  module_01_fintech/lesson_12_business_models.pdf
+  module_01_fintech/lesson_12_business_models.tex
+
+Module 02 - Blockchain (50 files)
+----------------------------------------------------------------------
+  module_02_blockchain/README_LESSONS_15_24.md
+  module_02_blockchain/charts/lesson_15/bitcoin_address_generation.pdf
+  module_02_blockchain/charts/lesson_15/elliptic_curve.pdf
+  module_02_blockchain/charts/lesson_15/hd_wallet_tree.pdf
+  module_02_blockchain/charts/lesson_15/symmetric_vs_asymmetric.pdf
+  module_02_blockchain/charts/lesson_16/bitcoin_difficulty_history.pdf
+  module_02_blockchain/charts/lesson_16/energy_consumption.pdf
+  module_02_blockchain/charts/lesson_16/mining_process.pdf
+  module_02_blockchain/charts/lesson_17/pow_vs_pos_comparison.pdf
+  module_02_blockchain/charts/lesson_17/staking_pool_distribution.pdf
+  module_02_blockchain/charts/lesson_17/the_merge_impact.pdf
+  module_02_blockchain/charts/lesson_18/lightning_network_concept.pdf
+  module_02_blockchain/charts/lesson_18/transaction_lifecycle.pdf
+  module_02_blockchain/charts/lesson_18/utxo_vs_account.pdf
+  module_02_blockchain/charts/lesson_19/eip1559_structure.pdf
+  module_02_blockchain/charts/lesson_19/eth_issuance_burn.pdf
+  module_02_blockchain/charts/lesson_19/evm_architecture.pdf
+  module_02_blockchain/charts/lesson_20/erc20_transfer_flow.pdf
+  module_02_blockchain/charts/lesson_20/nft_market_volume.pdf
+  module_02_blockchain/charts/lesson_20/tokenomics_distribution.pdf
+  module_02_blockchain/charts/lesson_21/bonding_curve.pdf
+  module_02_blockchain/charts/lesson_21/defi_tvl_history.pdf
+  module_02_blockchain/charts/lesson_21/impermanent_loss.pdf
+  module_02_blockchain/charts/lesson_22/crypto_volatility.pdf
+  module_02_blockchain/charts/lesson_22/stablecoin_market_share.pdf
+  module_02_blockchain/charts/lesson_22/terra_death_spiral.pdf
+  module_02_blockchain/charts/lesson_23/bridge_hacks_chart.pdf
+  module_02_blockchain/charts/lesson_23/crypto_hacks_timeline.pdf
+  module_02_blockchain/charts/lesson_23/reentrancy_flow.pdf
+  module_02_blockchain/charts/lesson_24/btc_etf_inflows.pdf
+  module_02_blockchain/charts/lesson_24/global_regulatory_map.pdf
+  module_02_blockchain/charts/lesson_24/rwa_market_size.pdf
+  module_02_blockchain/generate_all_lesson_charts.py
+  module_02_blockchain/lesson_13_what_is_blockchain.pdf
+  module_02_blockchain/lesson_13_what_is_blockchain.tex
+  module_02_blockchain/lesson_14_hashing.pdf
+  module_02_blockchain/lesson_14_hashing.tex
+  module_02_blockchain/lesson_15_public_key_crypto.pdf
+  module_02_blockchain/lesson_15_public_key_crypto.tex
+  module_02_blockchain/lesson_16_proof_of_work.pdf
+  module_02_blockchain/lesson_16_proof_of_work.tex
+  module_02_blockchain/lesson_17_proof_of_stake.pdf
+  module_02_blockchain/lesson_17_proof_of_stake.tex
+  module_02_blockchain/lesson_18_bitcoin_architecture.tex
+  module_02_blockchain/lesson_19_ethereum_smart_contracts.tex
+  module_02_blockchain/lesson_20_tokens.tex
+  module_02_blockchain/lesson_21_defi.tex
+  module_02_blockchain/lesson_22_stablecoins.tex
+  module_02_blockchain/lesson_23_security.tex
+  module_02_blockchain/lesson_24_regulation_future.tex
+
+Module 03 - AI/ML (24 files)
+----------------------------------------------------------------------
+  module_03_ai_ml/DELIVERABLES.md
+  module_03_ai_ml/MODULE_SUMMARY.md
+  module_03_ai_ml/README.md
+  module_03_ai_ml/batch_generate_all_remaining.py
+  module_03_ai_ml/compile_all_lessons.bat
+  module_03_ai_ml/create_all_complete_lessons.py
+  module_03_ai_ml/generate_all_lessons.py
+  module_03_ai_ml/generate_all_slides.py
+  module_03_ai_ml/generate_complete_module.py
+  module_03_ai_ml/generate_remaining_lessons.py
+  module_03_ai_ml/lesson_25_intro_ai_ml.pdf
+  module_03_ai_ml/lesson_25_intro_ai_ml.tex
+  module_03_ai_ml/lesson_26_financial_data.tex
+  module_03_ai_ml/lesson_27_regression.tex
+  module_03_ai_ml/lesson_28_classification.tex
+  module_03_ai_ml/lesson_29_algorithmic_trading_concepts.tex
+  module_03_ai_ml/lesson_30_credit_scoring_and_risk_models.tex
+  module_03_ai_ml/lesson_31_fraud_detection_and_aml.tex
+  module_03_ai_ml/lesson_32_nlp_in_finance.tex
+  module_03_ai_ml/lesson_33_robo-advisors_ml_aspects.tex
+  module_03_ai_ml/lesson_34_market_prediction_limitations.tex
+  module_03_ai_ml/lesson_35_explainability_and_bias.tex
+  module_03_ai_ml/lesson_36_ai_regulation_and_future.pdf
+  module_03_ai_ml/lesson_36_ai_regulation_and_future.tex
+
+Module 04 - Traditional (13 files)
+----------------------------------------------------------------------
+  module_04_traditional/compile_lessons_40_48.bat
+  module_04_traditional/lesson_37_financial_markets.tex
+  module_04_traditional/lesson_38_core_banking.tex
+  module_04_traditional/lesson_39_payment_rails.tex
+  module_04_traditional/lesson_40_electronic_trading.tex
+  module_04_traditional/lesson_41_market_microstructure.tex
+  module_04_traditional/lesson_42_risk_management.tex
+  module_04_traditional/lesson_43_regtech_compliance.tex
+  module_04_traditional/lesson_44_capital_markets_tech.tex
+  module_04_traditional/lesson_45_derivatives_technology.tex
+  module_04_traditional/lesson_46_wealth_management.tex
+  module_04_traditional/lesson_47_data_vendors.tex
+  module_04_traditional/lesson_48_cbdc_future.tex
+
+Slides (Organized) (65 files)
+----------------------------------------------------------------------
+  slides/module_01_fintech/lesson_01_intro_fintech.pdf
+  slides/module_01_fintech/lesson_01_intro_fintech.tex
+  slides/module_01_fintech/lesson_02_payments_fundamentals.pdf
+  slides/module_01_fintech/lesson_02_payments_fundamentals.tex
+  slides/module_01_fintech/lesson_03_mobile_wallets.pdf
+  slides/module_01_fintech/lesson_03_mobile_wallets.tex
+  slides/module_01_fintech/lesson_04_neobanks.pdf
+  slides/module_01_fintech/lesson_04_neobanks.tex
+  slides/module_01_fintech/lesson_05_open_banking.pdf
+  slides/module_01_fintech/lesson_05_open_banking.tex
+  slides/module_01_fintech/lesson_06_digital_identity.pdf
+  slides/module_01_fintech/lesson_06_digital_identity.tex
+  slides/module_01_fintech/lesson_07_p2p_lending.pdf
+  slides/module_01_fintech/lesson_07_p2p_lending.tex
+  slides/module_01_fintech/lesson_08_robo_advisors.pdf
+  slides/module_01_fintech/lesson_08_robo_advisors.tex
+  slides/module_01_fintech/lesson_09_insurtech.pdf
+  slides/module_01_fintech/lesson_09_insurtech.tex
+  slides/module_01_fintech/lesson_10_regtech.pdf
+  slides/module_01_fintech/lesson_10_regtech.tex
+  slides/module_01_fintech/lesson_11_regulatory_frameworks.pdf
+  slides/module_01_fintech/lesson_11_regulatory_frameworks.tex
+  slides/module_01_fintech/lesson_12_business_models.pdf
+  slides/module_01_fintech/lesson_12_business_models.tex
+  slides/module_02_blockchain/lesson_13_what_is_blockchain.pdf
+  slides/module_02_blockchain/lesson_13_what_is_blockchain.tex
+  slides/module_02_blockchain/lesson_14_hashing.pdf
+  slides/module_02_blockchain/lesson_14_hashing.tex
+  slides/module_02_blockchain/lesson_15_public_key_crypto.pdf
+  slides/module_02_blockchain/lesson_15_public_key_crypto.tex
+  slides/module_02_blockchain/lesson_16_proof_of_work.tex
+  slides/module_02_blockchain/lesson_17_proof_of_stake.tex
+  slides/module_02_blockchain/lesson_18_bitcoin_architecture.tex
+  slides/module_02_blockchain/lesson_19_ethereum_smart_contracts.tex
+  slides/module_02_blockchain/lesson_20_tokens.tex
+  slides/module_02_blockchain/lesson_21_defi.tex
+  slides/module_02_blockchain/lesson_22_stablecoins.tex
+  slides/module_02_blockchain/lesson_23_security.tex
+  slides/module_02_blockchain/lesson_24_regulation_future.tex
+  slides/module_03_ai_ml/lesson_25_intro_ai_ml.pdf
+  slides/module_03_ai_ml/lesson_25_intro_ai_ml.tex
+  slides/module_03_ai_ml/lesson_26_financial_data.tex
+  slides/module_03_ai_ml/lesson_27_regression.tex
+  slides/module_03_ai_ml/lesson_28_classification.tex
+  slides/module_03_ai_ml/lesson_29_algorithmic_trading_concepts.tex
+  slides/module_03_ai_ml/lesson_30_credit_scoring_and_risk_models.tex
+  slides/module_03_ai_ml/lesson_31_fraud_detection_and_aml.tex
+  slides/module_03_ai_ml/lesson_32_nlp_in_finance.tex
+  slides/module_03_ai_ml/lesson_33_robo-advisors_ml_aspects.tex
+  slides/module_03_ai_ml/lesson_34_market_prediction_limitations.tex
+  ... and 15 more files
+
+Assessments (2 files)
+----------------------------------------------------------------------
+  assessments/assessment_rubrics.md
+  assessments/final_project_guidelines.md
+
+Syllabus (1 files)
+----------------------------------------------------------------------
+  syllabus/digital_finance_bsc_syllabus.md
+
+Demos (26 files)
+----------------------------------------------------------------------
+  demos/QUICK_START.md
+  demos/README.md
+  demos/SCRIPT_SUMMARY.md
+  demos/module_01_fintech/neobank_fee_comparison/neobank_fee_comparison.py
+  demos/module_01_fintech/open_banking_api_demo/open_banking_api_demo.py
+  demos/module_01_fintech/payment_cost_calculator/payment_cost_calculator.py
+  demos/module_02_blockchain/block_structure/block_structure_viz.pdf
+  demos/module_02_blockchain/block_structure/block_structure_viz.py
+  demos/module_02_blockchain/hash_demonstration/hash_demonstration.pdf
+  demos/module_02_blockchain/hash_demonstration/hash_demonstration.py
+  demos/module_02_blockchain/impermanent_loss/defi_impermanent_loss.pdf
+  demos/module_02_blockchain/impermanent_loss/defi_impermanent_loss.py
+  demos/module_03_ai_ml/classification/classification_demo.pdf
+  demos/module_03_ai_ml/classification/classification_demo.py
+  demos/module_03_ai_ml/linear_regression/linear_regression_demo.pdf
+  demos/module_03_ai_ml/linear_regression/linear_regression_demo.py
+  demos/module_03_ai_ml/sentiment/sentiment_analysis_demo.pdf
+  demos/module_03_ai_ml/sentiment/sentiment_analysis_demo.py
+  demos/module_03_ai_ml/var_calculation/var_calculation.pdf
+  demos/module_03_ai_ml/var_calculation/var_calculation.py
+  demos/module_04_traditional/efficient_frontier/portfolio_efficient_frontier.pdf
+  demos/module_04_traditional/efficient_frontier/portfolio_efficient_frontier.py
+  demos/module_04_traditional/order_book/order_book_simulation.pdf
+  demos/module_04_traditional/order_book/order_book_simulation.py
+  demos/requirements.txt
+  demos/run_all_demos.py
+
+Charts (34 files)
+----------------------------------------------------------------------
+  charts/module_01_fintech/fintech_ecosystem/fintech_ecosystem_map.py
+  charts/module_01_fintech/neobank_growth/neobank_growth.py
+  charts/module_01_fintech/open_banking_architecture/open_banking_architecture.py
+  charts/module_01_fintech/payment_flow/payment_flow_diagram.py
+  charts/module_02_blockchain/bitcoin_halving/bitcoin_halving.pdf
+  charts/module_02_blockchain/bitcoin_halving/bitcoin_halving.py
+  charts/module_02_blockchain/blockchain_structure/blockchain_structure.pdf
+  charts/module_02_blockchain/blockchain_structure/blockchain_structure.py
+  charts/module_02_blockchain/consensus_comparison/consensus_comparison.pdf
+  charts/module_02_blockchain/consensus_comparison/consensus_comparison.py
+  charts/module_02_blockchain/defi_tvl_chart/defi_tvl_chart.pdf
+  charts/module_02_blockchain/defi_tvl_chart/defi_tvl_chart.py
+  charts/module_02_blockchain/stablecoin_types/stablecoin_types.pdf
+  charts/module_02_blockchain/stablecoin_types/stablecoin_types.py
+  charts/module_03_ai_ml/confusion_matrix_viz/confusion_matrix_viz.pdf
+  charts/module_03_ai_ml/confusion_matrix_viz/confusion_matrix_viz.py
+  charts/module_03_ai_ml/ml_hierarchy/ml_hierarchy.pdf
+  charts/module_03_ai_ml/ml_hierarchy/ml_hierarchy.py
+  charts/module_03_ai_ml/overfitting_demo/overfitting_demo.pdf
+  charts/module_03_ai_ml/overfitting_demo/overfitting_demo.py
+  charts/module_03_ai_ml/regression_example/regression_example.pdf
+  charts/module_03_ai_ml/regression_example/regression_example.py
+  charts/module_03_ai_ml/shap_waterfall/shap_waterfall.pdf
+  charts/module_03_ai_ml/shap_waterfall/shap_waterfall.py
+  charts/module_04_traditional/cbdc_landscape/cbdc_landscape.pdf
+  charts/module_04_traditional/cbdc_landscape/cbdc_landscape.py
+  charts/module_04_traditional/market_participants/market_participants.pdf
+  charts/module_04_traditional/market_participants/market_participants.py
+  charts/module_04_traditional/order_book_depth/order_book_depth.pdf
+  charts/module_04_traditional/order_book_depth/order_book_depth.py
+  charts/module_04_traditional/trade_lifecycle/trade_lifecycle.pdf
+  charts/module_04_traditional/trade_lifecycle/trade_lifecycle.py
+  charts/module_04_traditional/var_distribution/var_distribution.pdf
+  charts/module_04_traditional/var_distribution/var_distribution.py
+
+Docs (GitHub Pages) (18 files)
+----------------------------------------------------------------------
+  docs/index.html
+  docs/slides/module_01_fintech/lesson_01_intro_fintech.pdf
+  docs/slides/module_01_fintech/lesson_02_payments_fundamentals.pdf
+  docs/slides/module_01_fintech/lesson_03_mobile_wallets.pdf
+  docs/slides/module_01_fintech/lesson_04_neobanks.pdf
+  docs/slides/module_01_fintech/lesson_05_open_banking.pdf
+  docs/slides/module_01_fintech/lesson_06_digital_identity.pdf
+  docs/slides/module_01_fintech/lesson_07_p2p_lending.pdf
+  docs/slides/module_01_fintech/lesson_08_robo_advisors.pdf
+  docs/slides/module_01_fintech/lesson_09_insurtech.pdf
+  docs/slides/module_01_fintech/lesson_10_regtech.pdf
+  docs/slides/module_01_fintech/lesson_11_regulatory_frameworks.pdf
+  docs/slides/module_01_fintech/lesson_12_business_models.pdf
+  docs/slides/module_02_blockchain/lesson_13_what_is_blockchain.pdf
+  docs/slides/module_02_blockchain/lesson_14_hashing.pdf
+  docs/slides/module_02_blockchain/lesson_15_public_key_crypto.pdf
+  docs/slides/module_03_ai_ml/lesson_25_intro_ai_ml.pdf
+  docs/slides/module_03_ai_ml/lesson_36_ai_regulation_and_future.pdf
+
+Other (10 files)
+----------------------------------------------------------------------
+  .gitignore
+  LICENSE
+  README.md
+  compilation_report_20251207_2130.txt
+  compile_all_lessons.py
+  course_syllabus_blockchain_crypto.md
+  generate_syllabus.py
+  requirements.txt
+  template_beamer_final.pdf
+  template_beamer_final.tex
+
+======================================================================
+TOTAL FILES FOR GITHUB: 283
+======================================================================
+
+NOTES:
+----------------------------------------------------------------------
+- Excluded: temp/, previous/, compilation artifacts
+- Module folders contain source TEX and some compiled PDFs
+- slides/ folder contains organized lesson files
+- docs/slides/ contains PDFs for GitHub Pages deployment
+- 31 TEX files need compilation (missing PDFs)
+

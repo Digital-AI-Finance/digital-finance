@@ -1,0 +1,791 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 42: Risk Management Systems}
+\subtitle{Module 4: Traditional Digital Finance}
+\author{Digital Finance Course}
+\date{2025}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Learning Objectives}
+\begin{itemize}
+\item Understand Value at Risk (VaR) methodologies and implementation
+\item Analyze stress testing and scenario analysis frameworks
+\item Examine Expected Shortfall (CVaR) and coherent risk measures
+\item Evaluate model risk management and validation processes
+\item Assess enterprise risk management systems and architecture
+\end{itemize}
+\end{frame}
+
+\section{Value at Risk (VaR)}
+
+\begin{frame}{VaR Definition and Framework}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Formal Definition:}
+
+\textit{Value at Risk (VaR) is the maximum loss over a target horizon at a given confidence level.}
+
+$$\Pr(L > \text{VaR}_\alpha) = 1 - \alpha$$
+
+where $L$ = portfolio loss, $\alpha$ = confidence level (typically 95\% or 99\%)
+
+\vspace{2mm}
+\textbf{Standard Parameters:}
+\begin{itemize}
+\item \textbf{Confidence Level:} 95\% (regulatory: 99\%)
+\item \textbf{Time Horizon:} 1 day (trading), 10 days (regulatory)
+\item \textbf{Currency:} Reporting currency (USD, EUR)
+\item \textbf{Scope:} Individual desk, portfolio, firm-wide
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Interpretation Example:}
+\begin{itemize}
+\item 1-day 99\% VaR = \$10 million
+\item Interpretation: ``We expect losses to exceed \$10M on 1\% of trading days (2-3 days per year)''
+\item Not a worst-case measure (tail risk beyond VaR)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Applications:}
+\begin{itemize}
+\item \textbf{Regulatory Capital:} Basel III market risk
+\item \textbf{Risk Limits:} Desk-level VaR limits
+\item \textbf{Performance Attribution:} Risk-adjusted returns
+\item \textbf{Client Reporting:} UCITS, hedge fund disclosures
+\item \textbf{Stress Testing:} Baseline for scenario comparison
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{VaR Methodologies}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{1. Parametric VaR (Variance-Covariance):}
+
+$$\text{VaR}_\alpha = \mu + z_\alpha \sigma \sqrt{t}$$
+
+where $\mu$ = expected return, $z_\alpha$ = critical value (2.33 for 99\%), $\sigma$ = volatility, $t$ = horizon
+
+\vspace{2mm}
+\textbf{Assumptions:}
+\begin{itemize}
+\item Normal distribution of returns
+\item Linear portfolio exposures
+\item Constant volatility and correlations
+\end{itemize}
+
+\textbf{Pros:} Fast, simple, transparent \\
+\textbf{Cons:} Underestimates tail risk, poor for options
+
+\column{0.48\textwidth}
+\textbf{2. Historical Simulation:}
+\begin{itemize}
+\item Apply past N days returns to current positions
+\item Sort simulated P\&L outcomes
+\item VaR = $\alpha$-quantile of distribution
+\item Typical lookback: 250-500 days
+\end{itemize}
+
+\textbf{Pros:} No distributional assumptions, captures fat tails \\
+\textbf{Cons:} Backward-looking, sensitive to window choice
+
+\vspace{2mm}
+\textbf{3. Monte Carlo Simulation:}
+\begin{itemize}
+\item Generate 10,000+ random scenarios
+\item Price portfolio under each scenario
+\item Calculate VaR from simulated distribution
+\item Can model path-dependent options
+\end{itemize}
+
+\textbf{Pros:} Flexible, handles complex derivatives \\
+\textbf{Cons:} Computationally intensive, model risk
+\end{columns}
+\end{frame}
+
+\begin{frame}{VaR Backtesting and Model Validation}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Backtesting Framework:}
+\begin{itemize}
+\item Compare daily VaR forecasts to realized P\&L
+\item Count exceedances (days where loss $>$ VaR)
+\item \textbf{Expected Exceedances:} 1\% of days for 99\% VaR
+\item Over 250 days: expect 2-3 exceedances
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Statistical Tests:}
+\begin{itemize}
+\item \textbf{Kupiec Test (1995):} Likelihood ratio test for correct number of exceedances
+\item \textbf{Christoffersen Test (1998):} Independence of exceedances
+\item \textbf{Traffic Light Approach:} Green (0-4), Yellow (5-9), Red (10+) zones for 250 days at 99\%
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Basel III Traffic Lights:}
+\begin{center}
+\small
+\begin{tabular}{ll}
+\textbf{Zone} & \textbf{Exceedances (250 days)} \\
+\midrule
+Green & 0-4 \\
+Yellow & 5-9 \\
+Red & 10+ \\
+\end{tabular}
+\end{center}
+
+Yellow/Red zones trigger capital multiplier increases
+
+\vspace{2mm}
+\textbf{Common Failures:}
+\begin{itemize}
+\item Clustered exceedances (volatility regime change)
+\item Underestimation during crisis periods
+\item Model drift due to changing market conditions
+\item Inadequate stress scenario coverage
+\end{itemize}
+
+\vspace{2mm}
+\textit{2008 Crisis: Most banks had 20-40 VaR exceedances vs expected 2-3}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Limitations of VaR and Alternatives}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{VaR Limitations:}
+\begin{itemize}
+\item \textbf{Not Coherent:} Fails sub-additivity property
+\item \textbf{Ignores Tail:} No information beyond VaR level
+\item \textbf{Diversification Paradox:} Portfolio VaR can exceed sum of components
+\item \textbf{Model Risk:} Sensitive to assumptions (normality, correlation stability)
+\item \textbf{Procyclical:} VaR increases during stress, forcing deleveraging
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Non-Subadditivity Example:}
+\begin{itemize}
+\item Asset A: 99\% VaR = \$100M
+\item Asset B: 99\% VaR = \$100M
+\item Portfolio A+B: VaR could be \$220M (if extreme correlation)
+\item Violates diversification intuition
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Expected Shortfall (ES / CVaR):}
+
+$$\text{ES}_\alpha = \mathbb{E}[L \mid L > \text{VaR}_\alpha]$$
+
+\textit{Average loss beyond VaR threshold}
+
+\vspace{2mm}
+\textbf{Advantages over VaR:}
+\begin{itemize}
+\item Coherent risk measure (satisfies all axioms)
+\item Captures tail risk beyond VaR cutoff
+\item Subadditive: encourages diversification
+\item Basel III shift: ES replacing VaR for market risk (2023)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Challenges:}
+\begin{itemize}
+\item Less intuitive for communication
+\item Harder to backtest (tail events rare)
+\item More sensitive to model assumptions
+\item Regulatory adoption still evolving
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\section{Stress Testing and Scenario Analysis}
+
+\begin{frame}{Stress Testing Framework}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Types of Stress Tests:}
+\begin{itemize}
+\item \textbf{Sensitivity Analysis:} Single risk factor shock (e.g., +100 bps rates)
+\item \textbf{Scenario Analysis:} Coherent multi-factor scenarios
+\item \textbf{Historical Scenarios:} Replay past crises (2008, COVID-19)
+\item \textbf{Hypothetical Scenarios:} Forward-looking extreme events
+\item \textbf{Reverse Stress Tests:} Find scenarios causing failure
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Regulatory Stress Tests:}
+\begin{itemize}
+\item \textbf{CCAR (US):} Comprehensive Capital Analysis and Review
+\item \textbf{EBA (EU):} European Banking Authority stress tests
+\item \textbf{PRA (UK):} Annual Cyclical Scenario, Biennial Exploratory
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Scenario Design Principles:}
+\begin{itemize}
+\item \textbf{Severity:} Plausible but extreme (1-in-30 year events)
+\item \textbf{Coherence:} Internally consistent macro narrative
+\item \textbf{Coverage:} All material risk factors
+\item \textbf{Granularity:} Regional and sectoral detail
+\item \textbf{Horizon:} Multi-year path (typically 3-5 years)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Example Scenario (CCAR 2024):}
+\begin{itemize}
+\item Severely Adverse: Unemployment 10\%, GDP -3.5\%
+\item Equity markets down 40\%
+\item Commercial real estate prices -35\%
+\item Corporate bond spreads widen 400 bps
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Historical Crisis Scenarios}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{2008 Global Financial Crisis:}
+\begin{itemize}
+\item S\&P 500: -38\% (2008)
+\item VIX spike: 89 (Nov 2008)
+\item Investment-grade spreads: +500 bps
+\item High-yield spreads: +1700 bps
+\item Lehman bankruptcy: CDS spreads explode
+\end{itemize}
+
+\vspace{2mm}
+\textbf{COVID-19 Crash (March 2020):}
+\begin{itemize}
+\item S\&P 500: -34\% in 23 days (fastest bear market)
+\item Oil: -50\% (WTI negative pricing April 2020)
+\item Treasury volatility: MOVE Index to 165
+\item Credit markets freeze (Fed intervention)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{1998 LTCM Crisis:}
+\begin{itemize}
+\item Russia default + devaluation
+\item Flight to quality (Treasuries rally, spreads widen)
+\item Equity vol spike: VIX to 45
+\item Liquidity-driven correlations break models
+\end{itemize}
+
+\vspace{2mm}
+\textbf{European Sovereign Debt Crisis (2011-2012):}
+\begin{itemize}
+\item Greek, Irish, Portuguese bond yields spike
+\item 2-year Greek yields exceed 100\%
+\item Bank CDS correlate with sovereign risk
+\item EUR/USD volatility and basis blowouts
+\end{itemize}
+
+\vspace{2mm}
+\textit{Key Lesson: Correlations increase to 1 during crises (diversification fails)}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Reverse Stress Testing}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Methodology:}
+\begin{itemize}
+\item \textbf{Start with Outcome:} Failure point (insolvency, regulatory breach)
+\item \textbf{Work Backwards:} What scenarios lead to this outcome?
+\item \textbf{Assess Plausibility:} How realistic are these scenarios?
+\item \textbf{Identify Vulnerabilities:} Concentrations and weaknesses
+\item \textbf{Mitigants:} Risk limits, hedges, contingency plans
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Example (Retail Bank):}
+\begin{itemize}
+\item Failure: Tier 1 capital ratio below 4.5\%
+\item Scenario 1: Residential mortgages default rate 15\%
+\item Scenario 2: Wholesale funding freeze + deposit run
+\item Scenario 3: Major operational loss + cyber incident
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Regulatory Requirements:}
+\begin{itemize}
+\item \textbf{PRA (UK):} Annual reverse stress test mandatory
+\item \textbf{EBA (EU):} Recovery and Resolution Plans
+\item \textbf{Fed (US):} Resolution planning (``living wills'')
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Use Cases:}
+\begin{itemize}
+\item Identify tail risks not covered in standard tests
+\item Challenge business model assumptions
+\item Inform risk appetite and limit frameworks
+\item Support recovery and resolution planning
+\item Board-level strategic discussions
+\end{itemize}
+
+\vspace{2mm}
+\textit{``What would it take to break us?'' -- Common reverse stress test framing}
+\end{columns}
+\end{frame}
+
+\section{Model Risk Management}
+
+\begin{frame}{Model Risk Framework}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Model Risk Definition (SR 11-7):}
+
+\textit{``The potential for adverse consequences from decisions based on incorrect or misused model outputs and reports.''}
+
+\vspace{2mm}
+\textbf{Sources of Model Risk:}
+\begin{itemize}
+\item \textbf{Fundamental Error:} Incorrect theory or assumptions
+\item \textbf{Implementation Error:} Coding bugs, data errors
+\item \textbf{Misuse:} Application outside intended scope
+\item \textbf{Parameter Error:} Mis-calibration or estimation error
+\item \textbf{Data Quality:} Missing, stale, or incorrect inputs
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Regulatory Guidance:}
+\begin{itemize}
+\item \textbf{SR 11-7 (Fed, 2011):} Supervisory Guidance on Model Risk Management
+\item \textbf{SS1/23 (PRA, 2023):} Model risk management principles
+\item \textbf{BCBS 239:} Risk data aggregation and reporting
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Model Governance Structure:}
+\begin{itemize}
+\item \textbf{1st Line:} Model development and ownership
+\item \textbf{2nd Line:} Independent validation and risk oversight
+\item \textbf{3rd Line:} Internal audit
+\item \textbf{Model Risk Committee:} Senior governance forum
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Model Validation Process}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Validation Components:}
+\begin{enumerate}
+\item \textbf{Conceptual Soundness:}
+\begin{itemize}
+\item Review theoretical framework
+\item Assess assumptions and limitations
+\item Evaluate model design choices
+\item Literature review and benchmarking
+\end{itemize}
+
+\item \textbf{Ongoing Monitoring:}
+\begin{itemize}
+\item Backtesting and performance metrics
+\item Sensitivity and stability analysis
+\item Benchmark comparison
+\item Process verification
+\end{itemize}
+
+\item \textbf{Outcomes Analysis:}
+\begin{itemize}
+\item Compare predictions to actual outcomes
+\item Statistical tests (e.g., VaR backtests)
+\item Analyze forecast errors and bias
+\item Identify model drift over time
+\end{itemize}
+\end{enumerate}
+
+\column{0.48\textwidth}
+\textbf{Model Tiering (Risk-Based):}
+\begin{center}
+\small
+\begin{tabular}{lll}
+\textbf{Tier} & \textbf{Risk} & \textbf{Validation Frequency} \\
+\midrule
+1 & High & Annual \\
+2 & Medium & Biennial \\
+3 & Low & Triennial \\
+\end{tabular}
+\end{center}
+
+\vspace{2mm}
+\textbf{High-Risk Model Examples:}
+\begin{itemize}
+\item Capital calculation (Basel III, IFRS 9)
+\item Pricing of illiquid derivatives
+\item Stress testing and scenario models
+\item Credit risk scorecards
+\item Trading desk VaR models
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Validation Report Contents:}
+\begin{itemize}
+\item Executive summary and conclusions
+\item Scope and methodology
+\item Findings and recommendations
+\item Limitations and qualifications
+\item Model rating (e.g., satisfactory, needs enhancement, unsatisfactory)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Model Risk in Machine Learning}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Additional ML Challenges:}
+\begin{itemize}
+\item \textbf{Explainability:} Black-box models lack transparency
+\item \textbf{Overfitting:} High in-sample, poor out-of-sample
+\item \textbf{Regime Changes:} Models trained on past may fail in new regimes
+\item \textbf{Data Drift:} Input distributions shift over time
+\item \textbf{Adversarial Examples:} Susceptible to manipulation
+\end{itemize}
+
+\vspace{2mm}
+\textbf{ML-Specific Validation:}
+\begin{itemize}
+\item Cross-validation and holdout sets
+\item Feature importance and SHAP analysis
+\item Robustness to input perturbations
+\item Comparison to simpler benchmark models
+\item Continuous monitoring of performance drift
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Regulatory Concerns:}
+\begin{itemize}
+\item ECB (2021): Guide on model risk for AI/ML
+\item Fed SR 11-7 applies to all models (including ML)
+\item Emphasis on documentation and explainability
+\item Need for human oversight and expert judgment
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Emerging Practices:}
+\begin{itemize}
+\item \textbf{Model Cards:} Standardized documentation
+\item \textbf{Champion-Challenger:} Continuous benchmarking
+\item \textbf{Ensemble Methods:} Reduce single-model risk
+\item \textbf{Explainable AI:} LIME, SHAP for interpretability
+\item \textbf{Fairness Testing:} Detect and mitigate bias
+\end{itemize}
+
+\vspace{2mm}
+\textit{Industry trend: Hybrid models combining ML predictions with traditional risk frameworks}
+\end{columns}
+\end{frame}
+
+\section{Enterprise Risk Management Systems}
+
+\begin{frame}{ERM System Architecture}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Core Components:}
+\begin{enumerate}
+\item \textbf{Data Aggregation Layer:}
+\begin{itemize}
+\item Trade/position feeds from front office
+\item Market data (prices, curves, volatilities)
+\item Reference data (securities master, counterparties)
+\item ETL processes and data quality checks
+\end{itemize}
+
+\item \textbf{Risk Calculation Engine:}
+\begin{itemize}
+\item Sensitivities (Greeks, DV01, duration)
+\item VaR and stress tests
+\item Counterparty credit risk (CVA, PFE)
+\item Aggregation across desks and entities
+\end{itemize}
+
+\item \textbf{Limit Monitoring and Alerting:}
+\begin{itemize}
+\item Real-time limit checks
+\item Breach notifications and escalation
+\item Approval workflows for exceptions
+\end{itemize}
+\end{enumerate}
+
+\column{0.48\textwidth}
+\textbf{4. Reporting and Analytics:}
+\begin{itemize}
+\item Interactive dashboards (Tableau, Power BI)
+\item Regulatory reports (CCAR, FRTB)
+\item Ad-hoc analysis and drill-down
+\item Historical P\&L and risk attribution
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Leading Platforms:}
+\begin{itemize}
+\item \textbf{Bloomberg AIM:} Multi-asset risk analytics
+\item \textbf{MSCI RiskMetrics:} Portfolio risk and performance
+\item \textbf{SunGard (FIS) Adaptiv:} Counterparty credit and CVA
+\item \textbf{Murex:} Front-to-risk integrated platform
+\item \textbf{Calypso:} Cross-asset trading and risk
+\end{itemize}
+
+\vspace{2mm}
+\textit{Typical latency: Intraday VaR calculated every 15-30 minutes; EOD full suite in 2-4 hours}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Risk Aggregation Challenges}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Technical Challenges:}
+\begin{itemize}
+\item \textbf{Data Latency:} T+1 positions from legacy systems
+\item \textbf{Reconciliation:} Front office vs risk systems breaks
+\item \textbf{Market Data:} Missing or stale prices (illiquid securities)
+\item \textbf{Calculation Performance:} Monte Carlo for large portfolios
+\item \textbf{Infrastructure:} Grid computing and cloud scaling
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Organizational Challenges:}
+\begin{itemize}
+\item Siloed data across business units
+\item Multiple risk systems (acquisitions)
+\item Inconsistent methodologies across desks
+\item Manual data adjustments and overrides
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{BCBS 239 Principles (2013):}
+\begin{enumerate}
+\item Governance: Clear ownership and accountability
+\item Data Architecture: Robust and flexible
+\item Accuracy and Integrity: Automated controls
+\item Completeness and Timeliness: Comprehensive and fast
+\item Adaptability: Support ad-hoc requests
+\item Distribution: Appropriate access and security
+\end{enumerate}
+
+\vspace{2mm}
+\textbf{Modern Solutions:}
+\begin{itemize}
+\item Data lakes and real-time streaming (Kafka)
+\item Cloud-based risk engines (AWS, Azure, GCP)
+\item In-memory computing (GridGain, Hazelcast)
+\item Standardized data models (FINOS, CDM)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Real-Time Risk Management}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Intraday Risk Monitoring:}
+\begin{itemize}
+\item \textbf{Pre-Trade Checks:} Order price/size limits (microseconds)
+\item \textbf{Incremental VaR:} Add/remove trade impact
+\item \textbf{Greeks Monitoring:} Real-time delta, gamma, vega
+\item \textbf{Stress Ladder:} Continuous recalculation
+\item \textbf{P\&L Attribution:} Explain intraday P\&L moves
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Technology Stack:}
+\begin{itemize}
+\item \textbf{In-Memory Grids:} Apache Ignite, Hazelcast
+\item \textbf{Stream Processing:} Kafka, Flink, Spark Streaming
+\item \textbf{GPUs:} Massively parallel Monte Carlo
+\item \textbf{FPGA:} Ultra-low latency risk calculations
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Use Cases:}
+\begin{itemize}
+\item \textbf{Algorithmic Trading:} Real-time position limits
+\item \textbf{Market Making:} Inventory risk management
+\item \textbf{Prime Brokerage:} Client margin calculations
+\item \textbf{Treasury:} Intraday liquidity risk
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Performance Requirements:}
+\begin{itemize}
+\item Pre-trade checks: under 1 millisecond
+\item Incremental VaR: under 100 milliseconds
+\item Full portfolio VaR: under 5 minutes (10k+ positions)
+\item Stress tests: under 15 minutes
+\end{itemize}
+
+\vspace{2mm}
+\textit{Leading trading firms: Full risk recalculation every 100-500 milliseconds for active portfolios}
+\end{columns}
+\end{frame}
+
+\section{Regulatory Capital and Risk Metrics}
+
+\begin{frame}{Basel III Market Risk Framework}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Standardized Approach (SA):}
+\begin{itemize}
+\item Risk-weighted buckets by asset class
+\item Sensitivity-based method (Delta, Vega, Curvature)
+\item Residual risk add-on (exotic options)
+\item Simple, transparent, less risk-sensitive
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Internal Models Approach (IMA):}
+\begin{itemize}
+\item Expected Shortfall (ES) replaces VaR
+\item 97.5\% ES over 10-day horizon
+\item Stressed ES (calibrated to stress period)
+\item Default risk charge (jump-to-default)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{IMA Formula:}
+$$\text{Capital} = \max(\text{ES}_t, mc \cdot \text{ES}_{avg}) + \text{SES} + \text{DRC}$$
+where $mc$ = multiplier (1.5+), $\text{SES}$ = Stressed ES, $\text{DRC}$ = Default Risk Charge
+
+\column{0.48\textwidth}
+\textbf{P\&L Attribution Test:}
+\begin{itemize}
+\item Compare theoretical P\&L (risk system) to actual (front office)
+\item \textbf{Unexplained P\&L:} Absolute difference
+\item \textbf{Threshold:} Exceed on max 12 days/year
+\item Failure $\rightarrow$ desk removed from IMA
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Backtesting (ES):}
+\begin{itemize}
+\item More challenging than VaR (tail events)
+\item Traffic light approach adapted for ES
+\item Greater reliance on P\&L attribution
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Implementation (FRTB):}
+\begin{itemize}
+\item Fundamental Review of Trading Book
+\item Effective: January 2023 (extended to 2025 for some)
+\item Capital increase: 20-70\% vs Basel II.5
+\item Driven by: tighter liquidity horizons, default risk, stressed calibration
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Counterparty Credit Risk Metrics}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Exposure Metrics:}
+\begin{itemize}
+\item \textbf{Current Exposure (CE):} Replacement cost today
+\item \textbf{Potential Future Exposure (PFE):} High percentile (95\%, 97.5\%) of future exposure distribution
+\item \textbf{Expected Positive Exposure (EPE):} Average exposure over time
+\item \textbf{Effective EPE:} Non-decreasing EPE for capital
+\end{itemize}
+
+\vspace{2mm}
+\textbf{EPE Calculation:}
+$$\text{EPE}(t) = \mathbb{E}[\max(V(t), 0)]$$
+where $V(t)$ = mark-to-market value at time $t$
+
+\vspace{2mm}
+\textbf{CVA (Credit Valuation Adjustment):}
+$$\text{CVA} = (1-R) \sum_{i=1}^{n} \text{EE}(t_i) \cdot \text{PD}(t_{i-1}, t_i)$$
+where $R$ = recovery rate, $\text{EE}$ = expected exposure, $\text{PD}$ = default probability
+
+\column{0.48\textwidth}
+\textbf{XVA Framework:}
+\begin{itemize}
+\item \textbf{CVA:} Credit risk of counterparty
+\item \textbf{DVA:} Credit risk of own entity
+\item \textbf{FVA:} Funding cost of uncollateralized exposure
+\item \textbf{MVA:} Margin valuation adjustment (initial margin cost)
+\item \textbf{KVA:} Capital valuation adjustment
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Calculation Challenges:}
+\begin{itemize}
+\item Computationally intensive (nested Monte Carlo)
+\item Wrong-way risk (exposure-default correlation)
+\item Collateral modeling (CSA agreements)
+\item Netting set aggregation
+\end{itemize}
+
+\vspace{2mm}
+\textit{Major banks: CVA desks actively hedge CVA exposure via CDS and equity positions}
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Summary and Key Takeaways}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Value at Risk:}
+\begin{itemize}
+\item 99\% VaR: Maximum loss exceeded 1\% of days
+\item Methodologies: Parametric, Historical, Monte Carlo
+\item Backtesting via traffic light approach
+\item Limitations: Non-coherent, ignores tail
+\item Expected Shortfall replacing VaR (Basel III)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Stress Testing:}
+\begin{itemize}
+\item Sensitivity, scenario, and reverse stress tests
+\item Regulatory: CCAR (US), EBA (EU) stress tests
+\item Historical scenarios (2008, COVID-19) inform design
+\item Reverse stress tests identify failure points
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Model Risk Management:}
+\begin{itemize}
+\item SR 11-7: Independent validation mandatory
+\item Conceptual soundness, ongoing monitoring, outcomes analysis
+\item ML models: Explainability and drift challenges
+\item Model governance: 3 lines of defense
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Enterprise Risk Systems:}
+\begin{itemize}
+\item Real-time risk aggregation and limit monitoring
+\item BCBS 239: Data governance principles
+\item Cloud and in-memory computing for speed
+\item Basel III FRTB: ES replaces VaR, capital increase 20-70\%
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\end{document}

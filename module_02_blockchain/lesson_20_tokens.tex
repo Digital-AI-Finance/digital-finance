@@ -1,0 +1,451 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 20: Tokens -- ERC-20 and NFTs}
+\subtitle{Module 2: Blockchain Fundamentals}
+\author{Digital Finance}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{What is a Token?}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Definition:}
+\begin{itemize}
+\item Digital asset on blockchain
+\item Smart contract manages ownership
+\item Not native currency (e.g., not ETH)
+\item Programmable properties
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Types:}
+\begin{itemize}
+\item \textbf{Fungible:} Interchangeable (e.g., USDC, UNI)
+\item \textbf{Non-Fungible:} Unique (e.g., NFTs, real estate)
+\item \textbf{Semi-Fungible:} Hybrid (e.g., gaming items)
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_20/token_types.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{ERC-20: Fungible Token Standard}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_20/erc20_overview.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Standard Functions:}
+\begin{itemize}
+\item \texttt{totalSupply()}: Returns total token supply
+\item \texttt{balanceOf(address)}: Returns balance of account
+\item \texttt{transfer(to, amount)}: Send tokens
+\item \texttt{approve(spender, amount)}: Allow third party to spend
+\item \texttt{transferFrom(from, to, amount)}: Third-party transfer (after approval)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{ERC-20 Implementation Example}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{charts/lesson_20/erc20_code_structure.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Key Components:}
+\begin{itemize}
+\item \textbf{State Variables:} \texttt{balances}, \texttt{allowances}, \texttt{totalSupply}
+\item \textbf{Events:} \texttt{Transfer(from, to, amount)}, \texttt{Approval(owner, spender, amount)}
+\item \textbf{Metadata:} Name, symbol, decimals (usually 18)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{ERC-20 Transfer Flow}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{charts/lesson_20/erc20_transfer_flow.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Direct Transfer:}
+\begin{enumerate}
+\item User calls \texttt{transfer(recipient, 100)}
+\item Contract checks balance
+\item Updates \texttt{balances[sender] -= 100}, \texttt{balances[recipient] += 100}
+\item Emits \texttt{Transfer} event
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Approval and TransferFrom Pattern}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Use Case:}
+\begin{itemize}
+\item Allow smart contract to spend your tokens
+\item Required for DeFi (DEXs, lending)
+\item Two-step process
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Steps:}
+\begin{enumerate}
+\item User approves DEX: \texttt{approve(DEX, 1000)}
+\item DEX calls: \texttt{transferFrom(user, pool, 500)}
+\item Check allowance, transfer tokens
+\end{enumerate}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_20/approve_transferfrom.pdf}
+\end{columns}
+
+\vspace{3mm}
+\textbf{Security Note:} Approve 0 before changing allowance to prevent race conditions
+\end{frame}
+
+\begin{frame}{Popular ERC-20 Tokens (2024)}
+\begin{center}
+\begin{tabular}{@{}p{3cm}p{2.5cm}p{3cm}p{5cm}@{}}
+\toprule
+\textbf{Token} & \textbf{Symbol} & \textbf{Market Cap} & \textbf{Use Case} \\
+\midrule
+Tether & USDT & \$100B+ & Stablecoin (pegged to USD) \\
+\midrule
+USD Coin & USDC & \$30B+ & Regulated stablecoin \\
+\midrule
+Uniswap & UNI & \$5B+ & DEX governance token \\
+\midrule
+Chainlink & LINK & \$8B+ & Oracle network payments \\
+\midrule
+Wrapped Bitcoin & WBTC & \$10B+ & Bitcoin on Ethereum \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{3mm}
+\textbf{Total ERC-20 Tokens:} $>$500,000 deployed on Ethereum
+\end{frame}
+
+\begin{frame}{Token Utility: Why Create Tokens?}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Governance:}
+\begin{itemize}
+\item DAO voting rights (e.g., UNI, COMP)
+\item Protocol parameter changes
+\item Treasury allocation
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Access:}
+\begin{itemize}
+\item Platform access (e.g., Filecoin storage)
+\item Fee discounts (e.g., BNB on Binance)
+\item Staking for rewards
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Incentives:}
+\begin{itemize}
+\item Liquidity mining rewards
+\item Early adopter benefits
+\item Network effects
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Speculation:}
+\begin{itemize}
+\item Investment asset
+\item Price appreciation
+\item Trading on exchanges
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{NFTs: Non-Fungible Tokens}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_20/nft_concept.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Key Properties:}
+\begin{itemize}
+\item \textbf{Unique:} Each token has distinct identifier (tokenId)
+\item \textbf{Indivisible:} Cannot split (unlike ERC-20)
+\item \textbf{Provably Scarce:} Limited supply enforced by contract
+\item \textbf{Metadata:} Points to off-chain data (image, video, properties)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{ERC-721: NFT Standard}
+\textbf{Required Functions:}
+\begin{itemize}
+\item \texttt{balanceOf(owner)}: Number of NFTs owned
+\item \texttt{ownerOf(tokenId)}: Who owns specific token
+\item \texttt{transferFrom(from, to, tokenId)}: Transfer NFT
+\item \texttt{approve(to, tokenId)}: Approve transfer
+\item \texttt{safeTransferFrom(...)}: Safe transfer (checks recipient can receive)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Optional Metadata Extension:}
+\begin{itemize}
+\item \texttt{tokenURI(tokenId)}: Returns URL to metadata JSON
+\item Metadata typically stored on IPFS or centralized server
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Example:} CryptoPunks, Bored Ape Yacht Club, Azuki
+\end{frame}
+
+\begin{frame}{NFT Metadata Structure}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{On-Chain (Contract):}
+\begin{itemize}
+\item Token ID
+\item Owner address
+\item Approval state
+\item Pointer to metadata URI
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Off-Chain (IPFS/Server):}
+\begin{itemize}
+\item Name, description
+\item Image/video URL
+\item Attributes (rarity traits)
+\item Properties
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_20/nft_metadata_flow.pdf}
+\end{columns}
+
+\vspace{3mm}
+\textbf{Centralization Risk:} If server hosting image goes down, NFT becomes broken link
+\end{frame}
+
+\begin{frame}{NFT Use Cases}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Digital Art:}
+\begin{itemize}
+\item Provable ownership
+\item Royalties on resales (via marketplaces)
+\item Scarcity enforcement
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Gaming:}
+\begin{itemize}
+\item In-game items (weapons, skins)
+\item Land ownership (Decentraland)
+\item Cross-game interoperability
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Identity/Credentials:}
+\begin{itemize}
+\item Digital diplomas
+\item Membership badges
+\item Soulbound tokens (non-transferable)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Real-World Assets:}
+\begin{itemize}
+\item Real estate deeds
+\item Luxury goods authentication
+\item Tickets/event access
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{NFT Mania: 2021 Boom and Bust}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{charts/lesson_20/nft_market_volume.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Peak (Aug 2021 -- Jan 2022):}
+\begin{itemize}
+\item Monthly volume: \$5B+ on OpenSea
+\item Bored Ape floor price: 150 ETH (\$600K)
+\item Celebrity endorsements, mainstream media
+\end{itemize}
+
+\textbf{Crash (2022--2024):} 90\%+ decline in volume, floor prices collapsed
+\end{frame}
+
+\begin{frame}{Criticisms of NFTs}
+\begin{itemize}
+\item \textbf{Ownership Confusion:} You own token, not copyright or image itself
+\item \textbf{Environmental (Pre-Merge):} High energy usage on PoW Ethereum
+\item \textbf{Speculation Bubble:} Most projects have no utility, pure speculation
+\item \textbf{Centralization:} Metadata often on centralized servers, not fully decentralized
+\item \textbf{Money Laundering:} Wash trading, inflated sale prices
+\item \textbf{IP Issues:} Plagiarism, unauthorized minting of others' art
+\item \textbf{Market Manipulation:} Pump-and-dump schemes, insider trading
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Counterargument:} Technology has legitimate use cases beyond JPEGs (credentials, gaming, ticketing)
+\end{frame}
+
+\begin{frame}{Tokenomics: Designing Token Economics}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Supply Mechanics:}
+\begin{itemize}
+\item \textbf{Fixed Supply:} Bitcoin (21M cap)
+\item \textbf{Inflationary:} Continuous issuance (older Ethereum)
+\item \textbf{Deflationary:} Burn mechanisms (EIP-1559)
+\item \textbf{Elastic:} Rebasing (Ampleforth)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Distribution:}
+\begin{itemize}
+\item Team allocation (with vesting)
+\item Investors/VCs (lockup periods)
+\item Community rewards (airdrops, mining)
+\item Treasury for governance
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_20/tokenomics_distribution.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Vesting and Lock-Ups}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_20/vesting_schedule.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Purpose:} Prevent early investors/team from immediate sell-off (dump)
+
+\vspace{2mm}
+\textbf{Typical Schedule:}
+\begin{itemize}
+\item \textbf{Cliff:} 6--12 months (no tokens released)
+\item \textbf{Linear Vesting:} Monthly releases over 2--4 years
+\item \textbf{Example:} 1-year cliff, then 25\% per year for 4 years
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Airdrops: Free Token Distribution}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Reasons:}
+\begin{itemize}
+\item Reward early users
+\item Decentralize governance
+\item Marketing/awareness
+\item Avoid securities regulations (gift, not sale)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Famous Examples:}
+\begin{itemize}
+\item Uniswap: 400 UNI to all users (\$1200+)
+\item Ethereum Name Service: Retroactive airdrop
+\item Arbitrum: Governance token to users
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_20/airdrop_strategy.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Token Launch Models}
+\begin{center}
+\begin{tabular}{@{}p{3cm}p{5cm}p{5cm}@{}}
+\toprule
+\textbf{Model} & \textbf{Mechanism} & \textbf{Pros/Cons} \\
+\midrule
+ICO (2017--18) & Public sale at fixed price & Simple, but many scams, regulatory issues \\
+\midrule
+IEO (2019) & Sale on exchange (e.g., Binance Launchpad) & Vetted, but centralized \\
+\midrule
+Fair Launch (2020) & No pre-sale, everyone equal & Community-driven, but vulnerable to bots \\
+\midrule
+LBP (2021) & Liquidity Bootstrapping Pool (declining price) & Price discovery, less FOMO \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{3mm}
+\textbf{Trend:} Moving away from ICOs toward fairer, community-first models
+\end{frame}
+
+\begin{frame}{ERC-1155: Multi-Token Standard}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Innovation:}
+\begin{itemize}
+\item Single contract manages multiple token types
+\item Fungible, non-fungible, semi-fungible
+\item Batch operations (gas efficient)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Use Case: Gaming}
+\begin{itemize}
+\item Gold (fungible)
+\item Sword \#123 (non-fungible)
+\item Health potion (semi-fungible, limited)
+\item All in one contract
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_20/erc1155_structure.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Token Security: Common Vulnerabilities}
+\begin{itemize}
+\item \textbf{Reentrancy:} External calls before state updates (use checks-effects-interactions)
+\item \textbf{Integer Overflow/Underflow:} Fixed in Solidity 0.8+ (automatic checks)
+\item \textbf{Approval Race Condition:} Approve 0 before changing allowance
+\item \textbf{Unchecked Return Values:} ERC-20 transfer may silently fail
+\item \textbf{Front-Running:} Miners/bots see pending transactions, exploit
+\item \textbf{Centralization:} Owner has mint/burn/pause powers (rug pull risk)
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Best Practice:} Use OpenZeppelin audited contracts, multiple audits, time-locks on admin functions
+\end{frame}
+
+\begin{frame}{Summary}
+\begin{itemize}
+\item \textbf{ERC-20:} Fungible token standard, balances, transfer, approve/transferFrom
+\item \textbf{ERC-721 (NFTs):} Unique tokens, digital art/collectibles/gaming
+\item \textbf{NFT Metadata:} On-chain ownership, off-chain images (IPFS/centralized)
+\item \textbf{Tokenomics:} Supply, distribution, vesting, airdrops
+\item \textbf{ERC-1155:} Multi-token standard, efficient for gaming
+\item \textbf{Security:} Reentrancy, overflows, centralization risks
+\end{itemize}
+
+\vspace{4mm}
+\textbf{Next Lesson:} DeFi Fundamentals -- AMMs, liquidity pools, lending protocols
+\end{frame}
+
+\end{document}

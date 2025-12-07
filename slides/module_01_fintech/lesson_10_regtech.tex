@@ -1,0 +1,288 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 10: RegTech}
+\subtitle{Module 1: FinTech Fundamentals}
+\author{Digital Finance}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Regulatory Complexity Crisis}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Compliance Burden}
+\begin{itemize}
+\item 300M+ pages of regulation
+\item \$270B annual compliance cost
+\item 500+ updates per day
+\item Manual processes fail
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/regulatory_volume_growth.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{RegTech Definition}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/regtech_landscape.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{RegTech Categories}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Five Core Areas}
+\begin{itemize}
+\item Compliance management
+\item Transaction monitoring
+\item Regulatory reporting
+\item Risk management
+\item Identity verification
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/regtech_categories.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Anti-Money Laundering (AML)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{AML Challenge}
+\begin{itemize}
+\item \$2T laundered annually
+\item 0.1\% detected (UN estimate)
+\item \$26B in fines (2008-2023)
+\item False positive rate: 95\%
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/aml_problem_scale.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Traditional AML Process}
+\begin{center}
+\includegraphics[width=0.88\textwidth]{figures/traditional_aml_process.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Transaction Monitoring}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Rule-Based Systems}
+\begin{itemize}
+\item Threshold triggers (\$10K)
+\item Velocity checks
+\item Geographic patterns
+\item 99\% false positives
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/transaction_monitoring_rules.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Machine Learning AML}
+\begin{center}
+\includegraphics[width=0.82\textwidth]{figures/ml_aml_architecture.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{ML Feature Engineering}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Behavioral Features}
+\begin{itemize}
+\item Network graph analysis
+\item Time-series patterns
+\item Entity relationships
+\item Reduces FP to 70\%
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/ml_features_aml.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{ComplyAdvantage Case Study}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{AI-Powered Screening}
+\begin{itemize}
+\item Real-time sanctions screening
+\item Natural language processing
+\item Dynamic risk scoring
+\item 2,000+ financial institutions
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/complyadvantage_workflow.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Regulatory Reporting Automation}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Reporting Requirements}
+\begin{itemize}
+\item MiFID II: 65 data fields
+\item EMIR: Trade reporting
+\item Basel III: Risk metrics
+\item Frequency: Daily/real-time
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/regulatory_reporting.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Automated Reporting Flow}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/automated_reporting_flow.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Know Your Customer (KYC) Technology}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Digital KYC}
+\begin{itemize}
+\item Document verification (OCR)
+\item Biometric authentication
+\item PEP/sanctions screening
+\item Continuous monitoring
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/kyc_regtech_flow.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Risk Assessment Platforms}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Dynamic Risk Scoring}
+\begin{itemize}
+\item Real-time risk calculation
+\item Multi-dimensional factors
+\item Regulatory change tracking
+\item Stress testing automation
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/risk_scoring_model.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{RegTech Market Size}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/regtech_market_growth.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Cost Reduction Analysis}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Efficiency Gains}
+\begin{itemize}
+\item AML analysts: 50\% reduction
+\item Reporting costs: 70\% lower
+\item False positive rate: 30\% reduction
+\item Time to compliance: 80\% faster
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/regtech_cost_savings.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Regulatory Sandboxes}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Innovation Testing}
+\begin{itemize}
+\item FCA (UK) pioneer
+\item Limited-scope testing
+\item Regulatory guidance
+\item 80\% go to market
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/regulatory_sandbox.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Global Sandbox Programs}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/global_sandboxes.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Challenges and Limitations}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Implementation Barriers}
+\begin{itemize}
+\item Legacy system integration
+\item Data quality issues
+\item Regulatory acceptance lag
+\item Explainability requirements
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/regtech_challenges.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Future: Embedded Compliance}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Next Generation}
+\begin{itemize}
+\item Real-time compliance
+\item Machine-readable regulation
+\item Automated policy updates
+\item Suptech convergence
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/embedded_compliance_future.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Key Takeaways}
+\begin{itemize}
+\item \textbf{Problem}: \$270B compliance costs, 95\% false positives
+\item \textbf{ML AML}: Reduces false positives from 99\% to 70\%
+\item \textbf{Automation}: Reporting costs down 70\%, time down 80\%
+\item \textbf{Sandboxes}: 80\% of tested innovations go to market
+\item \textbf{Future}: Real-time embedded compliance automation
+\end{itemize}
+\end{frame}
+
+\end{document}

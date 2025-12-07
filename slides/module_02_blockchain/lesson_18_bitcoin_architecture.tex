@@ -1,0 +1,466 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 18: Bitcoin Architecture}
+\subtitle{Module 2: Blockchain Fundamentals}
+\author{Digital Finance}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Bitcoin System Overview}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{charts/lesson_18/bitcoin_system_architecture.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Core Components:}
+\begin{itemize}
+\item \textbf{P2P Network:} Decentralized node communication
+\item \textbf{Blockchain:} Immutable ledger of transactions
+\item \textbf{UTXO Model:} Unspent transaction outputs (like digital cash)
+\item \textbf{Script System:} Programmable transaction validation
+\end{itemize}
+\end{frame}
+
+\begin{frame}{UTXO Model: Digital Cash Analogy}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Physical Cash:}
+\begin{itemize}
+\item Discrete bills and coins
+\item Cannot split a \$20 bill
+\item Give exact amount or get change
+\item Destroyed when spent
+\end{itemize}
+
+\vspace{3mm}
+\textbf{UTXO Model:}
+\begin{itemize}
+\item Discrete chunks of bitcoin
+\item Cannot partially spend UTXO
+\item Consume entirely, create change UTXO
+\item Marked as spent, new UTXO created
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_18/utxo_concept.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{UTXO vs Account Model}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_18/utxo_vs_account.pdf}
+\end{center}
+\vspace{-3mm}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{UTXO (Bitcoin):}
+\begin{itemize}
+\item Stateless
+\item Better privacy (addresses change)
+\item Parallel transaction validation
+\item No account balances
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Account (Ethereum):}
+\begin{itemize}
+\item Stateful (balance stored)
+\item Simple mental model
+\item Sequential nonces
+\item Easier for smart contracts
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Transaction Structure: Inputs and Outputs}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_18/transaction_structure.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Components:}
+\begin{itemize}
+\item \textbf{Inputs:} References to previous UTXOs (txid + output index) + signature
+\item \textbf{Outputs:} New UTXOs with amounts and locking scripts
+\item \textbf{Fee:} Sum(inputs) -- Sum(outputs)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Example Transaction: Alice Pays Bob}
+\textbf{Scenario:} Alice has 0.5 BTC UTXO, wants to pay Bob 0.3 BTC
+
+\vspace{3mm}
+\textbf{Transaction:}
+\begin{itemize}
+\item \textbf{Input:} Alice's 0.5 BTC UTXO + Alice's signature
+\item \textbf{Output 1:} 0.3 BTC to Bob's address
+\item \textbf{Output 2:} 0.19 BTC change to Alice's new address
+\item \textbf{Fee:} 0.01 BTC (0.5 -- 0.3 -- 0.19)
+\end{itemize}
+
+\vspace{3mm}
+\begin{center}
+\includegraphics[width=0.7\textwidth]{charts/lesson_18/alice_to_bob_transaction.pdf}
+\end{center}
+
+\vspace{2mm}
+\textbf{Result:} Alice's UTXO consumed, two new UTXOs created
+\end{frame}
+
+\begin{frame}{Transaction Chaining}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{charts/lesson_18/transaction_chain.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Key Properties:}
+\begin{itemize}
+\item Each transaction references previous outputs
+\item Creates directed acyclic graph (DAG)
+\item Double-spending prevented by UTXO tracking
+\item Validation traces back to coinbase transactions
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Bitcoin Script: Programmable Conditions}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{What is Script?}
+\begin{itemize}
+\item Stack-based language
+\item Turing-incomplete (no loops)
+\item Defines spending conditions
+\item Executed by all nodes
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Script Types:}
+\begin{itemize}
+\item Pay-to-Public-Key-Hash (P2PKH)
+\item Pay-to-Script-Hash (P2SH)
+\item Pay-to-Witness-Public-Key-Hash (P2WPKH)
+\item Multisig
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_18/script_execution.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{P2PKH: Standard Bitcoin Transaction}
+\textbf{Locking Script (scriptPubKey):}
+\begin{center}
+\small\texttt{OP\_DUP OP\_HASH160 <PubKeyHash> OP\_EQUALVERIFY OP\_CHECKSIG}
+\end{center}
+
+\vspace{3mm}
+\textbf{Unlocking Script (scriptSig):}
+\begin{center}
+\small\texttt{<Signature> <PublicKey>}
+\end{center}
+
+\vspace{3mm}
+\textbf{Execution:}
+\begin{enumerate}
+\item Push signature and public key to stack
+\item Duplicate public key
+\item Hash duplicated public key
+\item Compare hash to stored hash (EQUALVERIFY)
+\item Verify signature with public key (CHECKSIG)
+\item Success if top of stack is TRUE
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Multisig: M-of-N Signatures}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Use Case:}
+\begin{itemize}
+\item Shared custody
+\item Corporate accounts
+\item Escrow services
+\item Enhanced security
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Example (2-of-3):}
+\begin{itemize}
+\item 3 public keys
+\item Require any 2 signatures
+\item Escrow: buyer, seller, arbiter
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_18/multisig_example.pdf}
+\end{columns}
+
+\vspace{3mm}
+\textbf{Script:}
+\small\texttt{OP\_2 <PubKey1> <PubKey2> <PubKey3> OP\_3 OP\_CHECKMULTISIG}
+\end{frame}
+
+\begin{frame}{Transaction Lifecycle}
+\begin{center}
+\includegraphics[width=0.95\textwidth]{charts/lesson_18/transaction_lifecycle.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Stages:}
+\begin{enumerate}
+\item \textbf{Creation:} User signs transaction
+\item \textbf{Broadcast:} Sent to P2P network
+\item \textbf{Mempool:} Unconfirmed transactions pool
+\item \textbf{Mining:} Miner includes in block
+\item \textbf{Confirmation:} Block added to chain
+\item \textbf{Finality:} 6+ confirmations ($\sim$1 hour)
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Mempool: Waiting Room for Transactions}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Properties:}
+\begin{itemize}
+\item Unconfirmed transactions
+\item Not consensus-critical (each node maintains own)
+\item Size varies by network congestion
+\item Transactions ranked by fee rate
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Fee Market:}
+\begin{itemize}
+\item Higher fee = faster inclusion
+\item Fee rate: satoshis per byte (sat/vB)
+\item Dynamic pricing based on demand
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_18/mempool_visualization.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Transaction Fees: Mechanics}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Fee Calculation:}
+\[
+\text{Fee} = \sum \text{Inputs} - \sum \text{Outputs}
+\]
+
+\vspace{3mm}
+\textbf{Fee Rate:}
+\[
+\text{Fee Rate} = \frac{\text{Fee}}{\text{Transaction Size (vB)}}
+\]
+
+\vspace{3mm}
+\textbf{Example:}
+\begin{itemize}
+\item Transaction size: 250 vB
+\item Target: 50 sat/vB
+\item Fee: $250 \times 50 = 12,500$ sat = 0.000125 BTC
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_18/fee_distribution.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Fee Dynamics During Congestion}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{charts/lesson_18/fee_market_congestion.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{High Demand Periods:}
+\begin{itemize}
+\item 2017 Bull Run: Fees $>$\$50 per transaction
+\item 2021 NFT Craze: Ordinals inscriptions clog network
+\item 2024: Runes protocol launch, fees spike to $>$1000 sat/vB
+\item Replace-By-Fee (RBF) and Child-Pays-For-Parent (CPFP) for fee bumping
+\end{itemize}
+\end{frame}
+
+\begin{frame}{SegWit: Segregated Witness (2017)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Problem:}
+\begin{itemize}
+\item Block size limit: 1 MB
+\item Signature data takes 60--70\% of transaction
+\item Scalability bottleneck
+\item Transaction malleability
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Solution:}
+\begin{itemize}
+\item Separate signature data (witness)
+\item Witness data not counted toward 1 MB limit
+\item Effective block size: $\sim$2--2.5 MB
+\item Fixes malleability
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_18/segwit_structure.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Lightning Network: Layer 2 Scaling}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_18/lightning_network_concept.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Problem:} Bitcoin throughput $\sim$7 tx/s, expensive fees, slow confirmations
+
+\vspace{2mm}
+\textbf{Solution:} Off-chain payment channels, only settle on-chain when closing
+\end{frame}
+
+\begin{frame}{Lightning Payment Channel Mechanics}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Opening Channel:}
+\begin{enumerate}
+\item Alice and Bob create 2-of-2 multisig
+\item Deposit funds (funding transaction)
+\item On-chain confirmation
+\end{enumerate}
+
+\vspace{3mm}
+\textbf{Off-Chain Payments:}
+\begin{itemize}
+\item Exchange signed commitment transactions
+\item Update balances instantly
+\item No on-chain transactions
+\item Unlimited throughput
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_18/lightning_channel.pdf}
+\end{columns}
+
+\vspace{3mm}
+\textbf{Closing Channel:} Broadcast final state to blockchain
+\end{frame}
+
+\begin{frame}{Lightning Network Routing}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_18/lightning_routing.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Multi-Hop Payments:}
+\begin{itemize}
+\item Alice wants to pay Dave, no direct channel
+\item Route: Alice $\rightarrow$ Bob $\rightarrow$ Carol $\rightarrow$ Dave
+\item Hash Time-Locked Contracts (HTLCs) ensure atomicity
+\item Routing fees: $\sim$1 satoshi per hop
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Lightning vs On-Chain Comparison}
+\begin{center}
+\begin{tabular}{@{}p{3.5cm}p{5cm}p{5cm}@{}}
+\toprule
+\textbf{Aspect} & \textbf{On-Chain (Layer 1)} & \textbf{Lightning (Layer 2)} \\
+\midrule
+Speed & 10 min average & Instant (milliseconds) \\
+\midrule
+Throughput & $\sim$7 tx/s & Millions of tx/s \\
+\midrule
+Fees & \$1--\$50 (variable) & $<$\$0.01 \\
+\midrule
+Finality & 6 confirmations (1 hour) & Instant (with channel counterparty) \\
+\midrule
+Trust & Fully trustless & Counterparty risk (can close unilaterally) \\
+\midrule
+Use Case & Large settlements, savings & Micropayments, retail \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}{Taproot Upgrade (2021)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Improvements:}
+\begin{itemize}
+\item Schnorr signatures (batch verification)
+\item MAST (Merklized Alternative Script Trees)
+\item Enhanced privacy (multisig looks like single-sig)
+\item More efficient smart contracts
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Benefits:}
+\begin{itemize}
+\item Lower fees for complex scripts
+\item Better privacy
+\item Enables new use cases (DLCs, multi-party protocols)
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_18/taproot_comparison.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Bitcoin Full Node}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Responsibilities:}
+\begin{itemize}
+\item Download entire blockchain
+\item Validate all transactions
+\item Relay transactions and blocks
+\item Enforce consensus rules
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Requirements (2024):}
+\begin{itemize}
+\item Disk: $\sim$600 GB (growing $\sim$50 GB/year)
+\item Bandwidth: $\sim$500 GB/month
+\item RAM: 4+ GB
+\item CPU: Modest (validation not mining)
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_18/node_types.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Summary}
+\begin{itemize}
+\item \textbf{UTXO Model:} Discrete outputs, like digital cash, stateless validation
+\item \textbf{Transactions:} Inputs (previous UTXOs) + Outputs (new UTXOs) + Fee
+\item \textbf{Script:} Stack-based language defines spending conditions (P2PKH, multisig)
+\item \textbf{Mempool:} Unconfirmed transactions, fee market determines priority
+\item \textbf{SegWit:} Separated witness data, increased capacity, fixed malleability
+\item \textbf{Lightning:} Layer 2, instant payments, millions tx/s, minimal fees
+\end{itemize}
+
+\vspace{4mm}
+\textbf{Next Lesson:} Ethereum and Smart Contracts -- from currency to computation
+\end{frame}
+
+\end{document}

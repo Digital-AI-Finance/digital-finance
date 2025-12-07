@@ -1,0 +1,461 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 19: Ethereum and Smart Contracts}
+\subtitle{Module 2: Blockchain Fundamentals}
+\author{Digital Finance}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Bitcoin's Limitations: Why Ethereum?}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Bitcoin Script:}
+\begin{itemize}
+\item Not Turing-complete (no loops)
+\item Limited expressiveness
+\item Designed for simple transfers
+\item No complex state
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Ethereum Vision (Vitalik Buterin, 2013):}
+\begin{itemize}
+\item Turing-complete programming
+\item Decentralized applications (dApps)
+\item ``World Computer''
+\item Programmable money and agreements
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_19/bitcoin_vs_ethereum.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Smart Contracts: Code as Law}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_19/smart_contract_concept.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Definition:} Self-executing programs stored on blockchain, automatically enforcing agreements
+
+\vspace{2mm}
+\textbf{Properties:}
+\begin{itemize}
+\item Deterministic execution (same input $\rightarrow$ same output)
+\item Immutable once deployed
+\item Transparent (anyone can verify)
+\item Trustless (no intermediaries)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Account Model: Ethereum's Design}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Two Account Types:}
+\begin{enumerate}
+\item \textbf{Externally Owned Accounts (EOAs):}
+\begin{itemize}
+\item Controlled by private key
+\item Can send transactions
+\item No code
+\end{itemize}
+
+\item \textbf{Contract Accounts:}
+\begin{itemize}
+\item Controlled by code
+\item Triggered by transactions
+\item Store state
+\end{itemize}
+\end{enumerate}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_19/account_types.pdf}
+\end{columns}
+
+\vspace{3mm}
+\textbf{State:} Each account has balance, nonce, code (contracts only), storage
+\end{frame}
+
+\begin{frame}{Ethereum Virtual Machine (EVM)}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_19/evm_architecture.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{EVM Properties:}
+\begin{itemize}
+\item Stack-based virtual machine (256-bit words)
+\item Bytecode execution (compiled from Solidity, Vyper, etc.)
+\item Isolated execution environment (sandboxed)
+\item Deterministic (no randomness or external calls without oracles)
+\item Replicated across all nodes
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Gas: Metering Computation}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Why Gas?}
+\begin{itemize}
+\item Prevent infinite loops (halting problem)
+\item Prioritize transactions
+\item Compensate miners/validators
+\item Align incentives
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Gas Mechanics:}
+\begin{itemize}
+\item Each operation costs gas
+\item User sets gas limit + gas price
+\item Unused gas refunded
+\item Out of gas $\rightarrow$ revert (but gas consumed)
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_19/gas_mechanism.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Gas Costs: Operation Examples}
+\begin{center}
+\begin{tabular}{@{}p{5cm}p{2.5cm}p{6cm}@{}}
+\toprule
+\textbf{Operation} & \textbf{Gas Cost} & \textbf{Rationale} \\
+\midrule
+ADD (arithmetic) & 3 & Simple computation \\
+\midrule
+MUL (multiplication) & 5 & Slightly more complex \\
+\midrule
+SSTORE (write storage) & 20,000 & Permanent state change \\
+\midrule
+SLOAD (read storage) & 2,100 & Storage access \\
+\midrule
+CREATE (deploy contract) & 32,000 & Base cost + code size \\
+\midrule
+Transaction (base) & 21,000 & Minimum for any transaction \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{3mm}
+\textbf{Design:} Expensive operations (storage, deployment) cost more to prevent spam
+\end{frame}
+
+\begin{frame}{Transaction Cost Calculation}
+\textbf{Example: Simple ETH Transfer}
+\begin{itemize}
+\item Gas limit: 21,000
+\item Gas price: 50 gwei (1 gwei = $10^{-9}$ ETH)
+\item Total fee: $21,000 \times 50 \times 10^{-9} = 0.00105$ ETH
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Example: Token Transfer (ERC-20)}
+\begin{itemize}
+\item Gas limit: 65,000 (contract interaction)
+\item Gas price: 50 gwei
+\item Total fee: $65,000 \times 50 \times 10^{-9} = 0.00325$ ETH
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Example: Complex DeFi Swap}
+\begin{itemize}
+\item Gas limit: 300,000 (multiple contract calls)
+\item Gas price: 100 gwei (priority)
+\item Total fee: $300,000 \times 100 \times 10^{-9} = 0.03$ ETH ($\sim$\$60 at \$2000/ETH)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Legacy Fee Market: First-Price Auction}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Pre-EIP-1559 (before Aug 2021):}
+\begin{itemize}
+\item Users bid gas price
+\item Miners select highest bids
+\item First-price auction
+\item Overpay or get stuck
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Problems:}
+\begin{itemize}
+\item Fee estimation difficult
+\item High volatility
+\item Miner extractable value (MEV)
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_19/legacy_fee_market.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{EIP-1559: Fee Market Reform (August 2021)}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_19/eip1559_structure.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{New Fee Structure:}
+\[
+\text{Total Fee} = \text{Base Fee (burned)} + \text{Priority Fee (to validator)}
+\]
+
+\vspace{2mm}
+\textbf{Key Features:}
+\begin{itemize}
+\item \textbf{Base Fee:} Algorithmically adjusted, burned (deflationary)
+\item \textbf{Priority Fee:} Tip to validators for faster inclusion
+\item \textbf{Max Fee:} User sets maximum willing to pay
+\end{itemize}
+\end{frame}
+
+\begin{frame}{EIP-1559 Base Fee Dynamics}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Base Fee Adjustment:}
+\begin{itemize}
+\item Target: 15M gas per block
+\item If block $>$ 15M: base fee $\uparrow$ 12.5\%
+\item If block $<$ 15M: base fee $\downarrow$ 12.5\%
+\item Max block size: 30M gas
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Formula:}
+\[
+\Delta_{\text{base}} = \frac{\text{Gas Used} - 15M}{15M} \times \frac{\text{Base Fee}}{8}
+\]
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_19/base_fee_adjustment.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Fee Burning: Deflationary Pressure}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_19/eth_issuance_burn.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Issuance:} $\sim$1,600 ETH/day (PoS rewards)
+
+\textbf{Burn:} Variable, depends on network usage (avg $\sim$1,000--2,000 ETH/day)
+
+\vspace{2mm}
+\textbf{Net Result:} Ethereum can be deflationary when usage is high (burn $>$ issuance)
+\end{frame}
+
+\begin{frame}{Solidity: High-Level Smart Contract Language}
+\textbf{Example: Simple Token Contract}
+\begin{center}
+\includegraphics[width=0.75\textwidth]{charts/lesson_19/solidity_example.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Key Features:}
+\begin{itemize}
+\item Syntax similar to JavaScript/C++
+\item Compiles to EVM bytecode
+\item Supports inheritance, libraries, interfaces
+\item Built-in types: address, uint256, mapping, array
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Smart Contract Lifecycle}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{charts/lesson_19/contract_lifecycle.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Stages:}
+\begin{enumerate}
+\item \textbf{Development:} Write Solidity code
+\item \textbf{Compilation:} Compile to bytecode + ABI
+\item \textbf{Deployment:} Send creation transaction (costs gas)
+\item \textbf{Interaction:} Call functions via transactions
+\item \textbf{Immutability:} Cannot modify code (only state)
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Contract Storage: Persistent State}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Storage Layout:}
+\begin{itemize}
+\item Key-value store (256-bit slots)
+\item Permanent (persists between calls)
+\item Expensive (SSTORE = 20,000 gas)
+\item Optimizations: packing, mappings
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Memory vs Storage:}
+\begin{itemize}
+\item \textbf{Storage:} Permanent, expensive
+\item \textbf{Memory:} Temporary, cheap, cleared after execution
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_19/storage_vs_memory.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Events and Logs}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Purpose:}
+\begin{itemize}
+\item Emit structured data from contracts
+\item Stored in transaction receipts
+\item Indexed for efficient querying
+\item Off-chain applications listen to events
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Use Cases:}
+\begin{itemize}
+\item Token transfers (Transfer event)
+\item Price updates (oracles)
+\item Audit trails
+\item UI updates (wallets, dApps)
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_19/events_architecture.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{External Calls: Composability and Risks}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Contract Interactions:}
+\begin{itemize}
+\item Contracts can call other contracts
+\item Enables composability (``money legos'')
+\item DeFi protocols build on each other
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Risks:}
+\begin{itemize}
+\item Reentrancy attacks
+\item Uncontrolled gas consumption
+\item Malicious contract logic
+\item Dependency vulnerabilities
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_19/external_call_flow.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Reentrancy: The DAO Hack (2016)}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_19/reentrancy_attack.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Vulnerability:}
+\begin{itemize}
+\item Contract sends ETH before updating balance
+\item Recipient (attacker contract) calls back into vulnerable contract
+\item Recursively drains funds before balance updated
+\end{itemize}
+
+\vspace{2mm}
+\textbf{The DAO Result:} 3.6M ETH stolen (\$70M), led to Ethereum hard fork (ETH/ETC split)
+\end{frame}
+
+\begin{frame}{Oracles: Bridging On-Chain and Off-Chain}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Problem:}
+\begin{itemize}
+\item Smart contracts cannot access external data
+\item No internet, APIs, randomness
+\item Determinism requirement
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Oracle Solution:}
+\begin{itemize}
+\item Third-party data feeds
+\item Price feeds (ETH/USD)
+\item Weather data
+\item Sports scores
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{charts/lesson_19/oracle_architecture.pdf}
+\end{columns}
+
+\vspace{3mm}
+\textbf{Chainlink:} Decentralized oracle network, aggregates multiple data sources
+\end{frame}
+
+\begin{frame}{Gas Optimization Strategies}
+\begin{itemize}
+\item \textbf{Storage Packing:} Use uint128 instead of uint256 where possible (fit in one slot)
+\item \textbf{Avoid Storage Writes:} Use memory for temporary data
+\item \textbf{Short-Circuit Logic:} \texttt{require} checks early, minimize wasted gas
+\item \textbf{Batch Operations:} Aggregate multiple actions in one transaction
+\item \textbf{Events over Storage:} Emit events instead of storing historical data
+\item \textbf{Minimal Contract Size:} Lower deployment costs
+\item \textbf{Use Libraries:} Reusable code via DELEGATECALL
+\end{itemize}
+
+\vspace{3mm}
+\textbf{Example:} Storing 100 values individually: $\sim$2M gas. Packed into single array: $\sim$500K gas
+\end{frame}
+
+\begin{frame}{Upgradeable Contracts: Proxy Pattern}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{charts/lesson_19/proxy_pattern.pdf}
+\end{center}
+\vspace{-3mm}
+\textbf{Design:}
+\begin{itemize}
+\item \textbf{Proxy Contract:} Fixed address, DELEGATECALL to implementation
+\item \textbf{Implementation Contract:} Contains logic, upgradeable
+\item \textbf{Storage:} Stored in proxy, preserved across upgrades
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Trade-off:} Flexibility vs decentralization (admin can change logic)
+\end{frame}
+
+\begin{frame}{Summary}
+\begin{itemize}
+\item \textbf{Ethereum:} World computer, Turing-complete smart contracts, account model
+\item \textbf{EVM:} Stack-based VM, executes bytecode, deterministic, replicated
+\item \textbf{Gas:} Meters computation, prevents infinite loops, aligns incentives
+\item \textbf{EIP-1559:} Base fee (burned) + priority fee, deflationary pressure
+\item \textbf{Solidity:} High-level language, compiles to bytecode
+\item \textbf{Risks:} Reentrancy, oracles, immutability challenges
+\end{itemize}
+
+\vspace{4mm}
+\textbf{Next Lesson:} Tokens -- ERC-20, ERC-721 (NFTs), and token economics
+\end{frame}
+
+\end{document}

@@ -1,0 +1,486 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{adjustbox}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255, 127, 14}
+\definecolor{mlgreen}{RGB}{44, 160, 44}
+\definecolor{mlred}{RGB}{214, 39, 40}
+
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Financial Markets and Institutions}
+\subtitle{Module 4: Traditional Digital Finance --- Lesson 37}
+\author{Digital Finance}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Learning Objectives}
+\begin{itemize}
+\item Understand the structure of modern financial markets
+\item Identify key market participants: buy-side, sell-side, intermediaries
+\item Recognize roles of exchanges, clearinghouses, and regulators
+\item Comprehend market infrastructure and trading venues
+\end{itemize}
+\end{frame}
+
+\section{Market Structure}
+
+\begin{frame}{Financial Markets Landscape}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Primary Markets}
+\begin{itemize}
+\item New securities issued
+\item IPOs and bond issuances
+\item Direct capital raising
+\item Underwriters coordinate
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Secondary Markets}
+\begin{itemize}
+\item Existing securities trade
+\item Provides liquidity
+\item Price discovery mechanism
+\item Exchanges and OTC
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Market Categories}: Equities, Fixed Income, Derivatives, FX, Commodities
+\end{frame}
+
+\begin{frame}{Buy-Side vs Sell-Side}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Buy-Side Institutions}
+\begin{itemize}
+\item Asset managers
+\item Pension funds
+\item Insurance companies
+\item Hedge funds
+\item Sovereign wealth funds
+\item \textit{Manage assets for clients}
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Sell-Side Institutions}
+\begin{itemize}
+\item Investment banks
+\item Broker-dealers
+\item Market makers
+\item Prime brokers
+\item Research providers
+\item \textit{Facilitate transactions}
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\section{Market Participants}
+
+\begin{frame}{Institutional Investors}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Asset Managers}
+\begin{itemize}
+\item Mutual funds
+\item ETF providers
+\item Active management
+\item Passive indexing
+\item AUM: BlackRock \$10T+
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Hedge Funds}
+\begin{itemize}
+\item Alternative strategies
+\item Long/short equity
+\item Quantitative trading
+\item Event-driven
+\item Global macro
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Pension Funds}: \$50+ trillion globally (2024), long-term horizon
+\end{frame}
+
+\begin{frame}{Investment Banks and Broker-Dealers}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Investment Banking}
+\begin{itemize}
+\item Underwriting services
+\item M\&A advisory
+\item Capital markets
+\item Syndication
+\item IPO management
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Broker-Dealer Functions}
+\begin{itemize}
+\item Execute client orders
+\item Market making
+\item Liquidity provision
+\item Prime brokerage
+\item Securities lending
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Top Firms}: Goldman Sachs, Morgan Stanley, JP Morgan, Citi
+\end{frame}
+
+\begin{frame}{Market Makers and Liquidity Providers}
+\textbf{Role}: Continuous bid-ask quotes, facilitate trading
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Functions}
+\begin{itemize}
+\item Provide two-sided quotes
+\item Reduce bid-ask spreads
+\item Absorb temporary imbalances
+\item Earn spread revenue
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Examples}
+\begin{itemize}
+\item Citadel Securities
+\item Virtu Financial
+\item Jane Street
+\item Flow Traders
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Technology}: High-frequency trading, co-location, low latency
+\end{frame}
+
+\section{Market Infrastructure}
+
+\begin{frame}{Stock Exchanges}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Major Exchanges}
+\begin{itemize}
+\item NYSE (New York)
+\item NASDAQ (US)
+\item LSE (London)
+\item Euronext (Europe)
+\item Tokyo Stock Exchange
+\item Shanghai Stock Exchange
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Functions}
+\begin{itemize}
+\item Order matching
+\item Price discovery
+\item Listing standards
+\item Market surveillance
+\item Data dissemination
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Trading Hours}: NYSE 9:30-16:00 EST, after-hours 4:00-20:00
+\end{frame}
+
+\begin{frame}{Alternative Trading Systems (ATS)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Dark Pools}
+\begin{itemize}
+\item Private exchanges
+\item No pre-trade transparency
+\item Large block trades
+\item Reduced market impact
+\item 15-20\% US equity volume
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Electronic Communication Networks}
+\begin{itemize}
+\item Automated matching
+\item Direct market access
+\item Lower fees
+\item INET, Arca, BATS
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Fragmentation}: US equities trade across 16+ exchanges, 40+ dark pools
+\end{frame}
+
+\begin{frame}{Central Counterparties (CCPs)}
+\textbf{Role}: Become buyer to every seller, seller to every buyer
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Functions}
+\begin{itemize}
+\item Novation of trades
+\item Multilateral netting
+\item Margin collection
+\item Default management
+\item Risk mutualization
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Major CCPs}
+\begin{itemize}
+\item LCH (London)
+\item CME Clearing
+\item Eurex Clearing
+\item ICE Clear
+\item OCC (options)
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Post-Crisis}: Dodd-Frank/EMIR mandate clearing of standardized derivatives
+\end{frame}
+
+\begin{frame}{Clearing and Settlement}
+\textbf{Trade Lifecycle}: Execution $\rightarrow$ Clearing $\rightarrow$ Settlement
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Clearing (T+0 to T+1)}
+\begin{itemize}
+\item Trade confirmation
+\item Novation to CCP
+\item Margin calculation
+\item Netting process
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Settlement (T+1 to T+2)}
+\begin{itemize}
+\item Securities delivery
+\item Cash payment
+\item CSD involvement
+\item DVP mechanism
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{T+1 Migration}: US moved from T+2 to T+1 in May 2024, EU in 2027
+\end{frame}
+
+\begin{frame}{Central Securities Depositories (CSDs)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Functions}
+\begin{itemize}
+\item Immobilize securities
+\item Electronic book-entry
+\item Settlement finality
+\item Corporate actions
+\item Securities lending
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Major CSDs}
+\begin{itemize}
+\item DTCC (US)
+\item Euroclear (Europe)
+\item Clearstream (Europe)
+\item JASDEC (Japan)
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{DTCC}: Settles \$2.5 quadrillion annually, 100M+ transactions/day
+\end{frame}
+
+\section{Regulation and Oversight}
+
+\begin{frame}{Financial Regulators}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{United States}
+\begin{itemize}
+\item SEC: Securities markets
+\item CFTC: Derivatives
+\item Federal Reserve: Banks
+\item FINRA: Self-regulatory
+\item OCC: National banks
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Europe}
+\begin{itemize}
+\item ESMA: Pan-European
+\item EBA: Banking
+\item FCA: UK markets
+\item BaFin: Germany
+\item AMF: France
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Global Coordination}: IOSCO, FSB, Basel Committee
+\end{frame}
+
+\begin{frame}{Regulatory Framework}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Market Structure Rules}
+\begin{itemize}
+\item MiFID II (Europe)
+\item Reg NMS (US)
+\item Best execution
+\item Transparency requirements
+\item Pre/post-trade reporting
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Prudential Regulation}
+\begin{itemize}
+\item Basel III capital
+\item Dodd-Frank stress tests
+\item EMIR derivatives
+\item SFTR securities financing
+\item Volcker Rule
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Market Abuse}: MAR (Europe), Reg M (US), insider trading prohibitions
+\end{frame}
+
+\begin{frame}{Market Surveillance and Enforcement}
+\textbf{Monitoring}: Real-time surveillance, pattern detection, anomaly alerts
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Surveillance Activities}
+\begin{itemize}
+\item Insider trading detection
+\item Market manipulation
+\item Spoofing and layering
+\item Front-running
+\item Wash trading
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Enforcement Tools}
+\begin{itemize}
+\item Fines and penalties
+\item Trading suspensions
+\item License revocation
+\item Criminal prosecution
+\item Disgorgement
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Technology}: AI/ML for pattern recognition, NLP for communications
+\end{frame}
+
+\section{Market Data and Technology}
+
+\begin{frame}{Market Data Infrastructure}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Data Types}
+\begin{itemize}
+\item Level 1: Best bid/ask
+\item Level 2: Order book depth
+\item Level 3: Full order book
+\item Trade tape
+\item Reference data
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Distribution}
+\begin{itemize}
+\item Direct exchange feeds
+\item Consolidated tape
+\item Vendor platforms
+\item Low-latency feeds
+\item Cloud delivery
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Latency}: Co-location $<$ 1ms, microwave 8ms NY-Chicago, fiber 13ms
+\end{frame}
+
+\begin{frame}{Trading Technology Stack}
+\textbf{Ecosystem}: Order management, execution, risk, compliance, reporting
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Front Office}
+\begin{itemize}
+\item Order management (OMS)
+\item Execution management (EMS)
+\item Algorithmic trading
+\item Risk analytics
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Infrastructure}
+\begin{itemize}
+\item FIX protocol
+\item Market data handlers
+\item Smart order routing
+\item Co-location services
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Vendors}: Bloomberg EMSX, Charles River, Fidessa, FlexTrade
+\end{frame}
+
+\begin{frame}{Summary}
+\begin{itemize}
+\item Financial markets connect capital suppliers and users via intermediaries
+\item Buy-side manages assets; sell-side facilitates transactions
+\item Exchanges provide transparent price discovery; dark pools reduce impact
+\item CCPs mitigate counterparty risk through novation and netting
+\item CSDs enable efficient settlement via immobilization and book-entry
+\item Regulators ensure market integrity, transparency, and investor protection
+\item Technology infrastructure spans data feeds, trading systems, and connectivity
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Further Reading}
+\begin{itemize}
+\item Harris, L. (2003). \textit{Trading and Exchanges: Market Microstructure for Practitioners}. Oxford University Press.
+\item Hasbrouck, J. (2007). \textit{Empirical Market Microstructure}. Oxford University Press.
+\item Madhavan, A. (2000). Market microstructure: A survey. \textit{Journal of Financial Markets}, 3(3), 205-258.
+\item SEC Market Structure Concept Release (2010)
+\item MiFID II/MiFIR Technical Standards (ESMA)
+\end{itemize}
+\end{frame}
+
+\end{document}

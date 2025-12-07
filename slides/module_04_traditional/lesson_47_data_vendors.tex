@@ -1,0 +1,934 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 47: Financial Data Vendors}
+\subtitle{Module 4: Traditional Digital Finance}
+\author{Digital Finance Course}
+\date{2025}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Learning Objectives}
+\begin{itemize}
+\item Understand financial data vendor landscape and business models
+\item Analyze Bloomberg Terminal, LSEG (Refinitiv), and FactSet platforms
+\item Examine market data types: real-time, historical, reference, alternative
+\item Evaluate data licensing models and exchange fees
+\item Assess alternative data sources and emerging providers
+\end{itemize}
+\end{frame}
+
+\section{Data Vendor Landscape}
+
+\begin{frame}{Financial Data Market Overview}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Market Size and Growth:}
+\begin{itemize}
+\item Global financial data market: \$35B+ annual revenue (2024)
+\item Growth rate: 5-7\% CAGR
+\item Drivers: Regulatory reporting, algorithmic trading, alternative data
+\item Consolidation trend (Refinitiv-LSEG, IHS Markit-S\&P)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Top Vendors by Revenue (2024):}
+\begin{enumerate}
+\item \textbf{Bloomberg LP:} \$12B+ (\$24-27k/terminal/year)
+\item \textbf{LSEG (Refinitiv):} \$7B+ (acquired by LSEG 2021 for \$27B)
+\item \textbf{S\&P Global (incl. IHS Markit):} \$4B+ (merged 2022)
+\item \textbf{FactSet:} \$2B+
+\item \textbf{Moody's Analytics:} \$1.5B+
+\item \textbf{Morningstar:} \$1.5B+
+\end{enumerate}
+
+\column{0.48\textwidth}
+\textbf{Data Categories:}
+
+\textbf{1. Market Data:}
+\begin{itemize}
+\item Real-time prices (equities, bonds, derivatives, FX, commodities)
+\item Historical time series
+\item Order book depth (Level 2, Level 3)
+\item Indices and benchmarks
+\end{itemize}
+
+\textbf{2. Reference Data:}
+\begin{itemize}
+\item Security master (ISINs, CUSIPs, identifiers)
+\item Corporate actions (dividends, splits, mergers)
+\item Company fundamentals (financials, ratios)
+\item Legal entity data (LEI, org structure)
+\end{itemize}
+
+\textbf{3. Analytics and Research:}
+\begin{itemize}
+\item Analyst estimates and forecasts
+\item Credit ratings and models
+\item Risk analytics (VaR, stress tests)
+\item News and sentiment
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Vendor Business Models}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Terminal-Based Model (Bloomberg):}
+\begin{itemize}
+\item \textbf{Pricing:} \$24-27k per terminal per year
+\item \textbf{Users:} 350,000+ terminals globally (2024)
+\item \textbf{Revenue:} \$12B+ annually (95\%+ from terminals)
+\item \textbf{Value Prop:} Integrated platform (data + analytics + communication)
+\item \textbf{Lock-In:} Workflow integration, chat network
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Enterprise Data Licensing (Refinitiv, FactSet):}
+\begin{itemize}
+\item \textbf{Pricing:} Per-user or enterprise-wide licenses
+\item \textbf{Customization:} APIs, feeds, data integration
+\item \textbf{Flexibility:} Choose specific datasets
+\item \textbf{Cost:} \$10-50k+ per user depending on entitlements
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Exchange Data Licensing:}
+\begin{itemize}
+\item \textbf{Direct from Exchanges:} NYSE, Nasdaq, CME, Eurex
+\item \textbf{Professional vs Non-Professional:} Different fee tiers
+\item \textbf{Display vs Non-Display:} Machine-only usage often higher fees
+\item \textbf{Redistribution:} Additional fees for reselling data
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Alternative Data (Emerging):}
+\begin{itemize}
+\item \textbf{Pricing:} Subscription (monthly/annual) or per-use
+\item \textbf{Range:} \$10k-500k+ annually depending on dataset
+\item \textbf{Examples:} Satellite imagery, credit card data, web scraping
+\item \textbf{Providers:} Specialty vendors (not traditional giants)
+\end{itemize}
+
+\vspace{2mm}
+\textit{Typical hedge fund data spending: \$1-5M/year; large investment bank: \$50-100M+/year}
+\end{columns}
+\end{frame}
+
+\section{Bloomberg Terminal}
+
+\begin{frame}{Bloomberg Terminal: Core Features}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Market Data and Analytics:}
+\begin{itemize}
+\item \textbf{Real-Time Pricing:} 35M+ securities across all asset classes
+\item \textbf{Charts:} Advanced technical analysis, custom indicators
+\item \textbf{News:} Bloomberg News + 1000+ third-party sources
+\item \textbf{Economic Data:} Global macro indicators, central bank calendars
+\item \textbf{Derivatives Pricing:} DLIB library, implied vol surfaces
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Equity Functions:}
+\begin{itemize}
+\item \textbf{DES:} Security description and fundamentals
+\item \textbf{FA:} Financial analysis (income statement, balance sheet)
+\item \textbf{COMP:} Comparables and peer analysis
+\item \textbf{EQS:} Equity screening
+\item \textbf{GP:} Price charting
+\item \textbf{HDS:} Historical data download
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Fixed Income and Rates:}
+\begin{itemize}
+\item \textbf{YAS:} Yield and spread analysis
+\item \textbf{WCDS:} Credit default swap pricing
+\item \textbf{IRSB:} Interest rate swap builder
+\item \textbf{FIHC:} Corporate bond screening
+\item \textbf{SWPM:} Swap portfolio manager
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Communication:}
+\begin{itemize}
+\item \textbf{IB (Instant Bloomberg):} Secure messaging (350k users)
+\item \textbf{MSG:} Market color and trade ideas
+\item \textbf{SDEV:} Syndicate desk for new issues
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Execution:}
+\begin{itemize}
+\item \textbf{EMSX:} Multi-asset execution management
+\item \textbf{FIT:} Fixed income trading
+\item \textbf{FXGO:} FX spot and derivatives trading
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Bloomberg APIs and Data Services}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Bloomberg API (B-PIPE, SAPI):}
+
+\textbf{B-PIPE (Managed):}
+\begin{itemize}
+\item Real-time streaming market data
+\item Low-latency feed (sub-millisecond)
+\item Managed infrastructure (Bloomberg hosted)
+\item Pricing: \$2-5k/month per connection
+\end{itemize}
+
+\textbf{Server API (SAPI):}
+\begin{itemize}
+\item Client-side integration
+\item Supports C++, Java, Python, .NET, Excel
+\item Reference data, historical data, intraday pricing
+\item Widely used for risk systems and analytics
+\end{itemize}
+
+\textbf{Desktop API (DAPI):}
+\begin{itemize}
+\item Excel integration (Bloomberg Addin)
+\item Real-time data formulas (=BDP, =BDH, =BDS)
+\item Used for ad-hoc analysis and reporting
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Bloomberg Data License:}
+\begin{itemize}
+\item Enterprise data redistribution
+\item Historical time series (EOD pricing, fundamentals)
+\item Reference data (corporate actions, security master)
+\item Pricing: Custom based on scope and usage
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Bloomberg Enterprise Access Point (BEAP):}
+\begin{itemize}
+\item Cloud-hosted API access
+\item No on-premise infrastructure needed
+\item RESTful and WebSocket APIs
+\item Pricing model shifting to consumption-based
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Competitive Advantages:}
+\begin{itemize}
+\item Comprehensive coverage (equities, fixed income, derivatives)
+\item Network effects (IB messaging)
+\item Reliability and data quality
+\item Strong customer support (24/7 help desk)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\section{LSEG (Refinitiv)}
+
+\begin{frame}{LSEG Data and Analytics}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Refinitiv (Acquired by LSEG 2021):}
+
+\textbf{Eikon Platform:}
+\begin{itemize}
+\item Successor to Thomson Reuters Terminal
+\item Multi-asset market data and news
+\item Pricing: \$12-22k per user per year
+\item Users: 400,000+ globally (pre-acquisition)
+\item Integration with Microsoft Office (Excel, Outlook)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Workspace (Cloud-Native):}
+\begin{itemize}
+\item Modern replacement for Eikon (launched 2021)
+\item Cloud-based, browser-accessible
+\item API-first architecture
+\item Collaboration tools (teams, workspaces)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Key Datasets:}
+\begin{itemize}
+\item \textbf{Real-Time:} 650+ exchanges and OTC markets
+\item \textbf{Tick History:} 18+ years of intraday data
+\item \textbf{Fundamentals:} 85,000+ active companies
+\item \textbf{Estimates:} I/B/E/S (analyst consensus)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Refinitiv Data Platform (RDP):}
+
+\textbf{Cloud-Delivered APIs:}
+\begin{itemize}
+\item RESTful and WebSocket APIs
+\item Real-time pricing, historical data, news
+\item ESG data (Environmental, Social, Governance)
+\item Pricing: Consumption-based model
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Elektron Data Feed:}
+\begin{itemize}
+\item Low-latency real-time feed
+\item Competitive with Bloomberg B-PIPE
+\item Used by hedge funds and HFT firms
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Content Strengths:}
+\begin{itemize}
+\item \textbf{FX:} Market leader in foreign exchange data
+\item \textbf{Fixed Income:} Extensive corporate bond coverage
+\item \textbf{News:} Reuters News (120+ years history)
+\item \textbf{ESG:} Comprehensive sustainability metrics
+\item \textbf{Ownership:} Thomson Reuters institutional ownership data
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{LSEG Post-Trade and Risk Solutions}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Post-Trade Services:}
+
+\textbf{LCH (London Clearing House):}
+\begin{itemize}
+\item SwapClear: \$500T+ IRS notional
+\item RepoClear: Repo and securities lending
+\item CDSClear: Credit default swaps
+\item EquityClear, FX Clear
+\end{itemize}
+
+\textbf{UnaVista:}
+\begin{itemize}
+\item Trade reporting (EMIR, MiFID II, SFTR)
+\item Regulatory data management
+\item Transaction reporting hub
+\end{itemize}
+
+\vspace{2mm}
+\textbf{FXall and Tradeweb (Affiliates):}
+\begin{itemize}
+\item Multi-dealer FX trading platform
+\item Fixed income electronic trading
+\item Integration with LSEG data feeds
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Risk and Analytics:}
+
+\textbf{Refinitiv Risk Platform:}
+\begin{itemize}
+\item Enterprise risk management
+\item Counterparty credit risk (CVA, PFE)
+\item Market risk (VaR, stress testing)
+\item Regulatory capital (Basel III, FRTB)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{StarMine Quantitative Analytics:}
+\begin{itemize}
+\item Equity valuation models
+\item Earnings quality and momentum scores
+\item Analyst revisions and sentiment
+\item Used by quant funds for alpha research
+\end{itemize}
+
+\vspace{2mm}
+\textbf{LSEG Synergies (Post-Acquisition):}
+\begin{itemize}
+\item Integration of exchange data (LSE, Borsa Italiana)
+\item Combined index business (FTSE Russell + Refinitiv)
+\item Cross-selling post-trade and data services
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\section{FactSet and Other Vendors}
+
+\begin{frame}{FactSet: Integrated Analytics Platform}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{FactSet Overview:}
+\begin{itemize}
+\item Founded: 1978 (public since 1996)
+\item Users: 200,000+ globally (2024)
+\item Revenue: \$2B+ annually
+\item Pricing: \$12-18k per user per year
+\item Target: Buy-side (asset managers, wealth managers)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Core Capabilities:}
+
+\textbf{1. Portfolio Analytics:}
+\begin{itemize}
+\item Multi-asset performance attribution
+\item Risk analytics (VaR, tracking error, factor exposures)
+\item Portfolio construction and optimization
+\item Backtesting and scenario analysis
+\end{itemize}
+
+\textbf{2. Equity Analysis:}
+\begin{itemize}
+\item Company fundamentals (20+ years history)
+\item Ownership data (institutional, insider)
+\item Screening and comps (peer analysis)
+\item Event transcripts (earnings calls)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{3. Fixed Income:}
+\begin{itemize}
+\item Corporate bond data (pricing, spreads)
+\item Municipal bonds (US focus)
+\item Structured products (ABS, MBS, CLOs)
+\item Yield curve analysis
+\end{itemize}
+
+\textbf{4. Research Aggregation:}
+\begin{itemize}
+\item Broker research repository
+\item Earnings estimates consensus
+\item Research management system (RMS)
+\item MiFID II unbundling support
+\end{itemize}
+
+\vspace{2mm}
+\textbf{FactSet APIs:}
+\begin{itemize}
+\item RESTful APIs (JSON format)
+\item Python SDK (factset-sdk-python)
+\item Excel integration (FactSet Addin)
+\item Direct data feeds (real-time and EOD)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Competitive Positioning:}
+\begin{itemize}
+\item Stronger in buy-side workflows vs Bloomberg (sell-side)
+\item Better portfolio analytics than Bloomberg
+\item More affordable than Bloomberg for pure data users
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Specialized Data Vendors}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Credit and Fixed Income:}
+
+\textbf{S\&P Global Market Intelligence:}
+\begin{itemize}
+\item Credit ratings (S\&P Ratings)
+\item Capital IQ platform (private company data)
+\item Compustat (standardized financials)
+\item Merged with IHS Markit (2022): Added derivatives pricing (MarkitServ)
+\end{itemize}
+
+\textbf{Moody's Analytics:}
+\begin{itemize}
+\item Credit ratings and research
+\item RiskCalc (PD models for private firms)
+\item CreditLens (IFRS 9 ECL)
+\item Economic scenarios and forecasting
+\end{itemize}
+
+\textbf{TRACE (FINRA):}
+\begin{itemize}
+\item US corporate bond trade reporting
+\item Post-trade transparency (15-minute delay)
+\item Free access via FINRA website
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Equity and Indices:}
+
+\textbf{Morningstar:}
+\begin{itemize}
+\item Mutual fund and ETF data (leader)
+\item Morningstar Direct (institutional platform)
+\item Equity research and analyst ratings
+\item ESG and sustainability ratings
+\end{itemize}
+
+\textbf{MSCI:}
+\begin{itemize}
+\item Global equity indices (MSCI World, EM)
+\item Factor indices (value, momentum, quality)
+\item ESG ratings and climate metrics
+\item Barra risk models (factor-based)
+\end{itemize}
+
+\textbf{FTSE Russell (LSEG):}
+\begin{itemize}
+\item FTSE 100, Russell 2000 indices
+\item Fixed income indices
+\item Smart beta and factor indices
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Alternative Data Providers}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Alternative Data Categories:}
+
+\textbf{1. Satellite and Geolocation:}
+\begin{itemize}
+\item \textbf{Orbital Insight:} Satellite imagery (parking lots, oil tanks)
+\item \textbf{RS Metrics:} Construction activity, crop yields
+\item \textbf{Advan (SafeGraph):} Foot traffic to retail stores
+\item Use case: Predict retail sales, oil inventory
+\end{itemize}
+
+\textbf{2. Credit Card and Transaction Data:}
+\begin{itemize}
+\item \textbf{Earnest Analytics:} Consumer spending by category
+\item \textbf{Second Measure (Bloomberg):} Transaction panels
+\item \textbf{Facteus:} Anonymized credit/debit card data
+\item Use case: Estimate company revenues in real-time
+\end{itemize}
+
+\textbf{3. Web Scraping and App Data:}
+\begin{itemize}
+\item \textbf{Thinknum Alternative Data:} Company job postings, pricing changes
+\item \textbf{App Annie (data.ai):} Mobile app downloads and usage
+\item \textbf{SimilarWeb:} Website traffic and engagement
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{4. Sentiment and NLP:}
+\begin{itemize}
+\item \textbf{RavenPack:} News sentiment analytics
+\item \textbf{Dataminr:} Real-time event detection
+\item \textbf{Brain Company:} AI-generated market insights
+\item Use case: Predict earnings surprises, market reactions
+\end{itemize}
+
+\textbf{5. ESG and Climate:}
+\begin{itemize}
+\item \textbf{Truvalue Labs (FactSet):} ESG sentiment from news
+\item \textbf{Sustainalytics (Morningstar):} ESG risk ratings
+\item \textbf{CDP (Carbon Disclosure Project):} Climate data
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Alternative Data Market:}
+\begin{itemize}
+\item Market size: \$2B+ (2024), growing 30\%+ annually
+\item Hedge fund adoption: 80\%+ use alt data (2024)
+\item Challenges: Data quality, survivorship bias, regulatory (PII)
+\item Pricing: \$25k-500k+ per dataset annually
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\section{Data Licensing and Exchange Fees}
+
+\begin{frame}{Exchange Data Licensing Models}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Professional vs Non-Professional:}
+
+\textbf{Non-Professional:}
+\begin{itemize}
+\item Individual investors (not paid for trading)
+\item Lower fees: \$1-5/month per exchange
+\item Examples: Retail brokerage users, students
+\end{itemize}
+
+\textbf{Professional:}
+\begin{itemize}
+\item Anyone compensated for securities-related work
+\item Higher fees: \$50-200/month per exchange
+\item Institutional traders, analysts, advisors
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Display vs Non-Display:}
+
+\textbf{Display:}
+\begin{itemize}
+\item Human consumption (screens, reports)
+\item Priced per user per month
+\end{itemize}
+
+\textbf{Non-Display:}
+\begin{itemize}
+\item Algorithmic trading, risk systems
+\item Enterprise-level pricing (often higher than display)
+\item Audit rights for exchanges (verify usage)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Depth of Book Fees:}
+
+\textbf{Level 1 (Top of Book):}
+\begin{itemize}
+\item Best bid/ask only
+\item Lowest fees: \$5-20/month (professional)
+\end{itemize}
+
+\textbf{Level 2 (Full Book):}
+\begin{itemize}
+\item All price levels and depth
+\item Higher fees: \$50-150/month
+\end{itemize}
+
+\textbf{Level 3 (Order-by-Order):}
+\begin{itemize}
+\item Individual order IDs and attribution
+\item Premium fees: \$500-2000/month
+\item Used for market making and order flow analysis
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Enterprise Fees (Non-Display):}
+\begin{itemize}
+\item Flat fees: \$50k-500k+/year per exchange
+\item Query-based: \$0.01-1.00 per query
+\item Device-based: Fee per server/instance
+\item Redistribution: Additional fees for reselling data
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Vendor Data Redistribution Agreements}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Vendor Licensing Arrangements:}
+
+\textbf{Bloomberg, Refinitiv, FactSet:}
+\begin{itemize}
+\item Bundle exchange fees into subscription
+\item Negotiate enterprise agreements with exchanges
+\item Pass-through fees or inclusive pricing
+\item Simplifies client billing (single invoice)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Controlled vs Derived Data:}
+
+\textbf{Controlled (Raw):}
+\begin{itemize}
+\item Real-time prices, order book data
+\item Subject to exchange fees and terms
+\item Cannot redistribute without exchange permission
+\end{itemize}
+
+\textbf{Derived (Analytics):}
+\begin{itemize}
+\item Calculations based on raw data (indices, signals)
+\item More flexible licensing (vendor IP)
+\item Still may require exchange approval for some uses
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Data Licensing Challenges:}
+
+\textbf{Compliance and Audits:}
+\begin{itemize}
+\item Exchanges audit vendor and end-user compliance
+\item User counts, usage types (display/non-display)
+\item Penalties for under-reporting: 3-5x back fees
+\item Automated monitoring tools (e.g., Vela, MDDM)
+\end{itemize}
+
+\textbf{Cost Optimization:}
+\begin{itemize}
+\item Audit internal user entitlements
+\item Deactivate unused subscriptions (15-30\% savings typical)
+\item Negotiate enterprise caps with vendors
+\item Shift to derived data where permissible
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Regulatory Data (Free/Cheap):}
+\begin{itemize}
+\item \textbf{SEC EDGAR:} US public company filings
+\item \textbf{FINRA TRACE:} Corporate bond trades
+\item \textbf{Treasury.gov:} US government bonds
+\item \textbf{ESMA FIRDS:} EU financial instruments reference
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\section{Data Quality and Governance}
+
+\begin{frame}{Data Quality Challenges}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Common Data Issues:}
+
+\textbf{1. Stale or Missing Data:}
+\begin{itemize}
+\item Delayed pricing for illiquid securities
+\item Corporate actions not reflected timely
+\item Estimates not updated (analyst departures)
+\end{itemize}
+
+\textbf{2. Incorrect Reference Data:}
+\begin{itemize}
+\item Wrong ISINs or identifiers
+\item Inaccurate corporate hierarchies
+\item Currency mismatches
+\end{itemize}
+
+\textbf{3. Survivorship Bias:}
+\begin{itemize}
+\item Delisted companies removed from history
+\item Overstates backtest performance
+\item Critical for quant research
+\end{itemize}
+
+\textbf{4. Point-in-Time Issues:}
+\begin{itemize}
+\item Historical data reflects current state (not as-of)
+\item Restatements not handled properly
+\item Look-ahead bias in backtests
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Data Governance Framework:}
+
+\textbf{1. Data Validation:}
+\begin{itemize}
+\item Automated reasonableness checks (outliers)
+\item Cross-vendor comparison (Bloomberg vs Refinitiv)
+\item Manual review for critical datasets
+\item Threshold alerts (price moves > 10\%)
+\end{itemize}
+
+\textbf{2. Data Lineage:}
+\begin{itemize}
+\item Track data source and transformations
+\item Version control for datasets
+\item Audit trail for regulatory compliance
+\end{itemize}
+
+\textbf{3. Master Data Management:}
+\begin{itemize}
+\item Golden source designation (e.g., Bloomberg for pricing)
+\item Reconciliation rules between sources
+\item Conflict resolution hierarchy
+\end{itemize}
+
+\textbf{4. Vendor SLAs:}
+\begin{itemize}
+\item Accuracy guarantees (99.9\%+)
+\item Timeliness (15-second delay for real-time)
+\item Issue resolution timelines
+\item Credits for breaches
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Data Management Technology}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Enterprise Data Platforms:}
+
+\textbf{Snowflake Financial Services Data Cloud:}
+\begin{itemize}
+\item Centralized data lake for financial data
+\item Pre-integrated market data (Bloomberg, Refinitiv)
+\item Data sharing and collaboration
+\item Used by hedge funds and asset managers
+\end{itemize}
+
+\textbf{Databricks:}
+\begin{itemize}
+\item Unified analytics on lakehouse architecture
+\item Delta Lake for time-series data
+\item Machine learning and AI integration
+\end{itemize}
+
+\textbf{Cloudera / Hadoop:}
+\begin{itemize}
+\item Big data storage and processing
+\item Legacy choice (declining vs cloud)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Data Management Tools:}
+
+\textbf{Atoti (ActiveViam):}
+\begin{itemize}
+\item In-memory OLAP for financial data
+\item Real-time risk aggregation
+\item Used by investment banks for trading risk
+\end{itemize}
+
+\textbf{Kdb+/Q (KX Systems):}
+\begin{itemize}
+\item Time-series database (columnar)
+\item Extremely fast for tick data (microsecond queries)
+\item Used by HFT firms and quant funds
+\item Pricing: \$100k+ per server annually
+\end{itemize}
+
+\textbf{InfluxDB, TimescaleDB:}
+\begin{itemize}
+\item Open-source time-series databases
+\item Lower cost alternatives to Kdb+
+\item Suitable for smaller-scale deployments
+\end{itemize}
+
+\vspace{2mm}
+\textit{Trend: Shift from on-premise to cloud data platforms (Snowflake, Databricks) for flexibility and cost}
+\end{columns}
+\end{frame}
+
+\section{Emerging Trends}
+
+\begin{frame}{Cloud and API-First Architectures}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Cloud Data Delivery:}
+
+\textbf{Vendor Cloud Platforms:}
+\begin{itemize}
+\item Bloomberg Enterprise Access Point (BEAP)
+\item Refinitiv Data Platform (RDP)
+\item FactSet Cloud (AWS-hosted)
+\end{itemize}
+
+\textbf{Benefits:}
+\begin{itemize}
+\item No on-premise infrastructure
+\item Elastic scaling (pay per use)
+\item Faster time-to-market
+\item Global availability and redundancy
+\end{itemize}
+
+\textbf{Consumption-Based Pricing:}
+\begin{itemize}
+\item Pay per API call or data volume
+\item Shift from per-user to usage-based
+\item Better aligns cost with value
+\item Challenges: Unpredictable costs, audit complexity
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{API Standardization:}
+
+\textbf{OpenFIGI (Bloomberg):}
+\begin{itemize}
+\item Financial Instrument Global Identifier
+\item Free API for security identification
+\item Maps ISINs, CUSIPs, tickers to FIGI
+\end{itemize}
+
+\textbf{FINOS (Fintech Open Source):}
+\begin{itemize}
+\item Open-source financial data standards
+\item Common Data Model (CDM) collaboration
+\item Interoperability across vendors
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Real-Time Streaming:}
+\begin{itemize}
+\item WebSocket APIs for live data
+\item Kafka-based message buses
+\item Sub-second latency for cloud delivery
+\item Use case: Real-time dashboards, algos
+\end{itemize}
+
+\vspace{2mm}
+\textit{Major shift: Terminal-based $\rightarrow$ API-first data consumption (especially for quant firms)}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Summary and Key Takeaways}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Vendor Landscape:}
+\begin{itemize}
+\item Global market: \$35B+ revenue (5-7\% CAGR)
+\item Top 3: Bloomberg (\$12B), LSEG (\$7B), S\&P (\$4B)
+\item Consolidation: LSEG-Refinitiv, S\&P-IHS Markit
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Bloomberg:}
+\begin{itemize}
+\item 350k terminals at \$24-27k/year
+\item Network effects (IB messaging, workflow)
+\item APIs: B-PIPE (real-time), SAPI (integration), BEAP (cloud)
+\item Strengths: Comprehensive, reliable, customer support
+\end{itemize}
+
+\vspace{2mm}
+\textbf{LSEG (Refinitiv):}
+\begin{itemize}
+\item Eikon/Workspace: \$12-22k/user
+\item Leaders in FX, fixed income, news (Reuters)
+\item Post-trade: LCH clearing, UnaVista reporting
+\item Refinitiv Data Platform (RDP): Cloud APIs
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{FactSet:}
+\begin{itemize}
+\item Buy-side focused: \$12-18k/user
+\item Strengths: Portfolio analytics, research aggregation
+\item Better than Bloomberg for pure portfolio workflows
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Alternative Data:}
+\begin{itemize}
+\item \$2B+ market (30\%+ CAGR)
+\item Categories: Satellite, credit card, web, sentiment, ESG
+\item 80\%+ hedge fund adoption
+\item Pricing: \$25k-500k+ per dataset
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Exchange Fees and Licensing:}
+\begin{itemize}
+\item Professional: \$50-200/month per exchange
+\item Non-display: \$50k-500k+/year (enterprise)
+\item Audits: 3-5x penalties for under-reporting
+\item Cost optimization: 15-30\% savings via entitlement audits
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Emerging Trends:}
+\begin{itemize}
+\item Cloud and API-first (BEAP, RDP, FactSet Cloud)
+\item Consumption-based pricing vs per-user
+\item Time-series databases (Kdb+, Snowflake, Databricks)
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\end{document}

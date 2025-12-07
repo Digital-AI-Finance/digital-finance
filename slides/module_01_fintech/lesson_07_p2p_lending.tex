@@ -1,0 +1,265 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 7: Peer-to-Peer Lending}
+\subtitle{Module 1: FinTech Fundamentals}
+\author{Digital Finance}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{P2P Lending Model}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Disintermediation}
+\begin{itemize}
+\item Direct lender-borrower match
+\item Platform intermediation
+\item Lower cost structure
+\item Higher returns potential
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/p2p_vs_bank.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{P2P Lending Flow}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/p2p_lending_flow.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Market Evolution}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Growth Trajectory}
+\begin{itemize}
+\item 2005: Zopa launch (UK)
+\item 2007: LendingClub (US)
+\item 2023: \$580B global volume
+\item China: 80\% market share
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/p2p_market_growth.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{LendingClub Case Study}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{US Market Leader}
+\begin{itemize}
+\item Founded: 2007
+\item \$80B loans originated
+\item 2020: Bank acquisition
+\item Became regulated bank
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/lendingclub_evolution.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Platform Business Model}
+\begin{center}
+\includegraphics[width=0.82\textwidth]{figures/p2p_platform_economics.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Revenue Structure}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Fee Types}
+\begin{itemize}
+\item Origination: 1-6\% borrower
+\item Servicing: 1\% annual
+\item Late fees: \$15-35
+\item Institutional placement fees
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/p2p_revenue_breakdown.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Alternative Credit Scoring}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Data Sources}
+\begin{itemize}
+\item Traditional FICO score
+\item Bank transaction data
+\item Social media footprint
+\item Education/employment
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/alternative_scoring_inputs.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Machine Learning Credit Models}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/ml_credit_model.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Risk Grading System}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{LendingClub Grades (A-G)}
+\begin{itemize}
+\item Grade A: 7-9\% APR
+\item Grade D: 18-22\% APR
+\item Grade G: 28-31\% APR
+\item Default rate correlation
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/risk_grade_performance.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Investor Returns Analysis}
+\begin{center}
+\includegraphics[width=0.82\textwidth]{figures/p2p_investor_returns.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Default Rates by Grade}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Historical Performance}
+\begin{itemize}
+\item Grade A: 2-3\% default
+\item Grade C: 8-12\% default
+\item Grade F: 25-30\% default
+\item Economic cycle sensitivity
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/default_rate_by_grade.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Institutional Dominance}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{From P2P to Marketplace}
+\begin{itemize}
+\item 2010: 100\% retail investors
+\item 2023: 90\% institutional
+\item Hedge funds, banks enter
+\item ``Peer-to-peer'' misnomer
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/institutional_share.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Regulatory Challenges}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/p2p_regulatory_landscape.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{China P2P Collapse}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Boom and Bust}
+\begin{itemize}
+\item 2015: 3,500 platforms
+\item 2023: Zero platforms
+\item \$128B investor losses
+\item Mass fraud, Ponzi schemes
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/china_p2p_collapse.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Business Model Evolution}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Platform Strategies}
+\begin{itemize}
+\item Balance sheet lending
+\item Bank partnerships
+\item Acquisition by banks
+\item Regulatory arbitrage ends
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/p2p_model_evolution.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{SME Lending Platforms}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Business Lending}
+\begin{itemize}
+\item Funding Circle (UK)
+\item Invoice financing
+\item Faster approval (24-48h)
+\item 8-15\% interest rates
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/sme_p2p_landscape.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Future Outlook}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Market Consolidation}
+\begin{itemize}
+\item Regulatory convergence
+\item Bank integration
+\item Embedded lending
+\item Open banking data leverage
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/p2p_future_scenarios.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Key Takeaways}
+\begin{itemize}
+\item \textbf{Model}: Direct matching reduces intermediation costs
+\item \textbf{Evolution}: P2P became institutional marketplace lending
+\item \textbf{Scoring}: Alternative data improves credit decisions
+\item \textbf{Returns}: 5-9\% investor returns with default risk
+\item \textbf{Regulation}: Increased oversight, bank convergence
+\end{itemize}
+\end{frame}
+
+\end{document}

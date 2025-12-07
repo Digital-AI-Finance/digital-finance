@@ -1,0 +1,588 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{adjustbox}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255, 127, 14}
+\definecolor{mlgreen}{RGB}{44, 160, 44}
+\definecolor{mlred}{RGB}{214, 39, 40}
+
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Core Banking Systems}
+\subtitle{Module 4: Traditional Digital Finance --- Lesson 38}
+\author{Digital Finance}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Learning Objectives}
+\begin{itemize}
+\item Define core banking systems and their critical functions
+\item Contrast legacy mainframe architectures with modern cloud-native designs
+\item Identify major core banking vendors and their market positions
+\item Understand modernization strategies and migration challenges
+\end{itemize}
+\end{frame}
+
+\section{Core Banking Fundamentals}
+
+\begin{frame}{What is Core Banking?}
+\textbf{Definition}: Centralized system managing accounts, transactions, and customer data
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Core Functions}
+\begin{itemize}
+\item Account management
+\item Transaction processing
+\item Interest calculation
+\item General ledger
+\item Customer information
+\item Product management
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Key Characteristics}
+\begin{itemize}
+\item Real-time processing
+\item Multi-currency support
+\item Regulatory compliance
+\item Audit trail
+\item High availability (99.99\%+)
+\item Security and access control
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Core Banking Ecosystem}
+\textbf{Integration Points}: Channels, payments, lending, risk, regulatory reporting
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Upstream Systems}
+\begin{itemize}
+\item Online banking
+\item Mobile apps
+\item ATM networks
+\item Branch systems
+\item Contact centers
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Downstream Systems}
+\begin{itemize}
+\item Payment rails (SWIFT, ACH)
+\item Card processing
+\item Loan origination
+\item Risk management
+\item Regulatory reporting
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Middleware}: Enterprise service bus (ESB), APIs, message queues
+\end{frame}
+
+\section{Legacy vs Modern Architectures}
+
+\begin{frame}{Legacy Mainframe Systems}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Characteristics}
+\begin{itemize}
+\item COBOL/PL/I languages
+\item Batch processing overnight
+\item Monolithic architecture
+\item Green-screen interfaces
+\item Decades-old codebase
+\item High operational cost
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Challenges}
+\begin{itemize}
+\item Talent shortage (COBOL)
+\item Inflexible product launch
+\item Integration complexity
+\item Vendor lock-in
+\item Maintenance burden
+\item Regulatory adaptation
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Reality}: 70\% of global banks still run mainframes (2024), processing 80\%+ transactions
+\end{frame}
+
+\begin{frame}{Why Legacy Systems Persist}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Strengths}
+\begin{itemize}
+\item Proven reliability
+\item Transaction throughput
+\item Data consistency
+\item Security track record
+\item Regulatory compliance
+\item Sunk cost investment
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Migration Risks}
+\begin{itemize}
+\item Business disruption
+\item Data integrity issues
+\item Customer impact
+\item Regulatory approval
+\item Cost overruns (2-3x budget)
+\item Timeline delays (5-7 years)
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Case Study}: TSB migration disaster (2018), 1.9M customers affected, \pounds 330M cost
+\end{frame}
+
+\begin{frame}{Modern Core Banking Architecture}
+\textbf{Principles}: Modularity, API-first, cloud-native, microservices
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Design Patterns}
+\begin{itemize}
+\item Microservices
+\item Event-driven architecture
+\item RESTful APIs
+\item Containerization (Docker/K8s)
+\item DevOps/CI-CD
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Benefits}
+\begin{itemize}
+\item Rapid product launch
+\item Scalability on demand
+\item Lower TCO (30-40\%)
+\item Modern tech stack
+\item Agile development
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Technology}: Java/Python, PostgreSQL/MongoDB, Kafka, Kubernetes, AWS/Azure
+\end{frame}
+
+\begin{frame}{Cloud-Native Core Banking}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Cloud Deployment Models}
+\begin{itemize}
+\item Public cloud (AWS, Azure, GCP)
+\item Private cloud
+\item Hybrid cloud
+\item Multi-cloud strategy
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Cloud Advantages}
+\begin{itemize}
+\item Elastic scalability
+\item Pay-per-use pricing
+\item Global availability
+\item Disaster recovery
+\item Continuous updates
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Regulatory Considerations}: EBA outsourcing guidelines, data residency, exit strategy
+\end{frame}
+
+\section{Core Banking Vendors}
+
+\begin{frame}{Major Core Banking Vendors}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Legacy Leaders}
+\begin{itemize}
+\item FIS (Systematics, Profile)
+\item Fiserv (DNA, Premier)
+\item Oracle (Flexcube)
+\item Temenos (T24 Transact)
+\item Infosys (Finacle)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Modern Challengers}
+\begin{itemize}
+\item Mambu (SaaS)
+\item Thought Machine (Vault)
+\item nCino (Salesforce-based)
+\item 10x Banking
+\item Avaloq (wealth focus)
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Market Size}: \$15B+ annually (2024), growing 8\% CAGR
+\end{frame}
+
+\begin{frame}{Temenos T24 / Transact}
+\textbf{Market Leader}: 3,000+ banks, 1.2B+ accounts, 150+ countries
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Features}
+\begin{itemize}
+\item Component-based architecture
+\item Multi-entity support
+\item Pre-built products
+\item Omnichannel integration
+\item Cloud-native (2020+)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Deployment Options}
+\begin{itemize}
+\item On-premise
+\item Private cloud
+\item Temenos Cloud (AWS)
+\item SaaS model
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Technology}: Java, TAFC language, SQL/NoSQL, Kafka, Kubernetes
+\end{frame}
+
+\begin{frame}{FIS and Fiserv}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{FIS Portfolio}
+\begin{itemize}
+\item Profile: Large banks
+\item Systematics: Community banks
+\item IBS: Corporate banking
+\item Revenue: \$15B (2023)
+\item 500+ bank clients
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Fiserv Portfolio}
+\begin{itemize}
+\item DNA: Digital-native
+\item Premier: Regional banks
+\item Signature: Community banks
+\item Revenue: \$18B (2023)
+\item 12,000+ clients
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Consolidation}: FIS acquired Worldpay (2019, \$43B), Fiserv acquired First Data (2019, \$22B)
+\end{frame}
+
+\begin{frame}{Mambu: Cloud-Native SaaS}
+\textbf{Model}: Pure SaaS, no on-premise deployment, API-first
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Differentiators}
+\begin{itemize}
+\item Composable architecture
+\item Rapid deployment (weeks)
+\item Modern tech stack
+\item No legacy constraints
+\item Usage-based pricing
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Clients}
+\begin{itemize}
+\item Neobanks (N26, OakNorth)
+\item Fintechs
+\item Digital banks
+\item 200+ clients globally
+\item \$3B valuation (2021)
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Target}: Greenfield banks, fintechs, embedded finance
+\end{frame}
+
+\begin{frame}{Thought Machine Vault}
+\textbf{Positioning}: Next-generation core, cloud-native from inception
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Architecture}
+\begin{itemize}
+\item Microservices
+\item Smart contracts for products
+\item Event sourcing
+\item Kubernetes-native
+\item Multi-cloud support
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Clients}
+\begin{itemize}
+\item Lloyds Banking Group
+\item Standard Chartered (Mox)
+\item JPMorgan Chase
+\item Curve
+\item SEB
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Funding}: \$1B+ raised, \$2.7B valuation (2022), backed by Nyca, Eurazeo
+\end{frame}
+
+\section{Modernization Strategies}
+
+\begin{frame}{Core Banking Modernization Approaches}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Big Bang Replacement}
+\begin{itemize}
+\item Complete system swap
+\item Single cutover weekend
+\item High risk, high reward
+\item 12-36 months timeline
+\item Example: Metro Bank (2010)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Gradual Migration}
+\begin{itemize}
+\item Product-by-product
+\item Run legacy in parallel
+\item Lower risk
+\item 5-7 years timeline
+\item Example: DBS Bank
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Hybrid}: New products on modern core, migrate legacy gradually
+\end{frame}
+
+\begin{frame}{Strangler Fig Pattern}
+\textbf{Strategy}: Incrementally replace legacy by routing new functionality to modern system
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Steps}
+\begin{enumerate}
+\item API facade over legacy
+\item Route new features to modern
+\item Migrate data incrementally
+\item Decommission legacy modules
+\item Repeat until complete
+\end{enumerate}
+
+\column{0.48\textwidth}
+\textbf{Advantages}
+\begin{itemize}
+\item Continuous business operation
+\item Lower risk profile
+\item Incremental investment
+\item Learning by doing
+\item Easier rollback
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Duration}: 3-5 years typical, allows parallel operation
+\end{frame}
+
+\begin{frame}{Data Migration Challenges}
+\textbf{Complexity}: 30-40 years of customer data, multiple systems, format inconsistencies
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Data Issues}
+\begin{itemize}
+\item Schema mismatches
+\item Data quality problems
+\item Historical transactions
+\item Regulatory retention
+\item Customer consent
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Migration Techniques}
+\begin{itemize}
+\item ETL pipelines
+\item Data validation
+\item Reconciliation
+\item Parallel run testing
+\item Rollback procedures
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Best Practice}: Migrate 80\% data, keep 20\% in archive for queries
+\end{frame}
+
+\begin{frame}{Regulatory and Compliance Considerations}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Regulatory Approval}
+\begin{itemize}
+\item Change management process
+\item Regulator notification
+\item Risk assessment
+\item Business continuity
+\item Data protection impact
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Compliance Requirements}
+\begin{itemize}
+\item Audit trail preservation
+\item Data residency
+\item Operational resilience
+\item Outsourcing guidelines
+\item Recovery time objectives
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{EBA Guidelines}: Outsourcing to cloud (2019), ICT risk (2020), operational resilience (2021)
+\end{frame}
+
+\section{Future Trends}
+
+\begin{frame}{Embedded Banking and BaaS}
+\textbf{Banking as a Service}: Core banking capabilities exposed via APIs
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{BaaS Providers}
+\begin{itemize}
+\item Solaris (Germany)
+\item Railsr (UK)
+\item Synapse (US)
+\item Cross River Bank
+\item Green Dot
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Use Cases}
+\begin{itemize}
+\item Embedded finance
+\item White-label banking
+\item Fintech enablement
+\item Corporate banking
+\item Marketplace lending
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Market}: \$25B+ by 2026, driven by open banking and embedded finance
+\end{frame}
+
+\begin{frame}{Composable Banking}
+\textbf{Vision}: Assemble banking from best-of-breed microservices
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Components}
+\begin{itemize}
+\item Core ledger (Vault)
+\item KYC/AML (Onfido)
+\item Payments (Stripe)
+\item Cards (Marqeta)
+\item Lending (Plaid)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Benefits}
+\begin{itemize}
+\item Flexibility
+\item Faster innovation
+\item Avoid vendor lock-in
+\item Cost optimization
+\item Scalability
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Challenge}: Integration complexity, data consistency, vendor management
+\end{frame}
+
+\begin{frame}{AI and Automation in Core Banking}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{AI Use Cases}
+\begin{itemize}
+\item Fraud detection
+\item Credit decisioning
+\item Customer service (chatbots)
+\item AML transaction monitoring
+\item Personalized offers
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Automation}
+\begin{itemize}
+\item Robotic process automation
+\item Reconciliation
+\item Regulatory reporting
+\item Account opening
+\item Loan processing
+\end{itemize}
+\end{columns}
+
+\vspace{1em}
+\textbf{Impact}: 30\% cost reduction potential, 50\% faster processes
+\end{frame}
+
+\begin{frame}{Summary}
+\begin{itemize}
+\item Core banking systems are the backbone of bank operations
+\item Legacy mainframes persist due to reliability but hinder innovation
+\item Modern cloud-native systems offer agility and lower TCO
+\item Major vendors: Temenos, FIS, Fiserv (legacy); Mambu, Thought Machine (modern)
+\item Modernization strategies range from big bang to gradual migration
+\item Data migration and regulatory compliance are critical challenges
+\item Future trends: BaaS, composable banking, AI-driven automation
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Further Reading}
+\begin{itemize}
+\item Accenture (2021). \textit{Banking Technology Vision}. Accenture.
+\item Gartner (2023). \textit{Magic Quadrant for Global Retail Core Banking}. Gartner.
+\item McKinsey (2020). \textit{Rewriting the Core: Modernizing the Heart of the Bank}. McKinsey.
+\item EBA Guidelines on Outsourcing to Cloud Service Providers (2019)
+\item Thought Machine White Paper: \textit{The Case for Cloud-Native Core Banking} (2021)
+\end{itemize}
+\end{frame}
+
+\end{document}

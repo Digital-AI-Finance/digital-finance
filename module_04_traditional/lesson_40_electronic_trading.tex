@@ -1,0 +1,638 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 40: Electronic Trading and Orders}
+\subtitle{Module 4: Traditional Digital Finance}
+\author{Digital Finance Course}
+\date{2025}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Learning Objectives}
+\begin{itemize}
+\item Understand electronic order types and routing mechanisms
+\item Analyze order book dynamics and matching algorithms
+\item Examine price-time priority and market structure
+\item Evaluate dark pools and alternative trading venues
+\item Assess regulatory frameworks for electronic trading
+\end{itemize}
+\end{frame}
+
+\section{Electronic Trading Infrastructure}
+
+\begin{frame}{Evolution of Trading Technology}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Historical Progression:}
+\begin{itemize}
+\item \textbf{Open Outcry (pre-1990s):} Physical trading floors
+\item \textbf{Screen-Based (1990s):} SETS, XETRA introduction
+\item \textbf{Direct Market Access (2000s):} Broker bypass
+\item \textbf{Algorithmic Trading (2010s):} Automated execution
+\item \textbf{Low Latency (2020s):} Microsecond competition
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Technology Drivers:}
+\begin{itemize}
+\item Electronic communication networks (ECNs)
+\item FIX protocol standardization (1992)
+\item Co-location and proximity hosting
+\item FPGA and custom hardware acceleration
+\item Market fragmentation across venues
+\end{itemize}
+\end{columns}
+
+\vspace{3mm}
+\small\textit{Key Milestone: NASDAQ becomes fully electronic in 1994, NYSE follows with Hybrid Market in 2006}
+\end{frame}
+
+\begin{frame}{Electronic Trading System Architecture}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Core Components:}
+\begin{itemize}
+\item \textbf{Order Management System (OMS):} Portfolio-level order creation
+\item \textbf{Execution Management System (EMS):} Routing and execution
+\item \textbf{Smart Order Router (SOR):} Venue selection logic
+\item \textbf{Market Data Handler:} Real-time price feeds
+\item \textbf{Risk Manager:} Pre-trade compliance
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Latency Benchmarks:}
+\begin{itemize}
+\item Order entry to exchange: 100-500 microseconds
+\item Matching engine processing: 10-50 microseconds
+\item Market data dissemination: 50-200 microseconds
+\item Round-trip execution: 200-1000 microseconds
+\item Co-located vs remote: 10x latency difference
+\end{itemize}
+\end{columns}
+
+\vspace{3mm}
+\footnotesize\textit{Modern systems process millions of orders per second with 99.999\% availability}
+\end{frame}
+
+\section{Order Types and Mechanics}
+
+\begin{frame}{Basic Order Types}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Market Orders:}
+\begin{itemize}
+\item Execute immediately at best available price
+\item Guarantee execution, not price
+\item Consume liquidity (aggressive)
+\item Pay taker fee (typically 0.003-0.005\%)
+\item Risk: slippage in volatile markets
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Limit Orders:}
+\begin{itemize}
+\item Execute only at specified price or better
+\item Provide liquidity (passive)
+\item Receive maker rebate (0.001-0.002\%)
+\item Risk: non-execution
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Stop Orders:}
+\begin{itemize}
+\item Become market/limit order when trigger hit
+\item Stop-loss: sell below current price
+\item Stop-buy: buy above current price
+\item Used for risk management and breakout strategies
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Execution Example:}
+\begin{itemize}
+\item Stock trading at \$100.00
+\item Limit buy at \$99.50: waits for price drop
+\item Stop-loss at \$98.00: sells if price falls
+\item Market sell: executes immediately at best bid
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Advanced Order Types}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Time-in-Force Instructions:}
+\begin{itemize}
+\item \textbf{GTC (Good Till Cancelled):} Active until filled or cancelled
+\item \textbf{DAY:} Expires at market close
+\item \textbf{IOC (Immediate or Cancel):} Execute available, cancel rest
+\item \textbf{FOK (Fill or Kill):} Complete fill or cancel entire order
+\item \textbf{GTD (Good Till Date):} Active until specified date
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Conditional Orders:}
+\begin{itemize}
+\item \textbf{Iceberg/Hidden:} Display portion, hide balance
+\item \textbf{Pegged:} Price tracks market (mid-point peg)
+\item \textbf{Discretionary:} Price improvement range
+\item \textbf{All-or-None:} Execute full size or nothing
+\item \textbf{Minimum Quantity:} Require minimum fill size
+\end{itemize}
+\end{columns}
+
+\vspace{3mm}
+\small\textit{Iceberg orders typically display 10-20\% of total size to minimize market impact}
+\end{frame}
+
+\begin{frame}{Algorithmic Order Types}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{VWAP (Volume-Weighted Average Price):}
+\begin{itemize}
+\item Target: match daily volume profile
+\item Slices order across trading day
+\item Benchmark: VWAP = $\sum (P_i \times V_i) / \sum V_i$
+\item Typical duration: full trading session
+\item Use case: large passive orders
+\end{itemize}
+
+\vspace{2mm}
+\textbf{TWAP (Time-Weighted Average Price):}
+\begin{itemize}
+\item Equal-sized slices over time
+\item Ignores volume patterns
+\item Simpler, more predictable
+\item Risk: adverse selection if volume spikes
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Implementation Shortfall:}
+\begin{itemize}
+\item Minimize difference vs decision price
+\item Balances market impact and timing risk
+\item Aggressive when price favorable
+\item Passive when price adverse
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Participation Rate (POV):}
+\begin{itemize}
+\item Target: fixed \% of market volume
+\item Typical range: 5-20\% participation
+\item Adapts to volume fluctuations
+\item Risk: extended execution in low volume
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\section{Order Book Dynamics}
+
+\begin{frame}{Electronic Order Book Structure}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Order Book Components:}
+\begin{itemize}
+\item \textbf{Bid Side:} Buy orders ranked by price (descending)
+\item \textbf{Ask Side:} Sell orders ranked by price (ascending)
+\item \textbf{Spread:} Difference between best bid and ask
+\item \textbf{Depth:} Quantity at each price level
+\item \textbf{Mid-Price:} (Best Bid + Best Ask) / 2
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Example Order Book:}
+\begin{center}
+\small
+\begin{tabular}{rr|lr}
+\multicolumn{2}{c|}{\textbf{Bids}} & \multicolumn{2}{c}{\textbf{Asks}} \\
+Size & Price & Price & Size \\
+\midrule
+500 & 99.98 & 100.02 & 300 \\
+800 & 99.97 & 100.03 & 600 \\
+1200 & 99.96 & 100.04 & 400 \\
+\end{tabular}
+\end{center}
+Spread = \$0.04 (4 cents or 4 bps)
+
+\column{0.48\textwidth}
+\textbf{Order Book Metrics:}
+\begin{itemize}
+\item \textbf{Quoted Spread:} Ask - Bid
+\item \textbf{Effective Spread:} 2 $\times$ |Trade Price - Mid|
+\item \textbf{Realized Spread:} Effective spread minus adverse selection
+\item \textbf{Order Book Imbalance:} (Bid Vol - Ask Vol) / Total
+\item \textbf{Depth Imbalance:} Predictive signal for price movement
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Liquidity Indicators:}
+\begin{itemize}
+\item Volume at top 5 levels
+\item Average quoted spread (daily)
+\item Order arrival/cancellation rates
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Price-Time Priority Matching}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Matching Algorithm:}
+\begin{enumerate}
+\item \textbf{Price Priority:} Best prices matched first
+\item \textbf{Time Priority:} Within price level, oldest order first
+\item \textbf{Display Priority:} Visible orders before hidden (some venues)
+\item \textbf{Size Priority:} Rare, used in some Asian markets
+\end{enumerate}
+
+\vspace{2mm}
+\textbf{Example Execution:}
+\begin{itemize}
+\item Time 09:00:00 - Limit buy 500 at \$100.00
+\item Time 09:00:05 - Limit buy 300 at \$100.00
+\item Time 09:00:10 - Market sell 400
+\item \textit{Result:} First 400 from 09:00:00 order filled, 100 remains
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Alternative Mechanisms:}
+\begin{itemize}
+\item \textbf{Pro-Rata:} Size-proportional allocation (Eurex)
+\item \textbf{FIFO with LMM:} Lead market maker priority (some options)
+\item \textbf{Random Selection:} Anti-latency mechanism (IEX D-Peg)
+\item \textbf{Batch Auction:} Periodic clearing (opening/closing)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Queue Position Value:}
+\begin{itemize}
+\item Early position in queue = higher fill probability
+\item Incentivizes speed competition
+\item Queue jumping via price improvement
+\item Drives investment in low-latency infrastructure
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Order Book Dynamics and Toxicity}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Order Flow Toxicity:}
+\begin{itemize}
+\item \textbf{Informed Trading:} Orders contain price-relevant information
+\item \textbf{Adverse Selection:} Market makers lose to informed traders
+\item \textbf{VPIN (Volume-Synchronized PIN):} Toxicity measure
+\item \textbf{Order Imbalance:} Predictive of short-term price moves
+\end{itemize}
+
+\vspace{2mm}
+\textbf{VPIN Calculation:}
+$$\text{VPIN} = \frac{|\sum \text{Buy Volume} - \sum \text{Sell Volume}|}{\text{Total Volume}}$$
+High VPIN (>0.8) signals elevated informed trading risk
+
+\column{0.48\textwidth}
+\textbf{Market Maker Response:}
+\begin{itemize}
+\item Widen spreads when toxicity increases
+\item Reduce quoted depth
+\item Increase order cancellation rates
+\item Temporarily withdraw liquidity
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Resilience Metrics:}
+\begin{itemize}
+\item Order-to-trade ratio: 20:1 to 100:1 typical
+\item Cancellation rate: 95-98\% of orders cancelled
+\item Book depth recovery time: seconds to minutes
+\item Flash crash (2010): VPIN spiked to 0.98
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\section{Smart Order Routing}
+
+\begin{frame}{Smart Order Router (SOR) Architecture}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{SOR Decision Factors:}
+\begin{itemize}
+\item \textbf{Displayed Liquidity:} Visible order book depth
+\item \textbf{Fill Probability:} Historical fill rates by venue
+\item \textbf{Latency:} Network and execution speed
+\item \textbf{Fees/Rebates:} Maker/taker economics
+\item \textbf{Price Improvement:} Mid-point or better execution
+\item \textbf{Market Impact:} Venue size and anonymity
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Routing Strategies:}
+\begin{itemize}
+\item \textbf{Top-of-Book:} Route to best displayed price
+\item \textbf{Sweep:} Send to multiple venues simultaneously
+\item \textbf{Sequential:} Try venues in priority order
+\item \textbf{Hidden Liquidity Seeking:} Ping dark pools first
+\item \textbf{Smart Posting:} Become passive liquidity provider
+\end{itemize}
+\end{columns}
+
+\vspace{3mm}
+\footnotesize\textit{Typical SOR evaluates 20-50 venues in under 100 microseconds, routing to top 3-5 destinations}
+\end{frame}
+
+\begin{frame}{Venue Fragmentation and Best Execution}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{US Equity Market Structure (2024):}
+\begin{itemize}
+\item 16 public exchanges (Nasdaq, NYSE, CBOE BZX, etc.)
+\item 30+ dark pools (40-50\% of volume)
+\item Wholesalers (Citadel, Virtu): 40-45\% retail flow
+\item Market share: Nasdaq 15\%, NYSE 12\%, off-exchange 50\%
+\end{itemize}
+
+\vspace{2mm}
+\textbf{European Market (MiFID II):}
+\begin{itemize}
+\item Dark pool volume cap: 8\% per venue, 4\% instrument-level
+\item Systematic Internalizers (SIs) disclosure
+\item Consolidated tape still fragmented (no official CTP)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Best Execution Criteria:}
+\begin{itemize}
+\item \textbf{Price:} Most important for large institutions
+\item \textbf{Cost:} Total explicit and implicit costs
+\item \textbf{Speed:} Critical for time-sensitive strategies
+\item \textbf{Likelihood of Execution:} Fill rate priority
+\item \textbf{Settlement:} Certainty and timing
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Regulatory Requirements:}
+\begin{itemize}
+\item Reg NMS (US): National best bid/offer protection
+\item MiFID II (EU): Best execution reporting
+\item Quarterly 606 reports: routing practices disclosure
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\section{Dark Pools and Alternative Venues}
+
+\begin{frame}{Dark Pool Types and Mechanics}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Dark Pool Categories:}
+\begin{itemize}
+\item \textbf{Broker-Dealer Owned:} UBS ATS, MS Pool, GS Sigma X
+\item \textbf{Agency Broker:} ITG POSIT, Liquidnet (block focus)
+\item \textbf{Exchange-Owned:} NYSE Midpoint, Nasdaq TRF
+\item \textbf{Electronic Market Makers:} Citadel Connect, Virtu
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Execution Mechanisms:}
+\begin{itemize}
+\item \textbf{Mid-Point Peg:} Execute at NBBO mid-point
+\item \textbf{Periodic Auction:} Batch matching (IEX, Cboe LIS)
+\item \textbf{Conditional Orders:} Minimum size, IOC only
+\item \textbf{No Pre-Trade Transparency:} Orders invisible
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Advantages:}
+\begin{itemize}
+\item Reduced market impact for large orders
+\item Price improvement (mid-point execution)
+\item Information leakage protection
+\item Lower adverse selection vs lit markets
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Disadvantages:}
+\begin{itemize}
+\item Lower fill rates (10-30\% typical)
+\item Information asymmetry concerns
+\item Potential for predatory strategies
+\item Regulatory scrutiny (MiFID II caps)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Market Share:}
+US dark pool volume: 12-15\% (down from 18\% pre-2018)
+\end{columns}
+\end{frame}
+
+\begin{frame}{Alternative Trading Systems (ATS)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{ATS Regulatory Framework:}
+\begin{itemize}
+\item \textbf{SEC Regulation ATS (1998):} Registration and reporting
+\item \textbf{Form ATS:} Operational details disclosure
+\item \textbf{Form ATS-N (2018):} Enhanced transparency
+\item \textbf{Reg SCI:} Systems compliance and integrity
+\item \textbf{CAT (Consolidated Audit Trail):} Order tracking
+\end{itemize}
+
+\vspace{2mm}
+\textbf{ATS vs Exchange:}
+\begin{itemize}
+\item No self-regulatory organization (SRO) status
+\item Broker-dealer registration required
+\item Less stringent listing requirements
+\item More flexible fee structures
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Specialized ATS Models:}
+\begin{itemize}
+\item \textbf{Block Trading:} Liquidnet (min 10k shares)
+\item \textbf{Retail-Focused:} Off-exchange wholesalers
+\item \textbf{Speed Bumps:} IEX 350-microsecond delay
+\item \textbf{Frequent Batch Auctions:} Anti-HFT design
+\end{itemize}
+
+\vspace{2mm}
+\textbf{IEX Innovations (2013):}
+\begin{itemize}
+\item Coiled fiber delay (350 microseconds)
+\item Crumbling quote indicator (prevents stale pricing)
+\item Discretionary peg (hide spread capture)
+\item Exchange status granted 2016
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\section{Regulatory and Risk Frameworks}
+
+\begin{frame}{Trading Regulation and Surveillance}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Key Regulations:}
+\begin{itemize}
+\item \textbf{Reg NMS (2005):} Order protection, access, sub-penny rules
+\item \textbf{MiFID II (2018):} Transparency, best execution, algo regulation
+\item \textbf{MAR (2016):} Market abuse detection and reporting
+\item \textbf{Circuit Breakers:} Single-stock (LULD) and market-wide
+\item \textbf{Position Limits:} Derivatives and commodity futures
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Surveillance Systems:}
+\begin{itemize}
+\item \textbf{Pattern Detection:} Layering, spoofing, wash trades
+\item \textbf{Cross-Market:} Equity-derivatives manipulation
+\item \textbf{CAT (Consolidated Audit Trail):} Full order lifecycle
+\item \textbf{Machine Learning:} Anomaly detection algorithms
+\item \textbf{Real-Time Alerts:} Sub-second violation flagging
+\end{itemize}
+\end{columns}
+
+\vspace{3mm}
+\textbf{LULD (Limit Up-Limit Down):} Trading halts if price moves exceed \% band (5-10\% depending on tier and time)
+\end{frame}
+
+\begin{frame}{Pre-Trade and Post-Trade Risk Controls}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Pre-Trade Risk Checks:}
+\begin{itemize}
+\item \textbf{Order Price Limits:} \% deviation from reference price
+\item \textbf{Order Size Limits:} Max shares/contracts per order
+\item \textbf{Duplicate Orders:} Detect unintended resubmissions
+\item \textbf{Position Limits:} Net and gross exposure caps
+\item \textbf{Notional Limits:} Dollar value thresholds
+\item \textbf{Fat Finger:} Size and price reasonableness checks
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Latency Impact:}
+Pre-trade checks add 10-50 microseconds per order
+
+\column{0.48\textwidth}
+\textbf{Post-Trade Monitoring:}
+\begin{itemize}
+\item \textbf{Wash Trade Detection:} Self-matching prevention
+\item \textbf{Marking the Close:} Unusual end-of-day activity
+\item \textbf{Momentum Ignition:} Rapid price manipulation
+\item \textbf{Layering/Spoofing:} Non-bona fide order patterns
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Kill Switches:}
+\begin{itemize}
+\item Exchange-level: immediate market shutdown
+\item Broker-level: cancel all active orders
+\item Client-level: terminate specific trading IDs
+\item Activation time: under 1 second
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Notable Trading Incidents}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Flash Crash (May 6, 2010):}
+\begin{itemize}
+\item Dow Jones drops 1000 points in minutes
+\item E-Mini S\&P futures selling algorithm trigger
+\item HFT withdrawal exacerbates liquidity vacuum
+\item Led to LULD circuit breakers (2012)
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Knight Capital (August 1, 2012):}
+\begin{itemize}
+\item Software deployment error
+\item \$440 million loss in 45 minutes
+\item 4 million trades across 154 stocks
+\item Company near-bankruptcy, acquired by Getco
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{BATS IPO (March 23, 2012):}
+\begin{itemize}
+\item BATS exchange attempts self-listing
+\item Software bug causes shares to drop from \$16 to \$0.0002
+\item IPO withdrawn, exchange embarrassed
+\item Highlighted exchange technology risks
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Lessons Learned:}
+\begin{itemize}
+\item Mandatory kill switches (MiFID II/Reg SCI)
+\item Enhanced testing for algorithm changes
+\item Circuit breakers at multiple levels
+\item Real-time position and P\&L monitoring
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Summary and Key Takeaways}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Core Concepts:}
+\begin{itemize}
+\item Electronic trading systems enable microsecond-latency execution
+\item Order types range from basic (market/limit) to complex (iceberg/algorithmic)
+\item Price-time priority matching dominates most markets
+\item Smart order routers optimize across fragmented venues
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Market Structure:}
+\begin{itemize}
+\item 16 US exchanges + 30+ dark pools
+\item Dark pools provide 12-15\% of equity volume
+\item Mid-point execution reduces impact for large orders
+\item Regulatory caps limit dark trading (MiFID II)
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{Risk and Regulation:}
+\begin{itemize}
+\item Pre-trade risk checks prevent erroneous orders
+\item Circuit breakers halt extreme volatility
+\item Surveillance systems detect manipulation
+\item Incidents (Flash Crash, Knight) drive enhanced controls
+\end{itemize}
+
+\vspace{2mm}
+\textbf{Technology Trends:}
+\begin{itemize}
+\item Latency competition drives infrastructure investment
+\item Co-location and FPGA acceleration
+\item Machine learning in routing and surveillance
+\item Blockchain exploration for settlement (T+0)
+\end{itemize}
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\end{document}

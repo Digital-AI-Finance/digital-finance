@@ -1,0 +1,245 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,booktabs,adjustbox,multicol,amsmath,amssymb}
+\definecolor{mlblue}{RGB}{0,102,204}
+\definecolor{mlpurple}{RGB}{51,51,178}
+\definecolor{mllavender}{RGB}{173,173,224}
+\definecolor{mllavender2}{RGB}{193,193,232}
+\definecolor{mllavender3}{RGB}{204,204,235}
+\definecolor{mllavender4}{RGB}{214,214,239}
+\definecolor{mlorange}{RGB}{255,127,14}
+\definecolor{mlgreen}{RGB}{44,160,44}
+\definecolor{mlred}{RGB}{214,39,40}
+\setbeamercolor{palette primary}{bg=mllavender3,fg=mlpurple}
+\setbeamercolor{palette secondary}{bg=mllavender2,fg=mlpurple}
+\setbeamercolor{palette tertiary}{bg=mllavender,fg=white}
+\setbeamercolor{structure}{fg=mlpurple}
+\setbeamercolor{frametitle}{fg=mlpurple,bg=mllavender3}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamersize{text margin left=5mm,text margin right=5mm}
+
+\title{Lesson 5: Open Banking and APIs}
+\subtitle{Module 1: FinTech Fundamentals}
+\author{Digital Finance}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Open Banking Revolution}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Data Sharing Paradigm}
+\begin{itemize}
+\item Customer-permissioned access
+\item Standardized APIs
+\item Third-party innovation
+\item Regulatory mandate (EU, UK)
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/open_banking_concept.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{PSD2 Framework}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/psd2_architecture.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{PSD2 Timeline}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Implementation Phases}
+\begin{itemize}
+\item 2015: Directive adoption
+\item 2018: SCA requirements
+\item 2019: RTS compliance
+\item 2021: Full enforcement
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/psd2_timeline.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Strong Customer Authentication (SCA)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Two-Factor Requirement}
+\begin{itemize}
+\item Knowledge (password)
+\item Possession (mobile device)
+\item Inherence (biometric)
+\item Exemptions for low-risk
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/sca_factors.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Account Information Service (AIS)}
+\begin{center}
+\includegraphics[width=0.82\textwidth]{figures/ais_flow.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Payment Initiation Service (PIS)}
+\begin{center}
+\includegraphics[width=0.82\textwidth]{figures/pis_flow.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Third-Party Providers (TPPs)}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Provider Types}
+\begin{itemize}
+\item AISP: Account aggregation
+\item PISP: Payment initiation
+\item CBPII: Card balance checks
+\item Regulatory authorization
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/tpp_categories.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{API Standards}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Technical Protocols}
+\begin{itemize}
+\item RESTful architecture
+\item OAuth 2.0 authorization
+\item OpenAPI specification
+\item JSON data format
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/api_architecture.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{UK Open Banking Implementation}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/uk_open_banking.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Open Banking Use Cases}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Consumer Applications}
+\begin{itemize}
+\item Multi-bank aggregation
+\item Automated budgeting
+\item Alternative credit scoring
+\item Instant payments
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/open_banking_use_cases.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Account Aggregation Example}
+\begin{center}
+\includegraphics[width=0.80\textwidth]{figures/account_aggregation_flow.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Payment Initiation Benefits}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{vs Card Payments}
+\begin{itemize}
+\item Lower fees (0.1\% vs 1.5\%)
+\item Faster settlement
+\item No chargebacks
+\item Direct bank transfer
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/pis_vs_card_fees.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Global Open Banking Adoption}
+\begin{center}
+\includegraphics[width=0.85\textwidth]{figures/global_open_banking_map.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{API Performance Metrics}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{UK Success Rates (2023)}
+\begin{itemize}
+\item API uptime: 99.5\%
+\item Response time: 1.2s avg
+\item 12M monthly API calls
+\item 8M active users
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/api_performance.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Security Challenges}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Risk Mitigation}
+\begin{itemize}
+\item API credential theft
+\item Man-in-the-middle attacks
+\item Excessive data access
+\item Fraud monitoring systems
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/open_banking_security.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Business Model Impact}
+\begin{center}
+\includegraphics[width=0.82\textwidth]{figures/open_banking_ecosystem.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Future: Open Finance}
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Beyond Banking}
+\begin{itemize}
+\item Pension data sharing
+\item Insurance APIs
+\item Investment platforms
+\item Mortgage comparison
+\end{itemize}
+
+\column{0.48\textwidth}
+\includegraphics[width=\textwidth]{figures/open_finance_scope.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Key Takeaways}
+\begin{itemize}
+\item \textbf{PSD2}: EU regulatory mandate for bank API access
+\item \textbf{Services}: AIS (aggregation) and PIS (payment initiation)
+\item \textbf{SCA}: Two-factor authentication requirement
+\item \textbf{Benefits}: Lower fees, faster payments, innovation
+\item \textbf{Future}: Expanding to open finance ecosystem
+\end{itemize}
+\end{frame}
+
+\end{document}
