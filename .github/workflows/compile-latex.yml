@@ -1,0 +1,58 @@
+name: Compile LaTeX PDFs
+
+on:
+  push:
+    paths:
+      - '**.tex'
+  pull_request:
+    paths:
+      - '**.tex'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compile Module 01 FinTech
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: module_01_fintech
+          root_file: "lesson_*.tex"
+          glob_root_file: true
+        continue-on-error: true
+
+      - name: Compile Module 02 Blockchain
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: module_02_blockchain
+          root_file: "lesson_*.tex"
+          glob_root_file: true
+        continue-on-error: true
+
+      - name: Compile Module 03 AI/ML
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: module_03_ai_ml
+          root_file: "lesson_*.tex"
+          glob_root_file: true
+        continue-on-error: true
+
+      - name: Compile Module 04 Traditional
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: module_04_traditional
+          root_file: "lesson_*.tex"
+          glob_root_file: true
+        continue-on-error: true
+
+      - name: Upload compiled PDFs
+        uses: actions/upload-artifact@v4
+        with:
+          name: compiled-lesson-pdfs
+          path: |
+            module_*/lesson_*.pdf
+          retention-days: 30
