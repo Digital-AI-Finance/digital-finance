@@ -31,8 +31,9 @@
 \end{frame}
 
 \begin{frame}{Bitcoin System Overview}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.9\textwidth]{charts/lesson_18/bitcoin_system_architecture.pdf}
+\includegraphics[width=0.48\textwidth]{figures/bitcoin_system_architecture/bitcoin_system_architecture.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Core Components:}
@@ -45,6 +46,7 @@
 \end{frame}
 
 \begin{frame}{UTXO Model: Digital Cash Analogy}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -66,13 +68,14 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_18/utxo_concept.pdf}
+\includegraphics[width=\textwidth]{figures/utxo_concept/utxo_concept.pdf}
 \end{columns}
 \end{frame}
 
 \begin{frame}{UTXO vs Account Model}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{charts/lesson_18/utxo_vs_account.pdf}
+\includegraphics[width=0.48\textwidth]{figures/utxo_vs_account/utxo_vs_account.pdf}
 \end{center}
 \vspace{-3mm}
 \begin{columns}[T]
@@ -98,8 +101,9 @@
 \end{frame}
 
 \begin{frame}{Transaction Structure: Inputs and Outputs}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{charts/lesson_18/transaction_structure.pdf}
+\includegraphics[width=0.48\textwidth]{figures/transaction_structure/transaction_structure.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Components:}
@@ -111,6 +115,7 @@
 \end{frame}
 
 \begin{frame}{Example Transaction: Alice Pays Bob}
+\vspace{-2mm}
 \textbf{Scenario:} Alice has 0.5 BTC UTXO, wants to pay Bob 0.3 BTC
 
 \vspace{3mm}
@@ -124,7 +129,7 @@
 
 \vspace{3mm}
 \begin{center}
-\includegraphics[width=0.7\textwidth]{charts/lesson_18/alice_to_bob_transaction.pdf}
+\includegraphics[width=0.48\textwidth]{figures/alice_to_bob_transaction/alice_to_bob_transaction.pdf}
 \end{center}
 
 \vspace{2mm}
@@ -132,8 +137,9 @@
 \end{frame}
 
 \begin{frame}{Transaction Chaining}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.9\textwidth]{charts/lesson_18/transaction_chain.pdf}
+\includegraphics[width=0.48\textwidth]{figures/transaction_chain/transaction_chain.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Key Properties:}
@@ -146,6 +152,7 @@
 \end{frame}
 
 \begin{frame}{Bitcoin Script: Programmable Conditions}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -167,11 +174,12 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_18/script_execution.pdf}
+\includegraphics[width=\textwidth]{figures/script_execution/script_execution.pdf}
 \end{columns}
 \end{frame}
 
 \begin{frame}{P2PKH: Standard Bitcoin Transaction}
+\vspace{-2mm}
 \textbf{Locking Script (scriptPubKey):}
 \begin{center}
 \small\texttt{OP\_DUP OP\_HASH160 <PubKeyHash> OP\_EQUALVERIFY OP\_CHECKSIG}
@@ -196,6 +204,7 @@
 \end{frame}
 
 \begin{frame}{Multisig: M-of-N Signatures}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -216,7 +225,7 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_18/multisig_example.pdf}
+\includegraphics[width=\textwidth]{figures/multisig_example/multisig_example.pdf}
 \end{columns}
 
 \vspace{3mm}
@@ -225,8 +234,9 @@
 \end{frame}
 
 \begin{frame}{Transaction Lifecycle}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.95\textwidth]{charts/lesson_18/transaction_lifecycle.pdf}
+\includegraphics[width=0.48\textwidth]{figures/transaction_lifecycle/transaction_lifecycle.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Stages:}
@@ -241,6 +251,7 @@
 \end{frame}
 
 \begin{frame}{Mempool: Waiting Room for Transactions}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -261,11 +272,12 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_18/mempool_visualization.pdf}
+\includegraphics[width=\textwidth]{figures/mempool_visualization/mempool_visualization.pdf}
 \end{columns}
 \end{frame}
 
 \begin{frame}{Transaction Fees: Mechanics}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -289,13 +301,14 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_18/fee_distribution.pdf}
+\includegraphics[width=\textwidth]{figures/fee_distribution/fee_distribution.pdf}
 \end{columns}
 \end{frame}
 
 \begin{frame}{Fee Dynamics During Congestion}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.9\textwidth]{charts/lesson_18/fee_market_congestion.pdf}
+\includegraphics[width=0.48\textwidth]{figures/fee_market_congestion/fee_market_congestion.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{High Demand Periods:}
@@ -308,6 +321,7 @@
 \end{frame}
 
 \begin{frame}{SegWit: Segregated Witness (2017)}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -329,13 +343,14 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_18/segwit_structure.pdf}
+\includegraphics[width=\textwidth]{figures/segwit_structure/segwit_structure.pdf}
 \end{columns}
 \end{frame}
 
 \begin{frame}{Lightning Network: Layer 2 Scaling}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{charts/lesson_18/lightning_network_concept.pdf}
+\includegraphics[width=0.48\textwidth]{figures/lightning_network_concept/lightning_network_concept.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Problem:} Bitcoin throughput $\sim$7 tx/s, expensive fees, slow confirmations
@@ -345,6 +360,7 @@
 \end{frame}
 
 \begin{frame}{Lightning Payment Channel Mechanics}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -365,7 +381,7 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_18/lightning_channel.pdf}
+\includegraphics[width=\textwidth]{figures/lightning_channel/lightning_channel.pdf}
 \end{columns}
 
 \vspace{3mm}
@@ -373,8 +389,9 @@
 \end{frame}
 
 \begin{frame}{Lightning Network Routing}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{charts/lesson_18/lightning_routing.pdf}
+\includegraphics[width=0.48\textwidth]{figures/lightning_routing/lightning_routing.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Multi-Hop Payments:}
@@ -387,6 +404,7 @@
 \end{frame}
 
 \begin{frame}{Lightning vs On-Chain Comparison}
+\vspace{-2mm}
 \begin{center}
 \begin{tabular}{@{}p{3.5cm}p{5cm}p{5cm}@{}}
 \toprule
@@ -409,6 +427,7 @@ Use Case & Large settlements, savings & Micropayments, retail \\
 \end{frame}
 
 \begin{frame}{Taproot Upgrade (2021)}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -429,11 +448,12 @@ Use Case & Large settlements, savings & Micropayments, retail \\
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_18/taproot_comparison.pdf}
+\includegraphics[width=\textwidth]{figures/taproot_comparison/taproot_comparison.pdf}
 \end{columns}
 \end{frame}
 
 \begin{frame}{Bitcoin Full Node}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -455,11 +475,12 @@ Use Case & Large settlements, savings & Micropayments, retail \\
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_18/node_types.pdf}
+\includegraphics[width=\textwidth]{figures/node_types/node_types.pdf}
 \end{columns}
 \end{frame}
 
 \begin{frame}{Summary}
+\vspace{-2mm}
 \begin{itemize}
 \item \textbf{UTXO Model:} Discrete outputs, like digital cash, stateless validation
 \item \textbf{Transactions:} Inputs (previous UTXOs) + Outputs (new UTXOs) + Fee

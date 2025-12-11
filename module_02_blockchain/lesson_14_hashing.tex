@@ -38,6 +38,7 @@
 \end{frame}
 
 \begin{frame}{Block Structure: Anatomy of a Bitcoin Block}
+\vspace{-2mm}
 \textbf{Every Bitcoin block contains two main parts:}
 
 \vspace{3mm}
@@ -74,6 +75,7 @@
 \end{frame}
 
 \begin{frame}{Example: Bitcoin Block 800,000}
+\vspace{-2mm}
 \footnotesize
 \begin{table}[h]
 \centering
@@ -103,6 +105,7 @@
 \end{frame}
 
 \begin{frame}{What is a Hash Function?}
+\vspace{-2mm}
 \textbf{Hash Function:} Mathematical algorithm that maps arbitrary data to fixed-size output
 
 \vspace{3mm}
@@ -138,6 +141,7 @@
 \end{frame}
 
 \begin{frame}{SHA-256: The Bitcoin Hash Function}
+\vspace{-2mm}
 \textbf{SHA-256} (Secure Hash Algorithm 256-bit) - designed by NSA, published 2001
 
 \vspace{3mm}
@@ -163,6 +167,7 @@
 \end{frame}
 
 \begin{frame}{The Avalanche Effect: Demonstration}
+\vspace{-2mm}
 \textbf{Small input change causes completely different hash:}
 
 \vspace{3mm}
@@ -195,6 +200,7 @@
 \end{frame}
 
 \begin{frame}{Hash Space and Collision Resistance}
+\vspace{-2mm}
 \textbf{SHA-256 produces $2^{256}$ possible hashes - how big is that?}
 
 \vspace{3mm}
@@ -218,6 +224,7 @@
 \end{frame}
 
 \begin{frame}{Pre-image Resistance: The One-Way Property}
+\vspace{-2mm}
 \textbf{Given a hash, can you find the original input?}
 
 \vspace{3mm}
@@ -256,6 +263,7 @@
 \end{frame}
 
 \begin{frame}{Hash Pointers: Linking Blocks Together}
+\vspace{-2mm}
 \textbf{Hash Pointer:} Data structure that contains both location AND cryptographic hash of data
 
 \vspace{3mm}
@@ -300,6 +308,7 @@
 \end{frame}
 
 \begin{frame}{Why Blockchain is Immutable}
+\vspace{-2mm}
 \textbf{Changing a single transaction breaks the entire chain:}
 
 \vspace{3mm}
@@ -324,6 +333,7 @@
 \end{frame}
 
 \begin{frame}{Merkle Trees: Efficient Transaction Verification}
+\vspace{-2mm}
 \textbf{Merkle Tree:} Binary tree of hashes allowing efficient verification of large datasets
 
 \vspace{3mm}
@@ -360,6 +370,7 @@
 \end{frame}
 
 \begin{frame}{Merkle Tree Example: 4 Transactions}
+\vspace{-2mm}
 \textbf{Constructing Merkle Root:}
 
 \vspace{3mm}
@@ -395,6 +406,7 @@ H_{34} &= \text{SHA256}(H_3 \| H_4) = \texttt{6b9e...}
 \end{frame}
 
 \begin{frame}{Merkle Proof: Verifying Transaction Inclusion}
+\vspace{-2mm}
 \textbf{Problem:} Light client wants to verify $T_2$ is in block, without downloading all transactions
 
 \vspace{3mm}
@@ -424,6 +436,7 @@ H_{34} &= \text{SHA256}(H_3 \| H_4) = \texttt{6b9e...}
 \end{frame}
 
 \begin{frame}{Difficulty Target and Leading Zeros}
+\vspace{-2mm}
 \textbf{Bitcoin Mining Puzzle:} Find nonce such that block hash < target
 
 \vspace{3mm}
@@ -457,6 +470,7 @@ H_{34} &= \text{SHA256}(H_3 \| H_4) = \texttt{6b9e...}
 \end{frame}
 
 \begin{frame}{Difficulty Adjustment Mechanism}
+\vspace{-2mm}
 \textbf{Goal:} Maintain ~10 minute average block time despite changing network hash rate
 
 \vspace{3mm}
@@ -487,6 +501,7 @@ H_{34} &= \text{SHA256}(H_3 \| H_4) = \texttt{6b9e...}
 \end{frame}
 
 \begin{frame}{Hash Rate: Network Computing Power}
+\vspace{-2mm}
 \textbf{Hash Rate:} Total number of hash computations per second across network
 
 \vspace{3mm}
@@ -517,6 +532,7 @@ H_{34} &= \text{SHA256}(H_3 \| H_4) = \texttt{6b9e...}
 \end{frame}
 
 \begin{frame}{Block Propagation and Orphan Blocks}
+\vspace{-2mm}
 \textbf{Problem:} Network latency - two miners find valid blocks simultaneously
 
 \vspace{3mm}
@@ -543,6 +559,7 @@ H_{34} &= \text{SHA256}(H_3 \| H_4) = \texttt{6b9e...}
 \end{frame}
 
 \begin{frame}{Blockchain Data Structures Summary}
+\vspace{-2mm}
 \begin{table}[h]
 \centering
 \footnotesize
@@ -565,6 +582,7 @@ Difficulty Target & Mining puzzle & Adjusts to maintain 10-min block time \\
 \end{frame}
 
 \begin{frame}{Security Analysis: What Could Go Wrong?}
+\vspace{-2mm}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Hash Function Attacks:}
@@ -605,6 +623,7 @@ Difficulty Target & Mining puzzle & Adjusts to maintain 10-min block time \\
 \end{frame}
 
 \begin{frame}{Practical Exercise: Computing Block Hash}
+\vspace{-2mm}
 \textbf{Simplified Example:} Calculate hash for mini-block
 
 \vspace{3mm}
@@ -634,6 +653,7 @@ Difficulty Target & Mining puzzle & Adjusts to maintain 10-min block time \\
 \end{frame}
 
 \begin{frame}{Block Finality: How Many Confirmations?}
+\vspace{-2mm}
 \textbf{Confirmations:} Number of blocks built on top of transaction's block
 
 \vspace{3mm}
@@ -667,6 +687,7 @@ Difficulty Target & Mining puzzle & Adjusts to maintain 10-min block time \\
 \end{frame}
 
 \begin{frame}{Next Lesson Preview}
+\vspace{-2mm}
 \begin{center}
 \Large\textbf{Lesson 15: Public Key Cryptography and Signatures}
 \end{center}
@@ -692,6 +713,7 @@ Difficulty Target & Mining puzzle & Adjusts to maintain 10-min block time \\
 \end{frame}
 
 \begin{frame}{Summary: Key Takeaways}
+\vspace{-2mm}
 \begin{enumerate}
 \item \textbf{Block Structure:} 80-byte header + variable transaction body
 \item \textbf{SHA-256:} One-way, collision-resistant hash with $2^{256}$ output space
