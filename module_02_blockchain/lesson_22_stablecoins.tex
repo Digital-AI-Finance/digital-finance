@@ -20,6 +20,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 22: Stablecoins and Terra/Luna Case Study}
 \subtitle{Module 2: Blockchain Fundamentals}
 \author{Digital Finance}
@@ -45,6 +54,7 @@
 \end{itemize}
 
 \textbf{Solution:} Stablecoins -- cryptocurrencies pegged to stable assets (typically USD)
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{What is a Stablecoin?}
@@ -72,6 +82,7 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/stablecoin_use_cases/stablecoin_use_cases.pdf}
 \end{columns}
+\bottomnote{Clear definitions are essential for understanding complex technical concepts.}
 \end{frame}
 
 \begin{frame}{Stablecoin Taxonomy}
@@ -86,6 +97,7 @@
 \item \textbf{Crypto-Collateralized:} Over-collateralized with crypto (DAI)
 \item \textbf{Algorithmic:} No collateral, algorithmic supply adjustment (UST -- failed)
 \end{enumerate}
+\bottomnote{Stablecoins bridge traditional and crypto finance by maintaining price stability.}
 \end{frame}
 
 \begin{frame}{Fiat-Collateralized: Tether (USDT)}
@@ -113,6 +125,7 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/fiat_collateralized_flow/fiat_collateralized_flow.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Tether Controversy: Are Reserves Real?}
@@ -134,6 +147,7 @@
 
 \vspace{3mm}
 \textbf{Risk:} Bank run scenario -- if everyone redeems simultaneously, can Tether honor?
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{USDC: Regulated Alternative}
@@ -163,6 +177,7 @@
 
 \vspace{3mm}
 \textbf{2023 SVB Crisis:} \$3.3B stuck in Silicon Valley Bank (depegged to \$0.87 briefly, recovered)
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Crypto-Collateralized: DAI (MakerDAO)}
@@ -180,6 +195,7 @@
 \end{enumerate}
 
 \textbf{Decentralization:} No single custodian, governed by MKR token holders
+\bottomnote{Cryptographic primitives provide the security foundation for blockchain systems.}
 \end{frame}
 
 \begin{frame}{DAI Stability Mechanisms}
@@ -205,6 +221,7 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/dai_peg_history/dai_peg_history.pdf}
 \end{columns}
+\bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
 \begin{frame}{Algorithmic Stablecoins: The Dream}
@@ -234,6 +251,7 @@
 
 \vspace{3mm}
 \textbf{Reality:} All pure algorithmic stablecoins have failed (Basis, Iron, Terra)
+\bottomnote{Stablecoins bridge traditional and crypto finance by maintaining price stability.}
 \end{frame}
 
 \begin{frame}{Terra/Luna: The \$60 Billion Collapse}
@@ -249,6 +267,7 @@
 \item \textbf{Anchor Protocol:} 20\% APY on UST deposits (unsustainable)
 \item \textbf{Market Cap (May 2022):} UST \$18B, LUNA \$40B
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Terra/Luna Mechanism: Arbitrage Peg}
@@ -275,6 +294,7 @@
 \item Sell 1 UST for \$1.02
 \item Profit: \$0.02 (increases UST supply, lowers price)
 \end{enumerate}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{The Death Spiral: May 2022}
@@ -290,6 +310,7 @@
 \item \textbf{May 10--11:} Hyperinflation of LUNA (supply: 350M $\rightarrow$ 6.5T), price collapses
 \item \textbf{May 12:} UST at \$0.10, LUNA near \$0, blockchain halted
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Why Did Terra Collapse?}
@@ -311,6 +332,7 @@
 
 \vspace{3mm}
 \textbf{Aftermath:} \$60B market cap evaporated, lawsuits, Do Kwon (founder) arrested in Montenegro
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Terra Collapse: Contagion Effects}
@@ -336,6 +358,7 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/contagion_map/contagion_map.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Lessons from Terra/Luna}
@@ -351,6 +374,7 @@
 
 \vspace{3mm}
 \textbf{Quote:} ``If UST depegs, I will personally absorb the loss.'' -- Do Kwon (didn't happen)
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Post-Terra: Industry Response}
@@ -377,6 +401,7 @@
 \item GHO (Aave): Over-collateralized, DAO-governed
 \item LUSD (Liquity): Immutable, minimum 110\% collateral
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Stablecoin Market Share (2024)}
@@ -392,6 +417,7 @@
 \item \textbf{DAI (MakerDAO):} \$5B (3\%)
 \item \textbf{Others:} BUSD (deprecated), TUSD, FRAX, USDD
 \end{itemize}
+\bottomnote{Stablecoins bridge traditional and crypto finance by maintaining price stability.}
 \end{frame}
 
 \begin{frame}{Central Bank Digital Currencies (CBDCs)}
@@ -422,6 +448,7 @@
 
 \vspace{3mm}
 \textbf{Concern:} Surveillance, programmable restrictions (e.g., expiry dates on money)
+\bottomnote{Banks play a central role in the financial system as intermediaries.}
 \end{frame}
 
 \begin{frame}{Summary}

@@ -19,6 +19,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 24: Regulation and the Future}
 \subtitle{Module 2: Blockchain Fundamentals}
 \author{Digital Finance}
@@ -57,6 +66,7 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/regulatory_tension/regulatory_tension.pdf}
 \end{columns}
+\bottomnote{Understanding limitations helps identify appropriate use cases and avoid over-engineering.}
 \end{frame}
 
 \begin{frame}{Regulatory Approaches: Global Landscape}
@@ -72,6 +82,7 @@
 \item \textbf{Restrictive:} US (fragmented), India (mixed signals)
 \item \textbf{Banned:} China, Morocco, Algeria, Egypt (mining/trading bans)
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{United States: Regulatory Fragmentation}
@@ -100,6 +111,7 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/us_regulatory_agencies/us_regulatory_agencies.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{The Howey Test: Security vs Commodity}
@@ -123,6 +135,7 @@
 
 \vspace{3mm}
 \textbf{Implication:} Securities require registration, compliance costs prohibitive for many projects
+\bottomnote{Understanding the process flow is key to identifying optimization opportunities.}
 \end{frame}
 
 \begin{frame}{SEC Enforcement Actions}
@@ -138,6 +151,7 @@
 \item \textbf{2023:} Coinbase, Binance sued for operating unregistered exchanges
 \item \textbf{2023:} Kraken settled staking-as-securities case (\$30M)
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{European Union: MiCA Regulation}
@@ -161,6 +175,7 @@
 \item Compliance costs favor established players
 \item Potential stifling of innovation
 \end{itemize}
+\bottomnote{Regulatory frameworks shape adoption patterns and industry structure.}
 \end{frame}
 
 \begin{frame}{MiCA: Stablecoin Provisions}
@@ -187,6 +202,7 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/mica_stablecoin_framework/mica_stablecoin_framework.pdf}
 \end{columns}
+\bottomnote{Stablecoins bridge traditional and crypto finance by maintaining price stability.}
 \end{frame}
 
 \begin{frame}{AML/KYC and the Travel Rule}
@@ -212,6 +228,7 @@
 \item Exchanges implement Travel Rule solutions (Chainalysis, Elliptic)
 \item Privacy advocacy (coin mixing, zero-knowledge proofs)
 \end{itemize}
+\bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
 \begin{frame}{Taxation: Reporting and Compliance}
@@ -242,6 +259,7 @@
 
 \vspace{3mm}
 \textbf{Tools:} CoinTracker, Koinly, TaxBit (automated reporting)
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{DeFi Regulation: The Frontier}
@@ -264,6 +282,7 @@
 
 \vspace{3mm}
 \textbf{Debate:} Can truly decentralized protocols be regulated, or only centralized intermediaries?
+\bottomnote{DeFi recreates traditional financial services in a permissionless, programmable way.}
 \end{frame}
 
 \begin{frame}{Tornado Cash Sanctions (2022)}
@@ -292,6 +311,7 @@
 
 \vspace{3mm}
 \textbf{Controversy:} Sanctioning code vs people, chilling effect on privacy tech, First Amendment debate
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Real-World Assets (RWA): Tokenization Trend}
@@ -310,6 +330,7 @@
 \item \textbf{Commodities:} Gold (PAXG), carbon credits
 \item \textbf{Private Credit:} Centrifuge, Goldfinch (on-chain lending to businesses)
 \end{itemize}
+\bottomnote{Tokens represent digital assets and enable new business models on blockchain.}
 \end{frame}
 
 \begin{frame}{RWA: Benefits and Challenges}
@@ -341,6 +362,7 @@
 
 \vspace{3mm}
 \textbf{Projected Market:} \$16 trillion by 2030 (BCG estimate)
+\bottomnote{Understanding limitations helps identify appropriate use cases and avoid over-engineering.}
 \end{frame}
 
 \begin{frame}{CBDCs: Central Bank Competition}
@@ -369,6 +391,7 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/cbdc_adoption_map/cbdc_adoption_map.pdf}
 \end{columns}
+\bottomnote{Banks play a central role in the financial system as intermediaries.}
 \end{frame}
 
 \begin{frame}{CBDCs vs Crypto: Fundamental Differences}
@@ -395,6 +418,7 @@ Innovation & Limited (government pace) & Permissionless \\
 
 \vspace{3mm}
 \textbf{Concern:} CBDCs may enable unprecedented surveillance and control over spending
+\bottomnote{Comparative analysis helps identify the right tool for specific requirements.}
 \end{frame}
 
 \begin{frame}{Institutional Adoption: The Turning Point}
@@ -410,6 +434,7 @@ Innovation & Limited (government pace) & Permissionless \\
 \item \textbf{2024:} Bitcoin Spot ETFs approved in US (BlackRock, Fidelity), \$50B+ inflows
 \item \textbf{2024:} Ethereum ETFs approved (slower adoption)
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Bitcoin ETFs: Wall Street Embraces Crypto}
@@ -436,6 +461,7 @@ Innovation & Limited (government pace) & Permissionless \\
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/btc_etf_inflows/btc_etf_inflows.pdf}
 \end{columns}
+\bottomnote{Bitcoin remains the largest cryptocurrency by market cap and network security.}
 \end{frame}
 
 \begin{frame}{Emerging Use Cases: Beyond Speculation}
@@ -452,6 +478,7 @@ Innovation & Limited (government pace) & Permissionless \\
 
 \vspace{3mm}
 \textbf{Caveat:} Many pilots, few scaled solutions (infrastructure, UX, regulation still barriers)
+\bottomnote{Real-world applications demonstrate the practical value of blockchain technology.}
 \end{frame}
 
 \begin{frame}{Scalability: The Path Forward}
@@ -477,6 +504,7 @@ Innovation & Limited (government pace) & Permissionless \\
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/scalability_solutions/scalability_solutions.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Rollups: Scaling Ethereum}
@@ -494,6 +522,7 @@ Innovation & Limited (government pace) & Permissionless \\
 \end{itemize}
 
 \textbf{Types:} Optimistic (fraud proofs, 7-day withdrawal) vs ZK (validity proofs, instant finality)
+\bottomnote{Ethereum pioneered smart contracts and remains the dominant platform for DeFi and NFTs.}
 \end{frame}
 
 \begin{frame}{Careers in Blockchain}
@@ -526,6 +555,7 @@ Innovation & Limited (government pace) & Permissionless \\
 
 \vspace{3mm}
 \textbf{Salaries (2024):} Smart contract dev: \$100K--\$250K, auditor: \$150K--\$300K+
+\bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
 \begin{frame}{Learning Pathways}
@@ -548,6 +578,7 @@ Innovation & Limited (government pace) & Permissionless \\
 \item Certifications (Certified Blockchain Professional)
 \item Join communities (DAOs, Discord servers)
 \end{enumerate}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{The Future: Predictions and Trends}
@@ -569,6 +600,7 @@ Innovation & Limited (government pace) & Permissionless \\
 \item Zero-knowledge proofs mainstream (privacy + compliance)
 \item Interoperability solved (seamless cross-chain)
 \end{itemize}
+\bottomnote{Future trends inform strategic planning and investment decisions.}
 \end{frame}
 
 \begin{frame}{Philosophical Questions}
@@ -622,6 +654,7 @@ Innovation & Limited (government pace) & Permissionless \\
 
 \vspace{4mm}
 \textbf{Thank you for engaging with Module 2: Blockchain Fundamentals}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \end{document}

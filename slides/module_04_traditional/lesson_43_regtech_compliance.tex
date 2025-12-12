@@ -19,6 +19,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 43: RegTech and Compliance}
 \subtitle{Module 4: Traditional Digital Finance}
 \author{Digital Finance Course}
@@ -30,7 +39,7 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{Learning Objectives}
+\begin{frame}[t]{Learning Objectives}
 \begin{itemize}
 \item Understand RegTech scope and technology applications
 \item Analyze Basel III capital and liquidity requirements
@@ -42,7 +51,7 @@
 
 \section{RegTech Overview}
 
-\begin{frame}{RegTech Definition and Scope}
+\begin{frame}[t]{RegTech Definition and Scope}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -78,9 +87,10 @@
 \item 20-30\% CAGR driven by regulatory complexity
 \end{itemize}
 \end{columns}
+\bottomnote{Clear definitions are essential for understanding complex technical concepts.}
 \end{frame}
 
-\begin{frame}{RegTech Technology Stack}
+\begin{frame}[t]{RegTech Technology Stack}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -112,11 +122,12 @@
 \item Fintechs: Cloud-native RegTech-as-a-Service
 \end{itemize}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \section{Basel III Capital Framework}
 
-\begin{frame}{Basel III Overview}
+\begin{frame}[t]{Basel III Overview}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -154,7 +165,7 @@ $$4.5\% + 2.5\% + 1\% + 2.5\% = 10.5\% \text{ CET1}$$
 \end{columns}
 \end{frame}
 
-\begin{frame}{Risk-Weighted Assets (RWA) Calculation}
+\begin{frame}[t]{Risk-Weighted Assets (RWA) Calculation}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -173,10 +184,12 @@ $$4.5\% + 2.5\% + 1\% + 2.5\% = 10.5\% \text{ CET1}$$
 $$\text{RWA} = K \times 12.5 \times \text{EAD}$$
 where $K$ = capital requirement function of PD, LGD, M
 
-\vspace{1mm}
-$$K = [\text{LGD} \times N(\sqrt{\frac{1}{1-R}} \cdot N^{-1}(\text{PD}) + \sqrt{\frac{R}{1-R}} \cdot N^{-1}(0.999)) - \text{PD} \times \text{LGD}] \times (1 + (M-2.5) \times b)$$
+{\scriptsize
+$K = [\text{LGD} \times N(\sqrt{\frac{1}{1-R}} N^{-1}(\text{PD}) + \sqrt{\frac{R}{1-R}} N^{-1}(0.999)) - \text{PD} \times \text{LGD}] \times (1 + (M-2.5)b)$
+}
 
-where $R$ = correlation, $M$ = maturity
+\vspace{1mm}
+{\tiny where $R$ = correlation, $M$ = maturity}
 
 \column{0.48\textwidth}
 \textbf{Market Risk RWA:}
@@ -199,7 +212,7 @@ $$\text{RWA}_{IRB} \geq 72.5\% \times \text{RWA}_{Standardized}$$
 \end{columns}
 \end{frame}
 
-\begin{frame}{Liquidity Requirements: LCR and NSFR}
+\begin{frame}[t]{Liquidity Requirements: LCR and NSFR}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -250,11 +263,12 @@ $$\text{NSFR} = \frac{\text{Available Stable Funding}}{\text{Required Stable Fun
 \item Corporate loans, other assets: 85-100\%
 \end{itemize}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \section{IFRS 9 Expected Credit Loss}
 
-\begin{frame}{IFRS 9 Overview and ECL Model}
+\begin{frame}[t]{IFRS 9 Overview and ECL Model}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -302,9 +316,10 @@ $$\text{Lifetime ECL} = \sum_{t=1}^{T} \text{PD}_t \times \text{LGD}_t \times \t
 
 where $\text{DF}_t$ = discount factor, $T$ = contractual maturity
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{SICR Criteria and Implementation}
+\begin{frame}[t]{SICR Criteria and Implementation}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -347,9 +362,10 @@ where $\text{DF}_t$ = discount factor, $T$ = contractual maturity
 \item \textbf{Oracle:} IFRS 9 ECL module (OFSAA)
 \end{itemize}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Macroeconomic Scenarios and Probability Weighting}
+\begin{frame}[t]{Macroeconomic Scenarios and Probability Weighting}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -404,11 +420,12 @@ Downside & 20\% & 80 \\
 \item Subsequent releases as economies recovered (2021-2022)
 \end{itemize}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \section{Regulatory Reporting Automation}
 
-\begin{frame}{EMIR Trade Reporting}
+\begin{frame}[t]{EMIR Trade Reporting}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -453,9 +470,10 @@ Downside & 20\% & 80 \\
 \vspace{2mm}
 \textit{Industry-wide reconciliation break rate: 5-15\% of trades (falling over time)}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{MiFID II Reporting and Transaction Monitoring}
+\begin{frame}[t]{MiFID II Reporting and Transaction Monitoring}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -509,9 +527,10 @@ Downside & 20\% & 80 \\
 \item Managed reporting services (outsourced compliance)
 \end{itemize}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{US Regulatory Reporting (Dodd-Frank)}
+\begin{frame}[t]{US Regulatory Reporting (Dodd-Frank)}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -568,11 +587,12 @@ Downside & 20\% & 80 \\
 \item Delayed go-live (originally 2017, phased 2020-2024)
 \end{itemize}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \section{AML and KYC Technology}
 
-\begin{frame}{KYC and Customer Due Diligence}
+\begin{frame}[t]{KYC and Customer Due Diligence}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -620,9 +640,10 @@ Downside & 20\% & 80 \\
 \end{itemize}
 \end{itemize}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Transaction Monitoring and AML}
+\begin{frame}[t]{Transaction Monitoring and AML}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -672,9 +693,10 @@ Downside & 20\% & 80 \\
 \item Model validation and governance critical
 \end{itemize}
 \end{columns}
+\bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
-\begin{frame}{Sanctions Screening and Trade Surveillance}
+\begin{frame}[t]{Sanctions Screening and Trade Surveillance}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -734,11 +756,12 @@ Downside & 20\% & 80 \\
 \item Market announcements and news
 \end{itemize}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \section{Emerging RegTech Trends}
 
-\begin{frame}{SupTech and Machine-Readable Regulation}
+\begin{frame}[t]{SupTech and Machine-Readable Regulation}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -791,9 +814,10 @@ Downside & 20\% & 80 \\
 \item Standardization across jurisdictions
 \end{itemize}
 \end{columns}
+\bottomnote{Regulatory frameworks shape adoption patterns and industry structure.}
 \end{frame}
 
-\begin{frame}{Summary and Key Takeaways}
+\begin{frame}[t]{Summary and Key Takeaways}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}

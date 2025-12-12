@@ -26,6 +26,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 13: What is Blockchain?}
 \subtitle{Module 2: Blockchain and Cryptocurrencies}
 \author{Digital Finance}
@@ -63,6 +72,7 @@
 \vspace{5mm}
 \centering
 \textit{``How can strangers transact without trusting each other or a central authority?''}
+\bottomnote{Digital transactions require trust mechanisms---blockchain removes the need for intermediaries.}
 \end{frame}
 
 \begin{frame}{The Evolution of Digital Cash}
@@ -85,6 +95,7 @@
 
 \vspace{3mm}
 \textbf{Key Insight:} All prior attempts failed to solve Byzantine Generals Problem in decentralized networks
+\bottomnote{Understanding history helps predict future developments in the technology.}
 \end{frame}
 
 \begin{frame}{Satoshi Nakamoto's Breakthrough (October 2008)}
@@ -124,6 +135,7 @@
 Chancellor on brink of\\
 second bailout for banks''
 \end{columns}
+\bottomnote{Bitcoin combined existing cryptographic primitives in a novel way to solve double-spending.}
 \end{frame}
 
 \begin{frame}{What is a Blockchain? Core Definition}
@@ -152,6 +164,7 @@ second bailout for banks''
 \item \textcolor{mlpurple}{\textbf{Pseudonymity:}} Addresses, not names
 \end{itemize}
 \end{columns}
+\bottomnote{Clear definitions are essential for understanding complex technical concepts.}
 \end{frame}
 
 \begin{frame}{Centralized vs Decentralized Systems}
@@ -195,6 +208,7 @@ second bailout for banks''
 \item No intermediary needed
 \end{itemize}
 \end{columns}
+\bottomnote{Centralized systems trade trust for efficiency; decentralized systems trade efficiency for trustlessness.}
 \end{frame}
 
 \begin{frame}{The Blockchain Trilemma}
@@ -241,6 +255,7 @@ Solana & Medium & Medium & Very High (3000+ TPS) \\
 \bottomrule
 \end{tabular}
 \end{table}
+\bottomnote{The blockchain trilemma forces trade-offs between decentralization, security, and scalability.}
 \end{frame}
 
 \begin{frame}{How Blockchain Works: Simplified Flow}
@@ -264,6 +279,7 @@ Solana & Medium & Medium & Very High (3000+ TPS) \\
 \item Ethereum: ~12 seconds per block (32 blocks for finality = 6-7 minutes)
 \item Solana: ~400ms per block (instant practical finality)
 \end{itemize}
+\bottomnote{Understanding the process flow is key to identifying optimization opportunities.}
 \end{frame}
 
 \begin{frame}{Public vs Private Blockchains}
@@ -289,6 +305,7 @@ Trust Model & Trustless & Trust in consortium \\
 
 \vspace{3mm}
 \textbf{Hybrid Models:} Some networks (e.g., VeChain) combine public chain with private enterprise features
+\bottomnote{Public and private blockchains serve different use cases with different trust models.}
 \end{frame}
 
 \begin{frame}{Blockchain Use Cases Beyond Cryptocurrency}
@@ -330,6 +347,7 @@ Trust Model & Trustless & Trust in consortium \\
 \item Energy grid management
 \end{itemize}
 \end{columns}
+\bottomnote{Real-world applications demonstrate the practical value of blockchain technology.}
 \end{frame}
 
 \begin{frame}{Real-World Example: Walmart Food Traceability}
@@ -364,6 +382,7 @@ Trust Model & Trustless & Trust in consortium \\
 
 \vspace{5mm}
 \textbf{Impact:} Reduced food waste, improved consumer safety, lower liability costs
+\bottomnote{Case studies provide concrete evidence of technology impact and adoption patterns.}
 \end{frame}
 
 \begin{frame}{Limitations and Challenges}
@@ -394,6 +413,7 @@ Trust Model & Trustless & Trust in consortium \\
 \vspace{5mm}
 \centering
 \textbf{Key Insight:} Blockchain is not a universal solution - use only when decentralization and immutability are critical requirements
+\bottomnote{Understanding limitations helps identify appropriate use cases and avoid over-engineering.}
 \end{frame}
 
 \begin{frame}{Blockchain vs Traditional Database}
@@ -420,6 +440,7 @@ Auditability & Depends on logging & Complete audit trail \\
 
 \vspace{3mm}
 \textbf{Decision Rule:} Use blockchain ONLY if multiple parties need shared write access without mutual trust
+\bottomnote{Comparative analysis helps identify the right tool for specific requirements.}
 \end{frame}
 
 \begin{frame}{The Hype Cycle: Where Are We?}
@@ -442,6 +463,7 @@ Auditability & Depends on logging & Complete audit trail \\
 \item Enterprise: Selective adoption where justified (supply chain, trade finance)
 \item CBDCs: 130+ countries exploring, 11 launched (e.g., Nigeria eNaira, Bahamas Sand Dollar)
 \end{itemize}
+\bottomnote{Technology adoption follows predictable patterns---timing matters for investment decisions.}
 \end{frame}
 
 \begin{frame}{Bitcoin Network Statistics (2024)}
@@ -473,6 +495,7 @@ Auditability & Depends on logging & Complete audit trail \\
 \vspace{3mm}
 \footnotesize
 \textit{Next halving: April 2024 (reward drops to 3.125 BTC)}
+\bottomnote{Network metrics provide objective measures of adoption and ecosystem health.}
 \end{frame}
 
 \begin{frame}{Ethereum Network Statistics (2024)}
@@ -504,6 +527,7 @@ Auditability & Depends on logging & Complete audit trail \\
 \vspace{3mm}
 \footnotesize
 \textit{EIP-4844 (Proto-Danksharding) expected 2024 - major scalability upgrade}
+\bottomnote{Network metrics provide objective measures of adoption and ecosystem health.}
 \end{frame}
 
 \begin{frame}{Key Terminology Summary}

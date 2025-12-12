@@ -19,6 +19,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 45: Derivatives Technology}
 \subtitle{Module 4: Traditional Digital Finance}
 \author{Digital Finance Course}
@@ -85,6 +94,7 @@
 \vspace{2mm}
 \textit{Post-2008 trend: 75\%+ of interest rate swaps now cleared via CCPs (vs 20\% pre-crisis)}
 \end{columns}
+\bottomnote{Derivatives enable risk transfer and price discovery.}
 \end{frame}
 
 \begin{frame}{Derivatives Product Types}
@@ -129,6 +139,7 @@
 \vspace{2mm}
 \textit{IRS: Most liquid OTC derivative (80\%+ of notional outstanding)}
 \end{columns}
+\bottomnote{Derivatives enable risk transfer and price discovery.}
 \end{frame}
 
 \section{Pricing and Risk Systems}
@@ -178,6 +189,7 @@ $$c = \frac{1 - DF(T_n)}{\sum_{i=1}^{n} \tau_i \times DF(t_i)}$$
 \item Multi-curve framework post-2008 (OIS discounting vs LIBOR/SOFR projection)
 \end{itemize}
 \end{columns}
+\bottomnote{Derivatives enable risk transfer and price discovery.}
 \end{frame}
 
 \begin{frame}{Greeks and Risk Management}
@@ -222,6 +234,7 @@ $$\text{Volga} = \frac{\partial^2 V}{\partial \sigma^2}$$
 \item Hedge Greeks dynamically (delta-neutral, vega-neutral)
 \end{itemize}
 \end{columns}
+\bottomnote{Risk management is essential for financial stability and profitability.}
 \end{frame}
 
 \begin{frame}{Derivatives Valuation Systems}
@@ -272,6 +285,7 @@ $$\text{Volga} = \frac{\partial^2 V}{\partial \sigma^2}$$
 \vspace{2mm}
 \textit{Large bank derivatives book: 100k-1M positions, EOD risk calc in 2-4 hours}
 \end{columns}
+\bottomnote{Derivatives enable risk transfer and price discovery.}
 \end{frame}
 
 \section{Exchange-Traded Derivatives}
@@ -332,6 +346,7 @@ $$\text{Volga} = \frac{\partial^2 V}{\partial \sigma^2}$$
 \item Delta-hedge with underlying or options
 \end{itemize}
 \end{columns}
+\bottomnote{Future trends inform strategic planning and investment decisions.}
 \end{frame}
 
 \begin{frame}{Options Trading and Volatility Markets}
@@ -387,6 +402,7 @@ $$\text{Volga} = \frac{\partial^2 V}{\partial \sigma^2}$$
 $$\text{Payoff} = N \times (\sigma_{realized}^2 - K_{var})$$
 where $N$ = variance notional, $K_{var}$ = strike variance, $\sigma_{realized}$ = realized volatility
 \end{columns}
+\bottomnote{Electronic trading has transformed market structure and efficiency.}
 \end{frame}
 
 \section{OTC Derivatives and Central Clearing}
@@ -433,6 +449,7 @@ where $N$ = variance notional, $K_{var}$ = strike variance, $\sigma_{realized}$ 
 \item Confirmations: Trade-specific economics
 \end{itemize}
 \end{columns}
+\bottomnote{Technology adoption follows predictable patterns---timing matters for investment decisions.}
 \end{frame}
 
 \begin{frame}{Central Counterparty Clearing (CCPs)}
@@ -494,6 +511,7 @@ where $N$ = variance notional, $K_{var}$ = strike variance, $\sigma_{realized}$ 
 \item Stress testing and concentration limits
 \end{itemize}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Margin and Collateral Systems}
@@ -550,6 +568,7 @@ where $N$ = variance notional, $K_{var}$ = strike variance, $\sigma_{realized}$ 
 \item \textbf{TriOptima (CME):} Compression and optimization
 \end{itemize}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \section{Regulatory Reporting: EMIR and Dodd-Frank}
@@ -605,6 +624,7 @@ where $N$ = variance notional, $K_{var}$ = strike variance, $\sigma_{realized}$ 
 \item Integrated with derivatives platforms (Murex, Calypso)
 \end{itemize}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Dodd-Frank Swap Data Reporting}
@@ -657,6 +677,7 @@ where $N$ = variance notional, $K_{var}$ = strike variance, $\sigma_{realized}$ 
 \item Critical trade information (CTI) standardization
 \end{itemize}
 \end{columns}
+\bottomnote{Quality data is the foundation for effective machine learning models.}
 \end{frame}
 
 \section{Emerging Trends in Derivatives Technology}
@@ -705,6 +726,7 @@ where $N$ = variance notional, $K_{var}$ = strike variance, $\sigma_{realized}$ 
 \vspace{2mm}
 \textit{CME SOFR futures: \$10+ trillion notional outstanding (2024), primary hedging instrument}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{DLT and Smart Derivatives Contracts}
@@ -759,6 +781,7 @@ where $N$ = variance notional, $K_{var}$ = strike variance, $\sigma_{realized}$ 
 \item Regulatory acceptance (still evolving)
 \end{itemize}
 \end{columns}
+\bottomnote{Derivatives enable risk transfer and price discovery.}
 \end{frame}
 
 \begin{frame}{Summary and Key Takeaways}

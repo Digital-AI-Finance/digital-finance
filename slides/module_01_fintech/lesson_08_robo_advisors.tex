@@ -19,6 +19,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 8: Robo-Advisors and Digital Wealth}
 \subtitle{Module 1: FinTech Fundamentals}
 \author{Digital Finance}
@@ -30,7 +39,11 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{Robo-Advisor Definition}
+% =============================================================================
+\section{Robo-Advisor Fundamentals}
+% =============================================================================
+
+\begin{frame}[t]{Robo-Advisor Definition}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -43,17 +56,19 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/robo_vs_traditional.pdf}
+\includegraphics[width=\textwidth]{figures/robo_vs_traditional/robo_vs_traditional.pdf}
 \end{columns}
+\bottomnote{Robo-advisors automate portfolio management---lowering fees from 1\% to 0.25\% for passive investing.}
 \end{frame}
 
-\begin{frame}{Market Leaders}
+\begin{frame}[t]{Market Leaders}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/robo_market_leaders.pdf}
+\includegraphics[width=0.65\textwidth]{figures/robo_market_leaders/robo_market_leaders.pdf}
 \end{center}
+\bottomnote{Vanguard dominates with \$250B AUM---Betterment and Wealthfront lead pure-play robos at \$40B each.}
 \end{frame}
 
-\begin{frame}{Betterment Case Study}
+\begin{frame}[t]{Betterment Case Study}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -66,17 +81,23 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/betterment_growth.pdf}
+\includegraphics[width=\textwidth]{figures/betterment_growth/betterment_growth.pdf}
 \end{columns}
+\bottomnote{Betterment pioneered the robo model in 2008---reaching 800K+ customers and \$40B AUM by 2023.}
 \end{frame}
 
-\begin{frame}{Customer Onboarding Flow}
+% =============================================================================
+\section{Portfolio Construction}
+% =============================================================================
+
+\begin{frame}[t]{Customer Onboarding Flow}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/robo_onboarding.pdf}
+\includegraphics[width=0.65\textwidth]{figures/robo_onboarding/robo_onboarding.pdf}
 \end{center}
+\bottomnote{5-minute digital onboarding replaces multi-hour advisor meetings---account funded same day.}
 \end{frame}
 
-\begin{frame}{Risk Profiling}
+\begin{frame}[t]{Risk Profiling}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -89,11 +110,12 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/risk_profiling_output.pdf}
+\includegraphics[width=\textwidth]{figures/risk_profiling_output/risk_profiling_output.pdf}
 \end{columns}
+\bottomnote{Risk questionnaire determines allocation---time horizon and loss tolerance drive stock/bond mix.}
 \end{frame}
 
-\begin{frame}{Portfolio Construction}
+\begin{frame}[t]{Portfolio Construction}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -106,17 +128,23 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/efficient_frontier.pdf}
+\includegraphics[width=\textwidth]{figures/efficient_frontier/efficient_frontier.pdf}
 \end{columns}
+\bottomnote{Mean-variance optimization finds efficient frontier---maximum return for given risk level.}
 \end{frame}
 
-\begin{frame}{Asset Allocation Examples}
+\begin{frame}[t]{Asset Allocation Examples}
 \begin{center}
-\includegraphics[width=0.82\textwidth]{figures/asset_allocation_profiles.pdf}
+\includegraphics[width=0.65\textwidth]{figures/asset_allocation_profiles/asset_allocation_profiles.pdf}
 \end{center}
+\bottomnote{Conservative to aggressive profiles span 20-90\% stocks---global ETFs provide diversification.}
 \end{frame}
 
-\begin{frame}{Automatic Rebalancing}
+% =============================================================================
+\section{Automated Optimization}
+% =============================================================================
+
+\begin{frame}[t]{Automatic Rebalancing}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -129,11 +157,12 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/rebalancing_process.pdf}
+\includegraphics[width=\textwidth]{figures/rebalancing_process/rebalancing_process.pdf}
 \end{columns}
+\bottomnote{Automatic rebalancing triggers at 5\% drift---keeps portfolio aligned with target allocation.}
 \end{frame}
 
-\begin{frame}{Tax-Loss Harvesting}
+\begin{frame}[t]{Tax-Loss Harvesting}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -146,17 +175,23 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/tax_loss_harvesting.pdf}
+\includegraphics[width=\textwidth]{figures/tax_loss_harvesting/tax_loss_harvesting.pdf}
 \end{columns}
+\bottomnote{Tax-loss harvesting adds 0.77\% alpha annually---selling losers to offset gains while avoiding wash sales.}
 \end{frame}
 
-\begin{frame}{Fee Comparison}
+% =============================================================================
+\section{Fees and Economics}
+% =============================================================================
+
+\begin{frame}[t]{Fee Comparison}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/fee_comparison_wealth.pdf}
+\includegraphics[width=0.65\textwidth]{figures/fee_comparison_wealth/fee_comparison_wealth.pdf}
 \end{center}
+\bottomnote{Robo fees (0.25\%) are 75\% lower than traditional advisors (1\%)---a major competitive advantage.}
 \end{frame}
 
-\begin{frame}{Fee Impact Over Time}
+\begin{frame}[t]{Fee Impact Over Time}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -169,11 +204,12 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/fee_impact_projection.pdf}
+\includegraphics[width=\textwidth]{figures/fee_impact_projection/fee_impact_projection.pdf}
 \end{columns}
+\bottomnote{0.75\% fee difference compounds to \$78K over 30 years on \$100K---fees are the silent killer.}
 \end{frame}
 
-\begin{frame}{Business Model Economics}
+\begin{frame}[t]{Business Model Economics}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -186,17 +222,23 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/robo_unit_economics.pdf}
+\includegraphics[width=\textwidth]{figures/robo_unit_economics/robo_unit_economics.pdf}
 \end{columns}
+\bottomnote{CAC of \$150-300 requires 2-3 years to break even---average AUM of \$50K yields \$125/year revenue.}
 \end{frame}
 
-\begin{frame}{Hybrid Models}
+% =============================================================================
+\section{Market Evolution}
+% =============================================================================
+
+\begin{frame}[t]{Hybrid Models}
 \begin{center}
-\includegraphics[width=0.82\textwidth]{figures/hybrid_advisor_model.pdf}
+\includegraphics[width=0.65\textwidth]{figures/hybrid_advisor_model/hybrid_advisor_model.pdf}
 \end{center}
+\bottomnote{Hybrid models combine automation with human advisors---addressing the behavioral coaching gap.}
 \end{frame}
 
-\begin{frame}{Vanguard Personal Advisor}
+\begin{frame}[t]{Vanguard Personal Advisor}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -209,11 +251,12 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/vanguard_hybrid.pdf}
+\includegraphics[width=\textwidth]{figures/vanguard_hybrid/vanguard_hybrid.pdf}
 \end{columns}
+\bottomnote{Vanguard Personal Advisor leads with \$250B AUM---0.30\% fee with human advisor access proves compelling.}
 \end{frame}
 
-\begin{frame}{Incumbent Response}
+\begin{frame}[t]{Incumbent Response}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -226,17 +269,23 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/incumbent_robo_offerings.pdf}
+\includegraphics[width=\textwidth]{figures/incumbent_robo_offerings/incumbent_robo_offerings.pdf}
 \end{columns}
+\bottomnote{Schwab, Fidelity, and Morgan Stanley launched competing robos---incumbents now dominate the space.}
 \end{frame}
 
-\begin{frame}{Global Adoption Rates}
+\begin{frame}[t]{Global Adoption Rates}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/robo_global_adoption.pdf}
+\includegraphics[width=0.65\textwidth]{figures/robo_global_adoption/robo_global_adoption.pdf}
 \end{center}
+\bottomnote{Global robo AUM reached \$2.5T---US dominates, but Europe and Asia are growing rapidly.}
 \end{frame}
 
-\begin{frame}{Challenges and Limitations}
+% =============================================================================
+\section{Future and Summary}
+% =============================================================================
+
+\begin{frame}[t]{Challenges and Limitations}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -249,11 +298,12 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/robo_challenges.pdf}
+\includegraphics[width=\textwidth]{figures/robo_challenges/robo_challenges.pdf}
 \end{columns}
+\bottomnote{Behavioral coaching gap remains---robots struggle to prevent panic selling during market crashes.}
 \end{frame}
 
-\begin{frame}{Future: AI-Powered Advisors}
+\begin{frame}[t]{Future: AI-Powered Advisors}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -266,11 +316,12 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/ai_advisor_future.pdf}
+\includegraphics[width=\textwidth]{figures/ai_advisor_future/ai_advisor_future.pdf}
 \end{columns}
+\bottomnote{LLM-powered advisors promise personalized financial planning---holistic wellness beyond just investing.}
 \end{frame}
 
-\begin{frame}{Key Takeaways}
+\begin{frame}[t]{Key Takeaways}
 \begin{itemize}
 \item \textbf{Fees}: 0.25\% vs 1\% saves \$78K over 30 years
 \item \textbf{Strategy}: Passive ETF allocation + rebalancing + tax optimization
@@ -278,6 +329,7 @@
 \item \textbf{Evolution}: Pure robo $\to$ hybrid models winning
 \item \textbf{Future}: AI personalization and behavioral coaching
 \end{itemize}
+\bottomnote{Robo-advisors democratized wealth management---fee compression benefits all investors.}
 \end{frame}
 
 \end{document}

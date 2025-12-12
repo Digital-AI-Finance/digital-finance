@@ -20,6 +20,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 22: Stablecoins and Terra/Luna Case Study}
 \subtitle{Module 2: Blockchain Fundamentals}
 \author{Digital Finance}
@@ -32,8 +41,9 @@
 \end{frame}
 
 \begin{frame}{The Volatility Problem}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{charts/lesson_22/crypto_volatility.pdf}
+\includegraphics[width=0.48\textwidth]{figures/crypto_volatility/crypto_volatility.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Challenge:}
@@ -44,9 +54,11 @@
 \end{itemize}
 
 \textbf{Solution:} Stablecoins -- cryptocurrencies pegged to stable assets (typically USD)
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{What is a Stablecoin?}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -68,13 +80,15 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_22/stablecoin_use_cases.pdf}
+\includegraphics[width=\textwidth]{figures/stablecoin_use_cases/stablecoin_use_cases.pdf}
 \end{columns}
+\bottomnote{Clear definitions are essential for understanding complex technical concepts.}
 \end{frame}
 
 \begin{frame}{Stablecoin Taxonomy}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.9\textwidth]{charts/lesson_22/stablecoin_types.pdf}
+\includegraphics[width=0.48\textwidth]{figures/stablecoin_types/stablecoin_types.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Three Main Types:}
@@ -83,9 +97,11 @@
 \item \textbf{Crypto-Collateralized:} Over-collateralized with crypto (DAI)
 \item \textbf{Algorithmic:} No collateral, algorithmic supply adjustment (UST -- failed)
 \end{enumerate}
+\bottomnote{Stablecoins bridge traditional and crypto finance by maintaining price stability.}
 \end{frame}
 
 \begin{frame}{Fiat-Collateralized: Tether (USDT)}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -107,11 +123,13 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_22/fiat_collateralized_flow.pdf}
+\includegraphics[width=\textwidth]{figures/fiat_collateralized_flow/fiat_collateralized_flow.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Tether Controversy: Are Reserves Real?}
+\vspace{-2mm}
 \textbf{Claims:}
 \begin{itemize}
 \item Tether claims 1:1 backing since 2014
@@ -129,9 +147,11 @@
 
 \vspace{3mm}
 \textbf{Risk:} Bank run scenario -- if everyone redeems simultaneously, can Tether honor?
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{USDC: Regulated Alternative}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -152,16 +172,18 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_22/usdc_reserves.pdf}
+\includegraphics[width=\textwidth]{figures/usdc_reserves/usdc_reserves.pdf}
 \end{columns}
 
 \vspace{3mm}
 \textbf{2023 SVB Crisis:} \$3.3B stuck in Silicon Valley Bank (depegged to \$0.87 briefly, recovered)
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Crypto-Collateralized: DAI (MakerDAO)}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{charts/lesson_22/dai_mechanism.pdf}
+\includegraphics[width=0.48\textwidth]{figures/dai_mechanism/dai_mechanism.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Mechanism:}
@@ -173,9 +195,11 @@
 \end{enumerate}
 
 \textbf{Decentralization:} No single custodian, governed by MKR token holders
+\bottomnote{Cryptographic primitives provide the security foundation for blockchain systems.}
 \end{frame}
 
 \begin{frame}{DAI Stability Mechanisms}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -195,11 +219,13 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_22/dai_peg_history.pdf}
+\includegraphics[width=\textwidth]{figures/dai_peg_history/dai_peg_history.pdf}
 \end{columns}
+\bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
 \begin{frame}{Algorithmic Stablecoins: The Dream}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -220,16 +246,18 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_22/algorithmic_concept.pdf}
+\includegraphics[width=\textwidth]{figures/algorithmic_concept/algorithmic_concept.pdf}
 \end{columns}
 
 \vspace{3mm}
 \textbf{Reality:} All pure algorithmic stablecoins have failed (Basis, Iron, Terra)
+\bottomnote{Stablecoins bridge traditional and crypto finance by maintaining price stability.}
 \end{frame}
 
 \begin{frame}{Terra/Luna: The \$60 Billion Collapse}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{charts/lesson_22/terra_ecosystem.pdf}
+\includegraphics[width=0.48\textwidth]{figures/terra_ecosystem/terra_ecosystem.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Ecosystem (Pre-Collapse):}
@@ -239,9 +267,11 @@
 \item \textbf{Anchor Protocol:} 20\% APY on UST deposits (unsustainable)
 \item \textbf{Market Cap (May 2022):} UST \$18B, LUNA \$40B
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Terra/Luna Mechanism: Arbitrage Peg}
+\vspace{-2mm}
 \textbf{Design:}
 \begin{itemize}
 \item 1 UST always redeemable for \$1 worth of LUNA (protocol guarantee)
@@ -264,11 +294,13 @@
 \item Sell 1 UST for \$1.02
 \item Profit: \$0.02 (increases UST supply, lowers price)
 \end{enumerate}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{The Death Spiral: May 2022}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.9\textwidth]{charts/lesson_22/terra_death_spiral.pdf}
+\includegraphics[width=0.48\textwidth]{figures/terra_death_spiral/terra_death_spiral.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Timeline:}
@@ -278,9 +310,11 @@
 \item \textbf{May 10--11:} Hyperinflation of LUNA (supply: 350M $\rightarrow$ 6.5T), price collapses
 \item \textbf{May 12:} UST at \$0.10, LUNA near \$0, blockchain halted
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Why Did Terra Collapse?}
+\vspace{-2mm}
 \textbf{Structural Flaws:}
 \begin{itemize}
 \item \textbf{Ponzi Dynamics:} Anchor's 20\% APY funded by LUNA inflation (unsustainable)
@@ -298,9 +332,11 @@
 
 \vspace{3mm}
 \textbf{Aftermath:} \$60B market cap evaporated, lawsuits, Do Kwon (founder) arrested in Montenegro
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Terra Collapse: Contagion Effects}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -320,11 +356,13 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_22/contagion_map.pdf}
+\includegraphics[width=\textwidth]{figures/contagion_map/contagion_map.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Lessons from Terra/Luna}
+\vspace{-2mm}
 \begin{enumerate}
 \item \textbf{No Free Lunch:} 20\% risk-free yield is impossible sustainably
 \item \textbf{Algorithmic Stablecoins are Fragile:} Require continuous growth, vulnerable to bank runs
@@ -336,9 +374,11 @@
 
 \vspace{3mm}
 \textbf{Quote:} ``If UST depegs, I will personally absorb the loss.'' -- Do Kwon (didn't happen)
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Post-Terra: Industry Response}
+\vspace{-2mm}
 \textbf{Regulatory Push:}
 \begin{itemize}
 \item US: Stablecoin legislation proposed (reserve requirements, audits)
@@ -361,11 +401,13 @@
 \item GHO (Aave): Over-collateralized, DAO-governed
 \item LUSD (Liquity): Immutable, minimum 110\% collateral
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Stablecoin Market Share (2024)}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{charts/lesson_22/stablecoin_market_share.pdf}
+\includegraphics[width=0.48\textwidth]{figures/stablecoin_market_share/stablecoin_market_share.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Top Stablecoins:}
@@ -375,9 +417,11 @@
 \item \textbf{DAI (MakerDAO):} \$5B (3\%)
 \item \textbf{Others:} BUSD (deprecated), TUSD, FRAX, USDD
 \end{itemize}
+\bottomnote{Stablecoins bridge traditional and crypto finance by maintaining price stability.}
 \end{frame}
 
 \begin{frame}{Central Bank Digital Currencies (CBDCs)}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -399,14 +443,16 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_22/cbdc_vs_stablecoin.pdf}
+\includegraphics[width=\textwidth]{figures/cbdc_vs_stablecoin/cbdc_vs_stablecoin.pdf}
 \end{columns}
 
 \vspace{3mm}
 \textbf{Concern:} Surveillance, programmable restrictions (e.g., expiry dates on money)
+\bottomnote{Banks play a central role in the financial system as intermediaries.}
 \end{frame}
 
 \begin{frame}{Summary}
+\vspace{-2mm}
 \begin{itemize}
 \item \textbf{Stablecoins:} Crypto with stable value, essential for DeFi and payments
 \item \textbf{Fiat-Collateralized:} USDT/USDC, centralized, require trust in custodian

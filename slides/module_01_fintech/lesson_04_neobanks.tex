@@ -19,6 +19,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 4: Neobanks and Challenger Banks}
 \subtitle{Module 1: FinTech Fundamentals}
 \author{Digital Finance}
@@ -30,7 +39,11 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{Neobank Definition}
+% =============================================================================
+\section{Neobank Fundamentals}
+% =============================================================================
+
+\begin{frame}[t]{Neobank Definition}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -45,15 +58,21 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/neobank_vs_traditional.pdf}
 \end{columns}
+\bottomnote{Neobanks operate without branches---cloud-native architecture enables 10x lower costs.}
 \end{frame}
 
-\begin{frame}{Market Leaders}
+\begin{frame}[t]{Market Leaders}
 \begin{center}
-\includegraphics[width=0.88\textwidth]{figures/neobank_market_leaders.pdf}
+\includegraphics[width=0.65\textwidth]{figures/neobank_market_leaders.pdf}
 \end{center}
+\bottomnote{Revolut leads Europe (35M users), Nubank dominates Latin America (80M users).}
 \end{frame}
 
-\begin{frame}{Revolut: Case Study}
+% =============================================================================
+\section{Case Studies}
+% =============================================================================
+
+\begin{frame}[t]{Revolut: Case Study}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -68,15 +87,17 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/revolut_growth.pdf}
 \end{columns}
+\bottomnote{Revolut: Founded 2015, 35M customers, \$33B valuation, operating in 38 countries.}
 \end{frame}
 
-\begin{frame}{Revolut Product Suite}
+\begin{frame}[t]{Revolut Product Suite}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/revolut_products.pdf}
+\includegraphics[width=0.62\textwidth]{figures/revolut_products/revolut_products.pdf}
 \end{center}
+\bottomnote{Super-app strategy: payments, crypto, stocks, insurance, travel---all in one app.}
 \end{frame}
 
-\begin{frame}{N26: European Challenger}
+\begin{frame}[t]{N26: European Challenger}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -89,11 +110,16 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/n26_expansion.pdf}
+\includegraphics[width=\textwidth]{figures/n26_expansion/n26_expansion.pdf}
 \end{columns}
+\bottomnote{N26: German banking license enables EU passporting---8M customers across Europe.}
 \end{frame}
 
-\begin{frame}{Neobank Business Models}
+% =============================================================================
+\section{Business Models and Economics}
+% =============================================================================
+
+\begin{frame}[t]{Neobank Business Models}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -106,17 +132,19 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/neobank_business_models.pdf}
+\includegraphics[width=\textwidth]{figures/neobank_business_models/neobank_business_models.pdf}
 \end{columns}
+\bottomnote{Three models: freemium (Revolut), subscription (N26 Metal), transaction-based (Chime).}
 \end{frame}
 
-\begin{frame}{Unit Economics Analysis}
+\begin{frame}[t]{Unit Economics Analysis}
 \begin{center}
-\includegraphics[width=0.82\textwidth]{figures/neobank_unit_economics.pdf}
+\includegraphics[width=0.60\textwidth]{figures/neobank_unit_economics.pdf}
 \end{center}
+\bottomnote{Unit economics: CAC \$20-80 (vs \$200-400 traditional), LTV depends on cross-sell success.}
 \end{frame}
 
-\begin{frame}{Customer Acquisition Cost (CAC)}
+\begin{frame}[t]{Customer Acquisition Cost (CAC)}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -131,15 +159,17 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/cac_comparison.pdf}
 \end{columns}
+\bottomnote{Neobank CAC \$20-80 vs traditional \$200-400---viral coefficient 0.3-0.7 drives growth.}
 \end{frame}
 
-\begin{frame}{Revenue Streams}
+\begin{frame}[t]{Revenue Streams}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/neobank_revenue_breakdown.pdf}
+\includegraphics[width=0.62\textwidth]{figures/neobank_revenue_breakdown/neobank_revenue_breakdown.pdf}
 \end{center}
+\bottomnote{Revenue mix: interchange (40-60\%), subscriptions (20-30\%), lending (10-20\%), FX (10\%).}
 \end{frame}
 
-\begin{frame}{Interchange Revenue Model}
+\begin{frame}[t]{Interchange Revenue Model}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -152,11 +182,12 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/interchange_flow.pdf}
+\includegraphics[width=\textwidth]{figures/interchange_flow/interchange_flow.pdf}
 \end{columns}
+\bottomnote{Interchange: 0.2-2\% per transaction---EU cap 0.2\% limits European neobank revenue.}
 \end{frame}
 
-\begin{frame}{Profitability Challenges}
+\begin{frame}[t]{Profitability Challenges}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -169,17 +200,23 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/neobank_profitability.pdf}
+\includegraphics[width=\textwidth]{figures/neobank_profitability/neobank_profitability.pdf}
 \end{columns}
+\bottomnote{Profitability requires 5M+ users---high growth vs profit trade-off is central challenge.}
 \end{frame}
 
-\begin{frame}{Banking License Strategies}
+% =============================================================================
+\section{Licensing and Partnerships}
+% =============================================================================
+
+\begin{frame}[t]{Banking License Strategies}
 \begin{center}
-\includegraphics[width=0.80\textwidth]{figures/license_strategies.pdf}
+\includegraphics[width=0.58\textwidth]{figures/license_strategies/license_strategies.pdf}
 \end{center}
+\bottomnote{License options: full bank license (N26), e-money license (Revolut EU), or BaaS partner.}
 \end{frame}
 
-\begin{frame}{Partner Banking Model}
+\begin{frame}[t]{Partner Banking Model}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -192,17 +229,23 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/baas_partnership.pdf}
+\includegraphics[width=\textwidth]{figures/baas_partnership/baas_partnership.pdf}
 \end{columns}
+\bottomnote{BaaS model: Chime + Bancorp Bank---faster time to market but 30-50\% revenue share.}
 \end{frame}
 
-\begin{frame}{Competitive Landscape}
+% =============================================================================
+\section{Competition and Future}
+% =============================================================================
+
+\begin{frame}[t]{Competitive Landscape}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/neobank_positioning.pdf}
+\includegraphics[width=0.62\textwidth]{figures/neobank_positioning/neobank_positioning.pdf}
 \end{center}
+\bottomnote{Market positioning: premium vs mass market, full-stack vs specialized services.}
 \end{frame}
 
-\begin{frame}{Traditional Bank Response}
+\begin{frame}[t]{Traditional Bank Response}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -215,11 +258,12 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/incumbent_digital_investment.pdf}
+\includegraphics[width=\textwidth]{figures/incumbent_digital_investment/incumbent_digital_investment.pdf}
 \end{columns}
+\bottomnote{Incumbents respond: Marcus by Goldman, JPMorgan Chase Mobile, core banking modernization.}
 \end{frame}
 
-\begin{frame}{Future Outlook}
+\begin{frame}[t]{Future Outlook}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -232,11 +276,16 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/neobank_future_scenarios.pdf}
+\includegraphics[width=\textwidth]{figures/neobank_future_scenarios/neobank_future_scenarios.pdf}
 \end{columns}
+\bottomnote{Future: M\&A consolidation, super-app convergence, embedded finance integration.}
 \end{frame}
 
-\begin{frame}{Key Takeaways}
+% =============================================================================
+\section{Summary}
+% =============================================================================
+
+\begin{frame}[t]{Key Takeaways}
 \begin{itemize}
 \item \textbf{Cost Advantage}: 10x lower CAC than traditional banks
 \item \textbf{Business Models}: Interchange + subscriptions + lending
@@ -244,6 +293,7 @@
 \item \textbf{Licensing}: Partner vs own license trade-offs
 \item \textbf{Competition}: Incumbents investing heavily in digital
 \end{itemize}
+\bottomnote{Neobanks disrupt with 10x lower CAC, but profitability at scale remains the key challenge.}
 \end{frame}
 
 \end{document}

@@ -19,6 +19,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 9: InsurTech}
 \subtitle{Module 1: FinTech Fundamentals}
 \author{Digital Finance}
@@ -30,7 +39,11 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{Insurance Industry Challenges}
+% =============================================================================
+\section{InsurTech Fundamentals}
+% =============================================================================
+
+\begin{frame}[t]{Insurance Industry Challenges}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -45,15 +58,21 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/insurance_pain_points/insurance_pain_points.pdf}
 \end{columns}
+\bottomnote{Insurance legacy systems struggle with 25-30\% operating costs---InsurTech disrupts every step.}
 \end{frame}
 
-\begin{frame}{InsurTech Value Chain}
+\begin{frame}[t]{InsurTech Value Chain}
 \begin{center}
-\includegraphics[width=0.75\textwidth]{figures/insurtech_value_chain/insurtech_value_chain.pdf}
+\includegraphics[width=0.65\textwidth]{figures/insurtech_value_chain/insurtech_value_chain.pdf}
 \end{center}
+\bottomnote{InsurTech companies target specific pain points---from underwriting to claims to distribution.}
 \end{frame}
 
-\begin{frame}{Lemonade Case Study}
+% =============================================================================
+\section{Lemonade Case Study}
+% =============================================================================
+
+\begin{frame}[t]{Lemonade Case Study}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -68,15 +87,17 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/lemonade_model/lemonade_model.pdf}
 \end{columns}
+\bottomnote{Lemonade offers 90-second policy purchase and 3-minute claims---AI-first from day one.}
 \end{frame}
 
-\begin{frame}{Lemonade Business Model}
+\begin{frame}[t]{Lemonade Business Model}
 \begin{center}
-\includegraphics[width=0.70\textwidth]{figures/lemonade_economics/lemonade_economics.pdf}
+\includegraphics[width=0.65\textwidth]{figures/lemonade_economics/lemonade_economics.pdf}
 \end{center}
+\bottomnote{Flat 25\% fee model with Giveback charity donation---reduces fraud incentive through alignment.}
 \end{frame}
 
-\begin{frame}{Giveback Program}
+\begin{frame}[t]{Giveback Program}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -91,9 +112,10 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/giveback_model/giveback_model.pdf}
 \end{columns}
+\bottomnote{Behavioral economics: customers donate unclaimed premiums to charity---reducing fraudulent claims.}
 \end{frame}
 
-\begin{frame}{AI Claims Processing}
+\begin{frame}[t]{AI Claims Processing}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -108,9 +130,14 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/ai_claims_flow/ai_claims_flow.pdf}
 \end{columns}
+\bottomnote{AI Jim approves 40\% of claims instantly---computer vision and anti-fraud detection automate the rest.}
 \end{frame}
 
-\begin{frame}{Usage-Based Insurance (UBI)}
+% =============================================================================
+\section{Usage-Based Insurance}
+% =============================================================================
+
+\begin{frame}[t]{Usage-Based Insurance (UBI)}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -125,15 +152,17 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/ubi_model/ubi_model.pdf}
 \end{columns}
+\bottomnote{Telematics-based pricing offers 30-50\% savings for safe drivers---IoT sensors track behavior.}
 \end{frame}
 
-\begin{frame}{Telematics Data Points}
+\begin{frame}[t]{Telematics Data Points}
 \begin{center}
-\includegraphics[width=0.72\textwidth]{figures/telematics_data/telematics_data.pdf}
+\includegraphics[width=0.65\textwidth]{figures/telematics_data/telematics_data.pdf}
 \end{center}
+\bottomnote{Hard braking, acceleration, speed, and mileage data determine personalized premiums.}
 \end{frame}
 
-\begin{frame}{Progressive Snapshot Program}
+\begin{frame}[t]{Progressive Snapshot Program}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -148,9 +177,14 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/progressive_snapshot/progressive_snapshot.pdf}
 \end{columns}
+\bottomnote{Progressive enrolled 14M drivers---average 16\% discount through behavioral monitoring.}
 \end{frame}
 
-\begin{frame}{Parametric Insurance}
+% =============================================================================
+\section{Parametric and Embedded Insurance}
+% =============================================================================
+
+\begin{frame}[t]{Parametric Insurance}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -165,15 +199,17 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/parametric_concept/parametric_concept.pdf}
 \end{columns}
+\bottomnote{Index-based triggers eliminate claims adjusters---predefined events trigger instant payouts.}
 \end{frame}
 
-\begin{frame}{Parametric Insurance Examples}
+\begin{frame}[t]{Parametric Insurance Examples}
 \begin{center}
-\includegraphics[width=0.70\textwidth]{figures/parametric_examples/parametric_examples.pdf}
+\includegraphics[width=0.65\textwidth]{figures/parametric_examples/parametric_examples.pdf}
 \end{center}
+\bottomnote{Weather, earthquakes, flight delays, and crop yields all enable parametric products.}
 \end{frame}
 
-\begin{frame}{Flight Delay Insurance}
+\begin{frame}[t]{Flight Delay Insurance}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -188,9 +224,10 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/flight_delay_insurance/flight_delay_insurance.pdf}
 \end{columns}
+\bottomnote{2+ hour flight delay triggers automatic payout---no claim form, instant API-based processing.}
 \end{frame}
 
-\begin{frame}{Embedded Insurance}
+\begin{frame}[t]{Embedded Insurance}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -205,15 +242,21 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/embedded_insurance/embedded_insurance.pdf}
 \end{columns}
+\bottomnote{Point-of-sale insurance captures the moment of need---integrated into e-commerce and travel.}
 \end{frame}
 
-\begin{frame}{InsurTech Market Segments}
+% =============================================================================
+\section{Market and Distribution}
+% =============================================================================
+
+\begin{frame}[t]{InsurTech Market Segments}
 \begin{center}
-\includegraphics[width=0.72\textwidth]{figures/insurtech_segments/insurtech_segments.pdf}
+\includegraphics[width=0.65\textwidth]{figures/insurtech_segments/insurtech_segments.pdf}
 \end{center}
+\bottomnote{Personal lines, commercial, life, and health each have specialized InsurTech disruptors.}
 \end{frame}
 
-\begin{frame}{Distribution Innovation}
+\begin{frame}[t]{Distribution Innovation}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -228,9 +271,14 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/distribution_channels/distribution_channels.pdf}
 \end{columns}
+\bottomnote{Digital brokers and aggregators bypass traditional agents---API-first enables embedded distribution.}
 \end{frame}
 
-\begin{frame}{Regulatory Challenges}
+% =============================================================================
+\section{Challenges and Future}
+% =============================================================================
+
+\begin{frame}[t]{Regulatory Challenges}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -245,9 +293,10 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/insurance_regulation/insurance_regulation.pdf}
 \end{columns}
+\bottomnote{State-by-state licensing and capital requirements slow InsurTech expansion---compliance is costly.}
 \end{frame}
 
-\begin{frame}{Incumbent Response}
+\begin{frame}[t]{Incumbent Response}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -262,9 +311,10 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/incumbent_insurtech_strategy/incumbent_insurtech_strategy.pdf}
 \end{columns}
+\bottomnote{Traditional insurers partner, acquire, and build innovation labs---digital transformation accelerates.}
 \end{frame}
 
-\begin{frame}{Future: Predictive Prevention}
+\begin{frame}[t]{Future: Predictive Prevention}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -279,9 +329,10 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/predictive_insurance/predictive_insurance.pdf}
 \end{columns}
+\bottomnote{IoT and wearables enable prevention over coverage---from reactive claims to proactive risk reduction.}
 \end{frame}
 
-\begin{frame}{Key Takeaways}
+\begin{frame}[t]{Key Takeaways}
 \begin{itemize}
 \item \textbf{Lemonade}: Behavioral economics + AI reduces costs to 25\%
 \item \textbf{UBI}: Telematics enables 30-50\% personalized discounts
@@ -289,6 +340,7 @@
 \item \textbf{Embedded}: Point-of-sale integration captures moments
 \item \textbf{Future}: Predictive prevention over reactive coverage
 \end{itemize}
+\bottomnote{InsurTech transforms insurance from reactive claims processing to proactive risk prevention.}
 \end{frame}
 
 \end{document}

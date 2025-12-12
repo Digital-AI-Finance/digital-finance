@@ -19,6 +19,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 11: Regulatory Frameworks}
 \subtitle{Module 1: FinTech Fundamentals}
 \author{Digital Finance}
@@ -30,7 +39,11 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{Regulatory Landscape}
+% =============================================================================
+\section{Regulatory Landscape}
+% =============================================================================
+
+\begin{frame}[t]{Regulatory Landscape}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -45,15 +58,21 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/eu_regulatory_timeline/eu_regulatory_timeline.pdf}
 \end{columns}
+\bottomnote{Four key EU regulations: PSD2 (open banking), MiCA (crypto), DORA (resilience), GDPR (data protection).}
 \end{frame}
 
-\begin{frame}{PSD2 Deep Dive}
+% =============================================================================
+\section{PSD2 Framework}
+% =============================================================================
+
+\begin{frame}[t]{PSD2 Deep Dive}
 \begin{center}
-\includegraphics[width=0.72\textwidth]{figures/psd2_structure/psd2_structure.pdf}
+\includegraphics[width=0.65\textwidth]{figures/psd2_structure/psd2_structure.pdf}
 \end{center}
+\bottomnote{PSD2 mandates open banking APIs---enabling third-party access to bank accounts with customer consent.}
 \end{frame}
 
-\begin{frame}{PSD2 Key Provisions}
+\begin{frame}[t]{PSD2 Key Provisions}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -68,9 +87,10 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/psd2_provisions/psd2_provisions.pdf}
 \end{columns}
+\bottomnote{PSD2 requires strong customer authentication (SCA), open APIs, and TPP licensing with clear liability rules.}
 \end{frame}
 
-\begin{frame}{PSD2 Impact Assessment}
+\begin{frame}[t]{PSD2 Impact Assessment}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -85,15 +105,21 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/psd2_adoption_metrics/psd2_adoption_metrics.pdf}
 \end{columns}
+\bottomnote{PSD2 impact: 12M UK users, 350+ registered TPPs, 6B pounds in transaction value---driving innovation.}
 \end{frame}
 
-\begin{frame}{Markets in Crypto-Assets (MiCA)}
+% =============================================================================
+\section{MiCA Framework}
+% =============================================================================
+
+\begin{frame}[t]{Markets in Crypto-Assets (MiCA)}
 \begin{center}
-\includegraphics[width=0.75\textwidth]{figures/mica_framework/mica_framework.pdf}
+\includegraphics[width=0.65\textwidth]{figures/mica_framework/mica_framework.pdf}
 \end{center}
+\bottomnote{MiCA is the EU's comprehensive crypto-asset regulation---covering issuance, trading, and custody.}
 \end{frame}
 
-\begin{frame}{MiCA Asset Classification}
+\begin{frame}[t]{MiCA Asset Classification}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -108,9 +134,10 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/mica_asset_types/mica_asset_types.pdf}
 \end{columns}
+\bottomnote{MiCA classifies crypto into EMTs (e-money), ARTs (asset-backed), and other tokens---each with different rules.}
 \end{frame}
 
-\begin{frame}{MiCA Requirements}
+\begin{frame}[t]{MiCA Requirements}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -125,15 +152,21 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/mica_requirements/mica_requirements.pdf}
 \end{columns}
+\bottomnote{MiCA requires white papers, reserve requirements, capital adequacy, and consumer protection measures.}
 \end{frame}
 
-\begin{frame}{MiCA Timeline}
+\begin{frame}[t]{MiCA Timeline}
 \begin{center}
-\includegraphics[width=0.70\textwidth]{figures/mica_implementation/mica_implementation.pdf}
+\includegraphics[width=0.65\textwidth]{figures/mica_implementation/mica_implementation.pdf}
 \end{center}
+\bottomnote{MiCA implementation: stablecoin rules June 2024, full implementation December 2024---EU single market.}
 \end{frame}
 
-\begin{frame}{Digital Operational Resilience Act (DORA)}
+% =============================================================================
+\section{DORA Framework}
+% =============================================================================
+
+\begin{frame}[t]{Digital Operational Resilience Act (DORA)}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -148,15 +181,17 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/dora_pillars/dora_pillars.pdf}
 \end{columns}
+\bottomnote{DORA mandates cyber resilience, third-party oversight, 72-hour incident reporting, and testing requirements.}
 \end{frame}
 
-\begin{frame}{DORA Scope}
+\begin{frame}[t]{DORA Scope}
 \begin{center}
-\includegraphics[width=0.72\textwidth]{figures/dora_scope/dora_scope.pdf}
+\includegraphics[width=0.65\textwidth]{figures/dora_scope/dora_scope.pdf}
 \end{center}
+\bottomnote{DORA applies to all financial entities---banks, insurers, asset managers, and critical ICT providers.}
 \end{frame}
 
-\begin{frame}{DORA Compliance Requirements}
+\begin{frame}[t]{DORA Compliance Requirements}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -171,9 +206,14 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/dora_compliance/dora_compliance.pdf}
 \end{columns}
+\bottomnote{DORA requires ICT governance, threat-led penetration testing, business continuity, and service oversight.}
 \end{frame}
 
-\begin{frame}{GDPR and Financial Data}
+% =============================================================================
+\section{GDPR and Data Protection}
+% =============================================================================
+
+\begin{frame}[t]{GDPR and Financial Data}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -188,15 +228,21 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/gdpr_principles/gdpr_principles.pdf}
 \end{columns}
+\bottomnote{GDPR requires explicit consent, right to erasure, data portability---fines up to 4\% of global turnover.}
 \end{frame}
 
-\begin{frame}{Regulatory Divergence}
+% =============================================================================
+\section{Global Regulatory Divergence}
+% =============================================================================
+
+\begin{frame}[t]{Regulatory Divergence}
 \begin{center}
-\includegraphics[width=0.72\textwidth]{figures/global_regulatory_comparison/global_regulatory_comparison.pdf}
+\includegraphics[width=0.65\textwidth]{figures/global_regulatory_comparison/global_regulatory_comparison.pdf}
 \end{center}
+\bottomnote{Global regulatory approaches vary widely---EU unified market vs US fragmented vs UK innovation-focused.}
 \end{frame}
 
-\begin{frame}{UK Post-Brexit}
+\begin{frame}[t]{UK Post-Brexit}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -211,9 +257,10 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/uk_regulatory_approach/uk_regulatory_approach.pdf}
 \end{columns}
+\bottomnote{Post-Brexit UK pursues regulatory divergence---Edinburgh Reforms and expanded sandbox foster innovation.}
 \end{frame}
 
-\begin{frame}{US Regulatory Fragmentation}
+\begin{frame}[t]{US Regulatory Fragmentation}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -228,15 +275,21 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/us_regulatory_landscape/us_regulatory_landscape.pdf}
 \end{columns}
+\bottomnote{US has fragmented regulation---federal agencies (OCC, Fed, SEC) plus 50 state licensing requirements.}
 \end{frame}
 
-\begin{frame}{Licensing Requirements}
+\begin{frame}[t]{Licensing Requirements}
 \begin{center}
-\includegraphics[width=0.70\textwidth]{figures/fintech_licensing_map/fintech_licensing_map.pdf}
+\includegraphics[width=0.65\textwidth]{figures/fintech_licensing_map/fintech_licensing_map.pdf}
 \end{center}
+\bottomnote{FinTech licensing varies by jurisdiction and service type---payment services, lending, and custody each have requirements.}
 \end{frame}
 
-\begin{frame}{Compliance Costs}
+% =============================================================================
+\section{Compliance Economics}
+% =============================================================================
+
+\begin{frame}[t]{Compliance Costs}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -251,15 +304,21 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/compliance_cost_structure/compliance_cost_structure.pdf}
 \end{columns}
+\bottomnote{Compliance costs significant: \$500K-2M initial licensing, \$200K-1M annual, 10-15\% of headcount.}
 \end{frame}
 
-\begin{frame}{Regulatory Sandboxes Globally}
+\begin{frame}[t]{Regulatory Sandboxes Globally}
 \begin{center}
-\includegraphics[width=0.72\textwidth]{figures/sandbox_global_map/sandbox_global_map.pdf}
+\includegraphics[width=0.65\textwidth]{figures/sandbox_global_map/sandbox_global_map.pdf}
 \end{center}
+\bottomnote{80+ countries have launched regulatory sandboxes---testing innovation under regulatory supervision.}
 \end{frame}
 
-\begin{frame}{Future: Harmonization Efforts}
+% =============================================================================
+\section{Future and Summary}
+% =============================================================================
+
+\begin{frame}[t]{Future: Harmonization Efforts}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -274,9 +333,10 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/regulatory_harmonization/regulatory_harmonization.pdf}
 \end{columns}
+\bottomnote{Basel Committee, FSB, and IOSCO work toward global standards---but cross-border challenges remain.}
 \end{frame}
 
-\begin{frame}{Key Takeaways}
+\begin{frame}[t]{Key Takeaways}
 \begin{itemize}
 \item \textbf{PSD2}: Enables open banking, 12M users in UK alone
 \item \textbf{MiCA}: Comprehensive crypto regulation, 2024 implementation
@@ -284,6 +344,7 @@
 \item \textbf{Fragmentation}: US 50-state vs EU single market
 \item \textbf{Costs}: \$500K-2M initial + \$200K-1M annual
 \end{itemize}
+\bottomnote{Regulatory frameworks balance innovation with protection---compliance is a strategic capability for FinTechs.}
 \end{frame}
 
 \end{document}

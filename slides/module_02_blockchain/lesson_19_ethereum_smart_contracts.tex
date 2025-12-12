@@ -19,6 +19,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 19: Ethereum and Smart Contracts}
 \subtitle{Module 2: Blockchain Fundamentals}
 \author{Digital Finance}
@@ -31,6 +40,7 @@
 \end{frame}
 
 \begin{frame}{Bitcoin's Limitations: Why Ethereum?}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -52,13 +62,15 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_19/bitcoin_vs_ethereum.pdf}
+\includegraphics[width=\textwidth]{figures/bitcoin_vs_ethereum/bitcoin_vs_ethereum.pdf}
 \end{columns}
+\bottomnote{Understanding limitations helps identify appropriate use cases and avoid over-engineering.}
 \end{frame}
 
 \begin{frame}{Smart Contracts: Code as Law}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{charts/lesson_19/smart_contract_concept.pdf}
+\includegraphics[width=0.48\textwidth]{figures/smart_contract_concept/smart_contract_concept.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Definition:} Self-executing programs stored on blockchain, automatically enforcing agreements
@@ -71,9 +83,11 @@
 \item Transparent (anyone can verify)
 \item Trustless (no intermediaries)
 \end{itemize}
+\bottomnote{Smart contracts enable programmable, self-executing agreements without intermediaries.}
 \end{frame}
 
 \begin{frame}{Account Model: Ethereum's Design}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -95,16 +109,18 @@
 \end{enumerate}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_19/account_types.pdf}
+\includegraphics[width=\textwidth]{figures/account_types/account_types.pdf}
 \end{columns}
 
 \vspace{3mm}
 \textbf{State:} Each account has balance, nonce, code (contracts only), storage
+\bottomnote{Ethereum pioneered smart contracts and remains the dominant platform for DeFi and NFTs.}
 \end{frame}
 
 \begin{frame}{Ethereum Virtual Machine (EVM)}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{charts/lesson_19/evm_architecture.pdf}
+\includegraphics[width=0.48\textwidth]{figures/evm_architecture/evm_architecture.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{EVM Properties:}
@@ -115,9 +131,11 @@
 \item Deterministic (no randomness or external calls without oracles)
 \item Replicated across all nodes
 \end{itemize}
+\bottomnote{Ethereum pioneered smart contracts and remains the dominant platform for DeFi and NFTs.}
 \end{frame}
 
 \begin{frame}{Gas: Metering Computation}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -139,11 +157,13 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_19/gas_mechanism.pdf}
+\includegraphics[width=\textwidth]{figures/gas_mechanism/gas_mechanism.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Gas Costs: Operation Examples}
+\vspace{-2mm}
 \begin{center}
 \begin{tabular}{@{}p{5cm}p{2.5cm}p{6cm}@{}}
 \toprule
@@ -166,9 +186,11 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 
 \vspace{3mm}
 \textbf{Design:} Expensive operations (storage, deployment) cost more to prevent spam
+\bottomnote{Case studies provide concrete evidence of technology impact and adoption patterns.}
 \end{frame}
 
 \begin{frame}{Transaction Cost Calculation}
+\vspace{-2mm}
 \textbf{Example: Simple ETH Transfer}
 \begin{itemize}
 \item Gas limit: 21,000
@@ -191,9 +213,11 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 \item Gas price: 100 gwei (priority)
 \item Total fee: $300,000 \times 100 \times 10^{-9} = 0.03$ ETH ($\sim$\$60 at \$2000/ETH)
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Legacy Fee Market: First-Price Auction}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -214,13 +238,15 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_19/legacy_fee_market.pdf}
+\includegraphics[width=\textwidth]{figures/legacy_fee_market/legacy_fee_market.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{EIP-1559: Fee Market Reform (August 2021)}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{charts/lesson_19/eip1559_structure.pdf}
+\includegraphics[width=0.48\textwidth]{figures/eip1559_structure/eip1559_structure.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{New Fee Structure:}
@@ -235,9 +261,11 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 \item \textbf{Priority Fee:} Tip to validators for faster inclusion
 \item \textbf{Max Fee:} User sets maximum willing to pay
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{EIP-1559 Base Fee Dynamics}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -256,13 +284,15 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 \]
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_19/base_fee_adjustment.pdf}
+\includegraphics[width=\textwidth]{figures/base_fee_adjustment/base_fee_adjustment.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Fee Burning: Deflationary Pressure}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{charts/lesson_19/eth_issuance_burn.pdf}
+\includegraphics[width=0.48\textwidth]{figures/eth_issuance_burn/eth_issuance_burn.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Issuance:} $\sim$1,600 ETH/day (PoS rewards)
@@ -271,12 +301,14 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 
 \vspace{2mm}
 \textbf{Net Result:} Ethereum can be deflationary when usage is high (burn $>$ issuance)
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Solidity: High-Level Smart Contract Language}
+\vspace{-2mm}
 \textbf{Example: Simple Token Contract}
 \begin{center}
-\includegraphics[width=0.75\textwidth]{charts/lesson_19/solidity_example.pdf}
+\includegraphics[width=0.48\textwidth]{figures/solidity_example/solidity_example.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Key Features:}
@@ -286,11 +318,13 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 \item Supports inheritance, libraries, interfaces
 \item Built-in types: address, uint256, mapping, array
 \end{itemize}
+\bottomnote{Smart contracts enable programmable, self-executing agreements without intermediaries.}
 \end{frame}
 
 \begin{frame}{Smart Contract Lifecycle}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.9\textwidth]{charts/lesson_19/contract_lifecycle.pdf}
+\includegraphics[width=0.48\textwidth]{figures/contract_lifecycle/contract_lifecycle.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Stages:}
@@ -301,9 +335,11 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 \item \textbf{Interaction:} Call functions via transactions
 \item \textbf{Immutability:} Cannot modify code (only state)
 \end{enumerate}
+\bottomnote{Technology adoption follows predictable patterns---timing matters for investment decisions.}
 \end{frame}
 
 \begin{frame}{Contract Storage: Persistent State}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -323,11 +359,13 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_19/storage_vs_memory.pdf}
+\includegraphics[width=\textwidth]{figures/storage_vs_memory/storage_vs_memory.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Events and Logs}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -349,11 +387,13 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_19/events_architecture.pdf}
+\includegraphics[width=\textwidth]{figures/events_architecture/events_architecture.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{External Calls: Composability and Risks}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -374,13 +414,15 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_19/external_call_flow.pdf}
+\includegraphics[width=\textwidth]{figures/external_call_flow/external_call_flow.pdf}
 \end{columns}
+\bottomnote{Risk management is essential for financial stability and profitability.}
 \end{frame}
 
 \begin{frame}{Reentrancy: The DAO Hack (2016)}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{charts/lesson_19/reentrancy_attack.pdf}
+\includegraphics[width=0.48\textwidth]{figures/reentrancy_attack/reentrancy_attack.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Vulnerability:}
@@ -392,9 +434,11 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 
 \vspace{2mm}
 \textbf{The DAO Result:} 3.6M ETH stolen (\$70M), led to Ethereum hard fork (ETH/ETC split)
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Oracles: Bridging On-Chain and Off-Chain}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -415,14 +459,16 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_19/oracle_architecture.pdf}
+\includegraphics[width=\textwidth]{figures/oracle_architecture/oracle_architecture.pdf}
 \end{columns}
 
 \vspace{3mm}
 \textbf{Chainlink:} Decentralized oracle network, aggregates multiple data sources
+\bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
 \begin{frame}{Gas Optimization Strategies}
+\vspace{-2mm}
 \begin{itemize}
 \item \textbf{Storage Packing:} Use uint128 instead of uint256 where possible (fit in one slot)
 \item \textbf{Avoid Storage Writes:} Use memory for temporary data
@@ -435,11 +481,13 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 
 \vspace{3mm}
 \textbf{Example:} Storing 100 values individually: $\sim$2M gas. Packed into single array: $\sim$500K gas
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Upgradeable Contracts: Proxy Pattern}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{charts/lesson_19/proxy_pattern.pdf}
+\includegraphics[width=0.48\textwidth]{figures/proxy_pattern/proxy_pattern.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Design:}
@@ -451,9 +499,11 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 
 \vspace{2mm}
 \textbf{Trade-off:} Flexibility vs decentralization (admin can change logic)
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Summary}
+\vspace{-2mm}
 \begin{itemize}
 \item \textbf{Ethereum:} World computer, Turing-complete smart contracts, account model
 \item \textbf{EVM:} Stack-based VM, executes bytecode, deterministic, replicated

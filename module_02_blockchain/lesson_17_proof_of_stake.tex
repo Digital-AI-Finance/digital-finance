@@ -19,6 +19,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 17: Proof of Stake}
 \subtitle{Module 2: Blockchain Fundamentals}
 \author{Digital Finance}
@@ -55,6 +64,7 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/pow_vs_pos_comparison/pow_vs_pos_comparison.pdf}
 \end{columns}
+\bottomnote{Proof-of-Stake offers energy efficiency while maintaining decentralization.}
 \end{frame}
 
 \begin{frame}{Core Concept: Stake as Security Deposit}
@@ -71,6 +81,7 @@
 \item Lose stake for dishonest behavior (slashing)
 \item \textbf{Attack cost:} Must acquire and lock majority of stake
 \end{itemize}
+\bottomnote{Security analysis identifies vulnerabilities and helps design robust systems.}
 \end{frame}
 
 \begin{frame}{Validator Selection Mechanisms}
@@ -96,6 +107,7 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/validator_selection/validator_selection.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Ethereum's Proof of Stake: Beacon Chain}
@@ -122,6 +134,7 @@
 \item \textbf{Proposer:} One validator per slot, proposes block
 \item \textbf{Attesters:} Committees of validators vote on block validity
 \end{itemize}
+\bottomnote{Ethereum pioneered smart contracts and remains the dominant platform for DeFi and NFTs.}
 \end{frame}
 
 \begin{frame}{Ethereum PoS Architecture}
@@ -138,6 +151,7 @@
 \item Aggregated attestations included in next block
 \item After 2 epochs, block finalized (cannot be reverted)
 \end{enumerate}
+\bottomnote{Ethereum pioneered smart contracts and remains the dominant platform for DeFi and NFTs.}
 \end{frame}
 
 \begin{frame}{Rewards and Penalties}
@@ -164,6 +178,7 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/reward_structure/reward_structure.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Slashing: Punishing Malicious Behavior}
@@ -186,6 +201,7 @@
 
 \vspace{3mm}
 \textbf{Design Goal:} Make coordinated attacks extremely expensive
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Slashing Correlation Penalty}
@@ -200,6 +216,7 @@
 \]
 
 \textbf{Example:} If 33\% of validators slashed together, each loses entire stake
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{The Merge: Ethereum's Transition (Sept 15, 2022)}
@@ -227,6 +244,7 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/the_merge_impact/the_merge_impact.pdf}
 \end{columns}
+\bottomnote{Ethereum pioneered smart contracts and remains the dominant platform for DeFi and NFTs.}
 \end{frame}
 
 \begin{frame}{Environmental Impact: Before and After The Merge}
@@ -241,6 +259,7 @@
 \item \textbf{PoS Ethereum:} 0.01 TWh/year $\approx$ 2,000 households
 \item \textbf{Per transaction:} PoW $\sim$200 kWh $\rightarrow$ PoS $\sim$0.01 kWh (20,000x improvement)
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Staking Economics: Solo vs Pooled}
@@ -269,6 +288,7 @@
 \item Easier, but centralization risk
 \end{itemize}
 \end{columns}
+\bottomnote{Comparative analysis helps identify the right tool for specific requirements.}
 \end{frame}
 
 \begin{frame}{Liquid Staking Derivatives (LSDs)}
@@ -298,6 +318,7 @@
 
 \vspace{3mm}
 \textbf{Risks:} Centralization (Lido has $>$30\% of staked ETH), smart contract risk, de-peg risk
+\bottomnote{Derivatives enable risk transfer and price discovery.}
 \end{frame}
 
 \begin{frame}{Lido Dominance: Centralization Concern}
@@ -313,6 +334,7 @@
 \item Risk of coordinated censorship
 \end{itemize}
 \textbf{Mitigation:} Self-limiting proposals, multi-operator model, community governance
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Finality: Proof of Stake Advantage}
@@ -340,6 +362,7 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/finality_comparison/finality_comparison.pdf}
 \end{columns}
+\bottomnote{Proof-of-Stake offers energy efficiency while maintaining decentralization.}
 \end{frame}
 
 \begin{frame}{Security Model: PoW vs PoS}
@@ -364,6 +387,7 @@ Long-Range Attack & Not possible (checkpoints) & Weak subjectivity needed \\
 
 \vspace{3mm}
 \textbf{Key Difference:} PoS attacks destroy attacker's capital, PoW attacks do not
+\bottomnote{Comparative analysis helps identify the right tool for specific requirements.}
 \end{frame}
 
 \begin{frame}{Nothing-at-Stake Problem}
@@ -390,6 +414,7 @@ Long-Range Attack & Not possible (checkpoints) & Weak subjectivity needed \\
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/nothing_at_stake/nothing_at_stake.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Long-Range Attack and Weak Subjectivity}
@@ -417,6 +442,7 @@ Long-Range Attack & Not possible (checkpoints) & Weak subjectivity needed \\
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/long_range_attack/long_range_attack.pdf}
 \end{columns}
+\bottomnote{Security analysis identifies vulnerabilities and helps design robust systems.}
 \end{frame}
 
 \begin{frame}{Other PoS Implementations}
@@ -467,6 +493,7 @@ Solana & Tower BFT & Any (delegated) & Proof of History hybrid \\
 
 \vspace{3mm}
 \textbf{Trade-off:} Performance vs decentralization (fewer validators = more centralized)
+\bottomnote{Proof-of-Stake offers energy efficiency while maintaining decentralization.}
 \end{frame}
 
 \begin{frame}{Criticisms of Proof of Stake}
@@ -493,6 +520,7 @@ Solana & Tower BFT & Any (delegated) & Proof of History hybrid \\
   \item Counterargument: Ethereum's Merge successful so far (2+ years)
   \end{itemize}
 \end{itemize}
+\bottomnote{Proof-of-Stake offers energy efficiency while maintaining decentralization.}
 \end{frame}
 
 \begin{frame}{Summary}

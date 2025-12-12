@@ -19,6 +19,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Digital Finance 3: Technology in Finance}
 \subtitle{Lesson 27: Supervised Learning - Regression}
 \author{FHGR}
@@ -30,7 +39,7 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{Learning Objectives}
+\begin{frame}[t]{Learning Objectives}
 By the end of this lesson, you will be able to:
 \begin{itemize}
 \item Explain the supervised learning paradigm (features, labels, training)
@@ -42,7 +51,7 @@ By the end of this lesson, you will be able to:
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Supervised Learning: The Framework}
+\begin{frame}[t]{Supervised Learning: The Framework}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Core Idea:}
@@ -85,7 +94,7 @@ By the end of this lesson, you will be able to:
 \textbf{Golden Rule:} Never use test data until final evaluation (avoid overfitting).
 \end{frame}
 
-\begin{frame}{Simple Linear Regression: The Basics}
+\begin{frame}[t]{Simple Linear Regression: The Basics}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Model:}
@@ -134,9 +143,10 @@ Suppose OLS gives:
 \item Single predictor (oversimplified)
 \end{itemize}
 \end{columns}
+\bottomnote{Regression models predict continuous outcomes based on input features.}
 \end{frame}
 
-\begin{frame}{Multiple Linear Regression}
+\begin{frame}[t]{Multiple Linear Regression}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Model:}
@@ -184,9 +194,10 @@ Estimated model:
 \item Size (+0.002): Weak positive effect
 \end{itemize}
 \end{columns}
+\bottomnote{Regression models predict continuous outcomes based on input features.}
 \end{frame}
 
-\begin{frame}{Assumptions of Linear Regression}
+\begin{frame}[t]{Assumptions of Linear Regression}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Five Key Assumptions:}
@@ -227,9 +238,10 @@ Estimated model:
 
 \vspace{0.5em}
 \textbf{Bottom Line:} Regression is robust, but severe violations reduce reliability.
+\bottomnote{Regression models predict continuous outcomes based on input features.}
 \end{frame}
 
-\begin{frame}{Evaluating Regression Models: R-squared}
+\begin{frame}[t]{Evaluating Regression Models: R-squared}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{R-squared ($R^2$):}
@@ -275,9 +287,10 @@ R^2_{adj} = 1 - (1-R^2) \frac{n-1}{n-p-1}
 \item Can overfit to training data
 \end{itemize}
 \end{columns}
+\bottomnote{Regression models predict continuous outcomes based on input features.}
 \end{frame}
 
-\begin{frame}{Other Regression Metrics}
+\begin{frame}[t]{Other Regression Metrics}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Mean Absolute Error (MAE):}
@@ -323,9 +336,10 @@ MAPE = \frac{100\%}{n} \sum_{i=1}^{n} \left| \frac{Y_i - \hat{Y}_i}{Y_i} \right|
 \vspace{0.5em}
 \textbf{Key:} Always evaluate on held-out test set.
 \end{columns}
+\bottomnote{Network metrics provide objective measures of adoption and ecosystem health.}
 \end{frame}
 
-\begin{frame}{Overfitting: The Central Problem in ML}
+\begin{frame}[t]{Overfitting: The Central Problem in ML}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{What is Overfitting?}
@@ -375,9 +389,10 @@ MAPE = \frac{100\%}{n} \sum_{i=1}^{n} \left| \frac{Y_i - \hat{Y}_i}{Y_i} \right|
 \item Out-of-sample testing
 \end{itemize}
 \end{columns}
+\bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
-\begin{frame}{Regularization: Ridge and Lasso}
+\begin{frame}[t]{Regularization: Ridge and Lasso}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Idea:} Penalize large coefficients to reduce overfitting.
@@ -413,26 +428,12 @@ MAPE = \frac{100\%}{n} \sum_{i=1}^{n} \left| \frac{Y_i - \hat{Y}_i}{Y_i} \right|
 \item Sparse solutions (interpretable)
 \end{itemize}
 
-\vspace{0.5em}
-\textbf{Elastic Net:}
-\[
-\text{Penalty} = \lambda_1 \sum |\beta_j| + \lambda_2 \sum \beta_j^2
-\]
-\begin{itemize}
-\item Combines L1 and L2
-\item Best of both worlds
-\end{itemize}
-
-\vspace{0.5em}
-\textbf{Choosing $\lambda$:}
-\begin{itemize}
-\item Cross-validation (grid search)
-\item Higher $\lambda$ → more regularization
-\end{itemize}
+\textbf{Elastic Net:} Combines L1+L2 penalties for grouped selection
 \end{columns}
+\bottomnote{Ridge shrinks coefficients; Lasso enables feature selection; choose lambda via cross-validation.}
 \end{frame}
 
-\begin{frame}{Cross-Validation}
+\begin{frame}[t]{Cross-Validation}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Why Cross-Validation?}
@@ -486,9 +487,10 @@ MAPE = \frac{100\%}{n} \sum_{i=1}^{n} \left| \frac{Y_i - \hat{Y}_i}{Y_i} \right|
 \item Never use test set for tuning
 \end{itemize}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Feature Engineering for Regression}
+\begin{frame}[t]{Feature Engineering for Regression}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Transformations:}
@@ -532,9 +534,10 @@ MAPE = \frac{100\%}{n} \sum_{i=1}^{n} \left| \frac{Y_i - \hat{Y}_i}{Y_i} \right|
 \item Too many features (curse of dimensionality)
 \end{itemize}
 \end{columns}
+\bottomnote{Regression models predict continuous outcomes based on input features.}
 \end{frame}
 
-\begin{frame}{Finance Application: Stock Return Prediction}
+\begin{frame}[t]{Finance Application: Stock Return Prediction}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Problem Setup:}
@@ -580,9 +583,10 @@ MAPE = \frac{100\%}{n} \sum_{i=1}^{n} \left| \frac{Y_i - \hat{Y}_i}{Y_i} \right|
 \item Regime shifts (models break in crises)
 \end{itemize}
 \end{columns}
+\bottomnote{Real-world applications demonstrate the practical value of blockchain technology.}
 \end{frame}
 
-\begin{frame}{Finance Application: Bond Yield Curve Modeling}
+\begin{frame}[t]{Finance Application: Bond Yield Curve Modeling}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Problem:}
@@ -628,108 +632,64 @@ Y(m) = \beta_1 + \beta_2 e^{-m/\tau} + \beta_3 \frac{m}{\tau} e^{-m/\tau}
 \item Trading strategies (carry, curve)
 \end{itemize}
 \end{columns}
+\bottomnote{Real-world applications demonstrate the practical value of blockchain technology.}
 \end{frame}
 
-\begin{frame}{Finance Application: Real Estate Valuation}
+\begin{frame}[t]{Finance Application: Real Estate Valuation}
 \begin{columns}[T]
 \column{0.48\textwidth}
-\textbf{Problem:}
+\textbf{Problem:} Predict property sale price using hedonic pricing
+
+\textbf{Key Features:}
 \begin{itemize}
-\item Predict property sale price
-\item Features: Size, location, age, amenities
-\item Traditional: Hedonic pricing models
+\item Size: Square footage, beds, baths
+\item Location: Zip code, school quality
+\item Property: Age, lot size, amenities
 \end{itemize}
 
-\vspace{0.5em}
-\textbf{Features:}
-\begin{itemize}
-\item Square footage
-\item Number of bedrooms, bathrooms
-\item Lot size
-\item Age of property
-\item Zip code (location proxy)
-\item School quality, crime rates
-\item Distance to CBD, transit
-\end{itemize}
+\textbf{Model:} $\log(\text{Price}) = \beta_0 + \beta_1 \log(\text{SqFt}) + \cdots$
 
 \column{0.48\textwidth}
-\textbf{Model:}
-\[
-\log(\text{Price}) = \beta_0 + \beta_1 \log(\text{SqFt}) + \beta_2 \text{Beds} + \cdots
-\]
+\textbf{Results} (typical $R^2 \approx 0.75$):
 \begin{itemize}
-\item Log-log form: Elasticities
-\item Ridge to handle multicollinearity (correlated location vars)
-\end{itemize}
-
-\vspace{0.5em}
-\textbf{Results:}
-\begin{itemize}
-\item $R^2 = 0.75$ (typical)
-\item Square footage: $\beta = 0.6$ (10\% increase in size → 6\% price increase)
+\item SqFt: 10\% larger $\rightarrow$ 6\% higher price
 \item Extra bedroom: +\$20k
+\item Ridge handles location multicollinearity
 \end{itemize}
 
-\vspace{0.5em}
-\textbf{Applications:}
-\begin{itemize}
-\item Automated valuation models (AVMs) - Zillow Zestimate
-\item Mortgage underwriting
-\item Investment property analysis
-\end{itemize}
+\textbf{Applications:} AVMs (Zillow Zestimate), mortgage underwriting, investment analysis
 \end{columns}
+\bottomnote{Regression models power automated property valuation across real estate markets.}
 \end{frame}
 
-\begin{frame}{Limitations of Linear Regression}
+\begin{frame}[t]{Limitations of Linear Regression}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{When Regression Fails:}
 \begin{itemize}
-\item Non-linear relationships (interactions, thresholds)
+\item Non-linear relationships
 \item High-dimensional data ($p \gg n$)
-\item Complex feature interactions
 \item Heavy-tailed distributions (outliers)
 \item Non-stationary data (regime changes)
 \end{itemize}
 
-\vspace{0.5em}
-\textbf{Example:}\\
-Stock returns vs. market cap:
-\begin{itemize}
-\item Small-cap premium (non-linear)
-\item January effect (seasonality)
-\item Crisis periods (structural breaks)
-\end{itemize}
-
-Linear regression assumes constant relationship, which breaks.
+\textbf{Finance Example:} Stock returns vs. market cap show small-cap premium (non-linear), January effects, crisis breaks.
 
 \column{0.48\textwidth}
 \textbf{Alternatives:}
 \begin{itemize}
-\item \textbf{Polynomial regression:} Add $X^2, X^3$ terms
-\item \textbf{Generalized Additive Models (GAM):} Smooth non-linear functions
-\item \textbf{Tree-based methods:} Random Forests, Gradient Boosting (later lessons)
-\item \textbf{Neural networks:} Deep learning (later lessons)
+\item Polynomial regression: Add $X^2, X^3$
+\item GAMs: Smooth non-linear functions
+\item Tree methods: Random Forests, XGBoost
+\item Neural networks: Deep learning
 \end{itemize}
 
-\vspace{0.5em}
-\textbf{Trade-offs:}
-\begin{itemize}
-\item Linear: Simple, interpretable, fast
-\item Non-linear: Flexible, accurate, complex
-\end{itemize}
-
-\vspace{0.5em}
-\textbf{Best Practice:}
-\begin{itemize}
-\item Start with linear (baseline)
-\item If poor fit, try non-linear
-\item Balance accuracy vs. interpretability
-\end{itemize}
+\textbf{Best Practice:} Start linear, try non-linear if poor fit
 \end{columns}
+\bottomnote{Linear regression assumes constant relationships; use alternatives for non-linear patterns.}
 \end{frame}
 
-\begin{frame}{Practical Tips for Regression in Finance}
+\begin{frame}[t]{Practical Tips for Regression in Finance}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Data Preparation:}
@@ -782,9 +742,10 @@ Linear regression assumes constant relationship, which breaks.
 \item Acknowledge limitations
 \end{itemize}
 \end{columns}
+\bottomnote{Regression models predict continuous outcomes based on input features.}
 \end{frame}
 
-\begin{frame}{Summary and Key Takeaways}
+\begin{frame}[t]{Summary and Key Takeaways}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Core Concepts:}
@@ -822,7 +783,7 @@ Linear regression assumes constant relationship, which breaks.
 \end{columns}
 \end{frame}
 
-\begin{frame}{Next Lesson Preview}
+\begin{frame}[t]{Next Lesson Preview}
 \textbf{Lesson 28: Supervised Learning - Classification}
 
 \vspace{0.5em}

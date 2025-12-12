@@ -19,6 +19,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 7: Peer-to-Peer Lending}
 \subtitle{Module 1: FinTech Fundamentals}
 \author{Digital Finance}
@@ -30,7 +39,11 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{P2P Lending Model}
+% =============================================================================
+\section{P2P Fundamentals}
+% =============================================================================
+
+\begin{frame}[t]{P2P Lending Model}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -43,17 +56,23 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/p2p_vs_bank.pdf}
+\includegraphics[width=\textwidth]{figures/p2p_vs_bank/p2p_vs_bank.pdf}
 \end{columns}
+\bottomnote{P2P removes bank intermediation---connecting lenders directly to borrowers via digital platforms.}
 \end{frame}
 
-\begin{frame}{P2P Lending Flow}
+\begin{frame}[t]{P2P Lending Flow}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/p2p_lending_flow.pdf}
+\includegraphics[width=0.65\textwidth]{figures/p2p_lending_flow/p2p_lending_flow.pdf}
 \end{center}
+\bottomnote{Platform handles credit scoring, matching, and collections---earning fees from both sides.}
 \end{frame}
 
-\begin{frame}{Market Evolution}
+% =============================================================================
+\section{Market Evolution}
+% =============================================================================
+
+\begin{frame}[t]{Market Evolution}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -66,11 +85,12 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/p2p_market_growth.pdf}
+\includegraphics[width=\textwidth]{figures/p2p_market_growth/p2p_market_growth.pdf}
 \end{columns}
+\bottomnote{P2P grew from Zopa (2005) to \$580B global volume---China once held 80\% market share.}
 \end{frame}
 
-\begin{frame}{LendingClub Case Study}
+\begin{frame}[t]{LendingClub Case Study}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -83,17 +103,23 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/lendingclub_evolution.pdf}
+\includegraphics[width=\textwidth]{figures/lendingclub_evolution/lendingclub_evolution.pdf}
 \end{columns}
+\bottomnote{LendingClub originated \$80B in loans---then acquired Radius Bank in 2020 to become a full bank.}
 \end{frame}
 
-\begin{frame}{Platform Business Model}
+% =============================================================================
+\section{Business Model Economics}
+% =============================================================================
+
+\begin{frame}[t]{Platform Business Model}
 \begin{center}
-\includegraphics[width=0.82\textwidth]{figures/p2p_platform_economics.pdf}
+\includegraphics[width=0.65\textwidth]{figures/p2p_platform_economics/p2p_platform_economics.pdf}
 \end{center}
+\bottomnote{Pure marketplaces take no credit risk---revenue comes from fees, not interest margin.}
 \end{frame}
 
-\begin{frame}{Revenue Structure}
+\begin{frame}[t]{Revenue Structure}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -106,11 +132,16 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/p2p_revenue_breakdown.pdf}
+\includegraphics[width=\textwidth]{figures/p2p_revenue_breakdown/p2p_revenue_breakdown.pdf}
 \end{columns}
+\bottomnote{Origination fees (1-6\%) are primary revenue---annual servicing fees provide recurring income.}
 \end{frame}
 
-\begin{frame}{Alternative Credit Scoring}
+% =============================================================================
+\section{Credit Scoring and Risk}
+% =============================================================================
+
+\begin{frame}[t]{Alternative Credit Scoring}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -123,17 +154,19 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/alternative_scoring_inputs.pdf}
+\includegraphics[width=\textwidth]{figures/alternative_scoring_inputs/alternative_scoring_inputs.pdf}
 \end{columns}
+\bottomnote{Alternative data (transactions, social, education) enables credit decisions for thin-file borrowers.}
 \end{frame}
 
-\begin{frame}{Machine Learning Credit Models}
+\begin{frame}[t]{Machine Learning Credit Models}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/ml_credit_model.pdf}
+\includegraphics[width=0.65\textwidth]{figures/ml_credit_model/ml_credit_model.pdf}
 \end{center}
+\bottomnote{ML models process 1000+ features---outperforming traditional scorecards on default prediction.}
 \end{frame}
 
-\begin{frame}{Risk Grading System}
+\begin{frame}[t]{Risk Grading System}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -146,17 +179,23 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/risk_grade_performance.pdf}
+\includegraphics[width=\textwidth]{figures/risk_grade_performance/risk_grade_performance.pdf}
 \end{columns}
+\bottomnote{Grade A loans yield 7-9\% APR with 2-3\% defaults---Grade G hits 28-31\% APR with 25-30\% defaults.}
 \end{frame}
 
-\begin{frame}{Investor Returns Analysis}
+% =============================================================================
+\section{Returns and Performance}
+% =============================================================================
+
+\begin{frame}[t]{Investor Returns Analysis}
 \begin{center}
-\includegraphics[width=0.82\textwidth]{figures/p2p_investor_returns.pdf}
+\includegraphics[width=0.65\textwidth]{figures/p2p_investor_returns/p2p_investor_returns.pdf}
 \end{center}
+\bottomnote{Diversified P2P portfolios target 5-9\% net returns---after accounting for defaults and fees.}
 \end{frame}
 
-\begin{frame}{Default Rates by Grade}
+\begin{frame}[t]{Default Rates by Grade}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -169,11 +208,12 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/default_rate_by_grade.pdf}
+\includegraphics[width=\textwidth]{figures/default_rate_by_grade/default_rate_by_grade.pdf}
 \end{columns}
+\bottomnote{Default rates highly correlated with grade---economic downturns can double baseline defaults.}
 \end{frame}
 
-\begin{frame}{Institutional Dominance}
+\begin{frame}[t]{Institutional Dominance}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -186,17 +226,23 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/institutional_share.pdf}
+\includegraphics[width=\textwidth]{figures/institutional_share/institutional_share.pdf}
 \end{columns}
+\bottomnote{Institutional investors now fund 90\% of loans---``peer-to-peer'' has become a misnomer.}
 \end{frame}
 
-\begin{frame}{Regulatory Challenges}
+% =============================================================================
+\section{Regulation and Risks}
+% =============================================================================
+
+\begin{frame}[t]{Regulatory Challenges}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/p2p_regulatory_landscape.pdf}
+\includegraphics[width=0.65\textwidth]{figures/p2p_regulatory_landscape/p2p_regulatory_landscape.pdf}
 \end{center}
+\bottomnote{US requires SEC registration; UK has FCA authorization---global regulatory approaches vary widely.}
 \end{frame}
 
-\begin{frame}{China P2P Collapse}
+\begin{frame}[t]{China P2P Collapse}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -209,11 +255,12 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/china_p2p_collapse.pdf}
+\includegraphics[width=\textwidth]{figures/china_p2p_collapse/china_p2p_collapse.pdf}
 \end{columns}
+\bottomnote{China's P2P industry collapsed entirely---3,500 platforms to zero, with \$128B investor losses.}
 \end{frame}
 
-\begin{frame}{Business Model Evolution}
+\begin{frame}[t]{Business Model Evolution}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -226,11 +273,16 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/p2p_model_evolution.pdf}
+\includegraphics[width=\textwidth]{figures/p2p_model_evolution/p2p_model_evolution.pdf}
 \end{columns}
+\bottomnote{Many platforms now use balance sheet lending or seek bank charters---regulatory arbitrage ended.}
 \end{frame}
 
-\begin{frame}{SME Lending Platforms}
+% =============================================================================
+\section{Future and Summary}
+% =============================================================================
+
+\begin{frame}[t]{SME Lending Platforms}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -243,11 +295,12 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/sme_p2p_landscape.pdf}
+\includegraphics[width=\textwidth]{figures/sme_p2p_landscape/sme_p2p_landscape.pdf}
 \end{columns}
+\bottomnote{SME platforms like Funding Circle offer 24-48h approval---filling gaps left by traditional banks.}
 \end{frame}
 
-\begin{frame}{Future Outlook}
+\begin{frame}[t]{Future Outlook}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -260,11 +313,12 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/p2p_future_scenarios.pdf}
+\includegraphics[width=\textwidth]{figures/p2p_future_scenarios/p2p_future_scenarios.pdf}
 \end{columns}
+\bottomnote{Future lies in embedded lending and open banking data---standalone P2P is converging with banks.}
 \end{frame}
 
-\begin{frame}{Key Takeaways}
+\begin{frame}[t]{Key Takeaways}
 \begin{itemize}
 \item \textbf{Model}: Direct matching reduces intermediation costs
 \item \textbf{Evolution}: P2P became institutional marketplace lending
@@ -272,6 +326,7 @@
 \item \textbf{Returns}: 5-9\% investor returns with default risk
 \item \textbf{Regulation}: Increased oversight, bank convergence
 \end{itemize}
+\bottomnote{P2P disrupted lending but is now converging with traditional banking---technology persists, pure model fades.}
 \end{frame}
 
 \end{document}

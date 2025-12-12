@@ -19,6 +19,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 40: Electronic Trading and Orders}
 \subtitle{Module 4: Traditional Digital Finance}
 \author{Digital Finance Course}
@@ -67,6 +76,7 @@
 
 \vspace{3mm}
 \small\textit{Key Milestone: NASDAQ becomes fully electronic in 1994, NYSE follows with Hybrid Market in 2006}
+\bottomnote{Understanding history helps predict future developments in the technology.}
 \end{frame}
 
 \begin{frame}{Electronic Trading System Architecture}
@@ -94,6 +104,7 @@
 
 \vspace{3mm}
 \footnotesize\textit{Modern systems process millions of orders per second with 99.999\% availability}
+\bottomnote{Electronic trading has transformed market structure and efficiency.}
 \end{frame}
 
 \section{Order Types and Mechanics}
@@ -137,6 +148,7 @@
 \item Market sell: executes immediately at best bid
 \end{itemize}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Advanced Order Types}
@@ -164,6 +176,7 @@
 
 \vspace{3mm}
 \small\textit{Iceberg orders typically display 10-20\% of total size to minimize market impact}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Algorithmic Order Types}
@@ -205,6 +218,7 @@
 \item Risk: extended execution in low volume
 \end{itemize}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \section{Order Book Dynamics}
@@ -254,6 +268,7 @@ Spread = \$0.04 (4 cents or 4 bps)
 \item Order arrival/cancellation rates
 \end{itemize}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Price-Time Priority Matching}
@@ -294,6 +309,7 @@ Spread = \$0.04 (4 cents or 4 bps)
 \item Drives investment in low-latency infrastructure
 \end{itemize}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Order Book Dynamics and Toxicity}
@@ -330,6 +346,7 @@ High VPIN (>0.8) signals elevated informed trading risk
 \item Flash crash (2010): VPIN spiked to 0.98
 \end{itemize}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \section{Smart Order Routing}
@@ -360,6 +377,7 @@ High VPIN (>0.8) signals elevated informed trading risk
 
 \vspace{3mm}
 \footnotesize\textit{Typical SOR evaluates 20-50 venues in under 100 microseconds, routing to top 3-5 destinations}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Venue Fragmentation and Best Execution}
@@ -399,6 +417,7 @@ High VPIN (>0.8) signals elevated informed trading risk
 \item Quarterly 606 reports: routing practices disclosure
 \end{itemize}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \section{Dark Pools and Alternative Venues}
@@ -445,6 +464,7 @@ High VPIN (>0.8) signals elevated informed trading risk
 \textbf{Market Share:}
 US dark pool volume: 12-15\% (down from 18\% pre-2018)
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Alternative Trading Systems (ATS)}
@@ -486,6 +506,7 @@ US dark pool volume: 12-15\% (down from 18\% pre-2018)
 \item Exchange status granted 2016
 \end{itemize}
 \end{columns}
+\bottomnote{Electronic trading has transformed market structure and efficiency.}
 \end{frame}
 
 \section{Regulatory and Risk Frameworks}
@@ -515,6 +536,7 @@ US dark pool volume: 12-15\% (down from 18\% pre-2018)
 
 \vspace{3mm}
 \textbf{LULD (Limit Up-Limit Down):} Trading halts if price moves exceed \% band (5-10\% depending on tier and time)
+\bottomnote{Regulatory frameworks shape adoption patterns and industry structure.}
 \end{frame}
 
 \begin{frame}{Pre-Trade and Post-Trade Risk Controls}
@@ -552,6 +574,7 @@ Pre-trade checks add 10-50 microseconds per order
 \item Activation time: under 1 second
 \end{itemize}
 \end{columns}
+\bottomnote{Risk management is essential for financial stability and profitability.}
 \end{frame}
 
 \begin{frame}{Notable Trading Incidents}
@@ -592,6 +615,7 @@ Pre-trade checks add 10-50 microseconds per order
 \item Real-time position and P\&L monitoring
 \end{itemize}
 \end{columns}
+\bottomnote{Electronic trading has transformed market structure and efficiency.}
 \end{frame}
 
 \begin{frame}{Summary and Key Takeaways}

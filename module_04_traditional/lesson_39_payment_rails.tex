@@ -26,6 +26,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Payment Rails and SWIFT}
 \subtitle{Module 4: Traditional Digital Finance --- Lesson 39}
 \author{Digital Finance}
@@ -73,6 +82,7 @@
 
 \vspace{1em}
 \textbf{Global Volume}: 700B+ non-cash transactions annually, \$2 quadrillion value
+\bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
 \begin{frame}{Payment System Characteristics}
@@ -98,6 +108,7 @@
 
 \vspace{1em}
 \textbf{Instant Payments}: Real-time retail, 24/7/365 availability, irrevocable
+\bottomnote{Payment systems are critical infrastructure for economic activity.}
 \end{frame}
 
 \section{SEPA: Single Euro Payments Area}
@@ -128,6 +139,7 @@
 
 \vspace{1em}
 \textbf{Volume}: 46B SEPA transactions (2023), 80\% SCT, 20\% SDD
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{SEPA Credit Transfer}
@@ -157,6 +169,7 @@
 
 \vspace{1em}
 \textbf{Infrastructure}: EBA Clearing (RT1, STEP2), TARGET2, local CSMs
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{SEPA Instant Credit Transfer (SCT Inst)}
@@ -186,6 +199,7 @@
 
 \vspace{1em}
 \textbf{Adoption}: 11B SCT Inst (2023), growing 70\% YoY, mandatory for EU banks (2025)
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{SEPA Direct Debit}
@@ -213,6 +227,7 @@
 
 \vspace{1em}
 \textbf{Mandate}: Signed authorization, unique mandate reference (UMR), IBAN, creditor ID
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \section{ACH: Automated Clearing House}
@@ -243,6 +258,7 @@
 
 \vspace{1em}
 \textbf{Volume}: 31B transactions (2023), \$76 trillion value
+\bottomnote{Network metrics provide objective measures of adoption and ecosystem health.}
 \end{frame}
 
 \begin{frame}{ACH Processing Timeline}
@@ -268,6 +284,7 @@
 
 \vspace{1em}
 \textbf{2024 Enhancements}: Same-Day ACH \$1M limit (up from \$100k), third window added
+\bottomnote{Understanding the process flow is key to identifying optimization opportunities.}
 \end{frame}
 
 \section{SWIFT Network}
@@ -297,6 +314,7 @@
 
 \vspace{1em}
 \textbf{Volume}: 45M messages/day (2024), 11B annually
+\bottomnote{Banks play a central role in the financial system as intermediaries.}
 \end{frame}
 
 \begin{frame}{SWIFT Message Structure: MT103}
@@ -327,6 +345,7 @@
 
 \vspace{1em}
 \textbf{Example}: :20:TRN12345 :32A:241207USD10000,00 :50K:Sender Name :59:Beneficiary
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{SWIFT gpi (Global Payments Innovation)}
@@ -355,6 +374,7 @@
 
 \vspace{1em}
 \textbf{Technology}: SWIFT gpi Tracker database, Unique End-to-End Transaction Reference (UETR)
+\bottomnote{Payment systems are critical infrastructure for economic activity.}
 \end{frame}
 
 \begin{frame}{ISO 20022 Migration}
@@ -384,6 +404,7 @@
 
 \vspace{1em}
 \textbf{Benefits}: Better STP (80\% to 95\%+), compliance automation, fraud detection
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \section{Correspondent Banking}
@@ -414,6 +435,7 @@
 
 \vspace{1em}
 \textbf{Challenges}: 3-5 days settlement, opaque fees, multiple intermediaries
+\bottomnote{Banks play a central role in the financial system as intermediaries.}
 \end{frame}
 
 \begin{frame}{De-Risking and Compliance}
@@ -442,6 +464,7 @@
 
 \vspace{1em}
 \textbf{Solutions}: Utility models (SWIFT KYC Registry), shared infrastructure, fintechs
+\bottomnote{Risk management is essential for financial stability and profitability.}
 \end{frame}
 
 \section{Instant Payment Systems}
@@ -472,6 +495,7 @@
 
 \vspace{1em}
 \textbf{Adoption}: 118B instant payments globally (2023), 64\% in Asia-Pacific
+\bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
 \begin{frame}{India UPI: Unified Payments Interface}
@@ -501,6 +525,7 @@
 
 \vspace{1em}
 \textbf{Success Factors}: Government push, mobile penetration, zero MDR, interoperability
+\bottomnote{Payment systems are critical infrastructure for economic activity.}
 \end{frame}
 
 \begin{frame}{US FedNow Service}
@@ -529,6 +554,7 @@
 
 \vspace{1em}
 \textbf{Challenge}: Dual infrastructure (FedNow + RTP), consumer awareness, use case development
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \section{SWIFT Alternatives}
@@ -556,6 +582,7 @@
 
 \vspace{1em}
 \textbf{Geopolitical Context}: Russia excluded from SWIFT (2022), Iran, North Korea restrictions
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Blockchain-Based Payments}
@@ -583,6 +610,7 @@
 
 \vspace{1em}
 \textbf{Pilot Projects}: JPM Coin (JPMorgan), Utility Settlement Coin (Fnality), mBridge (BIS)
+\bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
 \begin{frame}{Summary}
@@ -605,6 +633,7 @@
 \item SWIFT (2023). \textit{SWIFT gpi: The New Standard in Cross-Border Payments}. SWIFT.
 \item World Bank (2022). \textit{Payment Systems Worldwide: A Snapshot}. World Bank.
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \end{document}

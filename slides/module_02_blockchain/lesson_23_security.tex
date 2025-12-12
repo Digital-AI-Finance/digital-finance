@@ -19,6 +19,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 23: Security and Hacks}
 \subtitle{Module 2: Blockchain Fundamentals}
 \author{Digital Finance}
@@ -31,8 +40,9 @@
 \end{frame}
 
 \begin{frame}{The Stakes: Billions Lost to Hacks}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{charts/lesson_23/crypto_hacks_timeline.pdf}
+\includegraphics[width=0.48\textwidth]{figures/crypto_hacks_timeline/crypto_hacks_timeline.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Major Incidents:}
@@ -43,11 +53,13 @@
 \item \textbf{2022:} Wormhole Bridge (\$325M) -- signature verification
 \item \textbf{Total (2020--2024):} $>$\$10 billion stolen
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Threat Landscape}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{charts/lesson_23/threat_categories.pdf}
+\includegraphics[width=0.48\textwidth]{figures/threat_categories/threat_categories.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Attack Vectors:}
@@ -58,9 +70,11 @@
 \item \textbf{Oracle Manipulation:} Flash loan attacks on price feeds
 \item \textbf{Governance Attacks:} Token-based voting exploits
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Reentrancy: The DAO Hack (2016)}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -80,16 +94,18 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_23/reentrancy_flow.pdf}
+\includegraphics[width=\textwidth]{figures/reentrancy_flow/reentrancy_flow.pdf}
 \end{columns}
 
 \vspace{3mm}
 \textbf{Prevention:} Checks-Effects-Interactions pattern, reentrancy guards (OpenZeppelin)
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Reentrancy Code Example}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.8\textwidth]{charts/lesson_23/reentrancy_code.pdf}
+\includegraphics[width=0.55\textwidth]{figures/reentrancy_code/reentrancy_code.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Fix: Checks-Effects-Interactions}
@@ -100,9 +116,11 @@
 \end{itemize}
 
 \textbf{Modern Protection:} OpenZeppelin \texttt{ReentrancyGuard} modifier
+\bottomnote{Case studies provide concrete evidence of technology impact and adoption patterns.}
 \end{frame}
 
 \begin{frame}{Integer Overflow/Underflow}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -124,14 +142,16 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_23/overflow_visualization.pdf}
+\includegraphics[width=\textwidth]{figures/overflow_visualization/overflow_visualization.pdf}
 \end{columns}
 
 \vspace{3mm}
 \textbf{Fix:} Solidity 0.8+ has automatic overflow checks, or use SafeMath library
+\bottomnote{Understanding the process flow is key to identifying optimization opportunities.}
 \end{frame}
 
 \begin{frame}{Access Control Vulnerabilities}
+\vspace{-2mm}
 \textbf{Common Mistakes:}
 \begin{itemize}
 \item Missing \texttt{onlyOwner} modifiers on critical functions
@@ -155,11 +175,13 @@
 \item Use OpenZeppelin \texttt{Ownable} and \texttt{AccessControl}
 \item Audit all privileged functions
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Oracle Manipulation: Flash Loan Attacks}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{charts/lesson_23/flash_loan_attack.pdf}
+\includegraphics[width=0.48\textwidth]{figures/flash_loan_attack/flash_loan_attack.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Attack Pattern (e.g., Harvest Finance, \$24M):}
@@ -170,9 +192,11 @@
 \item Exploit: borrow over-collateralized or dump tokens at fake price
 \item Repay flash loan, profit
 \end{enumerate}
+\bottomnote{Security analysis identifies vulnerabilities and helps design robust systems.}
 \end{frame}
 
 \begin{frame}{Oracle Security: Defense Mechanisms}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -193,14 +217,16 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_23/oracle_comparison.pdf}
+\includegraphics[width=\textwidth]{figures/oracle_comparison/oracle_comparison.pdf}
 \end{columns}
 
 \vspace{3mm}
 \textbf{Chainlink:} Decentralized oracle network, aggregates data from multiple providers
+\bottomnote{Security analysis identifies vulnerabilities and helps design robust systems.}
 \end{frame}
 
 \begin{frame}{Bridge Hacks: Cross-Chain Vulnerabilities}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -221,11 +247,13 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_23/bridge_architecture.pdf}
+\includegraphics[width=\textwidth]{figures/bridge_architecture/bridge_architecture.pdf}
 \end{columns}
+\bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
 \begin{frame}{Ronin Bridge Hack (2022): \$625M Stolen}
+\vspace{-2mm}
 \textbf{Context:}
 \begin{itemize}
 \item Ronin: Ethereum sidechain for Axie Infinity game
@@ -244,9 +272,11 @@
 
 \vspace{3mm}
 \textbf{Root Cause:} Centralization (5 of 9 validators controlled by single entity), poor key management
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Wormhole Bridge Hack (2022): \$325M}
+\vspace{-2mm}
 \textbf{Mechanism:}
 \begin{itemize}
 \item Wormhole: Bridge between Ethereum and Solana
@@ -270,11 +300,13 @@
 
 \vspace{3mm}
 \textbf{Lesson:} Even well-funded projects have critical bugs, audits not foolproof
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Bridge Hacks: Total Damage}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.9\textwidth]{charts/lesson_23/bridge_hacks_chart.pdf}
+\includegraphics[width=0.48\textwidth]{figures/bridge_hacks_chart/bridge_hacks_chart.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Major Bridge Hacks (2021--2022):}
@@ -284,9 +316,11 @@
 \end{itemize}
 
 \textbf{Trend:} Bridges are highest-value targets (centralized trust, large TVL)
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Phishing and Social Engineering}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -309,13 +343,15 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_23/phishing_flow.pdf}
+\includegraphics[width=\textwidth]{figures/phishing_flow/phishing_flow.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Address Poisoning Attack}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.8\textwidth]{charts/lesson_23/address_poisoning.pdf}
+\includegraphics[width=0.55\textwidth]{figures/address_poisoning/address_poisoning.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Attack:}
@@ -327,9 +363,11 @@
 \end{enumerate}
 
 \textbf{Prevention:} Verify entire address, use address book, hardware wallet confirmation screens
+\bottomnote{Security analysis identifies vulnerabilities and helps design robust systems.}
 \end{frame}
 
 \begin{frame}{Rug Pulls: Exit Scams}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -349,14 +387,16 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_23/rug_pull_pattern.pdf}
+\includegraphics[width=\textwidth]{figures/rug_pull_pattern/rug_pull_pattern.pdf}
 \end{columns}
 
 \vspace{3mm}
 \textbf{Red Flags:} Anonymous teams, no audit, centralized control, unrealistic promises
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Governance Attacks}
+\vspace{-2mm}
 \textbf{Scenario:}
 \begin{itemize}
 \item Protocol governed by token holders (1 token = 1 vote)
@@ -376,9 +416,11 @@
 
 \vspace{3mm}
 \textbf{Defense:} Time-locks on proposals, vote escrow (lock tokens for voting), quorum requirements
+\bottomnote{Security analysis identifies vulnerabilities and helps design robust systems.}
 \end{frame}
 
 \begin{frame}{Auditing: Not a Silver Bullet}
+\vspace{-2mm}
 \textbf{Audit Process:}
 \begin{itemize}
 \item Security firm reviews smart contract code
@@ -401,6 +443,7 @@
 \end{frame}
 
 \begin{frame}{Bug Bounties: Whitehat Incentives}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -420,14 +463,16 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_23/bug_bounty_tiers.pdf}
+\includegraphics[width=\textwidth]{figures/bug_bounty_tiers/bug_bounty_tiers.pdf}
 \end{columns}
 
 \vspace{3mm}
 \textbf{Whitehats Saved:} $>$\$50M in 2023 via responsible disclosure
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Security Best Practices}
+\vspace{-2mm}
 \textbf{For Developers:}
 \begin{itemize}
 \item Use audited libraries (OpenZeppelin)
@@ -447,9 +492,11 @@
 \item Never share seed phrases
 \item Be skeptical of high yields (if too good to be true...)
 \end{itemize}
+\bottomnote{Security analysis identifies vulnerabilities and helps design robust systems.}
 \end{frame}
 
 \begin{frame}{Summary}
+\vspace{-2mm}
 \begin{itemize}
 \item \textbf{Reentrancy:} External calls before state updates, use checks-effects-interactions
 \item \textbf{Overflow/Underflow:} Solidity 0.8+ auto-checks, or SafeMath

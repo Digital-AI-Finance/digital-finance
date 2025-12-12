@@ -19,6 +19,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 41: Market Microstructure and HFT}
 \subtitle{Module 4: Traditional Digital Finance}
 \author{Digital Finance Course}
@@ -30,7 +39,7 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{Learning Objectives}
+\begin{frame}[t]{Learning Objectives}
 \begin{itemize}
 \item Understand market microstructure theory and empirical regularities
 \item Analyze bid-ask spreads and their components
@@ -42,7 +51,7 @@
 
 \section{Market Microstructure Foundations}
 
-\begin{frame}{Microstructure Theory Overview}
+\begin{frame}[t]{Microstructure Theory Overview}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Core Questions:}
@@ -83,7 +92,7 @@
 \end{columns}
 \end{frame}
 
-\begin{frame}{Bid-Ask Spread Fundamentals}
+\begin{frame}[t]{Bid-Ask Spread Fundamentals}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Spread Definitions:}
@@ -126,9 +135,10 @@ where $D = +1$ for buyer-initiated, $-1$ for seller-initiated
 \vspace{2mm}
 \textit{US large-cap spreads: 1-3 bps; small-cap: 10-50 bps (2024)}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Adverse Selection and Information Models}
+\begin{frame}[t]{Adverse Selection and Information Models}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Glosten-Milgrom Model (1985):}
@@ -171,11 +181,12 @@ where $\sigma_v$ = value volatility, $\sigma_u$ = noise trading volatility
 \item Price impact persists 30-60 minutes post-trade
 \end{itemize}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \section{Market Makers and Liquidity Provision}
 
-\begin{frame}{Market Maker Role and Economics}
+\begin{frame}[t]{Market Maker Role and Economics}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Market Maker Functions:}
@@ -217,9 +228,10 @@ where $\sigma_v$ = value volatility, $\sigma_u$ = noise trading volatility
 \vspace{2mm}
 \textit{Top HFT market makers: Citadel Securities, Virtu, Jane Street, Jump Trading}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Inventory Management Models}
+\begin{frame}[t]{Inventory Management Models}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Stoll (1978) Inventory Model:}
@@ -258,17 +270,11 @@ $$\delta_{bid}^* = \frac{1}{\gamma} \ln\left(1 + \frac{\gamma}{\kappa}\right) + 
 $$\delta_{ask}^* = \frac{1}{\gamma} \ln\left(1 + \frac{\gamma}{\kappa}\right) - \frac{\gamma \sigma^2 (T-t)}{2} q$$
 where $\gamma$ = risk aversion, $\kappa$ = order arrival intensity, $q$ = inventory
 
-\vspace{2mm}
-\textbf{Modern Enhancements:}
-\begin{itemize}
-\item Machine learning for arrival rate prediction
-\item Multi-venue inventory optimization
-\item Reinforcement learning for quote placement
-\end{itemize}
 \end{columns}
+\bottomnote{Avellaneda-Stoikov model optimizes market making with risk aversion and dynamic spread adjustments.}
 \end{frame}
 
-\begin{frame}{Payment for Order Flow (PFOF)}
+\begin{frame}[t]{Payment for Order Flow (PFOF)}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{PFOF Mechanics:}
@@ -314,11 +320,12 @@ where $\gamma$ = risk aversion, $\kappa$ = order arrival intensity, $q$ = invent
 \vspace{2mm}
 \textit{Retail traders receive average 0.5-1 cent price improvement per share vs NBBO}
 \end{columns}
+\bottomnote{Understanding the process flow is key to identifying optimization opportunities.}
 \end{frame}
 
 \section{High-Frequency Trading}
 
-\begin{frame}{HFT Definition and Characteristics}
+\begin{frame}[t]{HFT Definition and Characteristics}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{HFT Defining Features:}
@@ -359,9 +366,10 @@ where $\gamma$ = risk aversion, $\kappa$ = order arrival intensity, $q$ = invent
 \item Human reaction time: 200,000 microseconds (200 ms)
 \end{itemize}
 \end{columns}
+\bottomnote{Clear definitions are essential for understanding complex technical concepts.}
 \end{frame}
 
-\begin{frame}{HFT Strategies}
+\begin{frame}[t]{HFT Strategies}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Market Making:}
@@ -417,9 +425,10 @@ where $\gamma$ = risk aversion, $\kappa$ = order arrival intensity, $q$ = invent
 \item Holds positions minutes to hours
 \end{itemize}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{HFT Market Impact Debate}
+\begin{frame}[t]{HFT Market Impact Debate}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Positive Contributions:}
@@ -462,11 +471,12 @@ where $\gamma$ = risk aversion, $\kappa$ = order arrival intensity, $q$ = invent
 \vspace{2mm}
 \textit{``HFT is like GPS: improves efficiency but introduces new failure modes''} -- SEC Commissioner (2014)
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \section{Flash Crashes and Market Disruptions}
 
-\begin{frame}{May 6, 2010 Flash Crash}
+\begin{frame}[t]{May 6, 2010 Flash Crash}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Event Timeline:}
@@ -506,9 +516,10 @@ where $\gamma$ = risk aversion, $\kappa$ = order arrival intensity, $q$ = invent
 \item \textbf{Market-Wide Breakers:} 7\%, 13\%, 20\% thresholds
 \end{itemize}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Other Notable Flash Events}
+\begin{frame}[t]{Other Notable Flash Events}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{October 15, 2014 Treasury Flash Rally:}
@@ -551,9 +562,10 @@ where $\gamma$ = risk aversion, $\kappa$ = order arrival intensity, $q$ = invent
 \vspace{2mm}
 \textit{VPIN (toxicity indicator) spiked to 0.98 before 2010 Flash Crash (normal < 0.5)}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Market Stability Mechanisms}
+\begin{frame}[t]{Market Stability Mechanisms}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Circuit Breakers (US Equities):}
@@ -601,11 +613,12 @@ where $\gamma$ = risk aversion, $\kappa$ = order arrival intensity, $q$ = invent
 \item Controversial: reduces efficiency vs stability
 \end{itemize}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \section{Empirical Market Microstructure}
 
-\begin{frame}{Intraday Patterns and Anomalies}
+\begin{frame}[t]{Intraday Patterns and Anomalies}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{U-Shaped Volume Pattern:}
@@ -646,9 +659,10 @@ where $\gamma$ = risk aversion, $\kappa$ = order arrival intensity, $q$ = invent
 \vspace{2mm}
 \textit{Opening cross (NYSE, Nasdaq): 5-10\% of daily volume in single batch auction}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Tick Size and Market Quality}
+\begin{frame}[t]{Tick Size and Market Quality}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{US Tick Size Evolution:}
@@ -690,9 +704,10 @@ where $\gamma$ = risk aversion, $\kappa$ = order arrival intensity, $q$ = invent
 \vspace{2mm}
 \textit{European markets: varying tick sizes by price range (MiFID II tick size regime)}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Summary and Key Takeaways}
+\begin{frame}[t]{Summary and Key Takeaways}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Microstructure Foundations:}

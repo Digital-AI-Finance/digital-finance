@@ -19,6 +19,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 6: Digital Identity and Authentication}
 \subtitle{Module 1: FinTech Fundamentals}
 \author{Digital Finance}
@@ -30,7 +39,11 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{Digital Identity Challenge}
+% =============================================================================
+\section{Identity Fundamentals}
+% =============================================================================
+
+\begin{frame}[t]{Digital Identity Challenge}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -43,17 +56,23 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/identity_challenge.pdf}
+\includegraphics[width=\textwidth]{figures/identity_challenge/identity_challenge.pdf}
 \end{columns}
+\bottomnote{1.7 billion adults remain unbanked---identity verification is the primary barrier to financial inclusion.}
 \end{frame}
 
-\begin{frame}{KYC Regulatory Requirements}
+% =============================================================================
+\section{KYC and Regulatory Framework}
+% =============================================================================
+
+\begin{frame}[t]{KYC Regulatory Requirements}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/kyc_requirements.pdf}
+\includegraphics[width=0.65\textwidth]{figures/kyc_requirements/kyc_requirements.pdf}
 \end{center}
+\bottomnote{KYC is legally mandated for all financial institutions---FATF, AMLD, and BSA set global standards.}
 \end{frame}
 
-\begin{frame}{Traditional vs Digital KYC}
+\begin{frame}[t]{Traditional vs Digital KYC}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -66,11 +85,12 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/kyc_comparison.pdf}
+\includegraphics[width=\textwidth]{figures/kyc_comparison/kyc_comparison.pdf}
 \end{columns}
+\bottomnote{Digital KYC reduces verification time from 7-14 days to 5-10 minutes---at 90\% lower cost.}
 \end{frame}
 
-\begin{frame}{eIDAS Framework}
+\begin{frame}[t]{eIDAS Framework}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -83,17 +103,23 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/eidas_framework.pdf}
+\includegraphics[width=\textwidth]{figures/eidas_framework/eidas_framework.pdf}
 \end{columns}
+\bottomnote{eIDAS enables cross-border electronic identity recognition across all 27 EU member states.}
 \end{frame}
 
-\begin{frame}{eIDAS Assurance Levels}
+\begin{frame}[t]{eIDAS Assurance Levels}
 \begin{center}
-\includegraphics[width=0.80\textwidth]{figures/eidas_assurance_levels.pdf}
+\includegraphics[width=0.62\textwidth]{figures/eidas_assurance_levels/eidas_assurance_levels.pdf}
 \end{center}
+\bottomnote{Three assurance levels (Low/Substantial/High)---High requires in-person or equivalent verification.}
 \end{frame}
 
-\begin{frame}{Biometric Authentication}
+% =============================================================================
+\section{Biometric Technologies}
+% =============================================================================
+
+\begin{frame}[t]{Biometric Authentication}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -106,17 +132,19 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/biometric_modalities.pdf}
+\includegraphics[width=\textwidth]{figures/biometric_modalities/biometric_modalities.pdf}
 \end{columns}
+\bottomnote{Iris scanning achieves 99.99\% accuracy---face recognition (99.5\%) is preferred for mobile UX.}
 \end{frame}
 
-\begin{frame}{Facial Recognition Flow}
+\begin{frame}[t]{Facial Recognition Flow}
 \begin{center}
-\includegraphics[width=0.82\textwidth]{figures/facial_recognition_flow.pdf}
+\includegraphics[width=0.65\textwidth]{figures/facial_recognition_flow/facial_recognition_flow.pdf}
 \end{center}
+\bottomnote{Face capture to match takes 2-3 seconds---AI extracts 128+ facial landmarks for comparison.}
 \end{frame}
 
-\begin{frame}{Liveness Detection}
+\begin{frame}[t]{Liveness Detection}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -129,17 +157,23 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/liveness_detection.pdf}
+\includegraphics[width=\textwidth]{figures/liveness_detection/liveness_detection.pdf}
 \end{columns}
+\bottomnote{Liveness detection prevents photo/video spoofing---3D depth sensing defeats deepfake attacks.}
 \end{frame}
 
-\begin{frame}{Document Verification Technology}
+% =============================================================================
+\section{Document Verification}
+% =============================================================================
+
+\begin{frame}[t]{Document Verification Technology}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/document_verification.pdf}
+\includegraphics[width=0.65\textwidth]{figures/document_verification/document_verification.pdf}
 \end{center}
+\bottomnote{AI detects document tampering by analyzing holograms, microprinting, and UV security features.}
 \end{frame}
 
-\begin{frame}{OCR and NFC Chip Reading}
+\begin{frame}[t]{OCR and NFC Chip Reading}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -152,11 +186,16 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/ocr_nfc_process.pdf}
+\includegraphics[width=\textwidth]{figures/ocr_nfc_process/ocr_nfc_process.pdf}
 \end{columns}
+\bottomnote{NFC chip reading provides cryptographic proof---data signed by issuing authority cannot be forged.}
 \end{frame}
 
-\begin{frame}{Multi-Factor Authentication (MFA)}
+% =============================================================================
+\section{Authentication Methods}
+% =============================================================================
+
+\begin{frame}[t]{Multi-Factor Authentication (MFA)}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -169,17 +208,19 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/mfa_factors.pdf}
+\includegraphics[width=\textwidth]{figures/mfa_factors/mfa_factors.pdf}
 \end{columns}
+\bottomnote{MFA combining 2+ factors reduces account takeover fraud by 99.9\%---now standard for banking.}
 \end{frame}
 
-\begin{frame}{Identity Verification Providers}
+\begin{frame}[t]{Identity Verification Providers}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/idv_provider_landscape.pdf}
+\includegraphics[width=0.65\textwidth]{figures/idv_provider_landscape/idv_provider_landscape.pdf}
 \end{center}
+\bottomnote{Jumio, Onfido, and Trulioo lead the \$15B IDV market---consolidation accelerating via M\&A.}
 \end{frame}
 
-\begin{frame}{Jumio Case Study}
+\begin{frame}[t]{Jumio Case Study}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -192,11 +233,16 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/jumio_workflow.pdf}
+\includegraphics[width=\textwidth]{figures/jumio_workflow/jumio_workflow.pdf}
 \end{columns}
+\bottomnote{Jumio processed 1B+ verifications---95\% automation rate with 5-minute average completion.}
 \end{frame}
 
-\begin{frame}{Self-Sovereign Identity (SSI)}
+% =============================================================================
+\section{Future of Identity}
+% =============================================================================
+
+\begin{frame}[t]{Self-Sovereign Identity (SSI)}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -209,11 +255,12 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/ssi_architecture.pdf}
+\includegraphics[width=\textwidth]{figures/ssi_architecture/ssi_architecture.pdf}
 \end{columns}
+\bottomnote{SSI gives users control over their credentials---verify age without revealing birthdate.}
 \end{frame}
 
-\begin{frame}{Privacy Concerns}
+\begin{frame}[t]{Privacy Concerns}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -226,17 +273,19 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/privacy_framework.pdf}
+\includegraphics[width=\textwidth]{figures/privacy_framework/privacy_framework.pdf}
 \end{columns}
+\bottomnote{GDPR requires data minimization and right to erasure---biometric templates are sensitive personal data.}
 \end{frame}
 
-\begin{frame}{Global Identity Programs}
+\begin{frame}[t]{Global Identity Programs}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/global_identity_map.pdf}
+\includegraphics[width=0.65\textwidth]{figures/global_identity_map/global_identity_map.pdf}
 \end{center}
+\bottomnote{India's Aadhaar (1.4B), Estonia's e-ID, and Singapore's Singpass lead global digital ID adoption.}
 \end{frame}
 
-\begin{frame}{Future: Digital Wallets}
+\begin{frame}[t]{Future: Digital Wallets}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -249,11 +298,16 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/eu_digital_wallet.pdf}
+\includegraphics[width=\textwidth]{figures/eu_digital_wallet/eu_digital_wallet.pdf}
 \end{columns}
+\bottomnote{EU Digital Identity Wallet mandated by 2026---every EU citizen will have government-issued mobile ID.}
 \end{frame}
 
-\begin{frame}{Key Takeaways}
+% =============================================================================
+\section{Summary}
+% =============================================================================
+
+\begin{frame}[t]{Key Takeaways}
 \begin{itemize}
 \item \textbf{KYC}: Digital verification reduces cost 90\% and time 95\%
 \item \textbf{eIDAS}: EU framework for cross-border identity
@@ -261,6 +315,7 @@
 \item \textbf{MFA}: Multi-factor prevents 99.9\% of fraud
 \item \textbf{Future}: Self-sovereign identity and digital wallets
 \end{itemize}
+\bottomnote{Digital identity is the foundation of financial inclusion---secure verification enables trusted services.}
 \end{frame}
 
 \end{document}

@@ -19,6 +19,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 12: Fintech Business Models}
 \subtitle{Module 1: FinTech Fundamentals}
 \author{Digital Finance}
@@ -30,11 +39,20 @@
 \titlepage
 \end{frame}
 
+% =============================================================================
+\section{Business Model Overview}
+% =============================================================================
+
 \begin{frame}{Fintech Business Model Taxonomy}
 \begin{center}
-\includegraphics[width=0.88\textwidth]{figures/fintech_business_models.pdf}
+\includegraphics[width=0.65\textwidth]{figures/fintech_business_models/fintech_business_models.pdf}
 \end{center}
+\bottomnote{FinTech business models span platforms, embedded finance, BaaS, subscriptions, and data monetization.}
 \end{frame}
+
+% =============================================================================
+\section{Platform Models}
+% =============================================================================
 
 \begin{frame}{Platform Models}
 \begin{columns}[T]
@@ -49,9 +67,14 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/platform_model.pdf}
+\includegraphics[width=\textwidth]{figures/platform_model/platform_model.pdf}
 \end{columns}
+\bottomnote{Two-sided platforms connect supply and demand---network effects create winner-take-most dynamics.}
 \end{frame}
+
+% =============================================================================
+\section{Embedded Finance}
+% =============================================================================
 
 \begin{frame}{Embedded Finance}
 \begin{columns}[T]
@@ -66,15 +89,21 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/embedded_finance_growth.pdf}
+\includegraphics[width=\textwidth]{figures/embedded_finance_growth/embedded_finance_growth.pdf}
 \end{columns}
+\bottomnote{Embedded finance integrates financial services into non-financial apps---projected \$7T market by 2030.}
 \end{frame}
 
 \begin{frame}{Embedded Finance Examples}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/embedded_finance_examples.pdf}
+\includegraphics[width=0.65\textwidth]{figures/embedded_finance_examples/embedded_finance_examples.pdf}
 \end{center}
+\bottomnote{Shopify Capital, Uber Money, Tesla Insurance---every company becoming a fintech company.}
 \end{frame}
+
+% =============================================================================
+\section{Banking-as-a-Service}
+% =============================================================================
 
 \begin{frame}{Banking-as-a-Service (BaaS)}
 \begin{columns}[T]
@@ -89,14 +118,16 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/baas_architecture.pdf}
+\includegraphics[width=\textwidth]{figures/baas_architecture/baas_architecture.pdf}
 \end{columns}
+\bottomnote{BaaS provides white-label banking infrastructure via APIs---enabling non-banks to offer financial services.}
 \end{frame}
 
 \begin{frame}{BaaS Value Chain}
 \begin{center}
-\includegraphics[width=0.82\textwidth]{figures/baas_value_chain.pdf}
+\includegraphics[width=0.65\textwidth]{figures/baas_value_chain/baas_value_chain.pdf}
 \end{center}
+\bottomnote{BaaS value chain: licensed bank + middleware platform + brand---each layer captures revenue.}
 \end{frame}
 
 \begin{frame}{Marqeta Case Study}
@@ -112,14 +143,20 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/marqeta_model.pdf}
+\includegraphics[width=\textwidth]{figures/marqeta_model/marqeta_model.pdf}
 \end{columns}
+\bottomnote{Marqeta pioneered modern card issuing---\$6B valuation, powers Square and DoorDash card programs.}
 \end{frame}
+
+% =============================================================================
+\section{Revenue Models}
+% =============================================================================
 
 \begin{frame}{Revenue Model Comparison}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/revenue_model_comparison.pdf}
+\includegraphics[width=0.65\textwidth]{figures/revenue_model_comparison/revenue_model_comparison.pdf}
 \end{center}
+\bottomnote{Revenue models: transaction fees, subscriptions, interchange, interest margin, and data monetization.}
 \end{frame}
 
 \begin{frame}{Subscription Models}
@@ -135,8 +172,9 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/subscription_tiers.pdf}
+\includegraphics[width=\textwidth]{figures/subscription_tiers/subscription_tiers.pdf}
 \end{columns}
+\bottomnote{Subscription models provide predictable revenue---N26 Metal and Revolut Premium show tiered pricing power.}
 \end{frame}
 
 \begin{frame}{Freemium Strategy}
@@ -152,8 +190,9 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/freemium_funnel.pdf}
+\includegraphics[width=\textwidth]{figures/freemium_funnel/freemium_funnel.pdf}
 \end{columns}
+\bottomnote{Freemium drives viral growth---5-10\% conversion to paid typical, requires scale for profitability.}
 \end{frame}
 
 \begin{frame}{Data Monetization}
@@ -169,14 +208,20 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/data_monetization_model.pdf}
+\includegraphics[width=\textwidth]{figures/data_monetization_model/data_monetization_model.pdf}
 \end{columns}
+\bottomnote{Data monetization sells aggregated insights---spending patterns, credit signals, merchant analytics.}
 \end{frame}
+
+% =============================================================================
+\section{Unit Economics}
+% =============================================================================
 
 \begin{frame}{Unit Economics Deep Dive}
 \begin{center}
-\includegraphics[width=0.82\textwidth]{figures/fintech_unit_economics.pdf}
+\includegraphics[width=0.65\textwidth]{figures/fintech_unit_economics/fintech_unit_economics.pdf}
 \end{center}
+\bottomnote{Unit economics drive FinTech viability---CAC, LTV, payback period, and contribution margin are key metrics.}
 \end{frame}
 
 \begin{frame}{Customer Lifetime Value (LTV)}
@@ -192,8 +237,9 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/ltv_calculation.pdf}
+\includegraphics[width=\textwidth]{figures/ltv_calculation/ltv_calculation.pdf}
 \end{columns}
+\bottomnote{LTV = ARPU x Margin / Churn---maximizing LTV requires increasing revenue, margins, and retention.}
 \end{frame}
 
 \begin{frame}{LTV/CAC Ratio Benchmarks}
@@ -209,14 +255,20 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/ltv_cac_benchmarks.pdf}
+\includegraphics[width=\textwidth]{figures/ltv_cac_benchmarks/ltv_cac_benchmarks.pdf}
 \end{columns}
+\bottomnote{LTV/CAC > 3 indicates sustainable business---below 1 means unprofitable growth, best-in-class hit 5-7x.}
 \end{frame}
+
+% =============================================================================
+\section{Network Effects}
+% =============================================================================
 
 \begin{frame}{Network Effects}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/network_effects_types.pdf}
+\includegraphics[width=0.62\textwidth]{figures/network_effects_types/network_effects_types.pdf}
 \end{center}
+\bottomnote{Network effects types: direct (same-side), cross-side (marketplace), and data network effects.}
 \end{frame}
 
 \begin{frame}{Cross-Network Effects}
@@ -232,9 +284,14 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/marketplace_network_effects.pdf}
+\includegraphics[width=\textwidth]{figures/marketplace_network_effects/marketplace_network_effects.pdf}
 \end{columns}
+\bottomnote{Cross-network effects create winner-take-most markets---more lenders attract more borrowers and vice versa.}
 \end{frame}
+
+% =============================================================================
+\section{Future and Summary}
+% =============================================================================
 
 \begin{frame}{Future: Super-App Convergence}
 \begin{columns}[T]
@@ -249,8 +306,9 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/superapp_model.pdf}
+\includegraphics[width=\textwidth]{figures/superapp_model/superapp_model.pdf}
 \end{columns}
+\bottomnote{Super-apps combine banking, payments, and investing---Revolut (35M users) shows ecosystem lock-in power.}
 \end{frame}
 
 \begin{frame}{Decentralized Finance (DeFi)}
@@ -266,14 +324,16 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/defi_vs_traditional.pdf}
+\includegraphics[width=\textwidth]{figures/defi_vs_traditional/defi_vs_traditional.pdf}
 \end{columns}
+\bottomnote{DeFi eliminates intermediaries with protocol-based models---governance tokens and liquidity mining incentives.}
 \end{frame}
 
 \begin{frame}{Future Trends}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/fintech_future_trends.pdf}
+\includegraphics[width=0.65\textwidth]{figures/fintech_future_trends/fintech_future_trends.pdf}
 \end{center}
+\bottomnote{Future trends: AI-native finance, embedded everywhere, DeFi maturation, and green finance growth.}
 \end{frame}
 
 \begin{frame}{Key Takeaways}
@@ -284,6 +344,7 @@
 \item \textbf{Network Effects}: Winner-take-most in marketplace models
 \item \textbf{Future}: Super-app convergence + DeFi disruption
 \end{itemize}
+\bottomnote{Business model selection determines FinTech success---unit economics and network effects are decisive factors.}
 \end{frame}
 
 \end{document}

@@ -19,6 +19,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 18: Bitcoin Architecture}
 \subtitle{Module 2: Blockchain Fundamentals}
 \author{Digital Finance}
@@ -30,7 +39,7 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{Bitcoin System Overview}
+\begin{frame}[t]{Bitcoin System Overview}
 \vspace{-2mm}
 \begin{center}
 \includegraphics[width=0.48\textwidth]{figures/bitcoin_system_architecture/bitcoin_system_architecture.pdf}
@@ -43,9 +52,10 @@
 \item \textbf{UTXO Model:} Unspent transaction outputs (like digital cash)
 \item \textbf{Script System:} Programmable transaction validation
 \end{itemize}
+\bottomnote{Bitcoin remains the largest cryptocurrency by market cap and network security.}
 \end{frame}
 
-\begin{frame}{UTXO Model: Digital Cash Analogy}
+\begin{frame}[t]{UTXO Model: Digital Cash Analogy}
 \vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
@@ -70,9 +80,10 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/utxo_concept/utxo_concept.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{UTXO vs Account Model}
+\begin{frame}[t]{UTXO vs Account Model}
 \vspace{-2mm}
 \begin{center}
 \includegraphics[width=0.48\textwidth]{figures/utxo_vs_account/utxo_vs_account.pdf}
@@ -98,9 +109,10 @@
 \item Easier for smart contracts
 \end{itemize}
 \end{columns}
+\bottomnote{Comparative analysis helps identify the right tool for specific requirements.}
 \end{frame}
 
-\begin{frame}{Transaction Structure: Inputs and Outputs}
+\begin{frame}[t]{Transaction Structure: Inputs and Outputs}
 \vspace{-2mm}
 \begin{center}
 \includegraphics[width=0.48\textwidth]{figures/transaction_structure/transaction_structure.pdf}
@@ -112,9 +124,10 @@
 \item \textbf{Outputs:} New UTXOs with amounts and locking scripts
 \item \textbf{Fee:} Sum(inputs) -- Sum(outputs)
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Example Transaction: Alice Pays Bob}
+\begin{frame}[t]{Example Transaction: Alice Pays Bob}
 \vspace{-2mm}
 \textbf{Scenario:} Alice has 0.5 BTC UTXO, wants to pay Bob 0.3 BTC
 
@@ -127,16 +140,13 @@
 \item \textbf{Fee:} 0.01 BTC (0.5 -- 0.3 -- 0.19)
 \end{itemize}
 
-\vspace{3mm}
 \begin{center}
-\includegraphics[width=0.48\textwidth]{figures/alice_to_bob_transaction/alice_to_bob_transaction.pdf}
+\includegraphics[width=0.42\textwidth]{figures/alice_to_bob_transaction/alice_to_bob_transaction.pdf}
 \end{center}
-
-\vspace{2mm}
-\textbf{Result:} Alice's UTXO consumed, two new UTXOs created
+\bottomnote{UTXO model: Alice's UTXO consumed, new UTXOs created for Bob and change.}
 \end{frame}
 
-\begin{frame}{Transaction Chaining}
+\begin{frame}[t]{Transaction Chaining}
 \vspace{-2mm}
 \begin{center}
 \includegraphics[width=0.48\textwidth]{figures/transaction_chain/transaction_chain.pdf}
@@ -149,9 +159,10 @@
 \item Double-spending prevented by UTXO tracking
 \item Validation traces back to coinbase transactions
 \end{itemize}
+\bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
-\begin{frame}{Bitcoin Script: Programmable Conditions}
+\begin{frame}[t]{Bitcoin Script: Programmable Conditions}
 \vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
@@ -176,9 +187,10 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/script_execution/script_execution.pdf}
 \end{columns}
+\bottomnote{Bitcoin remains the largest cryptocurrency by market cap and network security.}
 \end{frame}
 
-\begin{frame}{P2PKH: Standard Bitcoin Transaction}
+\begin{frame}[t]{P2PKH: Standard Bitcoin Transaction}
 \vspace{-2mm}
 \textbf{Locking Script (scriptPubKey):}
 \begin{center}
@@ -201,9 +213,10 @@
 \item Verify signature with public key (CHECKSIG)
 \item Success if top of stack is TRUE
 \end{enumerate}
+\bottomnote{Bitcoin remains the largest cryptocurrency by market cap and network security.}
 \end{frame}
 
-\begin{frame}{Multisig: M-of-N Signatures}
+\begin{frame}[t]{Multisig: M-of-N Signatures}
 \vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
@@ -231,9 +244,10 @@
 \vspace{3mm}
 \textbf{Script:}
 \small\texttt{OP\_2 <PubKey1> <PubKey2> <PubKey3> OP\_3 OP\_CHECKMULTISIG}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Transaction Lifecycle}
+\begin{frame}[t]{Transaction Lifecycle}
 \vspace{-2mm}
 \begin{center}
 \includegraphics[width=0.48\textwidth]{figures/transaction_lifecycle/transaction_lifecycle.pdf}
@@ -248,9 +262,10 @@
 \item \textbf{Confirmation:} Block added to chain
 \item \textbf{Finality:} 6+ confirmations ($\sim$1 hour)
 \end{enumerate}
+\bottomnote{Technology adoption follows predictable patterns---timing matters for investment decisions.}
 \end{frame}
 
-\begin{frame}{Mempool: Waiting Room for Transactions}
+\begin{frame}[t]{Mempool: Waiting Room for Transactions}
 \vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
@@ -274,9 +289,10 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/mempool_visualization/mempool_visualization.pdf}
 \end{columns}
+\bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
-\begin{frame}{Transaction Fees: Mechanics}
+\begin{frame}[t]{Transaction Fees: Mechanics}
 \vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
@@ -303,9 +319,10 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/fee_distribution/fee_distribution.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Fee Dynamics During Congestion}
+\begin{frame}[t]{Fee Dynamics During Congestion}
 \vspace{-2mm}
 \begin{center}
 \includegraphics[width=0.48\textwidth]{figures/fee_market_congestion/fee_market_congestion.pdf}
@@ -318,9 +335,10 @@
 \item 2024: Runes protocol launch, fees spike to $>$1000 sat/vB
 \item Replace-By-Fee (RBF) and Child-Pays-For-Parent (CPFP) for fee bumping
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{SegWit: Segregated Witness (2017)}
+\begin{frame}[t]{SegWit: Segregated Witness (2017)}
 \vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
@@ -345,9 +363,10 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/segwit_structure/segwit_structure.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Lightning Network: Layer 2 Scaling}
+\begin{frame}[t]{Lightning Network: Layer 2 Scaling}
 \vspace{-2mm}
 \begin{center}
 \includegraphics[width=0.48\textwidth]{figures/lightning_network_concept/lightning_network_concept.pdf}
@@ -357,9 +376,10 @@
 
 \vspace{2mm}
 \textbf{Solution:} Off-chain payment channels, only settle on-chain when closing
+\bottomnote{Network metrics provide objective measures of adoption and ecosystem health.}
 \end{frame}
 
-\begin{frame}{Lightning Payment Channel Mechanics}
+\begin{frame}[t]{Lightning Payment Channel Mechanics}
 \vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
@@ -386,9 +406,10 @@
 
 \vspace{3mm}
 \textbf{Closing Channel:} Broadcast final state to blockchain
+\bottomnote{Payment systems are critical infrastructure for economic activity.}
 \end{frame}
 
-\begin{frame}{Lightning Network Routing}
+\begin{frame}[t]{Lightning Network Routing}
 \vspace{-2mm}
 \begin{center}
 \includegraphics[width=0.48\textwidth]{figures/lightning_routing/lightning_routing.pdf}
@@ -401,9 +422,10 @@
 \item Hash Time-Locked Contracts (HTLCs) ensure atomicity
 \item Routing fees: $\sim$1 satoshi per hop
 \end{itemize}
+\bottomnote{Network metrics provide objective measures of adoption and ecosystem health.}
 \end{frame}
 
-\begin{frame}{Lightning vs On-Chain Comparison}
+\begin{frame}[t]{Lightning vs On-Chain Comparison}
 \vspace{-2mm}
 \begin{center}
 \begin{tabular}{@{}p{3.5cm}p{5cm}p{5cm}@{}}
@@ -424,9 +446,10 @@ Use Case & Large settlements, savings & Micropayments, retail \\
 \bottomrule
 \end{tabular}
 \end{center}
+\bottomnote{Comparative analysis helps identify the right tool for specific requirements.}
 \end{frame}
 
-\begin{frame}{Taproot Upgrade (2021)}
+\begin{frame}[t]{Taproot Upgrade (2021)}
 \vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
@@ -450,9 +473,10 @@ Use Case & Large settlements, savings & Micropayments, retail \\
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/taproot_comparison/taproot_comparison.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Bitcoin Full Node}
+\begin{frame}[t]{Bitcoin Full Node}
 \vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
@@ -477,9 +501,10 @@ Use Case & Large settlements, savings & Micropayments, retail \\
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/node_types/node_types.pdf}
 \end{columns}
+\bottomnote{Bitcoin remains the largest cryptocurrency by market cap and network security.}
 \end{frame}
 
-\begin{frame}{Summary}
+\begin{frame}[t]{Summary}
 \vspace{-2mm}
 \begin{itemize}
 \item \textbf{UTXO Model:} Discrete outputs, like digital cash, stateless validation

@@ -26,6 +26,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Core Banking Systems}
 \subtitle{Module 4: Traditional Digital Finance --- Lesson 38}
 \author{Digital Finance}
@@ -74,6 +83,7 @@
 \item Security and access control
 \end{itemize}
 \end{columns}
+\bottomnote{Clear definitions are essential for understanding complex technical concepts.}
 \end{frame}
 
 \begin{frame}{Core Banking Ecosystem}
@@ -103,6 +113,7 @@
 
 \vspace{1em}
 \textbf{Middleware}: Enterprise service bus (ESB), APIs, message queues
+\bottomnote{Banks play a central role in the financial system as intermediaries.}
 \end{frame}
 
 \section{Legacy vs Modern Architectures}
@@ -134,6 +145,7 @@
 
 \vspace{1em}
 \textbf{Reality}: 70\% of global banks still run mainframes (2024), processing 80\%+ transactions
+\bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
 \begin{frame}{Why Legacy Systems Persist}
@@ -163,6 +175,7 @@
 
 \vspace{1em}
 \textbf{Case Study}: TSB migration disaster (2018), 1.9M customers affected, \pounds 330M cost
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Modern Core Banking Architecture}
@@ -192,6 +205,7 @@
 
 \vspace{1em}
 \textbf{Technology}: Java/Python, PostgreSQL/MongoDB, Kafka, Kubernetes, AWS/Azure
+\bottomnote{Banks play a central role in the financial system as intermediaries.}
 \end{frame}
 
 \begin{frame}{Cloud-Native Core Banking}
@@ -218,6 +232,7 @@
 
 \vspace{1em}
 \textbf{Regulatory Considerations}: EBA outsourcing guidelines, data residency, exit strategy
+\bottomnote{Banks play a central role in the financial system as intermediaries.}
 \end{frame}
 
 \section{Core Banking Vendors}
@@ -247,6 +262,7 @@
 
 \vspace{1em}
 \textbf{Market Size}: \$15B+ annually (2024), growing 8\% CAGR
+\bottomnote{Banks play a central role in the financial system as intermediaries.}
 \end{frame}
 
 \begin{frame}{Temenos T24 / Transact}
@@ -275,6 +291,7 @@
 
 \vspace{1em}
 \textbf{Technology}: Java, TAFC language, SQL/NoSQL, Kafka, Kubernetes
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{FIS and Fiserv}
@@ -302,6 +319,7 @@
 
 \vspace{1em}
 \textbf{Consolidation}: FIS acquired Worldpay (2019, \$43B), Fiserv acquired First Data (2019, \$22B)
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Mambu: Cloud-Native SaaS}
@@ -331,6 +349,7 @@
 
 \vspace{1em}
 \textbf{Target}: Greenfield banks, fintechs, embedded finance
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Thought Machine Vault}
@@ -360,6 +379,7 @@
 
 \vspace{1em}
 \textbf{Funding}: \$1B+ raised, \$2.7B valuation (2022), backed by Nyca, Eurazeo
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \section{Modernization Strategies}
@@ -389,6 +409,7 @@
 
 \vspace{1em}
 \textbf{Hybrid}: New products on modern core, migrate legacy gradually
+\bottomnote{Banks play a central role in the financial system as intermediaries.}
 \end{frame}
 
 \begin{frame}{Strangler Fig Pattern}
@@ -418,6 +439,7 @@
 
 \vspace{1em}
 \textbf{Duration}: 3-5 years typical, allows parallel operation
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Data Migration Challenges}
@@ -447,6 +469,7 @@
 
 \vspace{1em}
 \textbf{Best Practice}: Migrate 80\% data, keep 20\% in archive for queries
+\bottomnote{Understanding limitations helps identify appropriate use cases and avoid over-engineering.}
 \end{frame}
 
 \begin{frame}{Regulatory and Compliance Considerations}
@@ -474,6 +497,7 @@
 
 \vspace{1em}
 \textbf{EBA Guidelines}: Outsourcing to cloud (2019), ICT risk (2020), operational resilience (2021)
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \section{Future Trends}
@@ -505,6 +529,7 @@
 
 \vspace{1em}
 \textbf{Market}: \$25B+ by 2026, driven by open banking and embedded finance
+\bottomnote{Banks play a central role in the financial system as intermediaries.}
 \end{frame}
 
 \begin{frame}{Composable Banking}
@@ -534,6 +559,7 @@
 
 \vspace{1em}
 \textbf{Challenge}: Integration complexity, data consistency, vendor management
+\bottomnote{Banks play a central role in the financial system as intermediaries.}
 \end{frame}
 
 \begin{frame}{AI and Automation in Core Banking}
@@ -561,6 +587,7 @@
 
 \vspace{1em}
 \textbf{Impact}: 30\% cost reduction potential, 50\% faster processes
+\bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
 \begin{frame}{Summary}
@@ -583,6 +610,7 @@
 \item EBA Guidelines on Outsourcing to Cloud Service Providers (2019)
 \item Thought Machine White Paper: \textit{The Case for Cloud-Native Core Banking} (2021)
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \end{document}

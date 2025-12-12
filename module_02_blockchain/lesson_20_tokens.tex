@@ -19,6 +19,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 20: Tokens -- ERC-20 and NFTs}
 \subtitle{Module 2: Blockchain Fundamentals}
 \author{Digital Finance}
@@ -54,6 +63,7 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/token_types/token_types.pdf}
 \end{columns}
+\bottomnote{Clear definitions are essential for understanding complex technical concepts.}
 \end{frame}
 
 \begin{frame}{ERC-20: Fungible Token Standard}
@@ -70,6 +80,7 @@
 \item \texttt{approve(spender, amount)}: Allow third party to spend
 \item \texttt{transferFrom(from, to, amount)}: Third-party transfer (after approval)
 \end{itemize}
+\bottomnote{Tokens represent digital assets and enable new business models on blockchain.}
 \end{frame}
 
 \begin{frame}{ERC-20 Implementation Example}
@@ -84,6 +95,7 @@
 \item \textbf{Events:} \texttt{Transfer(from, to, amount)}, \texttt{Approval(owner, spender, amount)}
 \item \textbf{Metadata:} Name, symbol, decimals (usually 18)
 \end{itemize}
+\bottomnote{Case studies provide concrete evidence of technology impact and adoption patterns.}
 \end{frame}
 
 \begin{frame}{ERC-20 Transfer Flow}
@@ -99,6 +111,7 @@
 \item Updates \texttt{balances[sender] -= 100}, \texttt{balances[recipient] += 100}
 \item Emits \texttt{Transfer} event
 \end{enumerate}
+\bottomnote{Understanding the process flow is key to identifying optimization opportunities.}
 \end{frame}
 
 \begin{frame}{Approval and TransferFrom Pattern}
@@ -127,6 +140,7 @@
 
 \vspace{3mm}
 \textbf{Security Note:} Approve 0 before changing allowance to prevent race conditions
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Popular ERC-20 Tokens (2024)}
@@ -151,6 +165,7 @@ Wrapped Bitcoin & WBTC & \$10B+ & Bitcoin on Ethereum \\
 
 \vspace{3mm}
 \textbf{Total ERC-20 Tokens:} $>$500,000 deployed on Ethereum
+\bottomnote{Tokens represent digital assets and enable new business models on blockchain.}
 \end{frame}
 
 \begin{frame}{Token Utility: Why Create Tokens?}
@@ -189,6 +204,7 @@ Wrapped Bitcoin & WBTC & \$10B+ & Bitcoin on Ethereum \\
 \item Trading on exchanges
 \end{itemize}
 \end{columns}
+\bottomnote{Tokens represent digital assets and enable new business models on blockchain.}
 \end{frame}
 
 \begin{frame}{NFTs: Non-Fungible Tokens}
@@ -204,6 +220,7 @@ Wrapped Bitcoin & WBTC & \$10B+ & Bitcoin on Ethereum \\
 \item \textbf{Provably Scarce:} Limited supply enforced by contract
 \item \textbf{Metadata:} Points to off-chain data (image, video, properties)
 \end{itemize}
+\bottomnote{Tokens represent digital assets and enable new business models on blockchain.}
 \end{frame}
 
 \begin{frame}{ERC-721: NFT Standard}
@@ -226,6 +243,7 @@ Wrapped Bitcoin & WBTC & \$10B+ & Bitcoin on Ethereum \\
 
 \vspace{3mm}
 \textbf{Example:} CryptoPunks, Bored Ape Yacht Club, Azuki
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{NFT Metadata Structure}
@@ -256,6 +274,7 @@ Wrapped Bitcoin & WBTC & \$10B+ & Bitcoin on Ethereum \\
 
 \vspace{3mm}
 \textbf{Centralization Risk:} If server hosting image goes down, NFT becomes broken link
+\bottomnote{Quality data is the foundation for effective machine learning models.}
 \end{frame}
 
 \begin{frame}{NFT Use Cases}
@@ -294,6 +313,7 @@ Wrapped Bitcoin & WBTC & \$10B+ & Bitcoin on Ethereum \\
 \item Tickets/event access
 \end{itemize}
 \end{columns}
+\bottomnote{Real-world applications demonstrate the practical value of blockchain technology.}
 \end{frame}
 
 \begin{frame}{NFT Mania: 2021 Boom and Bust}
@@ -310,6 +330,7 @@ Wrapped Bitcoin & WBTC & \$10B+ & Bitcoin on Ethereum \\
 \end{itemize}
 
 \textbf{Crash (2022--2024):} 90\%+ decline in volume, floor prices collapsed
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Criticisms of NFTs}
@@ -326,6 +347,7 @@ Wrapped Bitcoin & WBTC & \$10B+ & Bitcoin on Ethereum \\
 
 \vspace{3mm}
 \textbf{Counterargument:} Technology has legitimate use cases beyond JPEGs (credentials, gaming, ticketing)
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Tokenomics: Designing Token Economics}
@@ -353,6 +375,7 @@ Wrapped Bitcoin & WBTC & \$10B+ & Bitcoin on Ethereum \\
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/tokenomics_distribution/tokenomics_distribution.pdf}
 \end{columns}
+\bottomnote{Tokens represent digital assets and enable new business models on blockchain.}
 \end{frame}
 
 \begin{frame}{Vesting and Lock-Ups}
@@ -370,6 +393,7 @@ Wrapped Bitcoin & WBTC & \$10B+ & Bitcoin on Ethereum \\
 \item \textbf{Linear Vesting:} Monthly releases over 2--4 years
 \item \textbf{Example:} 1-year cliff, then 25\% per year for 4 years
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Airdrops: Free Token Distribution}
@@ -396,6 +420,7 @@ Wrapped Bitcoin & WBTC & \$10B+ & Bitcoin on Ethereum \\
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/airdrop_strategy/airdrop_strategy.pdf}
 \end{columns}
+\bottomnote{Tokens represent digital assets and enable new business models on blockchain.}
 \end{frame}
 
 \begin{frame}{Token Launch Models}
@@ -418,6 +443,7 @@ LBP (2021) & Liquidity Bootstrapping Pool (declining price) & Price discovery, l
 
 \vspace{3mm}
 \textbf{Trend:} Moving away from ICOs toward fairer, community-first models
+\bottomnote{Tokens represent digital assets and enable new business models on blockchain.}
 \end{frame}
 
 \begin{frame}{ERC-1155: Multi-Token Standard}
@@ -444,6 +470,7 @@ LBP (2021) & Liquidity Bootstrapping Pool (declining price) & Price discovery, l
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/erc1155_structure/erc1155_structure.pdf}
 \end{columns}
+\bottomnote{Tokens represent digital assets and enable new business models on blockchain.}
 \end{frame}
 
 \begin{frame}{Token Security: Common Vulnerabilities}
@@ -459,6 +486,7 @@ LBP (2021) & Liquidity Bootstrapping Pool (declining price) & Price discovery, l
 
 \vspace{3mm}
 \textbf{Best Practice:} Use OpenZeppelin audited contracts, multiple audits, time-locks on admin functions
+\bottomnote{Tokens represent digital assets and enable new business models on blockchain.}
 \end{frame}
 
 \begin{frame}{Summary}

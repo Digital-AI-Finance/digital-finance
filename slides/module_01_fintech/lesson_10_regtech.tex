@@ -19,6 +19,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 10: RegTech}
 \subtitle{Module 1: FinTech Fundamentals}
 \author{Digital Finance}
@@ -29,6 +38,10 @@
 \begin{frame}
 \titlepage
 \end{frame}
+
+% =============================================================================
+\section{RegTech Fundamentals}
+% =============================================================================
 
 \begin{frame}{Regulatory Complexity Crisis}
 \begin{columns}[T]
@@ -43,14 +56,16 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/regulatory_volume_growth.pdf}
+\includegraphics[width=\textwidth]{figures/regulatory_volume_growth/regulatory_volume_growth.pdf}
 \end{columns}
+\bottomnote{Financial institutions face 300M+ pages of regulation with 500+ daily updates---manual compliance is impossible.}
 \end{frame}
 
 \begin{frame}{RegTech Definition}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/regtech_landscape.pdf}
+\includegraphics[width=0.65\textwidth]{figures/regtech_landscape/regtech_landscape.pdf}
 \end{center}
+\bottomnote{RegTech applies technology to regulatory compliance---automating monitoring, reporting, and risk management.}
 \end{frame}
 
 \begin{frame}{RegTech Categories}
@@ -67,9 +82,14 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/regtech_categories.pdf}
+\includegraphics[width=\textwidth]{figures/regtech_categories/regtech_categories.pdf}
 \end{columns}
+\bottomnote{Five core RegTech areas: compliance management, transaction monitoring, reporting, risk management, and identity.}
 \end{frame}
+
+% =============================================================================
+\section{AML Solutions}
+% =============================================================================
 
 \begin{frame}{Anti-Money Laundering (AML)}
 \begin{columns}[T]
@@ -84,15 +104,21 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/aml_problem_scale.pdf}
+\includegraphics[width=\textwidth]{figures/aml_problem_scale/aml_problem_scale.pdf}
 \end{columns}
+\bottomnote{\$2T laundered annually with only 0.1\% detected---\$26B in fines since 2008, 95\% false positive alerts.}
 \end{frame}
 
 \begin{frame}{Traditional AML Process}
 \begin{center}
-\includegraphics[width=0.88\textwidth]{figures/traditional_aml_process.pdf}
+\includegraphics[width=0.65\textwidth]{figures/traditional_aml_process/traditional_aml_process.pdf}
 \end{center}
+\bottomnote{Traditional AML relies on rule-based systems---manual investigation creates bottlenecks and high costs.}
 \end{frame}
+
+% =============================================================================
+\section{Transaction Monitoring}
+% =============================================================================
 
 \begin{frame}{Transaction Monitoring}
 \begin{columns}[T]
@@ -107,14 +133,20 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/transaction_monitoring_rules.pdf}
+\includegraphics[width=\textwidth]{figures/transaction_monitoring_rules/transaction_monitoring_rules.pdf}
 \end{columns}
+\bottomnote{Rule-based monitoring uses threshold triggers (\$10K) and velocity checks---generating 99\% false positives.}
 \end{frame}
+
+% =============================================================================
+\section{ML-Based AML}
+% =============================================================================
 
 \begin{frame}{Machine Learning AML}
 \begin{center}
-\includegraphics[width=0.82\textwidth]{figures/ml_aml_architecture.pdf}
+\includegraphics[width=0.65\textwidth]{figures/ml_aml_architecture/ml_aml_architecture.pdf}
 \end{center}
+\bottomnote{ML-based AML uses neural networks and graph analysis---reducing false positives significantly.}
 \end{frame}
 
 \begin{frame}{ML Feature Engineering}
@@ -130,8 +162,9 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/ml_features_aml.pdf}
+\includegraphics[width=\textwidth]{figures/ml_features_aml/ml_features_aml.pdf}
 \end{columns}
+\bottomnote{Network graph analysis and time-series patterns reduce false positives from 99\% to 70\%.}
 \end{frame}
 
 \begin{frame}{ComplyAdvantage Case Study}
@@ -147,9 +180,14 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/complyadvantage_workflow.pdf}
+\includegraphics[width=\textwidth]{figures/complyadvantage_workflow/complyadvantage_workflow.pdf}
 \end{columns}
+\bottomnote{ComplyAdvantage serves 2,000+ financial institutions with AI-powered real-time sanctions screening.}
 \end{frame}
+
+% =============================================================================
+\section{Regulatory Reporting}
+% =============================================================================
 
 \begin{frame}{Regulatory Reporting Automation}
 \begin{columns}[T]
@@ -164,15 +202,21 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/regulatory_reporting.pdf}
+\includegraphics[width=\textwidth]{figures/regulatory_reporting/regulatory_reporting.pdf}
 \end{columns}
+\bottomnote{MiFID II requires 65 data fields; EMIR mandates trade reporting---daily/real-time frequency demands automation.}
 \end{frame}
 
 \begin{frame}{Automated Reporting Flow}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/automated_reporting_flow.pdf}
+\includegraphics[width=0.65\textwidth]{figures/automated_reporting_flow/automated_reporting_flow.pdf}
 \end{center}
+\bottomnote{Automated reporting extracts, transforms, validates, and submits data---reducing manual work by 80\%.}
 \end{frame}
+
+% =============================================================================
+\section{KYC and Risk}
+% =============================================================================
 
 \begin{frame}{Know Your Customer (KYC) Technology}
 \begin{columns}[T]
@@ -187,8 +231,9 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/kyc_regtech_flow.pdf}
+\includegraphics[width=\textwidth]{figures/kyc_regtech_flow/kyc_regtech_flow.pdf}
 \end{columns}
+\bottomnote{Digital KYC combines OCR document verification, biometrics, and continuous monitoring for real-time compliance.}
 \end{frame}
 
 \begin{frame}{Risk Assessment Platforms}
@@ -204,14 +249,20 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/risk_scoring_model.pdf}
+\includegraphics[width=\textwidth]{figures/risk_scoring_model/risk_scoring_model.pdf}
 \end{columns}
+\bottomnote{Dynamic risk scoring integrates multi-dimensional factors with regulatory tracking and automated stress testing.}
 \end{frame}
+
+% =============================================================================
+\section{Market and Sandboxes}
+% =============================================================================
 
 \begin{frame}{RegTech Market Size}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/regtech_market_growth.pdf}
+\includegraphics[width=0.65\textwidth]{figures/regtech_market_growth/regtech_market_growth.pdf}
 \end{center}
+\bottomnote{Global RegTech market projected to grow from \$12B to \$45B by 2028---driven by regulatory complexity.}
 \end{frame}
 
 \begin{frame}{Cost Reduction Analysis}
@@ -227,8 +278,9 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/regtech_cost_savings.pdf}
+\includegraphics[width=\textwidth]{figures/regtech_cost_savings/regtech_cost_savings.pdf}
 \end{columns}
+\bottomnote{RegTech delivers 50-80\% cost reductions---AML analysts down 50\%, reporting 70\% cheaper, 80\% faster compliance.}
 \end{frame}
 
 \begin{frame}{Regulatory Sandboxes}
@@ -244,15 +296,21 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/regulatory_sandbox.pdf}
+\includegraphics[width=\textwidth]{figures/regulatory_sandbox/regulatory_sandbox.pdf}
 \end{columns}
+\bottomnote{Regulatory sandboxes allow limited-scope testing with guidance---FCA pioneered this with 80\% go-to-market rate.}
 \end{frame}
 
 \begin{frame}{Global Sandbox Programs}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/global_sandboxes.pdf}
+\includegraphics[width=0.65\textwidth]{figures/global_sandboxes/global_sandboxes.pdf}
 \end{center}
+\bottomnote{50+ countries have launched regulatory sandboxes---UK, Singapore, Australia, and Hong Kong lead adoption.}
 \end{frame}
+
+% =============================================================================
+\section{Future and Summary}
+% =============================================================================
 
 \begin{frame}{Challenges and Limitations}
 \begin{columns}[T]
@@ -267,8 +325,9 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/regtech_challenges.pdf}
+\includegraphics[width=\textwidth]{figures/regtech_challenges/regtech_challenges.pdf}
 \end{columns}
+\bottomnote{Key barriers: legacy integration, data quality, regulatory acceptance lag, and AI explainability requirements.}
 \end{frame}
 
 \begin{frame}{Future: Embedded Compliance}
@@ -284,8 +343,9 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/embedded_compliance_future.pdf}
+\includegraphics[width=\textwidth]{figures/embedded_compliance_future/embedded_compliance_future.pdf}
 \end{columns}
+\bottomnote{Future: real-time compliance, machine-readable regulation, automated policy updates, and SupTech convergence.}
 \end{frame}
 
 \begin{frame}{Key Takeaways}
@@ -296,6 +356,7 @@
 \item \textbf{Sandboxes}: 80\% of tested innovations go to market
 \item \textbf{Future}: Real-time embedded compliance automation
 \end{itemize}
+\bottomnote{RegTech transforms compliance from cost center to competitive advantage---automation is essential.}
 \end{frame}
 
 \end{document}

@@ -19,6 +19,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 42: Risk Management Systems}
 \subtitle{Module 4: Traditional Digital Finance}
 \author{Digital Finance Course}
@@ -81,6 +90,7 @@ where $L$ = portfolio loss, $\alpha$ = confidence level (typically 95\% or 99\%)
 \item \textbf{Stress Testing:} Baseline for scenario comparison
 \end{itemize}
 \end{columns}
+\bottomnote{Clear definitions are essential for understanding complex technical concepts.}
 \end{frame}
 
 \begin{frame}{VaR Methodologies}
@@ -128,6 +138,7 @@ where $\mu$ = expected return, $z_\alpha$ = critical value (2.33 for 99\%), $\si
 \textbf{Pros:} Flexible, handles complex derivatives \\
 \textbf{Cons:} Computationally intensive, model risk
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{VaR Backtesting and Model Validation}
@@ -177,6 +188,7 @@ Yellow/Red zones trigger capital multiplier increases
 \vspace{2mm}
 \textit{2008 Crisis: Most banks had 20-40 VaR exceedances vs expected 2-3}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Limitations of VaR and Alternatives}
@@ -226,6 +238,7 @@ $$\text{ES}_\alpha = \mathbb{E}[L \mid L > \text{VaR}_\alpha]$$
 \item Regulatory adoption still evolving
 \end{itemize}
 \end{columns}
+\bottomnote{Understanding limitations helps identify appropriate use cases and avoid over-engineering.}
 \end{frame}
 
 \section{Stress Testing and Scenario Analysis}
@@ -315,6 +328,7 @@ $$\text{ES}_\alpha = \mathbb{E}[L \mid L > \text{VaR}_\alpha]$$
 \vspace{2mm}
 \textit{Key Lesson: Correlations increase to 1 during crises (diversification fails)}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Reverse Stress Testing}
@@ -360,6 +374,7 @@ $$\text{ES}_\alpha = \mathbb{E}[L \mid L > \text{VaR}_\alpha]$$
 \vspace{2mm}
 \textit{``What would it take to break us?'' -- Common reverse stress test framing}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \section{Model Risk Management}
@@ -399,6 +414,7 @@ $$\text{ES}_\alpha = \mathbb{E}[L \mid L > \text{VaR}_\alpha]$$
 \item \textbf{Model Risk Committee:} Senior governance forum
 \end{itemize}
 \end{columns}
+\bottomnote{Risk management is essential for financial stability and profitability.}
 \end{frame}
 
 \begin{frame}{Model Validation Process}
@@ -512,6 +528,7 @@ $$\text{ES}_\alpha = \mathbb{E}[L \mid L > \text{VaR}_\alpha]$$
 \vspace{2mm}
 \textit{Industry trend: Hybrid models combining ML predictions with traditional risk frameworks}
 \end{columns}
+\bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
 \section{Enterprise Risk Management Systems}
@@ -568,6 +585,7 @@ $$\text{ES}_\alpha = \mathbb{E}[L \mid L > \text{VaR}_\alpha]$$
 \vspace{2mm}
 \textit{Typical latency: Intraday VaR calculated every 15-30 minutes; EOD full suite in 2-4 hours}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Risk Aggregation Challenges}
@@ -612,6 +630,7 @@ $$\text{ES}_\alpha = \mathbb{E}[L \mid L > \text{VaR}_\alpha]$$
 \item Standardized data models (FINOS, CDM)
 \end{itemize}
 \end{columns}
+\bottomnote{Understanding limitations helps identify appropriate use cases and avoid over-engineering.}
 \end{frame}
 
 \begin{frame}{Real-Time Risk Management}
@@ -657,6 +676,7 @@ $$\text{ES}_\alpha = \mathbb{E}[L \mid L > \text{VaR}_\alpha]$$
 \vspace{2mm}
 \textit{Leading trading firms: Full risk recalculation every 100-500 milliseconds for active portfolios}
 \end{columns}
+\bottomnote{Risk management is essential for financial stability and profitability.}
 \end{frame}
 
 \section{Regulatory Capital and Risk Metrics}
@@ -759,6 +779,7 @@ where $R$ = recovery rate, $\text{EE}$ = expected exposure, $\text{PD}$ = defaul
 \vspace{2mm}
 \textit{Major banks: CVA desks actively hedge CVA exposure via CDS and equity positions}
 \end{columns}
+\bottomnote{Network metrics provide objective measures of adoption and ecosystem health.}
 \end{frame}
 
 \begin{frame}{Summary and Key Takeaways}

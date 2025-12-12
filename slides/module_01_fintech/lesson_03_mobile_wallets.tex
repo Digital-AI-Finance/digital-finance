@@ -19,6 +19,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 3: Digital Payments II -- Mobile Wallets}
 \subtitle{Module 1: FinTech Fundamentals}
 \author{Digital Finance}
@@ -30,7 +39,11 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{Mobile Wallet Revolution}
+% =============================================================================
+\section{Mobile Wallet Fundamentals}
+% =============================================================================
+
+\begin{frame}[t]{Mobile Wallet Revolution}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -45,9 +58,10 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/mobile_wallet_adoption.pdf}
 \end{columns}
+\bottomnote{Global mobile wallet volume reached \$16T in 2023---smartphones are the new payment terminals.}
 \end{frame}
 
-\begin{frame}{Near Field Communication (NFC) Technology}
+\begin{frame}[t]{Near Field Communication (NFC) Technology}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -62,15 +76,17 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/nfc_technology_diagram.pdf}
 \end{columns}
+\bottomnote{NFC operates at 13.56 MHz with 4-10cm range---secure element stores encrypted credentials.}
 \end{frame}
 
-\begin{frame}{Apple Pay Architecture}
+\begin{frame}[t]{Apple Pay Architecture}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/apple_pay_flow.pdf}
+\includegraphics[width=0.65\textwidth]{figures/apple_pay_flow.pdf}
 \end{center}
+\bottomnote{Apple Pay uses Face ID/Touch ID + tokenization---500M+ users globally.}
 \end{frame}
 
-\begin{frame}{Tokenization Security}
+\begin{frame}[t]{Tokenization Security}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -83,11 +99,16 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/tokenization_process.pdf}
+\includegraphics[width=\textwidth]{figures/tokenization_process/tokenization_process.pdf}
 \end{columns}
+\bottomnote{Tokenization replaces card numbers with one-time codes---reduces fraud by 98\%.}
 \end{frame}
 
-\begin{frame}{M-Pesa: Mobile Money Pioneer}
+% =============================================================================
+\section{Mobile Money in Emerging Markets}
+% =============================================================================
+
+\begin{frame}[t]{M-Pesa: Mobile Money Pioneer}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -102,15 +123,21 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/mpesa_growth.pdf}
 \end{columns}
+\bottomnote{M-Pesa launched 2007---96\% adult penetration in Kenya via SMS-based agent network.}
 \end{frame}
 
-\begin{frame}{M-Pesa Ecosystem}
+\begin{frame}[t]{M-Pesa Ecosystem}
 \begin{center}
-\includegraphics[width=0.88\textwidth]{figures/mpesa_ecosystem.pdf}
+\includegraphics[width=0.55\textwidth]{figures/mpesa_ecosystem/mpesa_ecosystem.pdf}
 \end{center}
+\bottomnote{Agent network enables cash-in/cash-out---extends banking to unbanked populations.}
 \end{frame}
 
-\begin{frame}{Alipay and WeChat Pay Dominance}
+% =============================================================================
+\section{Chinese Super-Apps}
+% =============================================================================
+
+\begin{frame}[t]{Alipay and WeChat Pay Dominance}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -125,15 +152,17 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/china_wallet_comparison.pdf}
 \end{columns}
+\bottomnote{Alipay (1.3B users) and WeChat Pay (1B users) control 92\% of China's mobile payments.}
 \end{frame}
 
-\begin{frame}{QR Code vs NFC Technology}
+\begin{frame}[t]{QR Code vs NFC Technology}
 \begin{center}
-\includegraphics[width=0.80\textwidth]{figures/qr_vs_nfc_comparison.pdf}
+\includegraphics[width=0.55\textwidth]{figures/qr_vs_nfc_comparison.pdf}
 \end{center}
+\bottomnote{QR codes scale with zero infrastructure; NFC requires POS terminal upgrades.}
 \end{frame}
 
-\begin{frame}{Super-App Strategy}
+\begin{frame}[t]{Super-App Strategy}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -146,17 +175,24 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/superapp_architecture.pdf}
+\includegraphics[width=\textwidth]{figures/superapp_architecture/superapp_architecture.pdf}
 \end{columns}
+\bottomnote{Super-apps combine messaging, payments, e-commerce---1M+ mini-programs in WeChat ecosystem.}
 \end{frame}
 
-\begin{frame}{Global Wallet Market Share}
+% =============================================================================
+\section{Business Models and Security}
+% =============================================================================
+
+\begin{frame}[t]{Global Wallet Market Share}
+\vspace{-5mm}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/global_wallet_share.pdf}
+\includegraphics[width=0.45\textwidth]{figures/global_wallet_share.pdf}
 \end{center}
+\bottomnote{Asia-Pacific dominates; Western markets lag despite Apple/Google.}
 \end{frame}
 
-\begin{frame}{Mobile Wallet Business Models}
+\begin{frame}[t]{Mobile Wallet Business Models}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -169,17 +205,23 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/wallet_revenue_mix.pdf}
+\includegraphics[width=\textwidth]{figures/wallet_revenue_mix/wallet_revenue_mix.pdf}
 \end{columns}
+\bottomnote{Revenue model: transaction fees (0.15-3\%) + data monetization + ecosystem cross-selling.}
 \end{frame}
 
-\begin{frame}{Security Layers}
+\begin{frame}[t]{Security Layers}
 \begin{center}
-\includegraphics[width=0.82\textwidth]{figures/mobile_wallet_security.pdf}
+\includegraphics[width=0.55\textwidth]{figures/mobile_wallet_security/mobile_wallet_security.pdf}
 \end{center}
+\bottomnote{Security: biometrics + encryption + tokenization + secure element + fraud detection.}
 \end{frame}
 
-\begin{frame}{Emerging Markets Leapfrogging}
+% =============================================================================
+\section{Global Trends and Future}
+% =============================================================================
+
+\begin{frame}[t]{Emerging Markets Leapfrogging}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -192,11 +234,12 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/mobile_wallet_penetration.pdf}
+\includegraphics[width=\textwidth]{figures/mobile_wallet_penetration/mobile_wallet_penetration.pdf}
 \end{columns}
+\bottomnote{Emerging markets skip card infrastructure entirely---mobile-first financial inclusion.}
 \end{frame}
 
-\begin{frame}{Regulatory Challenges}
+\begin{frame}[t]{Regulatory Challenges}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -209,11 +252,12 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/wallet_regulatory_map.pdf}
+\includegraphics[width=\textwidth]{figures/wallet_regulatory_map/wallet_regulatory_map.pdf}
 \end{columns}
+\bottomnote{Cross-border fragmentation: data localization, licensing, and interoperability barriers.}
 \end{frame}
 
-\begin{frame}{Future: Embedded Wallets}
+\begin{frame}[t]{Future: Embedded Wallets}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -226,11 +270,16 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/future_wallet_timeline.pdf}
+\includegraphics[width=\textwidth]{figures/future_wallet_timeline/future_wallet_timeline.pdf}
 \end{columns}
+\bottomnote{Future: IoT devices, wearables, biometrics, and CBDC integration in embedded wallets.}
 \end{frame}
 
-\begin{frame}{Key Takeaways}
+% =============================================================================
+\section{Summary}
+% =============================================================================
+
+\begin{frame}[t]{Key Takeaways}
 \begin{itemize}
 \item \textbf{Technology}: NFC for proximity, QR codes for scalability
 \item \textbf{Regional Patterns}: Super-apps in Asia, NFC in West, SMS in Africa
@@ -238,6 +287,7 @@
 \item \textbf{Security}: Tokenization reduces fraud dramatically
 \item \textbf{Impact}: Financial inclusion through mobile-first design
 \end{itemize}
+\bottomnote{Mobile wallets are reshaping global finance: NFC in West, QR codes in Asia, SMS in Africa.}
 \end{frame}
 
 \end{document}

@@ -19,6 +19,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 15: Public Key Cryptography \& Digital Signatures}
 \subtitle{Module 2: Blockchain Fundamentals}
 \author{Digital Finance}
@@ -30,7 +39,8 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{The Problem: Secure Communication Over Insecure Channels}
+\begin{frame}[t]{The Problem: Secure Communication Over Insecure Channels}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -50,13 +60,15 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_15/symmetric_vs_asymmetric.pdf}
+\includegraphics[width=\textwidth]{figures/symmetric_vs_asymmetric/symmetric_vs_asymmetric.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Symmetric vs Asymmetric Cryptography}
+\begin{frame}[t]{Symmetric vs Asymmetric Cryptography}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{charts/lesson_15/crypto_comparison.pdf}
+\includegraphics[width=0.48\textwidth]{figures/crypto_comparison/crypto_comparison.pdf}
 \end{center}
 \vspace{-3mm}
 \begin{itemize}
@@ -64,9 +76,11 @@
 \item \textbf{Asymmetric}: Key pair -- public key encrypts, private key decrypts
 \item \textbf{Blockchain Use}: Asymmetric for identity, symmetric for bulk data
 \end{itemize}
+\bottomnote{Comparative analysis helps identify the right tool for specific requirements.}
 \end{frame}
 
-\begin{frame}{Public Key Cryptography: Revolutionary Idea}
+\begin{frame}[t]{Public Key Cryptography: Revolutionary Idea}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -87,11 +101,13 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_15/key_pair_generation.pdf}
+\includegraphics[width=\textwidth]{figures/key_pair_generation/key_pair_generation.pdf}
 \end{columns}
+\bottomnote{Understanding history helps predict future developments in the technology.}
 \end{frame}
 
-\begin{frame}{Mathematical Foundation: Trapdoor Functions}
+\begin{frame}[t]{Mathematical Foundation: Trapdoor Functions}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -112,15 +128,17 @@ x = f^{-1}(y) \quad \text{(hard)}
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_15/trapdoor_function.pdf}
+\includegraphics[width=\textwidth]{figures/trapdoor_function/trapdoor_function.pdf}
 
 \vspace{2mm}
 \small
 \textbf{Trapdoor:} Secret information (private key) makes inverse easy
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{RSA Cryptography (Classic Approach)}
+\begin{frame}[t]{RSA Cryptography (Classic Approach)}
+\vspace{-2mm}
 \textbf{Key Generation:}
 \begin{enumerate}
 \item Choose two large primes: $p, q$
@@ -142,9 +160,11 @@ x = f^{-1}(y) \quad \text{(hard)}
 \item Message $m=123$: $c = 123^{17} \bmod 3233 = 855$
 \item Decrypt: $m = 855^{2753} \bmod 3233 = 123$
 \end{itemize}
+\bottomnote{Cryptographic primitives provide the security foundation for blockchain systems.}
 \end{frame}
 
-\begin{frame}{Elliptic Curve Cryptography (ECC)}
+\begin{frame}[t]{Elliptic Curve Cryptography (ECC)}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -169,13 +189,15 @@ y^2 = x^3 + 7
 \]
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_15/elliptic_curve.pdf}
+\includegraphics[width=\textwidth]{figures/elliptic_curve/elliptic_curve.pdf}
 \end{columns}
+\bottomnote{Cryptographic primitives provide the security foundation for blockchain systems.}
 \end{frame}
 
-\begin{frame}{ECC Point Addition: The Core Operation}
+\begin{frame}[t]{ECC Point Addition: The Core Operation}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.7\textwidth]{charts/lesson_15/ecc_point_addition.pdf}
+\includegraphics[width=0.48\textwidth]{figures/ecc_point_addition/ecc_point_addition.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Operations:}
@@ -184,9 +206,11 @@ y^2 = x^3 + 7
 \item \textbf{Point Doubling}: $P + P = 2P$ (tangent line at $P$)
 \item \textbf{Scalar Multiplication}: $nP = P + P + \ldots + P$ (n times)
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{ECC Security: Discrete Logarithm Problem}
+\begin{frame}[t]{ECC Security: Discrete Logarithm Problem}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -207,15 +231,17 @@ y^2 = x^3 + 7
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_15/ecdlp_visualization.pdf}
+\includegraphics[width=\textwidth]{figures/ecdlp_visualization/ecdlp_visualization.pdf}
 
 \vspace{2mm}
 \small
 \textbf{Security:} Best attack takes $\mathcal{O}(\sqrt{n})$ operations for $n$-bit key
 \end{columns}
+\bottomnote{Security analysis identifies vulnerabilities and helps design robust systems.}
 \end{frame}
 
-\begin{frame}{Digital Signatures: Proving Authorship}
+\begin{frame}[t]{Digital Signatures: Proving Authorship}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -236,11 +262,13 @@ y^2 = x^3 + 7
 \end{enumerate}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_15/digital_signature_flow.pdf}
+\includegraphics[width=\textwidth]{figures/digital_signature_flow/digital_signature_flow.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{ECDSA: Elliptic Curve Digital Signature Algorithm}
+\begin{frame}[t]{ECDSA: Elliptic Curve Digital Signature Algorithm}
+\vspace{-2mm}
 \textbf{Signature Generation:}
 \begin{enumerate}
 \item Message $m$, private key $d$, public key $Q = d \cdot G$
@@ -259,11 +287,13 @@ y^2 = x^3 + 7
 \item Compute $P = u_1 \cdot G + u_2 \cdot Q$
 \item Valid if $x_P \equiv r \pmod{n}$
 \end{enumerate}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{ECDSA Visualization}
+\begin{frame}[t]{ECDSA Visualization}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{charts/lesson_15/ecdsa_process.pdf}
+\includegraphics[width=0.48\textwidth]{figures/ecdsa_process/ecdsa_process.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Key Properties:}
@@ -272,9 +302,11 @@ y^2 = x^3 + 7
 \item Cannot forge without private key
 \item Each signature requires unique random $k$ (reuse breaks security!)
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Cryptocurrency Wallets: Key Management}
+\begin{frame}[t]{Cryptocurrency Wallets: Key Management}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -295,13 +327,15 @@ y^2 = x^3 + 7
 \textbf{One-way:} Cannot derive private from address
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_15/wallet_key_hierarchy.pdf}
+\includegraphics[width=\textwidth]{figures/wallet_key_hierarchy/wallet_key_hierarchy.pdf}
 \end{columns}
+\bottomnote{Cryptographic primitives provide the security foundation for blockchain systems.}
 \end{frame}
 
-\begin{frame}{Bitcoin Address Generation}
+\begin{frame}[t]{Bitcoin Address Generation}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.9\textwidth]{charts/lesson_15/bitcoin_address_generation.pdf}
+\includegraphics[width=0.48\textwidth]{figures/bitcoin_address_generation/bitcoin_address_generation.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{Steps:}
@@ -312,9 +346,11 @@ y^2 = x^3 + 7
 \item Add version byte, compute checksum
 \item Base58 encode $\rightarrow$ Address (e.g., 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa)
 \end{enumerate}
+\bottomnote{Bitcoin remains the largest cryptocurrency by market cap and network security.}
 \end{frame}
 
-\begin{frame}{Hierarchical Deterministic (HD) Wallets}
+\begin{frame}[t]{Hierarchical Deterministic (HD) Wallets}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -335,13 +371,15 @@ y^2 = x^3 + 7
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_15/hd_wallet_tree.pdf}
+\includegraphics[width=\textwidth]{figures/hd_wallet_tree/hd_wallet_tree.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Mnemonic Seed Phrases (BIP-39)}
+\begin{frame}[t]{Mnemonic Seed Phrases (BIP-39)}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.75\textwidth]{charts/lesson_15/mnemonic_generation.pdf}
+\includegraphics[width=0.48\textwidth]{figures/mnemonic_generation/mnemonic_generation.pdf}
 \end{center}
 \vspace{-3mm}
 \textbf{12-Word Example:}
@@ -349,19 +387,14 @@ y^2 = x^3 + 7
 \small\texttt{witch collapse practice feed shame open despair creek road again ice least}
 \end{center}
 
-\vspace{2mm}
-\textbf{Properties:}
-\begin{itemize}
-\item 128-bit entropy $\rightarrow$ 12 words, 256-bit $\rightarrow$ 24 words
-\item 2048-word dictionary (BIP-39)
-\item Checksum ensures validity
-\item Human-readable backup
-\end{itemize}
+\textbf{Properties:} 128-bit entropy = 12 words, 256-bit = 24 words; 2048-word BIP-39 dictionary; checksum ensures validity
+\bottomnote{BIP-39 mnemonic phrases enable human-readable backup of cryptographic keys.}
 \end{frame}
 
-\begin{frame}{Wallet Types: Hot vs Cold}
+\begin{frame}[t]{Wallet Types: Hot vs Cold}
+\vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{charts/lesson_15/wallet_types_comparison.pdf}
+\includegraphics[width=0.48\textwidth]{figures/wallet_types_comparison/wallet_types_comparison.pdf}
 \end{center}
 \vspace{-3mm}
 \begin{columns}[T]
@@ -382,9 +415,11 @@ y^2 = x^3 + 7
 \item Secure but less convenient
 \end{itemize}
 \end{columns}
+\bottomnote{Comparative analysis helps identify the right tool for specific requirements.}
 \end{frame}
 
-\begin{frame}{Security Best Practices}
+\begin{frame}[t]{Security Best Practices}
+\vspace{-2mm}
 \textbf{Never Share:}
 \begin{itemize}
 \item Private keys
@@ -404,9 +439,11 @@ y^2 = x^3 + 7
 
 \vspace{3mm}
 \textbf{Warning:} \textcolor{mlred}{Lost private key = Lost funds permanently}
+\bottomnote{Security analysis identifies vulnerabilities and helps design robust systems.}
 \end{frame}
 
-\begin{frame}{Real-World Implications}
+\begin{frame}[t]{Real-World Implications}
+\vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -428,11 +465,13 @@ y^2 = x^3 + 7
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{charts/lesson_15/key_security_threats.pdf}
+\includegraphics[width=\textwidth]{figures/key_security_threats/key_security_threats.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Summary}
+\begin{frame}[t]{Summary}
+\vspace{-2mm}
 \begin{itemize}
 \item \textbf{Public Key Cryptography}: Two keys (public/private), trapdoor functions
 \item \textbf{ECC}: Efficient, smaller keys, basis for Bitcoin/Ethereum signatures

@@ -26,6 +26,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 14: Blocks and Cryptographic Hashing}
 \subtitle{Module 2: Blockchain and Cryptocurrencies}
 \author{Digital Finance}
@@ -102,6 +111,7 @@
 
 \vspace{2mm}
 \textbf{Note:} Hash starts with 19 leading zeros - probability of finding this: $1/2^{76}$
+\bottomnote{Case studies provide concrete evidence of technology impact and adoption patterns.}
 \end{frame}
 
 \begin{frame}{What is a Hash Function?}
@@ -138,6 +148,7 @@
 \item More atoms in universe: $\approx 2^{265}$
 \end{itemize}
 \end{columns}
+\bottomnote{Clear definitions are essential for understanding complex technical concepts.}
 \end{frame}
 
 \begin{frame}{SHA-256: The Bitcoin Hash Function}
@@ -164,6 +175,7 @@
 
 \vspace{3mm}
 \textbf{Security:} No known practical attacks - best attack requires $2^{128}$ operations (infeasible)
+\bottomnote{Bitcoin remains the largest cryptocurrency by market cap and network security.}
 \end{frame}
 
 \begin{frame}{The Avalanche Effect: Demonstration}
@@ -197,6 +209,7 @@
 
 \vspace{3mm}
 \textbf{Implication:} Cannot predict hash output - must compute to verify
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Hash Space and Collision Resistance}
@@ -221,6 +234,7 @@
 
 \vspace{3mm}
 \textbf{Practical Conclusion:} SHA-256 collisions are computationally infeasible
+\bottomnote{Cryptographic primitives provide the security foundation for blockchain systems.}
 \end{frame}
 
 \begin{frame}{Pre-image Resistance: The One-Way Property}
@@ -260,6 +274,7 @@
 \item At 1 quadrillion attempts/second: $10^{61}$ years
 \item Even with all computers on Earth: Still infeasible
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Hash Pointers: Linking Blocks Together}
@@ -305,6 +320,7 @@
 
 \vspace{5mm}
 \textbf{Blockchain Application:} Each block header contains hash pointer to previous block
+\bottomnote{Cryptographic primitives provide the security foundation for blockchain systems.}
 \end{frame}
 
 \begin{frame}{Why Blockchain is Immutable}
@@ -330,6 +346,7 @@
 
 \vspace{3mm}
 \textbf{Conclusion:} Older blocks are exponentially harder to modify - after 6 confirmations (1 hour), considered practically irreversible
+\bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
 \begin{frame}{Merkle Trees: Efficient Transaction Verification}
@@ -367,6 +384,7 @@
 
 \vspace{3mm}
 \textbf{SPV Use Case:} Mobile Bitcoin wallet verifies payment without downloading full blockchain (500+ GB)
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Merkle Tree Example: 4 Transactions}
@@ -403,6 +421,7 @@ H_{34} &= \text{SHA256}(H_3 \| H_4) = \texttt{6b9e...}
 \[
 \text{MerkleRoot} = \text{SHA256}(H_{12} \| H_{34}) = \texttt{4e7a...}
 \]
+\bottomnote{Case studies provide concrete evidence of technology impact and adoption patterns.}
 \end{frame}
 
 \begin{frame}{Merkle Proof: Verifying Transaction Inclusion}
@@ -433,6 +452,7 @@ H_{34} &= \text{SHA256}(H_3 \| H_4) = \texttt{6b9e...}
 \item 1,000 transactions: 10 hashes (320 bytes)
 \item 1,000,000 transactions: 20 hashes (640 bytes)
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Difficulty Target and Leading Zeros}
@@ -467,6 +487,7 @@ H_{34} &= \text{SHA256}(H_3 \| H_4) = \texttt{6b9e...}
 \vspace{3mm}
 \textbf{Example Valid Hash:}
 \texttt{00000000000000000002a7c4c1e48d76c5a37902165a270156b7a8d72728a054}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Difficulty Adjustment Mechanism}
@@ -498,6 +519,7 @@ H_{34} &= \text{SHA256}(H_3 \| H_4) = \texttt{6b9e...}
 \item 2024: Difficulty = 73 trillion (ASIC mining)
 \item $10^{13}$ times harder than genesis block
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Hash Rate: Network Computing Power}
@@ -529,6 +551,7 @@ H_{34} &= \text{SHA256}(H_3 \| H_4) = \texttt{6b9e...}
 \item More computing power than top 500 supercomputers combined
 \item Each hash attempt: $\approx 1/600$ quintillion chance of success
 \end{itemize}
+\bottomnote{Network metrics provide objective measures of adoption and ecosystem health.}
 \end{frame}
 
 \begin{frame}{Block Propagation and Orphan Blocks}
@@ -556,6 +579,7 @@ H_{34} &= \text{SHA256}(H_3 \| H_4) = \texttt{6b9e...}
 \item Average propagation time: 1-2 seconds globally
 \item Why 10 minutes?: Minimize orphans while maintaining decentralization
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Blockchain Data Structures Summary}
@@ -650,6 +674,7 @@ Difficulty Target & Mining puzzle & Adjusts to maintain 10-min block time \\
 
 \vspace{3mm}
 \textbf{Solution:} Nonce \texttt{45,892} produces \texttt{0000f7a3b2c1d...}
+\bottomnote{Cryptographic primitives provide the security foundation for blockchain systems.}
 \end{frame}
 
 \begin{frame}{Block Finality: How Many Confirmations?}
@@ -684,6 +709,7 @@ Difficulty Target & Mining puzzle & Adjusts to maintain 10-min block time \\
 
 \vspace{3mm}
 \textbf{Rule of Thumb:} Value < \$1,000: 1-3 confirmations; Value > \$10,000: 6+ confirmations
+\bottomnote{Understanding the process flow is key to identifying optimization opportunities.}
 \end{frame}
 
 \begin{frame}{Next Lesson Preview}

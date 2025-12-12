@@ -6,6 +6,7 @@
 \usepackage{multicol}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{eurosym}
 
 \definecolor{mlblue}{RGB}{0,102,204}
 \definecolor{mlpurple}{RGB}{51,51,178}
@@ -26,6 +27,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 2: Digital Payments I -- Fundamentals}
 \subtitle{Module 1: Fintech and Innovation}
 \author{Digital Finance Course}
@@ -37,7 +47,11 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{Payment Fundamentals: Overview}
+% =============================================================================
+\section{Payment Fundamentals}
+% =============================================================================
+
+\begin{frame}[t]{Payment Fundamentals: Overview}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{What is a Payment?}
@@ -78,9 +92,10 @@
 \item A2A: Account-to-account (open banking)
 \end{itemize}
 \end{columns}
+\bottomnote{Every payment involves authorization, clearing, and settlement across multiple intermediaries.}
 \end{frame}
 
-\begin{frame}{Payment Lifecycle: Four Stages}
+\begin{frame}[t]{Payment Lifecycle: Four Stages}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{1. Authorization:}
@@ -121,9 +136,10 @@
 \item Instant for real-time payment rails
 \end{itemize}
 \end{columns}
+\bottomnote{Settlement is when funds actually move---clearing calculates who owes what.}
 \end{frame}
 
-\begin{frame}{Card Payment Flow: Step-by-Step}
+\begin{frame}[t]{Card Payment Flow: Step-by-Step}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Transaction Steps:}
@@ -159,9 +175,14 @@
 \item Industry average: 85\%-90\%
 \end{itemize}
 \end{columns}
+\bottomnote{Card authorization takes 1-3 seconds; merchants wait 1-3 days for settlement.}
 \end{frame}
 
-\begin{frame}{Card Networks: Visa and Mastercard}
+% =============================================================================
+\section{Card Networks and Economics}
+% =============================================================================
+
+\begin{frame}[t]{Card Networks: Visa and Mastercard}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Visa Inc:}
@@ -205,9 +226,18 @@
 \item Licensing and certification
 \end{itemize}
 \end{columns}
+\bottomnote{Visa and Mastercard are technology networks, not card issuers---they license the brand.}
 \end{frame}
 
-\begin{frame}{Interchange Fees: The Hidden Economy}
+% Card Network Volumes Chart
+\begin{frame}[t]{Card Network Payment Volumes (2023)}
+\begin{center}
+\includegraphics[width=0.65\textwidth]{figures/card_network_volumes/card_network_volumes.pdf}
+\end{center}
+\bottomnote{Visa + Mastercard process 92\% of global card volume; four-party model creates network effects.}
+\end{frame}
+
+\begin{frame}[t]{Interchange Fees: The Hidden Economy}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{What is Interchange?}
@@ -247,9 +277,18 @@
 \item Example: \$100 purchase = \$2-\$3 interchange
 \end{itemize}
 \end{columns}
+\bottomnote{Interchange is the largest component of merchant fees---funding bank rewards programs.}
 \end{frame}
 
-\begin{frame}{Merchant Discount Rate (MDR): Total Cost}
+% Interchange Rates Comparison Chart
+\begin{frame}[t]{Interchange Fee Rates: EU vs USA}
+\begin{center}
+\includegraphics[width=0.65\textwidth]{figures/interchange_rates_comparison/interchange_rates_comparison.pdf}
+\end{center}
+\bottomnote{EU regulation caps consumer interchange at 0.2-0.3\%; US credit cards remain unregulated.}
+\end{frame}
+
+\begin{frame}[t]{Merchant Discount Rate (MDR): Total Cost}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{MDR Components:}
@@ -273,12 +312,12 @@
 \column{0.48\textwidth}
 \textbf{Merchant Cost Analysis:}
 \begin{itemize}
-\item \EUR100 credit card purchase (EU)
-\item Interchange: \EUR0.30 (0.3\% cap)
-\item Network fee: \EUR0.14 (0.14\%)
-\item Acquirer margin: \EUR0.25 (0.25\%)
-\item Total MDR: \EUR0.69 (0.69\%)
-\item Merchant receives: \EUR99.31
+\item \euro{}100 credit card purchase (EU)
+\item Interchange: \euro{}0.30 (0.3\% cap)
+\item Network fee: \euro{}0.14 (0.14\%)
+\item Acquirer margin: \euro{}0.25 (0.25\%)
+\item Total MDR: \euro{}0.69 (0.69\%)
+\item Merchant receives: \euro{}99.31
 \end{itemize}
 
 \vspace{3mm}
@@ -290,9 +329,10 @@
 \item Volume discounts for large merchants
 \end{itemize}
 \end{columns}
+\bottomnote{Low-margin retailers (supermarkets: 2-3\% margin) see payment fees as significant costs.}
 \end{frame}
 
-\begin{frame}{Interchange Fee Regulation}
+\begin{frame}[t]{Interchange Fee Regulation}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{European Union (IFR 2015):}
@@ -301,7 +341,7 @@
 \item Consumer credit cap: 0.3\%
 \item Commercial cards: Exempt
 \item Cross-border treated as domestic
-\item Saved merchants \EUR1.2B annually
+\item Saved merchants \euro{}1.2B annually
 \end{itemize}
 
 \vspace{3mm}
@@ -331,9 +371,14 @@
 \item Allowed surcharging (pass cost to consumer)
 \end{itemize}
 \end{columns}
+\bottomnote{EU IFR 2015 saved merchants EUR 1.2B annually; post-Brexit UK saw interchange triple on EU cards.}
 \end{frame}
 
-\begin{frame}{ACH: Automated Clearing House}
+% =============================================================================
+\section{Bank Payment Systems}
+% =============================================================================
+
+\begin{frame}[t]{ACH: Automated Clearing House}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{What is ACH?}
@@ -374,9 +419,10 @@
 \item Wires for large/urgent payments
 \end{itemize}
 \end{columns}
+\bottomnote{ACH processes 31B transactions/year at \$0.20-\$1.50 each---100x cheaper than wire transfers.}
 \end{frame}
 
-\begin{frame}{SEPA: Single Euro Payments Area}
+\begin{frame}[t]{SEPA: Single Euro Payments Area}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{What is SEPA?}
@@ -412,15 +458,16 @@
 \begin{itemize}
 \item Launched: November 2017
 \item Settlement: 10 seconds maximum
-\item Limit: \EUR100,000 per transaction (raised from \EUR15k in 2024)
+\item Limit: \euro{}100,000 per transaction (raised from \euro{}15k in 2024)
 \item Available 24/7/365
 \item Adoption: 70\%+ of EU banks (2024)
 \item Mandatory for banks by 2025 (EU regulation)
 \end{itemize}
 \end{columns}
+\bottomnote{SEPA Instant settles in 10 seconds, 24/7/365---mandatory for all EU banks by 2025.}
 \end{frame}
 
-\begin{frame}{SEPA Direct Debit}
+\begin{frame}[t]{SEPA Direct Debit}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{SDD Core Scheme:}
@@ -462,9 +509,14 @@
 \item Variable amount collections
 \end{itemize}
 \end{columns}
+\bottomnote{Direct debit mandates allow 8-week refunds (Core) or no refunds (B2B)---know your scheme.}
 \end{frame}
 
-\begin{frame}{Payment Processing Value Chain}
+% =============================================================================
+\section{Payment Processors and Security}
+% =============================================================================
+
+\begin{frame}[t]{Payment Processing Value Chain}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Frontend Processors:}
@@ -505,15 +557,16 @@
 \item Real-time reporting: Analytics
 \end{itemize}
 \end{columns}
+\bottomnote{Full-stack processors (Adyen, Stripe) combine gateway and acquiring---simplifying integration.}
 \end{frame}
 
-\begin{frame}{Payment Service Providers (PSPs)}
+\begin{frame}[t]{Payment Service Providers (PSPs)}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Leading PSPs:}
 \begin{itemize}
 \item Stripe: \$1 trillion TPV (2023), 100+ countries
-\item Adyen: \EUR786B TPV (2023), unified platform
+\item Adyen: \euro{}786B TPV (2023), unified platform
 \item PayPal/Braintree: \$1.5 trillion TPV (2023)
 \item Worldpay (FIS): \$2.2 trillion TPV
 \item Square/Block: \$211B TPV (2023)
@@ -548,9 +601,10 @@
 \item Checkout.com: High customization, flexible
 \end{itemize}
 \end{columns}
+\bottomnote{Stripe pioneered developer-first APIs---onboarding in hours vs months with traditional acquirers.}
 \end{frame}
 
-\begin{frame}{Payment Security: PCI DSS}
+\begin{frame}[t]{Payment Security: PCI DSS}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{PCI DSS Overview:}
@@ -593,9 +647,10 @@
 \item Log monitoring and SIEM
 \end{itemize}
 \end{columns}
+\bottomnote{PCI DSS 4.0 deadline is March 2025---12 requirements, 6 goals, mandatory for all card processors.}
 \end{frame}
 
-\begin{frame}{Payment Fraud: Types and Prevention}
+\begin{frame}[t]{Payment Fraud: Types and Prevention}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Fraud Types:}
@@ -637,9 +692,10 @@
 \item Reduces fraud and chargebacks
 \end{itemize}
 \end{columns}
+\bottomnote{Card fraud costs \$32B annually; 3D Secure 2.0 shifts liability to issuers on authenticated transactions.}
 \end{frame}
 
-\begin{frame}{Chargebacks: Process and Impact}
+\begin{frame}[t]{Chargebacks: Process and Impact}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Chargeback Reasons:}
@@ -681,9 +737,14 @@
 \item Prevention: Fraud tools, clear policies
 \end{itemize}
 \end{columns}
+\bottomnote{Chargeback ratio >0.9\% triggers Visa monitoring program---\$20-\$100 fee per dispute.}
 \end{frame}
 
-\begin{frame}{Real-Time Payments: Global Overview}
+% =============================================================================
+\section{Real-Time Payments}
+% =============================================================================
+
+\begin{frame}[t]{Real-Time Payments: Global Overview}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Key Characteristics:}
@@ -726,9 +787,18 @@
 \item Financial inclusion (no card needed)
 \end{itemize}
 \end{columns}
+\bottomnote{India's UPI processes 16.58B transactions/month at zero fees---government-subsidized success story.}
 \end{frame}
 
-\begin{frame}{FedNow: US Real-Time Payments}
+% Real-Time Payments Adoption Chart
+\begin{frame}[t]{Real-Time Payment Systems: Global Adoption}
+\begin{center}
+\includegraphics[width=0.65\textwidth]{figures/realtime_payments_adoption/realtime_payments_adoption.pdf}
+\end{center}
+\bottomnote{UPI and PIX demonstrate RTP potential: 16.58B and 5.5B monthly transactions respectively.}
+\end{frame}
+
+\begin{frame}[t]{FedNow: US Real-Time Payments}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{FedNow Service:}
@@ -772,9 +842,14 @@
 \item Business liquidity management
 \end{itemize}
 \end{columns}
+\bottomnote{FedNow launched July 2023---competes with private RTP Network for US real-time dominance.}
 \end{frame}
 
-\begin{frame}{Payment Method Comparison}
+% =============================================================================
+\section{Summary}
+% =============================================================================
+
+\begin{frame}[t]{Payment Method Comparison}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Cards:}
@@ -818,9 +893,10 @@
 \item Best for: Large, urgent, cross-border
 \end{itemize}
 \end{columns}
+\bottomnote{Choose payment method based on trade-offs: speed vs cost vs security vs consumer protection.}
 \end{frame}
 
-\begin{frame}{Summary and Key Takeaways}
+\begin{frame}[t]{Summary and Key Takeaways}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Payment Lifecycle:}
@@ -858,13 +934,14 @@
 \item Open banking enabling payment initiation
 \end{itemize}
 \end{columns}
+\bottomnote{Real-time A2A payments are disrupting cards---lower cost, instant settlement, no intermediaries.}
 \end{frame}
 
-\begin{frame}{Next Lesson Preview}
+\begin{frame}[t]{Next Lesson Preview}
 \begin{center}
 \Large \textbf{Lesson 3: Digital Payments II -- Mobile Wallets}
 
-\vspace{10mm}
+\vspace{5mm}
 
 \normalsize
 We will explore:

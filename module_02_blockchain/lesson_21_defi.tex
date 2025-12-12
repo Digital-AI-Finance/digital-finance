@@ -19,6 +19,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 21: DeFi Fundamentals}
 \subtitle{Module 2: Blockchain Fundamentals}
 \author{Digital Finance}
@@ -57,6 +66,7 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/tradfi_vs_defi/tradfi_vs_defi.pdf}
 \end{columns}
+\bottomnote{Understanding history helps predict future developments in the technology.}
 \end{frame}
 
 \begin{frame}{DeFi Primitives}
@@ -72,6 +82,7 @@
 \item \textbf{Application Layer:} Aggregators, wallets, dashboards
 \item \textbf{Composability:} ``Money Legos'' -- protocols interact seamlessly
 \end{itemize}
+\bottomnote{DeFi recreates traditional financial services in a permissionless, programmable way.}
 \end{frame}
 
 \begin{frame}{Decentralized Exchanges (DEXs): The Problem}
@@ -99,6 +110,7 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/orderbook_gas_costs/orderbook_gas_costs.pdf}
 \end{columns}
+\bottomnote{Centralized systems trade trust for efficiency; decentralized systems trade efficiency for trustlessness.}
 \end{frame}
 
 \begin{frame}{AMM: Automated Market Maker}
@@ -114,6 +126,7 @@
 \item Anyone can provide liquidity (LP)
 \item Passive market making
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Constant Product Formula: $x \times y = k$}
@@ -137,6 +150,7 @@ k = 100 \times 200{,}000 = 20{,}000{,}000
 \item New USDC reserve: $y' = k / x' = 20{,}000{,}000 / 90 = 222{,}222$
 \item USDC paid: $222{,}222 - 200{,}000 = 22{,}222$ (effective price $\sim$\$2,222/ETH)
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{AMM Bonding Curve Visualization}
@@ -152,6 +166,7 @@ k = 100 \times 200{,}000 = 20{,}000{,}000
 \item Infinite liquidity (asymptotic, but expensive for large trades)
 \item No order book needed
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Price Impact and Slippage}
@@ -180,6 +195,7 @@ k = 100 \times 200{,}000 = 20{,}000{,}000
 
 \vspace{3mm}
 \textbf{Formula:} Price impact $\approx \Delta x / (x + \Delta x)$
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Liquidity Providers: Earning Fees}
@@ -207,6 +223,7 @@ k = 100 \times 200{,}000 = 20{,}000{,}000
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/liquidity_provision/liquidity_provision.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Impermanent Loss: The Hidden Cost}
@@ -226,6 +243,7 @@ k = 100 \times 200{,}000 = 20{,}000{,}000
 \item Holding: 1 ETH + 2000 USDC = \$5000
 \item Impermanent loss: \$551 (11\%)
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Impermanent Loss Formula}
@@ -253,6 +271,7 @@ where $r$ = price ratio change (final price / initial price)
 
 \vspace{2mm}
 \textbf{Mitigation:} Fees earned over time can offset IL (especially in high-volume pairs)
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Uniswap V3: Concentrated Liquidity}
@@ -279,6 +298,7 @@ where $r$ = price ratio change (final price / initial price)
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/uniswap_v3_ranges/uniswap_v3_ranges.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Lending Protocols: Aave and Compound}
@@ -294,6 +314,7 @@ where $r$ = price ratio change (final price / initial price)
 \item \textbf{Interest Rates:} Algorithmically determined by utilization
 \item \textbf{Liquidation:} If collateral drops below threshold, liquidators repay loan, seize collateral at discount
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Over-Collateralization Requirement}
@@ -323,6 +344,7 @@ where $r$ = price ratio change (final price / initial price)
 
 \vspace{3mm}
 \textbf{Risk:} If ETH drops $>$15\%, position liquidated
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Interest Rate Model}
@@ -342,6 +364,7 @@ U = \frac{\text{Total Borrowed}}{\text{Total Supplied}}
 \item High utilization: High rates (incentivize deposits, discourage borrowing)
 \item Kinked model: Sharp increase near optimal utilization (e.g., 80\%)
 \end{itemize}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Flash Loans: Zero-Collateral Instant Loans}
@@ -369,6 +392,7 @@ U = \frac{\text{Total Borrowed}}{\text{Total Supplied}}
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/flash_loan_flow/flash_loan_flow.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{Flash Loan Attack Example}
@@ -392,6 +416,7 @@ U = \frac{\text{Total Borrowed}}{\text{Total Supplied}}
 
 \vspace{3mm}
 \textbf{Note:} Flash loans are not inherently bad, but enable rapid exploitation of vulnerabilities
+\bottomnote{Case studies provide concrete evidence of technology impact and adoption patterns.}
 \end{frame}
 
 \begin{frame}{Yield Farming: Chasing Returns}
@@ -419,6 +444,7 @@ U = \frac{\text{Total Borrowed}}{\text{Total Supplied}}
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/yield_farming_stack/yield_farming_stack.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
 \begin{frame}{DeFi Summer 2020: Liquidity Mining Explosion}
@@ -436,6 +462,7 @@ U = \frac{\text{Total Borrowed}}{\text{Total Supplied}}
 \item APYs: 100--1000\%+ (unsustainable, token inflation)
 \item Copycat protocols, ``DeFi Degen'' culture
 \end{itemize}
+\bottomnote{DeFi recreates traditional financial services in a permissionless, programmable way.}
 \end{frame}
 
 \begin{frame}{Risks in DeFi}
@@ -452,6 +479,7 @@ U = \frac{\text{Total Borrowed}}{\text{Total Supplied}}
 
 \vspace{3mm}
 \textbf{Mitigation:} Use audited protocols, diversify, understand risks, start small
+\bottomnote{DeFi recreates traditional financial services in a permissionless, programmable way.}
 \end{frame}
 
 \begin{frame}{DeFi vs CeFi: Trade-offs}
@@ -475,6 +503,7 @@ Liquidity & Fragmented across DEXs & Concentrated on CEX \\
 \bottomrule
 \end{tabular}
 \end{center}
+\bottomnote{Comparative analysis helps identify the right tool for specific requirements.}
 \end{frame}
 
 \begin{frame}{Summary}

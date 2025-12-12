@@ -19,6 +19,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 16: Proof of Work}
 \subtitle{Module 2: Blockchain Fundamentals}
 \author{Digital Finance}
@@ -30,7 +39,7 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{The Double-Spending Problem}
+\begin{frame}[t]{The Double-Spending Problem}
 \vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
@@ -54,9 +63,10 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/double_spending_scenario/double_spending_scenario.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Consensus Problem: Agreeing on Transaction Order}
+\begin{frame}[t]{Consensus Problem: Agreeing on Transaction Order}
 \vspace{-2mm}
 \begin{center}
 \includegraphics[width=0.48\textwidth]{figures/consensus_problem/consensus_problem.pdf}
@@ -71,7 +81,7 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Proof of Work: The Solution}
+\begin{frame}[t]{Proof of Work: The Solution}
 \vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
@@ -96,9 +106,10 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/pow_concept/pow_concept.pdf}
 \end{columns}
+\bottomnote{Proof-of-Work provides security through computational cost but has energy concerns.}
 \end{frame}
 
-\begin{frame}{Hash Puzzle: Finding the Nonce}
+\begin{frame}[t]{Hash Puzzle: Finding the Nonce}
 \vspace{-2mm}
 \textbf{Mining Goal:} Find nonce such that block hash is below target
 
@@ -126,7 +137,7 @@
 \end{align*}
 \end{frame}
 
-\begin{frame}{Mining Process Visualization}
+\begin{frame}[t]{Mining Process Visualization}
 \vspace{-2mm}
 \begin{center}
 \includegraphics[width=0.48\textwidth]{figures/mining_process/mining_process.pdf}
@@ -140,9 +151,10 @@
 \item Hash until target reached
 \item Broadcast valid block to network
 \end{enumerate}
+\bottomnote{Understanding the process flow is key to identifying optimization opportunities.}
 \end{frame}
 
-\begin{frame}{Difficulty Target: Controlling Block Time}
+\begin{frame}[t]{Difficulty Target: Controlling Block Time}
 \vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
@@ -169,9 +181,10 @@
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/difficulty_adjustment/difficulty_adjustment.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Difficulty Over Time: Bitcoin Example}
+\begin{frame}[t]{Difficulty Over Time: Bitcoin Example}
 \vspace{-2mm}
 \begin{center}
 \includegraphics[width=0.48\textwidth]{figures/bitcoin_difficulty_history/bitcoin_difficulty_history.pdf}
@@ -183,9 +196,10 @@
 \item Difficulty in 2024: $\sim 10^{13}$ times harder than 2009
 \item Hashrate: From CPU mining to specialized ASICs
 \end{itemize}
+\bottomnote{Case studies provide concrete evidence of technology impact and adoption patterns.}
 \end{frame}
 
-\begin{frame}{Mining Probability and Expected Time}
+\begin{frame}[t]{Mining Probability and Expected Time}
 \vspace{-2mm}
 \textbf{Probability of Success per Hash:}
 \[
@@ -209,9 +223,10 @@ T = \frac{\text{Difficulty} \times 2^{32}}{\text{Hashrate}}
 \[
 T = \frac{50 \times 10^{12} \times 2^{32}}{100 \times 10^{12}} \approx 2147 \text{ seconds} \approx 36 \text{ minutes}
 \]
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Mining Difficulty vs Hashrate}
+\begin{frame}[t]{Mining Difficulty vs Hashrate}
 \vspace{-2mm}
 \begin{center}
 \includegraphics[width=0.48\textwidth]{figures/hashrate_vs_difficulty/hashrate_vs_difficulty.pdf}
@@ -223,9 +238,10 @@ T = \frac{50 \times 10^{12} \times 2^{32}}{100 \times 10^{12}} \approx 2147 \tex
 \item Difficulty adjusts upward $\rightarrow$ restores 10-min average
 \item Self-regulating system maintains predictable issuance
 \end{itemize}
+\bottomnote{Comparative analysis helps identify the right tool for specific requirements.}
 \end{frame}
 
-\begin{frame}{Blockchain Security: The 51\% Attack}
+\begin{frame}[t]{Blockchain Security: The 51\% Attack}
 \vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
@@ -249,9 +265,10 @@ T = \frac{50 \times 10^{12} \times 2^{32}}{100 \times 10^{12}} \approx 2147 \tex
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/51_percent_attack/51_percent_attack.pdf}
 \end{columns}
+\bottomnote{Security analysis identifies vulnerabilities and helps design robust systems.}
 \end{frame}
 
-\begin{frame}{Confirmation Depth: Security Over Time}
+\begin{frame}[t]{Confirmation Depth: Security Over Time}
 \vspace{-2mm}
 \begin{center}
 \includegraphics[width=0.48\textwidth]{figures/confirmation_depth/confirmation_depth.pdf}
@@ -265,9 +282,10 @@ where $p$ = honest hashrate fraction, $q$ = attacker hashrate fraction
 
 \vspace{2mm}
 \textbf{Bitcoin Standard:} 6 confirmations ($\sim$1 hour) for high-value transactions
+\bottomnote{Security analysis identifies vulnerabilities and helps design robust systems.}
 \end{frame}
 
-\begin{frame}{Mining Economics: Costs and Rewards}
+\begin{frame}[t]{Mining Economics: Costs and Rewards}
 \vspace{-2mm}
 \textbf{Revenue:}
 \begin{itemize}
@@ -291,9 +309,10 @@ where $p$ = honest hashrate fraction, $q$ = attacker hashrate fraction
 
 \vspace{2mm}
 \textbf{Break-even:} Electricity cost $\approx$ 40--60\% of revenue at scale
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Mining Hardware Evolution}
+\begin{frame}[t]{Mining Hardware Evolution}
 \vspace{-2mm}
 \begin{center}
 \includegraphics[width=0.48\textwidth]{figures/mining_hardware_evolution/mining_hardware_evolution.pdf}
@@ -305,9 +324,10 @@ where $p$ = honest hashrate fraction, $q$ = attacker hashrate fraction
 \item \textbf{2013+:} ASIC mining (1--200+ TH/s)
 \item \textbf{Modern ASICs:} Antminer S19 Pro (110 TH/s, 3250W)
 \end{itemize}
+\bottomnote{Understanding history helps predict future developments in the technology.}
 \end{frame}
 
-\begin{frame}{Energy Consumption: The Elephant in the Room}
+\begin{frame}[t]{Energy Consumption: The Elephant in the Room}
 \vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
@@ -330,9 +350,10 @@ where $p$ = honest hashrate fraction, $q$ = attacker hashrate fraction
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/energy_consumption/energy_consumption.pdf}
 \end{columns}
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Energy Sources: Renewable Debate}
+\begin{frame}[t]{Energy Sources: Renewable Debate}
 \vspace{-2mm}
 \begin{center}
 \includegraphics[width=0.48\textwidth]{figures/mining_energy_sources/mining_energy_sources.pdf}
@@ -346,9 +367,10 @@ where $p$ = honest hashrate fraction, $q$ = attacker hashrate fraction
 \item Nuclear: 5--10\%
 \end{itemize}
 \textbf{Trend:} Miners seek cheap, stranded renewable energy (e.g., flare gas, curtailed hydro)
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Environmental Criticisms and Counterarguments}
+\begin{frame}[t]{Environmental Criticisms and Counterarguments}
 \vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
@@ -373,9 +395,10 @@ where $p$ = honest hashrate fraction, $q$ = attacker hashrate fraction
 
 \vspace{4mm}
 \textbf{Trade-off:} Security vs energy efficiency (Proof of Stake addresses this)
+\bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Mining Centralization Risks}
+\begin{frame}[t]{Mining Centralization Risks}
 \vspace{-2mm}
 \begin{center}
 \includegraphics[width=0.48\textwidth]{figures/mining_pool_distribution/mining_pool_distribution.pdf}
@@ -388,9 +411,10 @@ where $p$ = honest hashrate fraction, $q$ = attacker hashrate fraction
 \item Pool operators could censor transactions
 \end{itemize}
 \textbf{Mitigation:} Miners can switch pools, Stratum V2 protocol improves decentralization
+\bottomnote{Risk management is essential for financial stability and profitability.}
 \end{frame}
 
-\begin{frame}{Selfish Mining Attack}
+\begin{frame}[t]{Selfish Mining Attack}
 \vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
@@ -414,31 +438,31 @@ where $p$ = honest hashrate fraction, $q$ = attacker hashrate fraction
 \column{0.48\textwidth}
 \includegraphics[width=\textwidth]{figures/selfish_mining/selfish_mining.pdf}
 \end{columns}
+\bottomnote{Security analysis identifies vulnerabilities and helps design robust systems.}
 \end{frame}
 
-\begin{frame}{Alternatives to Proof of Work}
+\begin{frame}[t]{Alternatives to Proof of Work}
 \vspace{-2mm}
 \begin{center}
-\begin{tabular}{@{}p{3cm}p{4cm}p{4cm}p{3cm}@{}}
+\scriptsize
+\begin{tabular}{@{}p{2.5cm}p{3.5cm}p{3.5cm}p{3cm}@{}}
 \toprule
 \textbf{Mechanism} & \textbf{Selection} & \textbf{Pros} & \textbf{Cons} \\
 \midrule
-Proof of Work & Computational power & Proven security, decentralized & Energy intensive \\
-\midrule
-Proof of Stake & Staked capital & Energy efficient & Rich get richer, slashing risk \\
-\midrule
-Proof of Authority & Approved validators & Fast, low energy & Centralized, permissioned \\
-\midrule
-Proof of Space & Disk storage & Lower energy than PoW & New, unproven security \\
+Proof of Work & Computational power & Proven security & Energy intensive \\
+Proof of Stake & Staked capital & Energy efficient & Rich get richer \\
+Proof of Authority & Approved validators & Fast, low energy & Centralized \\
+Proof of Space & Disk storage & Lower energy & Unproven security \\
 \bottomrule
 \end{tabular}
 \end{center}
 
 \vspace{3mm}
 \textbf{Note:} Ethereum switched from PoW to PoS in 2022 (The Merge)
+\bottomnote{Proof-of-Work provides security through computational cost but has energy concerns.}
 \end{frame}
 
-\begin{frame}{Summary}
+\begin{frame}[t]{Summary}
 \vspace{-2mm}
 \begin{itemize}
 \item \textbf{Double-Spending Problem:} Solved by probabilistic consensus via PoW

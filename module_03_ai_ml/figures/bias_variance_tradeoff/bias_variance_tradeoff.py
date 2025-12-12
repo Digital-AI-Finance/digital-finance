@@ -1,60 +1,82 @@
 """
 Bias-Variance Tradeoff
-Fundamental ML concept
+Shows the U-shaped curve of total error
 
 Output: bias_variance_tradeoff.pdf
 Module: module_03_ai_ml
-Lesson: 25 - Introduction to AI/ML
+Lesson: 27 - Regression / 35 - Explainability
 """
 
 from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 
-CHART_METADATA = {
-    'title': 'Bias-Variance Tradeoff',
-    'module': 'module_03_ai_ml',
-    'lesson': 25,
-    'url': 'https://github.com/Digital-AI-Finance/digital-finance/tree/main/module_03_ai_ml/figures/bias_variance_tradeoff'
-}
+plt.rcParams.update({
+    'font.size': 10,
+    'axes.labelsize': 10,
+    'axes.titlesize': 11,
+    'xtick.labelsize': 9,
+    'ytick.labelsize': 9,
+    'legend.fontsize': 9,
+    'figure.figsize': (10, 6),
+    'figure.dpi': 150
+})
 
-plt.rcParams.update({'font.size': 10, 'axes.labelsize': 10})
+MLPURPLE = '#3333B2'
+MLBLUE = '#0066CC'
+MLORANGE = '#FF7F0E'
+MLGREEN = '#2CA02C'
+MLRED = '#D62728'
 
 def create_chart():
     fig, ax = plt.subplots(figsize=(10, 6))
 
+    # Model complexity (x-axis)
     complexity = np.linspace(0.5, 10, 100)
+
+    # Bias decreases with complexity
     bias_squared = 5 / complexity
-    variance = 0.1 * complexity ** 1.5
-    total_error = bias_squared + variance + 0.5  # irreducible error
 
-    ax.plot(complexity, bias_squared, 'b-', linewidth=2.5, label='Bias²')
-    ax.plot(complexity, variance, 'r-', linewidth=2.5, label='Variance')
-    ax.plot(complexity, total_error, 'k--', linewidth=2.5, label='Total Error')
-    ax.axhline(y=0.5, color='#999999', linestyle=':', linewidth=1.5, label='Irreducible Error')
+    # Variance increases with complexity
+    variance = 0.3 * (complexity - 0.5)**1.5
 
-    # Optimal point
+    # Total error = bias^2 + variance + irreducible error
+    irreducible = 0.5
+    total_error = bias_squared + variance + irreducible
+
+    ax.plot(complexity, bias_squared, color=MLBLUE, linewidth=2, label='Bias²')
+    ax.plot(complexity, variance, color=MLORANGE, linewidth=2, label='Variance')
+    ax.plot(complexity, total_error, color=MLRED, linewidth=2.5, label='Total Error')
+    ax.axhline(y=irreducible, color='gray', linestyle='--', linewidth=1, label='Irreducible Error')
+
+    # Mark optimal point
     optimal_idx = np.argmin(total_error)
-    ax.scatter(complexity[optimal_idx], total_error[optimal_idx], s=150, color='#44A044', zorder=5)
+    ax.scatter([complexity[optimal_idx]], [total_error[optimal_idx]], color=MLGREEN, s=100, zorder=5)
     ax.annotate('Optimal\nComplexity', xy=(complexity[optimal_idx], total_error[optimal_idx]),
-               xytext=(complexity[optimal_idx] + 1.5, total_error[optimal_idx] + 1),
-               fontsize=10, fontweight='bold',
-               arrowprops=dict(arrowstyle='->', color='#333333'))
+                xytext=(complexity[optimal_idx]+1.5, total_error[optimal_idx]+0.8),
+                fontsize=9, arrowprops=dict(arrowstyle='->', color=MLGREEN),
+                color=MLGREEN, fontweight='bold')
 
-    # Regions
-    ax.axvspan(0.5, 3, alpha=0.1, color='blue', label='_nolegend_')
-    ax.axvspan(7, 10, alpha=0.1, color='red', label='_nolegend_')
-    ax.text(1.5, 6, 'Underfitting\n(High Bias)', ha='center', fontsize=10, color='#4A90E2')
-    ax.text(8.5, 6, 'Overfitting\n(High Variance)', ha='center', fontsize=10, color='#D62728')
+    # Add underfitting/overfitting regions
+    ax.text(1.5, 4.5, 'Underfitting\n(High Bias)', fontsize=10, ha='center', color='#666666')
+    ax.text(8.5, 4.5, 'Overfitting\n(High Variance)', fontsize=10, ha='center', color='#666666')
 
     ax.set_xlabel('Model Complexity', fontsize=11)
     ax.set_ylabel('Error', fontsize=11)
-    ax.set_title('Bias-Variance Tradeoff', fontsize=14, fontweight='bold', pad=15)
-    ax.legend(loc='upper center', fontsize=9)
-    ax.set_xlim(0.5, 10)
-    ax.set_ylim(0, 8)
+    ax.set_title('Bias-Variance Tradeoff', fontsize=14, fontweight='bold',
+                 color=MLPURPLE, pad=10)
+    ax.legend(loc='upper center', ncol=4, framealpha=0.9)
 
-    fig.text(0.98, 0.02, '[SYNTHETIC DATA]', fontsize=7, color='#999999', ha='right', style='italic')
+    ax.set_xlim(0.5, 10)
+    ax.set_ylim(0, 6)
+
+    # Remove top and right spines
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+
+    fig.text(0.98, 0.02, '[CONCEPTUAL ILLUSTRATION]', fontsize=7,
+             color='#999999', ha='right', style='italic')
+
     plt.tight_layout()
 
     output_path = Path(__file__).parent / 'bias_variance_tradeoff.pdf'

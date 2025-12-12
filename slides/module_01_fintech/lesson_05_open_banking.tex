@@ -19,6 +19,15 @@
 \setbeamertemplate{itemize items}[circle]
 \setbeamersize{text margin left=5mm,text margin right=5mm}
 
+% Bottom note command for key takeaways
+\newcommand{\bottomnote}[1]{%
+\vfill
+\vspace{-2mm}
+\textcolor{mllavender2}{\rule{\textwidth}{0.4pt}}
+\vspace{1mm}
+\footnotesize
+\textbf{#1}
+}
 \title{Lesson 5: Open Banking and APIs}
 \subtitle{Module 1: FinTech Fundamentals}
 \author{Digital Finance}
@@ -30,7 +39,11 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{Open Banking Revolution}
+% =============================================================================
+\section{Open Banking Fundamentals}
+% =============================================================================
+
+\begin{frame}[t]{Open Banking Revolution}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -43,17 +56,23 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/open_banking_concept.pdf}
+\includegraphics[width=\textwidth]{figures/open_banking_concept/open_banking_concept.pdf}
 \end{columns}
+\bottomnote{Open banking shifts data control from banks to customers---enabling competition and innovation.}
 \end{frame}
 
-\begin{frame}{PSD2 Framework}
+% =============================================================================
+\section{PSD2 Regulatory Framework}
+% =============================================================================
+
+\begin{frame}[t]{PSD2 Framework}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/psd2_architecture.pdf}
+\includegraphics[width=0.65\textwidth]{figures/psd2_architecture/psd2_architecture.pdf}
 \end{center}
+\bottomnote{PSD2 mandates banks provide API access to licensed third parties with customer consent.}
 \end{frame}
 
-\begin{frame}{PSD2 Timeline}
+\begin{frame}[t]{PSD2 Timeline}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -66,11 +85,12 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/psd2_timeline.pdf}
+\includegraphics[width=\textwidth]{figures/psd2_timeline/psd2_timeline.pdf}
 \end{columns}
+\bottomnote{Full PSD2 enforcement took 6 years (2015-2021)---phased rollout reduced industry disruption.}
 \end{frame}
 
-\begin{frame}{Strong Customer Authentication (SCA)}
+\begin{frame}[t]{Strong Customer Authentication (SCA)}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -83,23 +103,30 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/sca_factors.pdf}
+\includegraphics[width=\textwidth]{figures/sca_factors/sca_factors.pdf}
 \end{columns}
+\bottomnote{SCA requires 2 of 3 factors---knowledge, possession, or inherence---for secure authentication.}
 \end{frame}
 
-\begin{frame}{Account Information Service (AIS)}
+% =============================================================================
+\section{Services and Providers}
+% =============================================================================
+
+\begin{frame}[t]{Account Information Service (AIS)}
 \begin{center}
-\includegraphics[width=0.82\textwidth]{figures/ais_flow.pdf}
+\includegraphics[width=0.65\textwidth]{figures/ais_flow/ais_flow.pdf}
 \end{center}
+\bottomnote{AIS enables read-only account aggregation---view balances from multiple banks in one app.}
 \end{frame}
 
-\begin{frame}{Payment Initiation Service (PIS)}
+\begin{frame}[t]{Payment Initiation Service (PIS)}
 \begin{center}
-\includegraphics[width=0.82\textwidth]{figures/pis_flow.pdf}
+\includegraphics[width=0.65\textwidth]{figures/pis_flow/pis_flow.pdf}
 \end{center}
+\bottomnote{PIS enables direct bank-to-bank transfers---bypassing card networks entirely.}
 \end{frame}
 
-\begin{frame}{Third-Party Providers (TPPs)}
+\begin{frame}[t]{Third-Party Providers (TPPs)}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -112,11 +139,12 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/tpp_categories.pdf}
+\includegraphics[width=\textwidth]{figures/tpp_categories/tpp_categories.pdf}
 \end{columns}
+\bottomnote{TPPs must obtain regulatory authorization---AISPs for data, PISPs for payments, CBPIIs for balance checks.}
 \end{frame}
 
-\begin{frame}{API Standards}
+\begin{frame}[t]{API Standards}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -129,17 +157,23 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/api_architecture.pdf}
+\includegraphics[width=\textwidth]{figures/api_architecture/api_architecture.pdf}
 \end{columns}
+\bottomnote{RESTful APIs with OAuth 2.0 authorization are the standard---JSON format enables easy integration.}
 \end{frame}
 
-\begin{frame}{UK Open Banking Implementation}
+% =============================================================================
+\section{Implementation and Adoption}
+% =============================================================================
+
+\begin{frame}[t]{UK Open Banking Implementation}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/uk_open_banking.pdf}
+\includegraphics[width=0.65\textwidth]{figures/uk_open_banking/uk_open_banking.pdf}
 \end{center}
+\bottomnote{UK leads global adoption with 8M+ users---CMA9 mandate required 9 largest banks to open APIs.}
 \end{frame}
 
-\begin{frame}{Open Banking Use Cases}
+\begin{frame}[t]{Open Banking Use Cases}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -152,17 +186,19 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/open_banking_use_cases.pdf}
+\includegraphics[width=\textwidth]{figures/open_banking_use_cases/open_banking_use_cases.pdf}
 \end{columns}
+\bottomnote{Account aggregation and automated budgeting are the killer apps---alternative credit scoring expands lending.}
 \end{frame}
 
-\begin{frame}{Account Aggregation Example}
+\begin{frame}[t]{Account Aggregation Example}
 \begin{center}
-\includegraphics[width=0.80\textwidth]{figures/account_aggregation_flow.pdf}
+\includegraphics[width=0.62\textwidth]{figures/account_aggregation_flow/account_aggregation_flow.pdf}
 \end{center}
+\bottomnote{Users link accounts once via OAuth---apps then receive ongoing access without storing credentials.}
 \end{frame}
 
-\begin{frame}{Payment Initiation Benefits}
+\begin{frame}[t]{Payment Initiation Benefits}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -175,17 +211,23 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/pis_vs_card_fees.pdf}
+\includegraphics[width=\textwidth]{figures/pis_vs_card_fees/pis_vs_card_fees.pdf}
 \end{columns}
+\bottomnote{PIS fees are 10-15x lower than card fees (0.1\% vs 1.5\%)---no chargebacks is a merchant advantage.}
 \end{frame}
 
-\begin{frame}{Global Open Banking Adoption}
+\begin{frame}[t]{Global Open Banking Adoption}
 \begin{center}
-\includegraphics[width=0.85\textwidth]{figures/global_open_banking_map.pdf}
+\includegraphics[width=0.65\textwidth]{figures/global_open_banking_map/global_open_banking_map.pdf}
 \end{center}
+\bottomnote{EU/UK lead with mandatory frameworks---Brazil, Australia, and Singapore follow with national standards.}
 \end{frame}
 
-\begin{frame}{API Performance Metrics}
+% =============================================================================
+\section{Performance and Security}
+% =============================================================================
+
+\begin{frame}[t]{API Performance Metrics}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -198,11 +240,12 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/api_performance.pdf}
+\includegraphics[width=\textwidth]{figures/api_performance/api_performance.pdf}
 \end{columns}
+\bottomnote{UK open banking APIs achieve 99.5\% uptime with 1.2s average response---12M monthly API calls.}
 \end{frame}
 
-\begin{frame}{Security Challenges}
+\begin{frame}[t]{Security Challenges}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -215,17 +258,23 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/open_banking_security.pdf}
+\includegraphics[width=\textwidth]{figures/open_banking_security/open_banking_security.pdf}
 \end{columns}
+\bottomnote{API credential theft and man-in-the-middle attacks are primary risks---fraud monitoring is essential.}
 \end{frame}
 
-\begin{frame}{Business Model Impact}
+\begin{frame}[t]{Business Model Impact}
 \begin{center}
-\includegraphics[width=0.82\textwidth]{figures/open_banking_ecosystem.pdf}
+\includegraphics[width=0.65\textwidth]{figures/open_banking_ecosystem/open_banking_ecosystem.pdf}
 \end{center}
+\bottomnote{Banks become platforms, not gatekeepers---revenue shifts from fees to API monetization and partnerships.}
 \end{frame}
 
-\begin{frame}{Future: Open Finance}
+% =============================================================================
+\section{Future and Summary}
+% =============================================================================
+
+\begin{frame}[t]{Future: Open Finance}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -238,11 +287,12 @@
 \end{itemize}
 
 \column{0.48\textwidth}
-\includegraphics[width=\textwidth]{figures/open_finance_scope.pdf}
+\includegraphics[width=\textwidth]{figures/open_finance_scope/open_finance_scope.pdf}
 \end{columns}
+\bottomnote{Open finance extends APIs to pensions, insurance, and investments---full financial data portability ahead.}
 \end{frame}
 
-\begin{frame}{Key Takeaways}
+\begin{frame}[t]{Key Takeaways}
 \begin{itemize}
 \item \textbf{PSD2}: EU regulatory mandate for bank API access
 \item \textbf{Services}: AIS (aggregation) and PIS (payment initiation)
@@ -250,6 +300,7 @@
 \item \textbf{Benefits}: Lower fees, faster payments, innovation
 \item \textbf{Future}: Expanding to open finance ecosystem
 \end{itemize}
+\bottomnote{Open banking enables customer-controlled data sharing---transforming banks from gatekeepers to platforms.}
 \end{frame}
 
 \end{document}
