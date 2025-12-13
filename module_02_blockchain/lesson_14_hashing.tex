@@ -48,39 +48,10 @@
 
 \begin{frame}[t]{Block Structure: Anatomy of a Bitcoin Block}
 \vspace{-2mm}
-\textbf{Every Bitcoin block contains two main parts:}
-
-\vspace{3mm}
-\begin{columns}[T]
-\column{0.48\textwidth}
-\textbf{Block Header (80 bytes):}
-\begin{itemize}
-\item \textcolor{mlpurple}{\textbf{Version}} (4 bytes): Protocol version
-\item \textcolor{mlpurple}{\textbf{Previous Hash}} (32 bytes): Link to parent
-\item \textcolor{mlpurple}{\textbf{Merkle Root}} (32 bytes): Transaction summary
-\item \textcolor{mlpurple}{\textbf{Timestamp}} (4 bytes): Block creation time
-\item \textcolor{mlpurple}{\textbf{Difficulty Target}} (4 bytes): Mining threshold
-\item \textcolor{mlpurple}{\textbf{Nonce}} (4 bytes): Mining puzzle solution
-\end{itemize}
-
-\column{0.48\textwidth}
-\textbf{Block Body (Variable):}
-\begin{itemize}
-\item \textcolor{mlpurple}{\textbf{Transaction Counter}}: Number of transactions
-\item \textcolor{mlpurple}{\textbf{Transactions}}: Actual transaction data
-\item Typical: 2000-3000 transactions
-\item Max size: 4 MB (with SegWit)
-\item Average: 1.5-2 MB
-\end{itemize}
-
-\vspace{3mm}
-\textbf{Block Hash:}
-\begin{itemize}
-\item SHA-256 hash of the header
-\item Uniquely identifies block
-\item Must meet difficulty target
-\end{itemize}
-\end{columns}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/block_structure_detailed/block_structure_detailed.pdf}
+\end{center}
+\bottomnote{The 80-byte header contains all essential metadata; body holds actual transactions.}
 \end{frame}
 
 \begin{frame}[t]{Example: Bitcoin Block 800,000}
@@ -153,88 +124,26 @@
 
 \begin{frame}[t]{SHA-256: The Bitcoin Hash Function}
 \vspace{-2mm}
-\textbf{SHA-256} (Secure Hash Algorithm 256-bit) - designed by NSA, published 2001
-
-\vspace{3mm}
-\textbf{Input/Output:}
-\begin{itemize}
-\item Input: Any data (message, file, block header)
-\item Output: 256-bit hash (64 hexadecimal characters)
-\item Example: \texttt{SHA256("Hello") = 185f8db32271fe25f561a6fc938b2e264306ec304eda518007d1764826381969}
-\end{itemize}
-
-\vspace{3mm}
-\textbf{Algorithm Steps (Simplified):}
-\begin{enumerate}
-\item \textbf{Padding:} Add bits to make length $\equiv 448 \pmod{512}$
-\item \textbf{Append Length:} Add 64-bit message length
-\item \textbf{Initialize:} Set 8 hash values (constants)
-\item \textbf{Process:} 64 rounds of bitwise operations per 512-bit chunk
-\item \textbf{Output:} Concatenate final 8 values = 256-bit hash
-\end{enumerate}
-
-\vspace{3mm}
-\textbf{Security:} No known practical attacks - best attack requires $2^{128}$ operations (infeasible)
-\bottomnote{Bitcoin remains the largest cryptocurrency by market cap and network security.}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/sha256_visualization/sha256_visualization.pdf}
+\end{center}
+\bottomnote{SHA-256 produces 256-bit fixed output regardless of input size - the backbone of Bitcoin security.}
 \end{frame}
 
 \begin{frame}[t]{The Avalanche Effect: Demonstration}
 \vspace{-2mm}
-\textbf{Small input change causes completely different hash:}
-
-\vspace{3mm}
-\footnotesize
-\begin{table}[h]
-\centering
-\begin{tabular}{lp{9cm}}
-\toprule
-\textbf{Input} & \textbf{SHA-256 Hash} \\
-\midrule
-\texttt{Hello World} & \texttt{a591a6d40bf420404a011733cfb7b190d62c65bf0bcda32b57b277d9ad9f146e} \\
-\texttt{Hello World!} & \texttt{7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069} \\
-\texttt{hello world} & \texttt{b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9} \\
-\texttt{Hello Worle} & \texttt{44896a8f3e6ec4f93c8d3c92d72c8df3e3c74b5d6e9e8f3a5b6c7d8e9f0a1b2c} \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\vspace{3mm}
-\textbf{Analysis:}
-\begin{itemize}
-\item Adding single character (\texttt{!}) changes 100\% of hash bits
-\item Changing case (\texttt{H} to \texttt{h}) changes entire hash
-\item Changing one letter (\texttt{d} to \texttt{e}) produces unrelated hash
-\item No pattern or correlation between similar inputs
-\end{itemize}
-
-\vspace{3mm}
-\textbf{Implication:} Cannot predict hash output - must compute to verify
-\bottomnote{Key concepts from this slide inform practical applications in finance.}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/avalanche_effect/avalanche_effect.pdf}
+\end{center}
+\bottomnote{Even the smallest change produces a completely unpredictable new hash - no pattern correlation.}
 \end{frame}
 
 \begin{frame}[t]{Hash Space and Collision Resistance}
 \vspace{-2mm}
-\textbf{SHA-256 produces $2^{256}$ possible hashes - how big is that?}
-
-\vspace{3mm}
-\begin{itemize}
-\item $2^{256} \approx 1.16 \times 10^{77}$ different hashes
-\item Estimated atoms in observable universe: $10^{80}$
-\item Estimated grains of sand on Earth: $10^{24}$
-\item Age of universe in seconds: $4.3 \times 10^{17}$
-\end{itemize}
-
-\vspace{3mm}
-\textbf{Birthday Paradox and Collision Probability:}
-\begin{itemize}
-\item To find collision with 50\% probability: Need to hash $2^{128}$ inputs
-\item At 1 trillion hashes/second: Would take $10^{25}$ years
-\item For comparison: Sun will die in $5 \times 10^9$ years
-\end{itemize}
-
-\vspace{3mm}
-\textbf{Practical Conclusion:} SHA-256 collisions are computationally infeasible
-\bottomnote{Cryptographic primitives provide the security foundation for blockchain systems.}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/hash_space_scale/hash_space_scale.pdf}
+\end{center}
+\bottomnote{SHA-256 collisions are computationally infeasible - the space is incomprehensibly large.}
 \end{frame}
 
 \begin{frame}[t]{Pre-image Resistance: The One-Way Property}
@@ -325,66 +234,18 @@
 
 \begin{frame}[t]{Why Blockchain is Immutable}
 \vspace{-2mm}
-\textbf{Changing a single transaction breaks the entire chain:}
-
-\vspace{3mm}
-\textbf{Scenario:} Attacker tries to modify transaction in Block 100
-
-\vspace{2mm}
-\begin{enumerate}
-\item Modify transaction data in Block 100
-\item Merkle root changes (transaction hash changed)
-\item Block 100 hash changes (header data changed)
-\item Block 101's ``Previous Hash'' field no longer matches
-\item Block 101 becomes invalid
-\item Must recalculate Block 101 hash (requires solving PoW puzzle)
-\item Block 102's ``Previous Hash'' no longer matches
-\item Must recalculate Block 102, 103, 104... all subsequent blocks
-\item While attacker recalculates, honest miners add new blocks
-\item Attacker must outpace entire network (51\% attack)
-\end{enumerate}
-
-\vspace{3mm}
-\textbf{Conclusion:} Older blocks are exponentially harder to modify - after 6 confirmations (1 hour), considered practically irreversible
-\bottomnote{AI and ML are transforming financial services through automation and prediction.}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/immutability_cascade/immutability_cascade.pdf}
+\end{center}
+\bottomnote{Changing one block requires re-hashing all subsequent blocks - impractical against the whole network.}
 \end{frame}
 
 \begin{frame}[t]{Merkle Trees: Efficient Transaction Verification}
 \vspace{-2mm}
-\textbf{Merkle Tree:} Binary tree of hashes allowing efficient verification of large datasets
-
-\vspace{3mm}
-\textbf{Structure (Bottom-up):}
-\begin{enumerate}
-\item \textbf{Leaf Nodes:} Hash of each transaction
-\item \textbf{Parent Nodes:} Hash of concatenated child hashes
-\item \textbf{Root:} Final hash (Merkle root) in block header
-\end{enumerate}
-
-\vspace{3mm}
-\begin{columns}[T]
-\column{0.48\textwidth}
-\textbf{Benefits:}
-\begin{itemize}
-\item Compact representation of all transactions
-\item Verify transaction inclusion with $O(\log n)$ hashes
-\item SPV (Simplified Payment Verification) for light clients
-\item Only need block headers + Merkle proof
-\end{itemize}
-
-\column{0.48\textwidth}
-\textbf{Example (8 transactions):}
-\begin{itemize}
-\item Full verification: Download all 8 transactions
-\item Merkle proof: Download 3 hashes only
-\item Proof size: $\log_2(8) = 3$ hashes
-\item For 2000 transactions: Only 11 hashes needed
-\end{itemize}
-\end{columns}
-
-\vspace{3mm}
-\textbf{SPV Use Case:} Mobile Bitcoin wallet verifies payment without downloading full blockchain (500+ GB)
-\bottomnote{Key concepts from this slide inform practical applications in finance.}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/merkle_tree_structure/merkle_tree_structure.pdf}
+\end{center}
+\bottomnote{Merkle root summarizes all transactions; changing any transaction changes the root.}
 \end{frame}
 
 \begin{frame}[t]{Merkle Tree Example: 4 Transactions}
@@ -426,68 +287,18 @@ H_{34} &= \text{SHA256}(H_3 \| H_4) = \texttt{6b9e...}
 
 \begin{frame}[t]{Merkle Proof: Verifying Transaction Inclusion}
 \vspace{-2mm}
-\textbf{Problem:} Light client wants to verify $T_2$ is in block, without downloading all transactions
-
-\vspace{3mm}
-\textbf{Solution:} Full node provides Merkle proof (3 hashes):
-\begin{itemize}
-\item $H_1$ (sibling of $T_2$)
-\item $H_{34}$ (sibling of $H_{12}$)
-\item Merkle root from block header
-\end{itemize}
-
-\vspace{3mm}
-\textbf{Verification Steps:}
-\begin{enumerate}
-\item Client has $T_2$ and computes $H_2 = \text{SHA256}(T_2)$
-\item Receives $H_1$ from proof, computes $H_{12} = \text{SHA256}(H_1 \| H_2)$
-\item Receives $H_{34}$ from proof, computes $\text{MerkleRoot} = \text{SHA256}(H_{12} \| H_{34})$
-\item Compares computed Merkle root with block header
-\item If match: Transaction confirmed in block
-\end{enumerate}
-
-\vspace{3mm}
-\textbf{Efficiency:} For $n$ transactions, proof size = $O(\log_2 n)$ hashes
-\begin{itemize}
-\item 1,000 transactions: 10 hashes (320 bytes)
-\item 1,000,000 transactions: 20 hashes (640 bytes)
-\end{itemize}
-\bottomnote{Key concepts from this slide inform practical applications in finance.}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/merkle_proof/merkle_proof.pdf}
+\end{center}
+\bottomnote{Proof size O(log n): verify 1 of 1000 transactions with only 10 hashes.}
 \end{frame}
 
 \begin{frame}[t]{Difficulty Target and Leading Zeros}
 \vspace{-2mm}
-\textbf{Bitcoin Mining Puzzle:} Find nonce such that block hash < target
-
-\vspace{3mm}
-\textbf{Target Representation:}
-\begin{itemize}
-\item Difficulty target: Maximum allowed hash value
-\item Higher difficulty = Lower target = More leading zeros required
-\item Current (Dec 2024): ~19 leading zeros
-\end{itemize}
-
-\vspace{3mm}
-\begin{table}[h]
-\centering
-\footnotesize
-\begin{tabular}{lll}
-\toprule
-\textbf{Leading Zeros} & \textbf{Probability} & \textbf{Average Attempts} \\
-\midrule
-1 & $1/16$ & 16 \\
-4 & $1/65,536$ & 65,536 \\
-8 & $1/4.3 \times 10^9$ & 4.3 billion \\
-16 & $1/1.8 \times 10^{19}$ & 18 quintillion \\
-19 & $1/1.5 \times 10^{23}$ & 150 sextillion \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\vspace{3mm}
-\textbf{Example Valid Hash:}
-\texttt{00000000000000000002a7c4c1e48d76c5a37902165a270156b7a8d72728a054}
-\bottomnote{Key concepts from this slide inform practical applications in finance.}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/difficulty_target/difficulty_target.pdf}
+\end{center}
+\bottomnote{Finding a valid hash requires enormous computational effort - like finding a needle in a haystack.}
 \end{frame}
 
 \begin{frame}[t]{Difficulty Adjustment Mechanism}
@@ -524,34 +335,10 @@ H_{34} &= \text{SHA256}(H_3 \| H_4) = \texttt{6b9e...}
 
 \begin{frame}[t]{Hash Rate: Network Computing Power}
 \vspace{-2mm}
-\textbf{Hash Rate:} Total number of hash computations per second across network
-
-\vspace{3mm}
-\begin{table}[h]
-\centering
-\footnotesize
-\begin{tabular}{lll}
-\toprule
-\textbf{Period} & \textbf{Hash Rate} & \textbf{Mining Technology} \\
-\midrule
-2009 & ~5 MH/s & CPU (Satoshi solo mining) \\
-2010 & ~200 GH/s & GPU mining begins \\
-2013 & ~20 TH/s & ASIC mining begins \\
-2017 & ~10 EH/s & Industrial mining farms \\
-2021 & ~180 EH/s & Peak before China ban \\
-2024 & ~600 EH/s & Post-halving recovery \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\vspace{3mm}
-\textbf{Scale:}
-\begin{itemize}
-\item 600 EH/s = 600,000,000,000,000,000,000 hashes per second
-\item More computing power than top 500 supercomputers combined
-\item Each hash attempt: $\approx 1/600$ quintillion chance of success
-\end{itemize}
-\bottomnote{Network metrics provide objective measures of adoption and ecosystem health.}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/hashrate_evolution/hashrate_evolution.pdf}
+\end{center}
+\bottomnote{Network hashrate has grown exponentially: from CPUs to industrial ASIC farms.}
 \end{frame}
 
 \begin{frame}[t]{Block Propagation and Orphan Blocks}
@@ -679,37 +466,10 @@ Difficulty Target & Mining puzzle & Adjusts to maintain 10-min block time \\
 
 \begin{frame}[t]{Block Finality: How Many Confirmations?}
 \vspace{-2mm}
-\textbf{Confirmations:} Number of blocks built on top of transaction's block
-
-\vspace{3mm}
-\begin{table}[h]
-\centering
-\footnotesize
-\begin{tabular}{clp{6cm}}
-\toprule
-\textbf{Confirmations} & \textbf{Time} & \textbf{Security Level} \\
-\midrule
-0 & 0 min & Unconfirmed - in mempool only, easily reversible \\
-1 & ~10 min & Low - vulnerable to accidental orphaning \\
-3 & ~30 min & Medium - coffee purchase acceptable \\
-6 & ~60 min & High - exchanges require this, 99.9\% final \\
-100 & ~17 hours & Very High - coinbase maturity (mining reward) \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\vspace{3mm}
-\textbf{Attack Cost Analysis (6 confirmations):}
-\begin{itemize}
-\item Attacker must mine 7 blocks faster than honest network
-\item Requires 51\% hash rate for extended period
-\item Cost: ~\$500,000/hour in electricity + equipment
-\item Only profitable for large transaction values
-\end{itemize}
-
-\vspace{3mm}
-\textbf{Rule of Thumb:} Value < \$1,000: 1-3 confirmations; Value > \$10,000: 6+ confirmations
-\bottomnote{Understanding the process flow is key to identifying optimization opportunities.}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/confirmation_depth/confirmation_depth.pdf}
+\end{center}
+\bottomnote{More confirmations = harder to reverse. 6 confirmations is the gold standard for Bitcoin.}
 \end{frame}
 
 \begin{frame}[t]{Next Lesson Preview}

@@ -48,53 +48,17 @@
 
 \begin{frame}[t]{The Trust Problem in Digital Transactions}
 \vspace{-2mm}
-\begin{columns}[T]
-\column{0.48\textwidth}
-\textbf{Traditional Digital Payments:}
-\begin{itemize}
-\item Require trusted intermediary (bank)
-\item Centralized ledger control
-\item Single point of failure
-\item Gatekeeping and censorship risk
-\item High transaction fees
-\end{itemize}
-
-\column{0.48\textwidth}
-\textbf{The Double-Spending Problem:}
-\begin{itemize}
-\item Digital files can be copied
-\item Same money spent twice
-\item Who determines truth?
-\item Intermediaries solve this... at a cost
-\end{itemize}
-\end{columns}
-
-\vspace{5mm}
-\centering
-\textit{``How can strangers transact without trusting each other or a central authority?''}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/double_spend_problem/double_spend_problem.pdf}
+\end{center}
 \bottomnote{Digital transactions require trust mechanisms---blockchain removes the need for intermediaries.}
 \end{frame}
 
 \begin{frame}[t]{The Evolution of Digital Cash}
 \vspace{-2mm}
-\begin{table}[h]
-\centering
-\small
-\begin{tabular}{lll}
-\toprule
-\textbf{Year} & \textbf{Innovation} & \textbf{Limitation} \\
-\midrule
-1983 & DigiCash (Chaum) & Required central bank \\
-1997 & Hashcash (Back) & No transfer mechanism \\
-1998 & b-money (Dai) & Theoretical only \\
-2005 & Bit Gold (Szabo) & No implementation \\
-2008 & \textcolor{mlpurple}{\textbf{Bitcoin (Nakamoto)}} & \textcolor{mlgreen}{\textbf{First working solution}} \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\vspace{3mm}
-\textbf{Key Insight:} All prior attempts failed to solve Byzantine Generals Problem in decentralized networks
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/satoshi_timeline/satoshi_timeline.pdf}
+\end{center}
 \bottomnote{Understanding history helps predict future developments in the technology.}
 \end{frame}
 
@@ -140,121 +104,33 @@ second bailout for banks''
 
 \begin{frame}[t]{What is a Blockchain? Core Definition}
 \vspace{-2mm}
-\textbf{Blockchain:} A distributed, immutable ledger of transactions organized in cryptographically linked blocks
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/blockchain_architecture/blockchain_architecture.pdf}
+\end{center}
+\bottomnote{Blockchain: a chain of cryptographically linked blocks forming an immutable ledger.}
+\end{frame}
 
-\vspace{3mm}
-\begin{columns}[T]
-\column{0.48\textwidth}
-\textbf{Key Components:}
-\begin{enumerate}
-\item \textbf{Blocks:} Batches of transactions
-\item \textbf{Chain:} Cryptographic links between blocks
-\item \textbf{Network:} Distributed nodes maintaining copies
-\item \textbf{Consensus:} Agreement mechanism (PoW/PoS)
-\item \textbf{Cryptography:} Hash functions + digital signatures
-\end{enumerate}
-
-\column{0.48\textwidth}
-\textbf{Essential Properties:}
-\begin{itemize}
-\item \textcolor{mlpurple}{\textbf{Decentralization:}} No single controller
-\item \textcolor{mlpurple}{\textbf{Transparency:}} All transactions visible
-\item \textcolor{mlpurple}{\textbf{Immutability:}} Cannot alter history
-\item \textcolor{mlpurple}{\textbf{Security:}} Cryptographic protection
-\item \textcolor{mlpurple}{\textbf{Pseudonymity:}} Addresses, not names
-\end{itemize}
-\end{columns}
-\bottomnote{Clear definitions are essential for understanding complex technical concepts.}
+\begin{frame}[t]{Blockchain Properties}
+\vspace{-2mm}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/blockchain_properties/blockchain_properties.pdf}
+\end{center}
+\bottomnote{These five properties distinguish blockchain from traditional databases.}
 \end{frame}
 
 \begin{frame}[t]{Centralized vs Decentralized Systems}
 \vspace{-2mm}
-\begin{columns}[T]
-\column{0.48\textwidth}
-\textbf{Centralized (Traditional):}
-\begin{itemize}
-\item Single authority controls ledger
-\item Fast transaction processing
-\item Easy to upgrade/modify
-\item Single point of failure
-\item Requires trust in intermediary
-\item Examples: Banks, PayPal, Visa
-\end{itemize}
-
-\vspace{3mm}
-\textbf{Advantages:}
-\begin{itemize}
-\item Efficiency and speed
-\item Clear governance
-\item Customer support
-\end{itemize}
-
-\column{0.48\textwidth}
-\textbf{Decentralized (Blockchain):}
-\begin{itemize}
-\item Multiple nodes maintain ledger
-\item Slower (consensus overhead)
-\item Difficult to change rules
-\item No single point of failure
-\item Trustless operation
-\item Examples: Bitcoin, Ethereum
-\end{itemize}
-
-\vspace{3mm}
-\textbf{Advantages:}
-\begin{itemize}
-\item Censorship resistance
-\item Transparency
-\item No intermediary needed
-\end{itemize}
-\end{columns}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/centralized_vs_decentralized/centralized_vs_decentralized.pdf}
+\end{center}
 \bottomnote{Centralized systems trade trust for efficiency; decentralized systems trade efficiency for trustlessness.}
 \end{frame}
 
 \begin{frame}[t]{The Blockchain Trilemma}
 \vspace{-2mm}
-\centering
-\textbf{Impossible to maximize all three simultaneously:}
-
-\vspace{5mm}
-\begin{columns}[c]
-\column{0.32\textwidth}
-\centering
-\textcolor{mlpurple}{\textbf{DECENTRALIZATION}}\\
-\small
-Number of independent validators\\
-Resistance to control
-
-\column{0.32\textwidth}
-\centering
-\textcolor{mlpurple}{\textbf{SECURITY}}\\
-\small
-Cost to attack network\\
-Immutability guarantees
-
-\column{0.32\textwidth}
-\centering
-\textcolor{mlpurple}{\textbf{SCALABILITY}}\\
-\small
-Transactions per second\\
-Low fees
-\end{columns}
-
-\vspace{8mm}
-\begin{table}[h]
-\centering
-\footnotesize
-\begin{tabular}{lccc}
-\toprule
-\textbf{Network} & \textbf{Decentralization} & \textbf{Security} & \textbf{Scalability} \\
-\midrule
-Bitcoin & High & High & Low (7 TPS) \\
-Ethereum & High & High & Medium (15-30 TPS) \\
-BSC & Low & Medium & High (100+ TPS) \\
-Solana & Medium & Medium & Very High (3000+ TPS) \\
-\bottomrule
-\end{tabular}
-\end{table}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/blockchain_trilemma/blockchain_trilemma.pdf}
+\end{center}
 \bottomnote{The blockchain trilemma forces trade-offs between decentralization, security, and scalability.}
 \end{frame}
 
@@ -310,43 +186,9 @@ Trust Model & Trustless & Trust in consortium \\
 
 \begin{frame}[t]{Blockchain Use Cases Beyond Cryptocurrency}
 \vspace{-2mm}
-\begin{columns}[T]
-\column{0.48\textwidth}
-\textbf{Financial Services:}
-\begin{itemize}
-\item Cross-border payments (Ripple)
-\item Securities settlement (ASX)
-\item Trade finance (we.trade)
-\item Insurance claims (Etherisc)
-\end{itemize}
-
-\vspace{3mm}
-\textbf{Supply Chain:}
-\begin{itemize}
-\item Food traceability (Walmart + IBM)
-\item Pharmaceutical tracking
-\item Luxury goods authentication
-\item Carbon credit tracking
-\end{itemize}
-
-\column{0.48\textwidth}
-\textbf{Digital Identity:}
-\begin{itemize}
-\item Self-sovereign identity (DID)
-\item Academic credentials
-\item Government IDs (Estonia)
-\end{itemize}
-
-\vspace{3mm}
-\textbf{Other Applications:}
-\begin{itemize}
-\item Voting systems
-\item Real estate registries
-\item Intellectual property
-\item Healthcare records (HIPAA-compliant)
-\item Energy grid management
-\end{itemize}
-\end{columns}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/blockchain_use_cases/blockchain_use_cases.pdf}
+\end{center}
 \bottomnote{Real-world applications demonstrate the practical value of blockchain technology.}
 \end{frame}
 
@@ -418,29 +260,10 @@ Trust Model & Trustless & Trust in consortium \\
 
 \begin{frame}[t]{Blockchain vs Traditional Database}
 \vspace{-2mm}
-\begin{table}[h]
-\centering
-\footnotesize
-\begin{tabular}{p{3.5cm}p{5cm}p{5cm}}
-\toprule
-\textbf{Criterion} & \textbf{Traditional Database} & \textbf{Blockchain} \\
-\midrule
-Control & Centralized administrator & Distributed consensus \\
-CRUD Operations & Create, Read, Update, Delete & Create, Read only (append) \\
-Performance & Very fast (ms latency) & Slow (seconds to minutes) \\
-Data Integrity & Trust in administrator & Cryptographic guarantees \\
-Transparency & Opaque to external parties & Transparent to all participants \\
-Cost & Low operational cost & High (consensus overhead) \\
-Failure Tolerance & Backup/replication needed & Inherently redundant \\
-Auditability & Depends on logging & Complete audit trail \\
-\textbf{Best For} & Most business applications & Multi-party distrust scenarios \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\vspace{3mm}
-\textbf{Decision Rule:} Use blockchain ONLY if multiple parties need shared write access without mutual trust
-\bottomnote{Comparative analysis helps identify the right tool for specific requirements.}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/blockchain_vs_database/blockchain_vs_database.pdf}
+\end{center}
+\bottomnote{Use blockchain ONLY if multiple parties need shared write access without mutual trust.}
 \end{frame}
 
 \begin{frame}[t]{The Hype Cycle: Where Are We?}
