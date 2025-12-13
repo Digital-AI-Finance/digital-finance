@@ -39,7 +39,7 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{Learning Objectives}
+\begin{frame}[t]{Learning Objectives}
 \begin{itemize}
 \item Understand derivatives pricing and risk systems architecture
 \item Analyze futures and options trading platforms
@@ -51,7 +51,14 @@
 
 \section{Derivatives Overview and Market Structure}
 
-\begin{frame}{Derivatives Market Landscape}
+\begin{frame}[t]{Derivatives Notional Outstanding}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/derivatives_notional/derivatives_notional.pdf}
+\end{center}
+\bottomnote{Derivatives markets measured in notional value dwarf underlying assets.}
+\end{frame}
+
+\begin{frame}[t]{Derivatives Market Landscape}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -97,7 +104,7 @@
 \bottomnote{Derivatives enable risk transfer and price discovery.}
 \end{frame}
 
-\begin{frame}{Derivatives Product Types}
+\begin{frame}[t]{Derivatives Product Types}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -142,9 +149,23 @@
 \bottomnote{Derivatives enable risk transfer and price discovery.}
 \end{frame}
 
+\begin{frame}[t]{Option Payoff Profiles}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/option_payoff/option_payoff.pdf}
+\end{center}
+\bottomnote{Option payoff profiles create asymmetric risk-return characteristics.}
+\end{frame}
+
+\begin{frame}[t]{Option Greeks Sensitivity}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/option_greeks/option_greeks.pdf}
+\end{center}
+\bottomnote{Greeks quantify option price sensitivity to underlying factors.}
+\end{frame}
+
 \section{Pricing and Risk Systems}
 
-\begin{frame}{Derivatives Pricing Models}
+\begin{frame}[t]{Derivatives Pricing Models}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -192,7 +213,7 @@ $$c = \frac{1 - DF(T_n)}{\sum_{i=1}^{n} \tau_i \times DF(t_i)}$$
 \bottomnote{Derivatives enable risk transfer and price discovery.}
 \end{frame}
 
-\begin{frame}{Greeks and Risk Management}
+\begin{frame}[t]{Greeks and Risk Management}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -237,7 +258,7 @@ $$\text{Volga} = \frac{\partial^2 V}{\partial \sigma^2}$$
 \bottomnote{Risk management is essential for financial stability and profitability.}
 \end{frame}
 
-\begin{frame}{Derivatives Valuation Systems}
+\begin{frame}[t]{Derivatives Valuation Systems}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -290,7 +311,7 @@ $$\text{Volga} = \frac{\partial^2 V}{\partial \sigma^2}$$
 
 \section{Exchange-Traded Derivatives}
 
-\begin{frame}{Futures Trading Platforms}
+\begin{frame}[t]{Futures Trading Platforms}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -349,7 +370,7 @@ $$\text{Volga} = \frac{\partial^2 V}{\partial \sigma^2}$$
 \bottomnote{Future trends inform strategic planning and investment decisions.}
 \end{frame}
 
-\begin{frame}{Options Trading and Volatility Markets}
+\begin{frame}[t]{Options Trading and Volatility Markets}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -405,9 +426,16 @@ where $N$ = variance notional, $K_{var}$ = strike variance, $\sigma_{realized}$ 
 \bottomnote{Electronic trading has transformed market structure and efficiency.}
 \end{frame}
 
+\begin{frame}[t]{Margin Requirements Framework}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/margin_requirements/margin_requirements.pdf}
+\end{center}
+\bottomnote{Margin requirements ensure counterparty risk mitigation in derivatives trading.}
+\end{frame}
+
 \section{OTC Derivatives and Central Clearing}
 
-\begin{frame}{OTC Derivatives Lifecycle}
+\begin{frame}[t]{OTC Derivatives Lifecycle}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -452,7 +480,7 @@ where $N$ = variance notional, $K_{var}$ = strike variance, $\sigma_{realized}$ 
 \bottomnote{Technology adoption follows predictable patterns---timing matters for investment decisions.}
 \end{frame}
 
-\begin{frame}{Central Counterparty Clearing (CCPs)}
+\begin{frame}[t]{Central Counterparty Clearing (CCPs)}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -514,7 +542,7 @@ where $N$ = variance notional, $K_{var}$ = strike variance, $\sigma_{realized}$ 
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Margin and Collateral Systems}
+\begin{frame}[t]{Margin and Collateral Systems}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -573,7 +601,7 @@ where $N$ = variance notional, $K_{var}$ = strike variance, $\sigma_{realized}$ 
 
 \section{Regulatory Reporting: EMIR and Dodd-Frank}
 
-\begin{frame}{EMIR Reporting Requirements}
+\begin{frame}[t]{EMIR Reporting Requirements}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -627,7 +655,7 @@ where $N$ = variance notional, $K_{var}$ = strike variance, $\sigma_{realized}$ 
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Dodd-Frank Swap Data Reporting}
+\begin{frame}[t]{Dodd-Frank Swap Data Reporting}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -682,7 +710,7 @@ where $N$ = variance notional, $K_{var}$ = strike variance, $\sigma_{realized}$ 
 
 \section{Emerging Trends in Derivatives Technology}
 
-\begin{frame}{SOFR Transition and IBOR Reform}
+\begin{frame}[t]{SOFR Transition and IBOR Reform}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -729,7 +757,7 @@ where $N$ = variance notional, $K_{var}$ = strike variance, $\sigma_{realized}$ 
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{DLT and Smart Derivatives Contracts}
+\begin{frame}[t]{DLT and Smart Derivatives Contracts}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -784,7 +812,7 @@ where $N$ = variance notional, $K_{var}$ = strike variance, $\sigma_{realized}$ 
 \bottomnote{Derivatives enable risk transfer and price discovery.}
 \end{frame}
 
-\begin{frame}{Summary and Key Takeaways}
+\begin{frame}[t]{Summary and Key Takeaways}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}

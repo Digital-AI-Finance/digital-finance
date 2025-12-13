@@ -37,6 +37,7 @@
 
 \begin{frame}
 \titlepage
+\bottomnote{Summary of key concepts presented above.}
 \end{frame}
 
 \begin{frame}[t]{Learning Objectives}
@@ -49,6 +50,7 @@ By the end of this lesson, you will be able to:
 \item Recognize overfitting and apply regularization techniques
 \item Identify finance applications of regression models
 \end{itemize}
+\bottomnote{Summary of key concepts presented above.}
 \end{frame}
 
 \begin{frame}[t]{Supervised Learning: The Framework}
@@ -92,57 +94,15 @@ By the end of this lesson, you will be able to:
 
 \vspace{0.5em}
 \textbf{Golden Rule:} Never use test data until final evaluation (avoid overfitting).
+\bottomnote{Summary of key concepts presented above.}
 \end{frame}
 
-\begin{frame}[t]{Simple Linear Regression: The Basics}
-\begin{columns}[T]
-\column{0.48\textwidth}
-\textbf{Model:}
-\[
-Y = \beta_0 + \beta_1 X + \epsilon
-\]
-\begin{itemize}
-\item $Y$: Dependent variable (target)
-\item $X$: Independent variable (feature)
-\item $\beta_0$: Intercept (value when $X=0$)
-\item $\beta_1$: Slope (change in $Y$ per unit $X$)
-\item $\epsilon$: Error term (residual)
-\end{itemize}
-
+\begin{frame}[t]{Simple Linear Regression: Visual Example}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/linear_regression_example/linear_regression_example.pdf}
+\end{center}
 \vspace{0.5em}
-\textbf{Goal:} Find $\beta_0, \beta_1$ that minimize errors.
-
-\vspace{0.5em}
-\textbf{Method:} Ordinary Least Squares (OLS)
-\[
-\min_{\beta_0, \beta_1} \sum_{i=1}^{n} (Y_i - \hat{Y}_i)^2
-\]
-where $\hat{Y}_i = \beta_0 + \beta_1 X_i$
-
-\column{0.48\textwidth}
-\textbf{Finance Example:}\\
-Predict stock return ($Y$) from P/E ratio ($X$).
-
-\vspace{0.3em}
-Suppose OLS gives:
-\[
-\text{Return} = 0.05 - 0.002 \times \text{P/E}
-\]
-
-\textbf{Interpretation:}
-\begin{itemize}
-\item Intercept (0.05): Expected 5\% return for P/E = 0 (extrapolation, not meaningful)
-\item Slope (-0.002): Each 1-point increase in P/E decreases expected return by 0.2\%
-\item Negative relationship: Higher P/E (expensive) → lower return (value effect)
-\end{itemize}
-
-\vspace{0.5em}
-\textbf{Limitations:}
-\begin{itemize}
-\item Assumes linear relationship
-\item Single predictor (oversimplified)
-\end{itemize}
-\end{columns}
+\textbf{OLS finds the line that minimizes the sum of squared vertical distances (residuals).}
 \bottomnote{Regression models predict continuous outcomes based on input features.}
 \end{frame}
 
@@ -339,57 +299,36 @@ MAPE = \frac{100\%}{n} \sum_{i=1}^{n} \left| \frac{Y_i - \hat{Y}_i}{Y_i} \right|
 \bottomnote{Network metrics provide objective measures of adoption and ecosystem health.}
 \end{frame}
 
-\begin{frame}[t]{Overfitting: The Central Problem in ML}
-\begin{columns}[T]
-\column{0.48\textwidth}
-\textbf{What is Overfitting?}
-\begin{itemize}
-\item Model learns training data too well
-\item Captures noise, not signal
-\item Poor generalization to new data
-\end{itemize}
+\begin{frame}[t]{Regression Metrics: Comparison}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/regression_metrics/regression_metrics.pdf}
+\end{center}
+\bottomnote{Different metrics emphasize different aspects of model performance.}
+\end{frame}
 
+\begin{frame}[t]{Residual Analysis}
+\begin{center}
+\includegraphics[width=0.50\textwidth]{figures/residual_analysis/residual_analysis.pdf}
+\end{center}
+\bottomnote{Residual plots help diagnose violations of regression assumptions.}
+\end{frame}
+
+\begin{frame}[t]{Overfitting Example}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/overfitting_example/overfitting_example.pdf}
+\end{center}
 \vspace{0.5em}
-\textbf{Symptoms:}
-\begin{itemize}
-\item High training $R^2$ (0.95), low test $R^2$ (0.20)
-\item Complex model (many features)
-\item Unstable coefficients
-\end{itemize}
+\textbf{The overly complex model fits training noise perfectly but generalizes poorly.}
+\bottomnote{Overfitting is the central challenge in machine learning.}
+\end{frame}
 
+\begin{frame}[t]{Bias-Variance Tradeoff}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/bias_variance_tradeoff/bias_variance_tradeoff.pdf}
+\end{center}
 \vspace{0.5em}
-\textbf{Causes:}
-\begin{itemize}
-\item Too many features relative to observations ($p \approx n$)
-\item Features without predictive power
-\item Overly flexible models
-\item Lack of regularization
-\end{itemize}
-
-\column{0.48\textwidth}
-\textbf{Bias-Variance Tradeoff:}
-\[
-\text{Error} = \text{Bias}^2 + \text{Variance} + \text{Irreducible Error}
-\]
-\begin{itemize}
-\item \textbf{Bias:} Error from wrong assumptions (underfitting)
-\item \textbf{Variance:} Error from sensitivity to training data (overfitting)
-\item Simple models: High bias, low variance
-\item Complex models: Low bias, high variance
-\end{itemize}
-
-\vspace{0.5em}
-\textbf{Goal:} Find sweet spot (minimize total error).
-
-\vspace{0.5em}
-\textbf{Detection:}
-\begin{itemize}
-\item Plot training vs. validation error
-\item Cross-validation
-\item Out-of-sample testing
-\end{itemize}
-\end{columns}
-\bottomnote{AI and ML are transforming financial services through automation and prediction.}
+\textbf{Sweet spot balances underfitting (high bias) and overfitting (high variance).}
+\bottomnote{Finding the right model complexity is key to good generalization.}
 \end{frame}
 
 \begin{frame}[t]{Regularization: Ridge and Lasso}
@@ -781,6 +720,7 @@ Y(m) = \beta_1 + \beta_2 e^{-m/\tau} + \beta_3 \frac{m}{\tau} e^{-m/\tau}
 \item Limitations: Non-linearity, regime changes
 \end{itemize}
 \end{columns}
+\bottomnote{Summary of key concepts presented above.}
 \end{frame}
 
 \begin{frame}[t]{Next Lesson Preview}
@@ -803,6 +743,7 @@ Topics to be covered:
 \item Review probability basics (odds, log-odds)
 \item Think: What financial problems involve yes/no predictions?
 \end{itemize}
+\bottomnote{Summary of key concepts presented above.}
 \end{frame}
 
 \end{document}

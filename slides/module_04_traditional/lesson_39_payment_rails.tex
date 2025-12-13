@@ -46,7 +46,7 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{Learning Objectives}
+\begin{frame}[t]{Learning Objectives}
 \begin{itemize}
 \item Understand global payment infrastructure: SWIFT, SEPA, ACH, real-time systems
 \item Analyze SWIFT messaging protocols and correspondent banking networks
@@ -57,7 +57,7 @@
 
 \section{Payment Systems Overview}
 
-\begin{frame}{Payment Rails Landscape}
+\begin{frame}[t]{Payment Rails Landscape}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Domestic Systems}
@@ -85,7 +85,14 @@
 \bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
-\begin{frame}{Payment System Characteristics}
+\begin{frame}[t]{Global Payment Volumes by Rail}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/payment_volumes/payment_volumes.pdf}
+\end{center}
+\bottomnote{Payment volumes reflect the critical role of different rails in the global economy.}
+\end{frame}
+
+\begin{frame}[t]{Payment System Characteristics}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Real-Time Gross Settlement (RTGS)}
@@ -113,7 +120,7 @@
 
 \section{SEPA: Single Euro Payments Area}
 
-\begin{frame}{SEPA Overview}
+\begin{frame}[t]{SEPA Overview}
 \textbf{Coverage}: 36 countries, 500M+ citizens, euro-denominated payments
 
 \begin{columns}[T]
@@ -142,7 +149,7 @@
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{SEPA Credit Transfer}
+\begin{frame}[t]{SEPA Credit Transfer}
 \textbf{Use Cases}: Salaries, invoices, person-to-person, e-commerce
 
 \begin{columns}[T]
@@ -172,7 +179,7 @@
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{SEPA Instant Credit Transfer (SCT Inst)}
+\begin{frame}[t]{SEPA Instant Credit Transfer (SCT Inst)}
 \textbf{Launch}: November 2017, adoption accelerating (2024: 80\% coverage)
 
 \begin{columns}[T]
@@ -202,7 +209,7 @@
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{SEPA Direct Debit}
+\begin{frame}[t]{SEPA Direct Debit}
 \textbf{Purpose}: Recurring payments (subscriptions, utilities, insurance)
 
 \begin{columns}[T]
@@ -232,7 +239,7 @@
 
 \section{ACH: Automated Clearing House}
 
-\begin{frame}{ACH Network (United States)}
+\begin{frame}[t]{ACH Network (United States)}
 \textbf{Operator}: Nacha (National Automated Clearing House Association)
 
 \begin{columns}[T]
@@ -261,7 +268,7 @@
 \bottomnote{Network metrics provide objective measures of adoption and ecosystem health.}
 \end{frame}
 
-\begin{frame}{ACH Processing Timeline}
+\begin{frame}[t]{ACH Processing Timeline}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Standard ACH}
@@ -289,7 +296,7 @@
 
 \section{SWIFT Network}
 
-\begin{frame}{SWIFT: Society for Worldwide Interbank Financial Telecommunication}
+\begin{frame}[t]{SWIFT: Society for Worldwide Interbank Financial Telecommunication}
 \textbf{Founded}: 1973 (Brussels), 11,500+ institutions, 200+ countries
 
 \begin{columns}[T]
@@ -317,7 +324,21 @@
 \bottomnote{Banks play a central role in the financial system as intermediaries.}
 \end{frame}
 
-\begin{frame}{SWIFT Message Structure: MT103}
+\begin{frame}[t]{SWIFT Message Traffic Growth}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/swift_messages/swift_messages.pdf}
+\end{center}
+\bottomnote{SWIFT message growth reflects increasing global financial integration.}
+\end{frame}
+
+\begin{frame}[t]{Cross-Border Payment Flows}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/cross_border_flows/cross_border_flows.pdf}
+\end{center}
+\bottomnote{Cross-border flows show regional payment patterns and economic links.}
+\end{frame}
+
+\begin{frame}[t]{SWIFT Message Structure: MT103}
 \textbf{Use}: Customer credit transfer (cross-border wire)
 
 \begin{columns}[T]
@@ -348,7 +369,7 @@
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{SWIFT gpi (Global Payments Innovation)}
+\begin{frame}[t]{SWIFT gpi (Global Payments Innovation)}
 \textbf{Launch}: 2017, modernization initiative, 4,000+ banks
 
 \begin{columns}[T]
@@ -377,7 +398,7 @@
 \bottomnote{Payment systems are critical infrastructure for economic activity.}
 \end{frame}
 
-\begin{frame}{ISO 20022 Migration}
+\begin{frame}[t]{ISO 20022 Migration}
 \textbf{Timeline}: March 2023 coexistence, November 2025 full migration
 
 \begin{columns}[T]
@@ -409,7 +430,7 @@
 
 \section{Correspondent Banking}
 
-\begin{frame}{Correspondent Banking Model}
+\begin{frame}[t]{Correspondent Banking Model}
 \textbf{Purpose}: Enable cross-border payments without direct relationships
 
 \begin{columns}[T]
@@ -438,7 +459,7 @@
 \bottomnote{Banks play a central role in the financial system as intermediaries.}
 \end{frame}
 
-\begin{frame}{De-Risking and Compliance}
+\begin{frame}[t]{De-Risking and Compliance}
 \textbf{Trend}: Banks exiting correspondent relationships (30\% reduction 2011-2021)
 
 \begin{columns}[T]
@@ -469,7 +490,7 @@
 
 \section{Instant Payment Systems}
 
-\begin{frame}{Real-Time Payment Rails}
+\begin{frame}[t]{Real-Time Payment Rails}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Global Systems}
@@ -498,7 +519,21 @@
 \bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
-\begin{frame}{India UPI: Unified Payments Interface}
+\begin{frame}[t]{Real-Time Payments Adoption}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/real_time_payments/real_time_payments.pdf}
+\end{center}
+\bottomnote{Instant payment adoption varies significantly across regions and markets.}
+\end{frame}
+
+\begin{frame}[t]{Settlement Systems Comparison}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/settlement_systems/settlement_systems.pdf}
+\end{center}
+\bottomnote{Different settlement mechanisms balance speed, cost, and finality.}
+\end{frame}
+
+\begin{frame}[t]{India UPI: Unified Payments Interface}
 \textbf{Launch}: 2016, operated by NPCI (National Payments Corporation of India)
 
 \begin{columns}[T]
@@ -528,7 +563,7 @@
 \bottomnote{Payment systems are critical infrastructure for economic activity.}
 \end{frame}
 
-\begin{frame}{US FedNow Service}
+\begin{frame}[t]{US FedNow Service}
 \textbf{Launch}: July 2023, operated by Federal Reserve
 
 \begin{columns}[T]
@@ -559,7 +594,7 @@
 
 \section{SWIFT Alternatives}
 
-\begin{frame}{Emerging Alternatives to SWIFT}
+\begin{frame}[t]{Emerging Alternatives to SWIFT}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{CIPS (China)}
@@ -585,7 +620,7 @@
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Blockchain-Based Payments}
+\begin{frame}[t]{Blockchain-Based Payments}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Ripple (XRP)}
@@ -613,7 +648,7 @@
 \bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
-\begin{frame}{Summary}
+\begin{frame}[t]{Summary}
 \begin{itemize}
 \item Payment rails enable domestic and cross-border value transfer
 \item SEPA unifies euro payments across 36 countries with instant settlement (SCT Inst)
@@ -625,7 +660,7 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Further Reading}
+\begin{frame}[t]{Further Reading}
 \begin{itemize}
 \item Bank for International Settlements (2024). \textit{CPMI Statistics on Payment Systems}. BIS.
 \item European Payments Council (2023). \textit{SEPA Credit Transfer Scheme Rulebook}. EPC.

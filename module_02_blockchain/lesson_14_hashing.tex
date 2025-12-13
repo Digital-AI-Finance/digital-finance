@@ -46,7 +46,7 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{Block Structure: Anatomy of a Bitcoin Block}
+\begin{frame}[t]{Block Structure: Anatomy of a Bitcoin Block}
 \vspace{-2mm}
 \textbf{Every Bitcoin block contains two main parts:}
 
@@ -83,7 +83,7 @@
 \end{columns}
 \end{frame}
 
-\begin{frame}{Example: Bitcoin Block 800,000}
+\begin{frame}[t]{Example: Bitcoin Block 800,000}
 \vspace{-2mm}
 \footnotesize
 \begin{table}[h]
@@ -114,7 +114,7 @@
 \bottomnote{Case studies provide concrete evidence of technology impact and adoption patterns.}
 \end{frame}
 
-\begin{frame}{What is a Hash Function?}
+\begin{frame}[t]{What is a Hash Function?}
 \vspace{-2mm}
 \textbf{Hash Function:} Mathematical algorithm that maps arbitrary data to fixed-size output
 
@@ -151,7 +151,7 @@
 \bottomnote{Clear definitions are essential for understanding complex technical concepts.}
 \end{frame}
 
-\begin{frame}{SHA-256: The Bitcoin Hash Function}
+\begin{frame}[t]{SHA-256: The Bitcoin Hash Function}
 \vspace{-2mm}
 \textbf{SHA-256} (Secure Hash Algorithm 256-bit) - designed by NSA, published 2001
 
@@ -178,7 +178,7 @@
 \bottomnote{Bitcoin remains the largest cryptocurrency by market cap and network security.}
 \end{frame}
 
-\begin{frame}{The Avalanche Effect: Demonstration}
+\begin{frame}[t]{The Avalanche Effect: Demonstration}
 \vspace{-2mm}
 \textbf{Small input change causes completely different hash:}
 
@@ -212,7 +212,7 @@
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Hash Space and Collision Resistance}
+\begin{frame}[t]{Hash Space and Collision Resistance}
 \vspace{-2mm}
 \textbf{SHA-256 produces $2^{256}$ possible hashes - how big is that?}
 
@@ -237,7 +237,7 @@
 \bottomnote{Cryptographic primitives provide the security foundation for blockchain systems.}
 \end{frame}
 
-\begin{frame}{Pre-image Resistance: The One-Way Property}
+\begin{frame}[t]{Pre-image Resistance: The One-Way Property}
 \vspace{-2mm}
 \textbf{Given a hash, can you find the original input?}
 
@@ -277,7 +277,7 @@
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Hash Pointers: Linking Blocks Together}
+\begin{frame}[t]{Hash Pointers: Linking Blocks Together}
 \vspace{-2mm}
 \textbf{Hash Pointer:} Data structure that contains both location AND cryptographic hash of data
 
@@ -323,7 +323,7 @@
 \bottomnote{Cryptographic primitives provide the security foundation for blockchain systems.}
 \end{frame}
 
-\begin{frame}{Why Blockchain is Immutable}
+\begin{frame}[t]{Why Blockchain is Immutable}
 \vspace{-2mm}
 \textbf{Changing a single transaction breaks the entire chain:}
 
@@ -349,7 +349,7 @@
 \bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
-\begin{frame}{Merkle Trees: Efficient Transaction Verification}
+\begin{frame}[t]{Merkle Trees: Efficient Transaction Verification}
 \vspace{-2mm}
 \textbf{Merkle Tree:} Binary tree of hashes allowing efficient verification of large datasets
 
@@ -387,7 +387,7 @@
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Merkle Tree Example: 4 Transactions}
+\begin{frame}[t]{Merkle Tree Example: 4 Transactions}
 \vspace{-2mm}
 \textbf{Constructing Merkle Root:}
 
@@ -424,7 +424,7 @@ H_{34} &= \text{SHA256}(H_3 \| H_4) = \texttt{6b9e...}
 \bottomnote{Case studies provide concrete evidence of technology impact and adoption patterns.}
 \end{frame}
 
-\begin{frame}{Merkle Proof: Verifying Transaction Inclusion}
+\begin{frame}[t]{Merkle Proof: Verifying Transaction Inclusion}
 \vspace{-2mm}
 \textbf{Problem:} Light client wants to verify $T_2$ is in block, without downloading all transactions
 
@@ -455,7 +455,7 @@ H_{34} &= \text{SHA256}(H_3 \| H_4) = \texttt{6b9e...}
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Difficulty Target and Leading Zeros}
+\begin{frame}[t]{Difficulty Target and Leading Zeros}
 \vspace{-2mm}
 \textbf{Bitcoin Mining Puzzle:} Find nonce such that block hash < target
 
@@ -490,7 +490,7 @@ H_{34} &= \text{SHA256}(H_3 \| H_4) = \texttt{6b9e...}
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Difficulty Adjustment Mechanism}
+\begin{frame}[t]{Difficulty Adjustment Mechanism}
 \vspace{-2mm}
 \textbf{Goal:} Maintain ~10 minute average block time despite changing network hash rate
 
@@ -522,7 +522,7 @@ H_{34} &= \text{SHA256}(H_3 \| H_4) = \texttt{6b9e...}
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Hash Rate: Network Computing Power}
+\begin{frame}[t]{Hash Rate: Network Computing Power}
 \vspace{-2mm}
 \textbf{Hash Rate:} Total number of hash computations per second across network
 
@@ -554,7 +554,7 @@ H_{34} &= \text{SHA256}(H_3 \| H_4) = \texttt{6b9e...}
 \bottomnote{Network metrics provide objective measures of adoption and ecosystem health.}
 \end{frame}
 
-\begin{frame}{Block Propagation and Orphan Blocks}
+\begin{frame}[t]{Block Propagation and Orphan Blocks}
 \vspace{-2mm}
 \textbf{Problem:} Network latency - two miners find valid blocks simultaneously
 
@@ -582,7 +582,7 @@ H_{34} &= \text{SHA256}(H_3 \| H_4) = \texttt{6b9e...}
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Blockchain Data Structures Summary}
+\begin{frame}[t]{Blockchain Data Structures Summary}
 \vspace{-2mm}
 \begin{table}[h]
 \centering
@@ -605,7 +605,7 @@ Difficulty Target & Mining puzzle & Adjusts to maintain 10-min block time \\
 \textbf{Key Insight:} All blockchain security stems from cryptographic hash functions - if SHA-256 breaks, Bitcoin breaks
 \end{frame}
 
-\begin{frame}{Security Analysis: What Could Go Wrong?}
+\begin{frame}[t]{Security Analysis: What Could Go Wrong?}
 \vspace{-2mm}
 \begin{columns}[T]
 \column{0.48\textwidth}
@@ -646,7 +646,7 @@ Difficulty Target & Mining puzzle & Adjusts to maintain 10-min block time \\
 \textbf{Current Assessment:} No practical threat to SHA-256 in foreseeable future
 \end{frame}
 
-\begin{frame}{Practical Exercise: Computing Block Hash}
+\begin{frame}[t]{Practical Exercise: Computing Block Hash}
 \vspace{-2mm}
 \textbf{Simplified Example:} Calculate hash for mini-block
 
@@ -677,7 +677,7 @@ Difficulty Target & Mining puzzle & Adjusts to maintain 10-min block time \\
 \bottomnote{Cryptographic primitives provide the security foundation for blockchain systems.}
 \end{frame}
 
-\begin{frame}{Block Finality: How Many Confirmations?}
+\begin{frame}[t]{Block Finality: How Many Confirmations?}
 \vspace{-2mm}
 \textbf{Confirmations:} Number of blocks built on top of transaction's block
 
@@ -712,7 +712,7 @@ Difficulty Target & Mining puzzle & Adjusts to maintain 10-min block time \\
 \bottomnote{Understanding the process flow is key to identifying optimization opportunities.}
 \end{frame}
 
-\begin{frame}{Next Lesson Preview}
+\begin{frame}[t]{Next Lesson Preview}
 \vspace{-2mm}
 \begin{center}
 \Large\textbf{Lesson 15: Public Key Cryptography and Signatures}
@@ -738,7 +738,7 @@ Difficulty Target & Mining puzzle & Adjusts to maintain 10-min block time \\
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Summary: Key Takeaways}
+\begin{frame}[t]{Summary: Key Takeaways}
 \vspace{-2mm}
 \begin{enumerate}
 \item \textbf{Block Structure:} 80-byte header + variable transaction body

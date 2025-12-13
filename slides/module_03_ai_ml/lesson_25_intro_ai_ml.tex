@@ -37,9 +37,10 @@
 
 \begin{frame}
 \titlepage
+\bottomnote{Summary of key concepts presented above.}
 \end{frame}
 
-\begin{frame}{Learning Objectives}
+\begin{frame}[t]{Learning Objectives}
 By the end of this lesson, you will be able to:
 \begin{itemize}
 \item Define artificial intelligence, machine learning, and deep learning
@@ -48,9 +49,10 @@ By the end of this lesson, you will be able to:
 \item Distinguish between realistic capabilities and overhype
 \item Recognize the evolution of AI in financial services
 \end{itemize}
+\bottomnote{Summary of key concepts presented above.}
 \end{frame}
 
-\begin{frame}{What is Artificial Intelligence?}
+\begin{frame}[t]{What is Artificial Intelligence?}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Broad Definition:}
@@ -74,7 +76,7 @@ By the end of this lesson, you will be able to:
 \bottomnote{Clear definitions are essential for understanding complex technical concepts.}
 \end{frame}
 
-\begin{frame}{The AI Hierarchy: From Broad to Narrow}
+\begin{frame}[t]{The AI Hierarchy: From Broad to Narrow}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Three Nested Concepts:}
@@ -89,22 +91,19 @@ Systems that learn from data without explicit programming
 Neural networks with multiple layers
 \end{enumerate}
 
-\column{0.48\textwidth}
-\textbf{Analogy:}
-\begin{itemize}
-\item AI = Transportation
-\item ML = Automobiles
-\item Deep Learning = Electric cars
-\end{itemize}
-
-\vspace{1em}
+\vspace{0.5em}
 \textbf{Modern Reality:}\\
 Most ``AI in finance'' today is actually machine learning, specifically supervised learning algorithms.
+
+\column{0.48\textwidth}
+\begin{center}
+\includegraphics[width=0.95\textwidth]{figures/ai_hierarchy/ai_hierarchy.pdf}
+\end{center}
 \end{columns}
 \bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
-\begin{frame}{Machine Learning: The Core Idea}
+\begin{frame}[t]{Machine Learning: The Core Idea}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Traditional Programming:}
@@ -136,54 +135,14 @@ ML excels when:
 \bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
-\begin{frame}{Three Types of Machine Learning}
-\begin{columns}[T]
-\column{0.31\textwidth}
-\textbf{Supervised Learning}
-\begin{itemize}
-\item Labeled data (X, Y)
-\item Learn mapping: X → Y
-\item Examples:
-  \begin{itemize}
-  \item Credit scoring
-  \item Fraud detection
-  \item Stock prediction
-  \end{itemize}
-\item \textcolor{mlgreen}{Most common in finance}
-\end{itemize}
-
-\column{0.31\textwidth}
-\textbf{Unsupervised Learning}
-\begin{itemize}
-\item Unlabeled data (X only)
-\item Find hidden structure
-\item Examples:
-  \begin{itemize}
-  \item Customer segmentation
-  \item Anomaly detection
-  \item Portfolio clustering
-  \end{itemize}
-\item Discovery-oriented
-\end{itemize}
-
-\column{0.31\textwidth}
-\textbf{Reinforcement Learning}
-\begin{itemize}
-\item Agent learns via trial/error
-\item Maximize cumulative reward
-\item Examples:
-  \begin{itemize}
-  \item Algorithmic trading
-  \item Dynamic hedging
-  \item Game playing (chess, Go)
-  \end{itemize}
-\item Still research-heavy
-\end{itemize}
-\end{columns}
-\bottomnote{AI and ML are transforming financial services through automation and prediction.}
+\begin{frame}[t]{Three Types of Machine Learning}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/ml_types/ml_types.pdf}
+\end{center}
+\bottomnote{Supervised learning dominates financial applications due to availability of labeled data.}
 \end{frame}
 
-\begin{frame}{Deep Learning: Neural Networks at Scale}
+\begin{frame}[t]{Deep Learning: Neural Networks at Scale}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{What Makes It ``Deep''?}
@@ -225,53 +184,16 @@ Not always superior for structured financial data (tabular).
 \bottomnote{Network metrics provide objective measures of adoption and ecosystem health.}
 \end{frame}
 
-\begin{frame}{AI/ML Applications in Finance: Overview}
-\begin{columns}[T]
-\column{0.48\textwidth}
-\textbf{Risk Management:}
-\begin{itemize}
-\item Credit scoring and underwriting
-\item Fraud detection
-\item Anti-money laundering (AML)
-\item Market risk modeling
-\item Stress testing
-\end{itemize}
-
-\vspace{0.5em}
-\textbf{Trading and Investment:}
-\begin{itemize}
-\item Algorithmic trading strategies
-\item Portfolio optimization
-\item Market prediction (limited)
-\item Robo-advisors
-\item Alternative data analysis
-\end{itemize}
-
-\column{0.48\textwidth}
-\textbf{Customer Service:}
-\begin{itemize}
-\item Chatbots and virtual assistants
-\item Personalized recommendations
-\item Customer segmentation
-\item Churn prediction
-\end{itemize}
-
-\vspace{0.5em}
-\textbf{Operations:}
-\begin{itemize}
-\item Document processing (OCR, NLP)
-\item Regulatory compliance automation
-\item Process optimization
-\item Cybersecurity threat detection
-\end{itemize}
-\end{columns}
-
+\begin{frame}[t]{AI/ML Applications in Finance: Overview}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/ai_finance_applications/ai_finance_applications.pdf}
+\end{center}
 \vspace{0.5em}
 \textbf{Common Thread:} Automation of pattern recognition tasks previously requiring human expertise.
-\bottomnote{Real-world applications demonstrate the practical value of blockchain technology.}
+\bottomnote{Real-world applications demonstrate the practical value of AI/ML in finance.}
 \end{frame}
 
-\begin{frame}{Case Study: Credit Scoring Evolution}
+\begin{frame}[t]{Case Study: Credit Scoring Evolution}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Traditional Approach (1960s-2000s):}
@@ -313,9 +235,10 @@ Not always superior for structured financial data (tabular).
 
 \vspace{0.5em}
 \textbf{Key Lesson:} Technology enables better predictions but introduces new risks and ethical questions.
+\bottomnote{Summary of key concepts presented above.}
 \end{frame}
 
-\begin{frame}{The Hype Cycle: Expectations vs Reality}
+\begin{frame}[t]{The Hype Cycle: Expectations vs Reality}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Gartner Hype Cycle Phases:}
@@ -357,7 +280,7 @@ Not always superior for structured financial data (tabular).
 \bottomnote{Comparative analysis helps identify the right tool for specific requirements.}
 \end{frame}
 
-\begin{frame}{What AI/ML Can and Cannot Do in Finance}
+\begin{frame}[t]{What AI/ML Can and Cannot Do in Finance}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Can Do Well:}
@@ -404,61 +327,14 @@ Not always superior for structured financial data (tabular).
 \bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
-\begin{frame}{Historical Timeline: AI in Finance}
-\begin{columns}[T]
-\column{0.48\textwidth}
-\textbf{1980s-1990s: Expert Systems}
-\begin{itemize}
-\item Rule-based systems (if-then)
-\item Limited success, brittle
-\item Example: MYCIN for medical diagnosis
-\end{itemize}
-
-\vspace{0.3em}
-\textbf{2000s: First ML Wave}
-\begin{itemize}
-\item Support Vector Machines (SVM)
-\item Random Forests
-\item Credit scoring improvements
-\end{itemize}
-
-\vspace{0.3em}
-\textbf{2010s: Deep Learning Era}
-\begin{itemize}
-\item Neural networks for NLP
-\item Algorithmic trading explosion
-\item Robo-advisors launched
-\end{itemize}
-
-\column{0.48\textwidth}
-\textbf{2015-2020: Maturation}
-\begin{itemize}
-\item Gradient boosting dominance (XGBoost)
-\item Regulatory frameworks emerge
-\item Focus on explainability
-\end{itemize}
-
-\vspace{0.3em}
-\textbf{2020-present: Generative AI}
-\begin{itemize}
-\item Large Language Models (GPT-3/4)
-\item Financial document analysis
-\item Code generation for analysts
-\item New regulatory challenges
-\end{itemize}
-
-\vspace{0.3em}
-\textbf{Future Trends:}
-\begin{itemize}
-\item Federated learning (privacy)
-\item Causal inference integration
-\item Hybrid human-AI systems
-\end{itemize}
-\end{columns}
-\bottomnote{AI and ML are transforming financial services through automation and prediction.}
+\begin{frame}[t]{Historical Timeline: AI in Finance}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/ml_finance_timeline/ml_finance_timeline.pdf}
+\end{center}
+\bottomnote{AI evolution in finance shows accelerating adoption from expert systems to generative AI.}
 \end{frame}
 
-\begin{frame}{Industry Adoption: Survey Data}
+\begin{frame}[t]{Industry Adoption: Survey Data}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Adoption Rates (2023 surveys):}
@@ -500,7 +376,7 @@ Not always superior for structured financial data (tabular).
 \bottomnote{Quality data is the foundation for effective machine learning models.}
 \end{frame}
 
-\begin{frame}{Key Players and Ecosystem}
+\begin{frame}[t]{Key Players and Ecosystem}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Large Tech Companies:}
@@ -544,7 +420,7 @@ Not always superior for structured financial data (tabular).
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Data: The Fuel for AI/ML}
+\begin{frame}[t]{Data: The Fuel for AI/ML}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Why Data Matters:}
@@ -586,9 +462,10 @@ Not always superior for structured financial data (tabular).
 
 \vspace{0.5em}
 \textbf{Next Lesson:} Deep dive into financial data types and preparation.
+\bottomnote{Summary of key concepts presented above.}
 \end{frame}
 
-\begin{frame}{Ethical Considerations}
+\begin{frame}[t]{Ethical Considerations}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Fairness and Bias:}
@@ -630,7 +507,7 @@ Not always superior for structured financial data (tabular).
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Skills for AI/ML in Finance}
+\begin{frame}[t]{Skills for AI/ML in Finance}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Technical Skills:}
@@ -678,7 +555,7 @@ Not always superior for structured financial data (tabular).
 \bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
-\begin{frame}{Summary and Key Takeaways}
+\begin{frame}[t]{Summary and Key Takeaways}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Core Concepts:}
@@ -716,9 +593,10 @@ Not always superior for structured financial data (tabular).
 \item Practical applications
 \end{itemize}
 \end{columns}
+\bottomnote{Summary of key concepts presented above.}
 \end{frame}
 
-\begin{frame}{Next Lesson Preview}
+\begin{frame}[t]{Next Lesson Preview}
 \textbf{Lesson 26: Financial Data for AI/ML}
 
 \vspace{0.5em}
@@ -739,6 +617,7 @@ Topics to be covered:
 \item Think about data quality issues in your own experience
 \item Consider: What makes financial data unique?
 \end{itemize}
+\bottomnote{Summary of key concepts presented above.}
 \end{frame}
 
 \end{document}

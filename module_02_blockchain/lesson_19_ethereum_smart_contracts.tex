@@ -39,7 +39,7 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{Bitcoin's Limitations: Why Ethereum?}
+\begin{frame}[t]{Bitcoin's Limitations: Why Ethereum?}
 \vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
@@ -67,26 +67,25 @@
 \bottomnote{Understanding limitations helps identify appropriate use cases and avoid over-engineering.}
 \end{frame}
 
-\begin{frame}{Smart Contracts: Code as Law}
+\begin{frame}[t]{Smart Contracts: Code as Law}
 \vspace{-2mm}
 \begin{center}
-\includegraphics[width=0.48\textwidth]{figures/smart_contract_concept/smart_contract_concept.pdf}
+\includegraphics[width=0.45\textwidth]{figures/smart_contract_concept/smart_contract_concept.pdf}
 \end{center}
-\vspace{-3mm}
-\textbf{Definition:} Self-executing programs stored on blockchain, automatically enforcing agreements
+\vspace{-4mm}
+{\small\textbf{Definition:} Self-executing programs stored on blockchain, automatically enforcing agreements}
 
-\vspace{2mm}
-\textbf{Properties:}
+\vspace{1mm}
+{\small\textbf{Properties:}}
 \begin{itemize}
 \item Deterministic execution (same input $\rightarrow$ same output)
 \item Immutable once deployed
-\item Transparent (anyone can verify)
-\item Trustless (no intermediaries)
+\item Transparent and trustless
 \end{itemize}
 \bottomnote{Smart contracts enable programmable, self-executing agreements without intermediaries.}
 \end{frame}
 
-\begin{frame}{Account Model: Ethereum's Design}
+\begin{frame}[t]{Account Model: Ethereum's Design}
 \vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
@@ -117,7 +116,7 @@
 \bottomnote{Ethereum pioneered smart contracts and remains the dominant platform for DeFi and NFTs.}
 \end{frame}
 
-\begin{frame}{Ethereum Virtual Machine (EVM)}
+\begin{frame}[t]{Ethereum Virtual Machine (EVM)}
 \vspace{-2mm}
 \begin{center}
 \includegraphics[width=0.48\textwidth]{figures/evm_architecture/evm_architecture.pdf}
@@ -134,7 +133,7 @@
 \bottomnote{Ethereum pioneered smart contracts and remains the dominant platform for DeFi and NFTs.}
 \end{frame}
 
-\begin{frame}{Gas: Metering Computation}
+\begin{frame}[t]{Gas: Metering Computation}
 \vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
@@ -162,7 +161,7 @@
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Gas Costs: Operation Examples}
+\begin{frame}[t]{Gas Costs: Operation Examples}
 \vspace{-2mm}
 \begin{center}
 \begin{tabular}{@{}p{5cm}p{2.5cm}p{6cm}@{}}
@@ -189,7 +188,7 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 \bottomnote{Case studies provide concrete evidence of technology impact and adoption patterns.}
 \end{frame}
 
-\begin{frame}{Transaction Cost Calculation}
+\begin{frame}[t]{Transaction Cost Calculation}
 \vspace{-2mm}
 \textbf{Example: Simple ETH Transfer}
 \begin{itemize}
@@ -216,7 +215,7 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Legacy Fee Market: First-Price Auction}
+\begin{frame}[t]{Legacy Fee Market: First-Price Auction}
 \vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
@@ -243,7 +242,7 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{EIP-1559: Fee Market Reform (August 2021)}
+\begin{frame}[t]{EIP-1559: Fee Market Reform (August 2021)}
 \vspace{-2mm}
 \begin{center}
 \includegraphics[width=0.48\textwidth]{figures/eip1559_structure/eip1559_structure.pdf}
@@ -264,7 +263,7 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{EIP-1559 Base Fee Dynamics}
+\begin{frame}[t]{EIP-1559 Base Fee Dynamics}
 \vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
@@ -289,7 +288,7 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Fee Burning: Deflationary Pressure}
+\begin{frame}[t]{Fee Burning: Deflationary Pressure}
 \vspace{-2mm}
 \begin{center}
 \includegraphics[width=0.48\textwidth]{figures/eth_issuance_burn/eth_issuance_burn.pdf}
@@ -304,7 +303,7 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Solidity: High-Level Smart Contract Language}
+\begin{frame}[t]{Solidity: High-Level Smart Contract Language}
 \vspace{-2mm}
 \textbf{Example: Simple Token Contract}
 \begin{center}
@@ -321,7 +320,7 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 \bottomnote{Smart contracts enable programmable, self-executing agreements without intermediaries.}
 \end{frame}
 
-\begin{frame}{Smart Contract Lifecycle}
+\begin{frame}[t]{Smart Contract Lifecycle}
 \vspace{-2mm}
 \begin{center}
 \includegraphics[width=0.48\textwidth]{figures/contract_lifecycle/contract_lifecycle.pdf}
@@ -338,7 +337,7 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 \bottomnote{Technology adoption follows predictable patterns---timing matters for investment decisions.}
 \end{frame}
 
-\begin{frame}{Contract Storage: Persistent State}
+\begin{frame}[t]{Contract Storage: Persistent State}
 \vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
@@ -364,7 +363,7 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Events and Logs}
+\begin{frame}[t]{Events and Logs}
 \vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
@@ -392,7 +391,7 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{External Calls: Composability and Risks}
+\begin{frame}[t]{External Calls: Composability and Risks}
 \vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
@@ -419,7 +418,7 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 \bottomnote{Risk management is essential for financial stability and profitability.}
 \end{frame}
 
-\begin{frame}{Reentrancy: The DAO Hack (2016)}
+\begin{frame}[t]{Reentrancy: The DAO Hack (2016)}
 \vspace{-2mm}
 \begin{center}
 \includegraphics[width=0.48\textwidth]{figures/reentrancy_attack/reentrancy_attack.pdf}
@@ -437,7 +436,7 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Oracles: Bridging On-Chain and Off-Chain}
+\begin{frame}[t]{Oracles: Bridging On-Chain and Off-Chain}
 \vspace{-2mm}
 \begin{columns}[T]
 \scriptsize
@@ -467,7 +466,7 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 \bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
-\begin{frame}{Gas Optimization Strategies}
+\begin{frame}[t]{Gas Optimization Strategies}
 \vspace{-2mm}
 \begin{itemize}
 \item \textbf{Storage Packing:} Use uint128 instead of uint256 where possible (fit in one slot)
@@ -484,7 +483,7 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Upgradeable Contracts: Proxy Pattern}
+\begin{frame}[t]{Upgradeable Contracts: Proxy Pattern}
 \vspace{-2mm}
 \begin{center}
 \includegraphics[width=0.48\textwidth]{figures/proxy_pattern/proxy_pattern.pdf}
@@ -502,7 +501,7 @@ Transaction (base) & 21,000 & Minimum for any transaction \\
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Summary}
+\begin{frame}[t]{Summary}
 \vspace{-2mm}
 \begin{itemize}
 \item \textbf{Ethereum:} World computer, Turing-complete smart contracts, account model

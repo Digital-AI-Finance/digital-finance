@@ -37,9 +37,10 @@
 
 \begin{frame}
 \titlepage
+\bottomnote{Summary of key concepts presented above.}
 \end{frame}
 
-\begin{frame}{Learning Objectives}
+\begin{frame}[t]{Learning Objectives}
 By the end of this lesson, you will be able to:
 \begin{itemize}
 \item Distinguish between structured and unstructured financial data
@@ -49,55 +50,19 @@ By the end of this lesson, you will be able to:
 \item Explain GDPR and privacy implications for financial ML
 \item Describe basic feature engineering concepts
 \end{itemize}
+\bottomnote{Summary of key concepts presented above.}
 \end{frame}
 
-\begin{frame}{Structured vs. Unstructured Data}
-\begin{columns}[T]
-\column{0.48\textwidth}
-\textbf{Structured Data:}
-\begin{itemize}
-\item Organized in tables (rows, columns)
-\item Predefined schema
-\item Easy to query (SQL)
-\item Numerical or categorical
-\end{itemize}
-
-\vspace{0.5em}
-\textbf{Examples in Finance:}
-\begin{itemize}
-\item Stock prices (OHLCV)
-\item Financial statements
-\item Credit bureau data
-\item Transaction records
-\item Market microstructure (order book)
-\end{itemize}
-
-\column{0.48\textwidth}
-\textbf{Unstructured Data:}
-\begin{itemize}
-\item No predefined format
-\item Free-form text, images, audio
-\item Requires NLP/computer vision
-\item 80-90\% of enterprise data
-\end{itemize}
-
-\vspace{0.5em}
-\textbf{Examples in Finance:}
-\begin{itemize}
-\item News articles, press releases
-\item Earnings call transcripts
-\item SEC filings (10-K, 8-K)
-\item Social media (Twitter, Reddit)
-\item Analyst reports
-\end{itemize}
-\end{columns}
-
+\begin{frame}[t]{Structured vs. Unstructured Data}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/financial_data_types/financial_data_types.pdf}
+\end{center}
 \vspace{0.5em}
 \textbf{Modern ML:} Combines both types (e.g., sentiment scores from text as features in tabular models).
-\bottomnote{Comparative analysis helps identify the right tool for specific requirements.}
+\bottomnote{Understanding different data types is essential for effective ML applications.}
 \end{frame}
 
-\begin{frame}{Traditional Financial Data Sources}
+\begin{frame}[t]{Traditional Financial Data Sources}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Market Data:}
@@ -143,7 +108,7 @@ By the end of this lesson, you will be able to:
 \bottomnote{Quality data is the foundation for effective machine learning models.}
 \end{frame}
 
-\begin{frame}{The Alternative Data Revolution}
+\begin{frame}[t]{The Alternative Data Revolution}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{What is Alternative Data?}
@@ -184,9 +149,10 @@ By the end of this lesson, you will be able to:
 
 \vspace{0.5em}
 \textbf{Challenges:} Quality control, legal/ethical concerns, data decay (alpha decay).
+\bottomnote{Summary of key concepts presented above.}
 \end{frame}
 
-\begin{frame}{Alternative Data: Examples in Detail}
+\begin{frame}[t]{Alternative Data: Examples in Detail}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Satellite Imagery:}
@@ -232,7 +198,7 @@ Evidence: Mixed, diminishing returns as adoption increases (alpha decay).
 \bottomnote{Case studies provide concrete evidence of technology impact and adoption patterns.}
 \end{frame}
 
-\begin{frame}{Data Quality: The GIGO Principle}
+\begin{frame}[t]{Data Quality: The GIGO Principle}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Garbage In, Garbage Out:}
@@ -277,67 +243,16 @@ Evidence: Mixed, diminishing returns as adoption increases (alpha decay).
 \bottomnote{Quality data is the foundation for effective machine learning models.}
 \end{frame}
 
-\begin{frame}{Data Preprocessing Pipeline}
-\begin{columns}[T]
-\column{0.48\textwidth}
-\textbf{Step 1: Data Collection}
-\begin{itemize}
-\item Define requirements
-\item Source identification
-\item API integration or downloads
-\item Compliance checks
-\end{itemize}
-
-\vspace{0.3em}
-\textbf{Step 2: Cleaning}
-\begin{itemize}
-\item Handle missing values (drop, impute, flag)
-\item Remove duplicates
-\item Correct errors (domain knowledge)
-\item Outlier treatment (winsorize, cap)
-\end{itemize}
-
-\vspace{0.3em}
-\textbf{Step 3: Transformation}
-\begin{itemize}
-\item Normalization/standardization
-\item Log transforms (skewed distributions)
-\item Date/time parsing
-\item Encoding categoricals
-\end{itemize}
-
-\column{0.48\textwidth}
-\textbf{Step 4: Feature Engineering}
-\begin{itemize}
-\item Create derived features
-\item Lag variables (time series)
-\item Interactions (cross-products)
-\item Domain-specific ratios
-\end{itemize}
-
-\vspace{0.3em}
-\textbf{Step 5: Validation}
-\begin{itemize}
-\item Statistical checks (distributions)
-\item Consistency tests
-\item Cross-field validation
-\item Expert review
-\end{itemize}
-
-\vspace{0.3em}
-\textbf{Step 6: Versioning}
-\begin{itemize}
-\item Track data lineage
-\item Version control for datasets
-\item Reproducibility
-\end{itemize}
-\end{columns}
-
+\begin{frame}[t]{Data Preprocessing Pipeline}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/data_preprocessing_pipeline/data_preprocessing_pipeline.pdf}
+\end{center}
 \vspace{0.5em}
 \textbf{Automation:} Modern ML pipelines use tools like Apache Airflow, Prefect for orchestration.
+\bottomnote{Systematic preprocessing is critical for model quality and reproducibility.}
 \end{frame}
 
-\begin{frame}{Handling Missing Data}
+\begin{frame}[t]{Handling Missing Data}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Why Data is Missing:}
@@ -376,53 +291,16 @@ Evidence: Mixed, diminishing returns as adoption increases (alpha decay).
 \bottomnote{Quality data is the foundation for effective machine learning models.}
 \end{frame}
 
-\begin{frame}{Feature Engineering Fundamentals}
-\begin{columns}[T]
-\column{0.48\textwidth}
-\textbf{What is Feature Engineering?}
-\begin{itemize}
-\item Creating new variables from raw data
-\item Domain knowledge + creativity
-\item Often more important than algorithm choice
-\item ``Applied feature engineering beats fancy algorithms''
-\end{itemize}
-
+\begin{frame}[t]{Feature Engineering Fundamentals}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/feature_engineering_finance/feature_engineering_finance.pdf}
+\end{center}
 \vspace{0.5em}
-\textbf{Common Techniques:}
-\begin{itemize}
-\item \textbf{Ratios:} P/E, Debt/Equity, ROE
-\item \textbf{Differences:} Price changes, growth rates
-\item \textbf{Lags:} Yesterday's return, 30-day moving avg
-\item \textbf{Aggregations:} Sum, mean, max over time window
-\item \textbf{Interactions:} Sector × Size, Region × Industry
-\end{itemize}
-
-\column{0.48\textwidth}
-\textbf{Finance-Specific Features:}
-\begin{itemize}
-\item Technical indicators (RSI, MACD, Bollinger Bands)
-\item Volatility measures (realized, implied)
-\item Momentum (12-month return)
-\item Value factors (book-to-market)
-\item Quality metrics (accruals, earnings quality)
-\end{itemize}
-
-\vspace{0.5em}
-\textbf{Avoid:}
-\begin{itemize}
-\item Leakage (using future information)
-\item High cardinality categoricals (too many levels)
-\item Perfectly correlated features (redundant)
-\item Features with no variance
-\end{itemize}
-\end{columns}
-
-\vspace{0.5em}
-\textbf{Art + Science:} Combines domain expertise with systematic experimentation.
-\bottomnote{Key concepts from this slide inform practical applications in finance.}
+\textbf{Art + Science:} Combines domain expertise with systematic experimentation to create predictive features.
+\bottomnote{Feature engineering often has greater impact than algorithm selection.}
 \end{frame}
 
-\begin{frame}{GDPR and Data Privacy Regulations}
+\begin{frame}[t]{GDPR and Data Privacy Regulations}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{GDPR Key Principles (EU, 2018):}
@@ -467,7 +345,7 @@ Evidence: Mixed, diminishing returns as adoption increases (alpha decay).
 \bottomnote{Regulatory frameworks shape adoption patterns and industry structure.}
 \end{frame}
 
-\begin{frame}{Anonymization vs. Pseudonymization}
+\begin{frame}[t]{Anonymization vs. Pseudonymization}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Anonymization:}
@@ -521,7 +399,7 @@ Evidence: Mixed, diminishing returns as adoption increases (alpha decay).
 \bottomnote{Comparative analysis helps identify the right tool for specific requirements.}
 \end{frame}
 
-\begin{frame}{Data Bias: Types and Examples}
+\begin{frame}[t]{Data Bias: Types and Examples}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Selection Bias:}
@@ -538,44 +416,18 @@ Evidence: Mixed, diminishing returns as adoption increases (alpha decay).
 \item Impact: Overstates historical performance
 \end{itemize}
 
-\vspace{0.3em}
-\textbf{Historical Bias:}
-\begin{itemize}
-\item Past discrimination baked into data
-\item Example: Redlining in mortgage data
-\item Model learns and perpetuates bias
-\end{itemize}
-
 \column{0.48\textwidth}
-\textbf{Measurement Bias:}
-\begin{itemize}
-\item Systematic errors in data collection
-\item Example: Self-reported income (underreporting)
-\end{itemize}
-
-\vspace{0.3em}
-\textbf{Temporal Bias:}
-\begin{itemize}
-\item Data from one time period doesn't generalize
-\item Example: Pre-2008 credit models failed post-crisis
-\end{itemize}
-
-\vspace{0.3em}
-\textbf{Mitigation Strategies:}
-\begin{itemize}
-\item Diverse, representative datasets
-\item Bias audits (fairness metrics)
-\item Reweighting samples
-\item Adversarial debiasing
-\item Domain expert review
-\end{itemize}
+\begin{center}
+\includegraphics[width=0.95\textwidth]{figures/survivorship_bias/survivorship_bias.pdf}
+\end{center}
 \end{columns}
 
 \vspace{0.5em}
 \textbf{Key Insight:} Bias in data leads to biased models, which lead to unfair outcomes. Proactive detection is essential.
+\bottomnote{Key insight from this visualization.}
 \end{frame}
 
-\begin{frame}{Time Series Data: Special Considerations}
+\begin{frame}[t]{Time Series Data: Special Considerations}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Unique Challenges:}
@@ -622,7 +474,7 @@ Evidence: Mixed, diminishing returns as adoption increases (alpha decay).
 \bottomnote{Quality data is the foundation for effective machine learning models.}
 \end{frame}
 
-\begin{frame}{Data Storage and Infrastructure}
+\begin{frame}[t]{Data Storage and Infrastructure}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Storage Options:}
@@ -671,7 +523,7 @@ Evidence: Mixed, diminishing returns as adoption increases (alpha decay).
 \bottomnote{Quality data is the foundation for effective machine learning models.}
 \end{frame}
 
-\begin{frame}{Real-Time vs. Batch Data Processing}
+\begin{frame}[t]{Real-Time vs. Batch Data Processing}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Batch Processing:}
@@ -711,7 +563,7 @@ Evidence: Mixed, diminishing returns as adoption increases (alpha decay).
 \bottomnote{Understanding the process flow is key to identifying optimization opportunities.}
 \end{frame}
 
-\begin{frame}{Data Vendors: Comparison}
+\begin{frame}[t]{Data Vendors: Comparison}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Bloomberg Terminal:}
@@ -767,7 +619,7 @@ Evidence: Mixed, diminishing returns as adoption increases (alpha decay).
 \bottomnote{Comparative analysis helps identify the right tool for specific requirements.}
 \end{frame}
 
-\begin{frame}{Data Quality Frameworks}
+\begin{frame}[t]{Data Quality Frameworks}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Six Dimensions of Quality:}
@@ -814,7 +666,7 @@ Evidence: Mixed, diminishing returns as adoption increases (alpha decay).
 \bottomnote{Quality data is the foundation for effective machine learning models.}
 \end{frame}
 
-\begin{frame}{Summary and Key Takeaways}
+\begin{frame}[t]{Summary and Key Takeaways}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Data Types:}
@@ -851,9 +703,10 @@ Evidence: Mixed, diminishing returns as adoption increases (alpha decay).
 \item Continuous monitoring
 \end{itemize}
 \end{columns}
+\bottomnote{Summary of key concepts presented above.}
 \end{frame}
 
-\begin{frame}{Next Lesson Preview}
+\begin{frame}[t]{Next Lesson Preview}
 \textbf{Lesson 27: Supervised Learning - Regression}
 
 \vspace{0.5em}
@@ -874,6 +727,7 @@ Topics to be covered:
 \item Recall correlation and covariance concepts
 \item Think: What financial problems involve predicting continuous values?
 \end{itemize}
+\bottomnote{Summary of key concepts presented above.}
 \end{frame}
 
 \end{document}

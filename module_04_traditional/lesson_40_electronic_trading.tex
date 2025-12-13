@@ -39,7 +39,7 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{Learning Objectives}
+\begin{frame}[t]{Learning Objectives}
 \begin{itemize}
 \item Understand electronic order types and routing mechanisms
 \item Analyze order book dynamics and matching algorithms
@@ -51,7 +51,7 @@
 
 \section{Electronic Trading Infrastructure}
 
-\begin{frame}{Evolution of Trading Technology}
+\begin{frame}[t]{Evolution of Trading Technology}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Historical Progression:}
@@ -79,7 +79,7 @@
 \bottomnote{Understanding history helps predict future developments in the technology.}
 \end{frame}
 
-\begin{frame}{Electronic Trading System Architecture}
+\begin{frame}[t]{Electronic Trading System Architecture}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Core Components:}
@@ -107,9 +107,16 @@
 \bottomnote{Electronic trading has transformed market structure and efficiency.}
 \end{frame}
 
+\begin{frame}[t]{Trading Latency Benchmarks}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/trading_latency/trading_latency.pdf}
+\end{center}
+\bottomnote{Latency optimization is critical for competitive advantage in electronic markets.}
+\end{frame}
+
 \section{Order Types and Mechanics}
 
-\begin{frame}{Basic Order Types}
+\begin{frame}[t]{Basic Order Types}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Market Orders:}
@@ -151,7 +158,7 @@
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Advanced Order Types}
+\begin{frame}[t]{Advanced Order Types}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Time-in-Force Instructions:}
@@ -179,7 +186,7 @@
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Algorithmic Order Types}
+\begin{frame}[t]{Algorithmic Order Types}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{VWAP (Volume-Weighted Average Price):}
@@ -223,7 +230,14 @@
 
 \section{Order Book Dynamics}
 
-\begin{frame}{Electronic Order Book Structure}
+\begin{frame}[t]{Order Book Visualization}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/order_book/order_book.pdf}
+\end{center}
+\bottomnote{Order book depth reveals supply and demand dynamics at each price level.}
+\end{frame}
+
+\begin{frame}[t]{Electronic Order Book Structure}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Order Book Components:}
@@ -271,7 +285,7 @@ Spread = \$0.04 (4 cents or 4 bps)
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Price-Time Priority Matching}
+\begin{frame}[t]{Price-Time Priority Matching}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Matching Algorithm:}
@@ -312,7 +326,7 @@ Spread = \$0.04 (4 cents or 4 bps)
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Order Book Dynamics and Toxicity}
+\begin{frame}[t]{Order Book Dynamics and Toxicity}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Order Flow Toxicity:}
@@ -351,7 +365,7 @@ High VPIN (>0.8) signals elevated informed trading risk
 
 \section{Smart Order Routing}
 
-\begin{frame}{Smart Order Router (SOR) Architecture}
+\begin{frame}[t]{Smart Order Router (SOR) Architecture}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{SOR Decision Factors:}
@@ -380,7 +394,7 @@ High VPIN (>0.8) signals elevated informed trading risk
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Venue Fragmentation and Best Execution}
+\begin{frame}[t]{Venue Fragmentation and Best Execution}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{US Equity Market Structure (2024):}
@@ -420,9 +434,23 @@ High VPIN (>0.8) signals elevated informed trading risk
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
+\begin{frame}[t]{HFT Market Share Evolution}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/hft_market_share/hft_market_share.pdf}
+\end{center}
+\bottomnote{HFT now represents a significant portion of market activity in major venues.}
+\end{frame}
+
+\begin{frame}[t]{Market Maker Economics}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/market_makers/market_makers.pdf}
+\end{center}
+\bottomnote{Market makers provide continuous liquidity through bid-ask quotes and rebates.}
+\end{frame}
+
 \section{Dark Pools and Alternative Venues}
 
-\begin{frame}{Dark Pool Types and Mechanics}
+\begin{frame}[t]{Dark Pool Types and Mechanics}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Dark Pool Categories:}
@@ -467,7 +495,7 @@ US dark pool volume: 12-15\% (down from 18\% pre-2018)
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Alternative Trading Systems (ATS)}
+\begin{frame}[t]{Alternative Trading Systems (ATS)}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{ATS Regulatory Framework:}
@@ -511,7 +539,7 @@ US dark pool volume: 12-15\% (down from 18\% pre-2018)
 
 \section{Regulatory and Risk Frameworks}
 
-\begin{frame}{Trading Regulation and Surveillance}
+\begin{frame}[t]{Trading Regulation and Surveillance}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Key Regulations:}
@@ -539,7 +567,7 @@ US dark pool volume: 12-15\% (down from 18\% pre-2018)
 \bottomnote{Regulatory frameworks shape adoption patterns and industry structure.}
 \end{frame}
 
-\begin{frame}{Pre-Trade and Post-Trade Risk Controls}
+\begin{frame}[t]{Pre-Trade and Post-Trade Risk Controls}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Pre-Trade Risk Checks:}
@@ -577,7 +605,7 @@ Pre-trade checks add 10-50 microseconds per order
 \bottomnote{Risk management is essential for financial stability and profitability.}
 \end{frame}
 
-\begin{frame}{Notable Trading Incidents}
+\begin{frame}[t]{Notable Trading Incidents}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Flash Crash (May 6, 2010):}
@@ -618,7 +646,7 @@ Pre-trade checks add 10-50 microseconds per order
 \bottomnote{Electronic trading has transformed market structure and efficiency.}
 \end{frame}
 
-\begin{frame}{Summary and Key Takeaways}
+\begin{frame}[t]{Summary and Key Takeaways}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Core Concepts:}

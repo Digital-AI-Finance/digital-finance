@@ -1,0 +1,2315 @@
+[
+  {
+    "file": "lesson_01_intro_fintech.tex",
+    "module": "module_01_fintech",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 24,
+      "with_t_option": 48,
+      "with_bottomnote": 23,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 8,
+      "widths": {
+        "0.60": 5
+      },
+      "in_figures_folder": 8,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 18,
+      "with_T_option": 18,
+      "widths": {
+        "0.48": 30,
+        "0.45": 3,
+        "0.50": 3
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_02_payments_fundamentals.tex",
+    "module": "module_01_fintech",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 23,
+      "with_t_option": 46,
+      "with_bottomnote": 22,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 3,
+      "widths": {
+        "0.60": 3
+      },
+      "in_figures_folder": 3,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 19,
+      "with_T_option": 19,
+      "widths": {
+        "0.48": 38
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_03_mobile_wallets.tex",
+    "module": "module_01_fintech",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 17,
+      "with_t_option": 34,
+      "with_bottomnote": 17,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 16,
+      "widths": {
+        "0.60": 2,
+        "0.55": 3,
+        "0.45": 1
+      },
+      "in_figures_folder": 16,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 10,
+      "with_T_option": 10,
+      "widths": {
+        "0.48": 20
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_04_neobanks.tex",
+    "module": "module_01_fintech",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 17,
+      "with_t_option": 34,
+      "with_bottomnote": 17,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 16,
+      "widths": {
+        "0.60": 2,
+        "0.62": 3,
+        "0.58": 1
+      },
+      "in_figures_folder": 16,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 10,
+      "with_T_option": 10,
+      "widths": {
+        "0.48": 20
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_05_open_banking.tex",
+    "module": "module_01_fintech",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 19,
+      "with_t_option": 38,
+      "with_bottomnote": 19,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 18,
+      "widths": {
+        "0.60": 7,
+        "0.62": 1
+      },
+      "in_figures_folder": 18,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 10,
+      "with_T_option": 10,
+      "widths": {
+        "0.48": 20
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_06_digital_identity.tex",
+    "module": "module_01_fintech",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 18,
+      "with_t_option": 36,
+      "with_bottomnote": 18,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 17,
+      "widths": {
+        "0.60": 5,
+        "0.62": 1
+      },
+      "in_figures_folder": 17,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 11,
+      "with_T_option": 11,
+      "widths": {
+        "0.48": 22
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_07_p2p_lending.tex",
+    "module": "module_01_fintech",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 18,
+      "with_t_option": 36,
+      "with_bottomnote": 18,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 17,
+      "widths": {
+        "0.60": 5
+      },
+      "in_figures_folder": 17,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 12,
+      "with_T_option": 12,
+      "widths": {
+        "0.48": 24
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_08_robo_advisors.tex",
+    "module": "module_01_fintech",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 34,
+      "with_t_option": 68,
+      "with_bottomnote": 34,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 33,
+      "widths": {
+        "0.60": 21
+      },
+      "in_figures_folder": 33,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 12,
+      "with_T_option": 12,
+      "widths": {
+        "0.48": 24
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_09_insurtech.tex",
+    "module": "module_01_fintech",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 19,
+      "with_t_option": 38,
+      "with_bottomnote": 19,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 18,
+      "widths": {
+        "0.60": 5
+      },
+      "in_figures_folder": 18,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 13,
+      "with_T_option": 13,
+      "widths": {
+        "0.48": 26
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_10_regtech.tex",
+    "module": "module_01_fintech",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 20,
+      "with_t_option": 40,
+      "with_bottomnote": 20,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 19,
+      "widths": {
+        "0.60": 6
+      },
+      "in_figures_folder": 19,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 13,
+      "with_T_option": 13,
+      "widths": {
+        "0.48": 26
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_11_regulatory_frameworks.tex",
+    "module": "module_01_fintech",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 20,
+      "with_t_option": 40,
+      "with_bottomnote": 20,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 19,
+      "widths": {
+        "0.60": 7
+      },
+      "in_figures_folder": 19,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 12,
+      "with_T_option": 12,
+      "widths": {
+        "0.48": 24
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_12_business_models.tex",
+    "module": "module_01_fintech",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 26,
+      "with_t_option": 52,
+      "with_bottomnote": 26,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 25,
+      "widths": {
+        "0.60": 12,
+        "0.55": 1
+      },
+      "in_figures_folder": 25,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 12,
+      "with_T_option": 12,
+      "widths": {
+        "0.48": 24
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_13_what_is_blockchain.tex",
+    "module": "module_02_blockchain",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 18,
+      "with_t_option": 36,
+      "with_bottomnote": 15,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 0,
+      "widths": {},
+      "in_figures_folder": 0,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 10,
+      "with_T_option": 9,
+      "widths": {
+        "0.48": 16,
+        "0.58": 1,
+        "0.38": 1,
+        "0.32": 3
+      }
+    },
+    "tables": {
+      "total": 4,
+      "with_booktabs": true,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_14_hashing.tex",
+    "module": "module_02_blockchain",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 22,
+      "with_t_option": 44,
+      "with_bottomnote": 17,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 0,
+      "widths": {},
+      "in_figures_folder": 0,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 6,
+      "with_T_option": 6,
+      "widths": {
+        "0.48": 12
+      }
+    },
+    "tables": {
+      "total": 6,
+      "with_booktabs": true,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_15_public_key_crypto.tex",
+    "module": "module_02_blockchain",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 19,
+      "with_t_option": 38,
+      "with_bottomnote": 18,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 15,
+      "widths": {
+        "0.48": 6
+      },
+      "in_figures_folder": 15,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 10,
+      "with_T_option": 10,
+      "widths": {
+        "0.48": 20
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_16_proof_of_work.tex",
+    "module": "module_02_blockchain",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 20,
+      "with_t_option": 40,
+      "with_bottomnote": 17,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 14,
+      "widths": {
+        "0.48": 8
+      },
+      "in_figures_folder": 14,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 7,
+      "with_T_option": 7,
+      "widths": {
+        "0.48": 14
+      }
+    },
+    "tables": {
+      "total": 1,
+      "with_booktabs": true,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_17_proof_of_stake.tex",
+    "module": "module_02_blockchain",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 21,
+      "with_t_option": 42,
+      "with_bottomnote": 19,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 15,
+      "widths": {
+        "0.48": 6
+      },
+      "in_figures_folder": 15,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 10,
+      "with_T_option": 10,
+      "widths": {
+        "0.48": 20
+      }
+    },
+    "tables": {
+      "total": 2,
+      "with_booktabs": true,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_18_bitcoin_architecture.tex",
+    "module": "module_02_blockchain",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 21,
+      "with_t_option": 42,
+      "with_bottomnote": 20,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 18,
+      "widths": {
+        "0.48": 8,
+        "0.42": 1
+      },
+      "in_figures_folder": 18,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 10,
+      "with_T_option": 10,
+      "widths": {
+        "0.48": 20
+      }
+    },
+    "tables": {
+      "total": 1,
+      "with_booktabs": true,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_19_ethereum_smart_contracts.tex",
+    "module": "module_02_blockchain",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 21,
+      "with_t_option": 42,
+      "with_bottomnote": 20,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 17,
+      "widths": {
+        "0.45": 1,
+        "0.48": 7
+      },
+      "in_figures_folder": 17,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 9,
+      "with_T_option": 9,
+      "widths": {
+        "0.48": 18
+      }
+    },
+    "tables": {
+      "total": 1,
+      "with_booktabs": true,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_20_tokens.tex",
+    "module": "module_02_blockchain",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 20,
+      "with_t_option": 40,
+      "with_bottomnote": 19,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 12,
+      "widths": {
+        "0.48": 5,
+        "0.55": 1
+      },
+      "in_figures_folder": 12,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 8,
+      "with_T_option": 8,
+      "widths": {
+        "0.48": 16
+      }
+    },
+    "tables": {
+      "total": 2,
+      "with_booktabs": true,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_21_defi.tex",
+    "module": "module_02_blockchain",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 21,
+      "with_t_option": 42,
+      "with_bottomnote": 20,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 15,
+      "widths": {
+        "0.48": 7
+      },
+      "in_figures_folder": 15,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 8,
+      "with_T_option": 8,
+      "widths": {
+        "0.48": 16
+      }
+    },
+    "tables": {
+      "total": 2,
+      "with_booktabs": true,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_22_stablecoins.tex",
+    "module": "module_02_blockchain",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 19,
+      "with_t_option": 38,
+      "with_bottomnote": 18,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 13,
+      "widths": {
+        "0.48": 6
+      },
+      "in_figures_folder": 13,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 7,
+      "with_T_option": 7,
+      "widths": {
+        "0.48": 14
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_23_security.tex",
+    "module": "module_02_blockchain",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 20,
+      "with_t_option": 40,
+      "with_bottomnote": 18,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 13,
+      "widths": {
+        "0.48": 4,
+        "0.55": 2
+      },
+      "in_figures_folder": 13,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 7,
+      "with_T_option": 7,
+      "widths": {
+        "0.48": 14
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_24_regulation_future.tex",
+    "module": "module_02_blockchain",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 26,
+      "with_t_option": 52,
+      "with_bottomnote": 24,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 15,
+      "widths": {
+        "0.48": 5
+      },
+      "in_figures_folder": 15,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 10,
+      "with_T_option": 10,
+      "widths": {
+        "0.48": 20
+      }
+    },
+    "tables": {
+      "total": 1,
+      "with_booktabs": true,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_25_intro_ai_ml.tex",
+    "module": "module_03_ai_ml",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 18,
+      "with_t_option": 36,
+      "with_bottomnote": 19,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 4,
+      "widths": {
+        "0.95": 1,
+        "0.60": 3
+      },
+      "in_figures_folder": 4,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 13,
+      "with_T_option": 13,
+      "widths": {
+        "0.48": 26
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_26_financial_data.tex",
+    "module": "module_03_ai_ml",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 19,
+      "with_t_option": 38,
+      "with_bottomnote": 20,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 4,
+      "widths": {
+        "0.60": 3,
+        "0.95": 1
+      },
+      "in_figures_folder": 4,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 14,
+      "with_T_option": 14,
+      "widths": {
+        "0.48": 28
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_27_regression.tex",
+    "module": "module_03_ai_ml",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 21,
+      "with_t_option": 42,
+      "with_bottomnote": 22,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 5,
+      "widths": {
+        "0.60": 4,
+        "0.50": 1
+      },
+      "in_figures_folder": 5,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 14,
+      "with_T_option": 14,
+      "widths": {
+        "0.48": 28
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_28_classification.tex",
+    "module": "module_03_ai_ml",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 22,
+      "with_t_option": 44,
+      "with_bottomnote": 23,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 5,
+      "widths": {
+        "0.60": 4,
+        "0.45": 1
+      },
+      "in_figures_folder": 5,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 15,
+      "with_T_option": 15,
+      "widths": {
+        "0.48": 30
+      }
+    },
+    "tables": {
+      "total": 2,
+      "with_booktabs": true,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_29_algorithmic_trading_concepts.tex",
+    "module": "module_03_ai_ml",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 10,
+      "with_t_option": 20,
+      "with_bottomnote": 11,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 5,
+      "widths": {
+        "0.60": 5
+      },
+      "in_figures_folder": 5,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 3,
+      "with_T_option": 3,
+      "widths": {
+        "0.48": 4,
+        "0.31": 3
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_30_credit_scoring_and_risk_models.tex",
+    "module": "module_03_ai_ml",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 10,
+      "with_t_option": 20,
+      "with_bottomnote": 11,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 6,
+      "widths": {
+        "0.60": 6
+      },
+      "in_figures_folder": 6,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 2,
+      "with_T_option": 2,
+      "widths": {
+        "0.48": 4
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_31_fraud_detection_and_aml.tex",
+    "module": "module_03_ai_ml",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 7,
+      "with_t_option": 14,
+      "with_bottomnote": 8,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 5,
+      "widths": {
+        "0.60": 5
+      },
+      "in_figures_folder": 5,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 0,
+      "with_T_option": 0,
+      "widths": {}
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_32_nlp_in_finance.tex",
+    "module": "module_03_ai_ml",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 7,
+      "with_t_option": 14,
+      "with_bottomnote": 8,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 5,
+      "widths": {
+        "0.60": 4,
+        "0.55": 1
+      },
+      "in_figures_folder": 5,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 0,
+      "with_T_option": 0,
+      "widths": {}
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_33_robo-advisors_ml_aspects.tex",
+    "module": "module_03_ai_ml",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 7,
+      "with_t_option": 14,
+      "with_bottomnote": 8,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 5,
+      "widths": {
+        "0.60": 5
+      },
+      "in_figures_folder": 5,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 0,
+      "with_T_option": 0,
+      "widths": {}
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_34_market_prediction_limitations.tex",
+    "module": "module_03_ai_ml",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 6,
+      "with_t_option": 12,
+      "with_bottomnote": 7,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 4,
+      "widths": {
+        "0.60": 4
+      },
+      "in_figures_folder": 4,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 0,
+      "with_T_option": 0,
+      "widths": {}
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_35_explainability_and_bias.tex",
+    "module": "module_03_ai_ml",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 9,
+      "with_t_option": 18,
+      "with_bottomnote": 10,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 7,
+      "widths": {
+        "0.60": 7
+      },
+      "in_figures_folder": 7,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 0,
+      "with_T_option": 0,
+      "widths": {}
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_36_ai_regulation_and_future.tex",
+    "module": "module_03_ai_ml",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 4,
+      "with_t_option": 8,
+      "with_bottomnote": 5,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 2,
+      "widths": {
+        "0.60": 2
+      },
+      "in_figures_folder": 2,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 0,
+      "with_T_option": 0,
+      "widths": {}
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_37_financial_markets.tex",
+    "module": "module_04_traditional",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 23,
+      "with_t_option": 46,
+      "with_bottomnote": 21,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 5,
+      "widths": {
+        "0.60": 5
+      },
+      "in_figures_folder": 5,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 15,
+      "with_T_option": 15,
+      "widths": {
+        "0.48": 30
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_38_core_banking.tex",
+    "module": "module_04_traditional",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 25,
+      "with_t_option": 50,
+      "with_bottomnote": 23,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 4,
+      "widths": {
+        "0.60": 4
+      },
+      "in_figures_folder": 4,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 18,
+      "with_T_option": 18,
+      "widths": {
+        "0.48": 36
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_39_payment_rails.tex",
+    "module": "module_04_traditional",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 27,
+      "with_t_option": 54,
+      "with_bottomnote": 25,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 5,
+      "widths": {
+        "0.60": 5
+      },
+      "in_figures_folder": 5,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 19,
+      "with_T_option": 19,
+      "widths": {
+        "0.48": 38
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_40_electronic_trading.tex",
+    "module": "module_04_traditional",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 21,
+      "with_t_option": 42,
+      "with_bottomnote": 19,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 4,
+      "widths": {
+        "0.60": 4
+      },
+      "in_figures_folder": 4,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 16,
+      "with_T_option": 16,
+      "widths": {
+        "0.48": 32
+      }
+    },
+    "tables": {
+      "total": 1,
+      "with_booktabs": true,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_41_market_microstructure.tex",
+    "module": "module_04_traditional",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 20,
+      "with_t_option": 40,
+      "with_bottomnote": 17,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 4,
+      "widths": {
+        "0.60": 3,
+        "0.55": 1
+      },
+      "in_figures_folder": 4,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 15,
+      "with_T_option": 15,
+      "widths": {
+        "0.48": 30
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_42_risk_management.tex",
+    "module": "module_04_traditional",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 22,
+      "with_t_option": 44,
+      "with_bottomnote": 17,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 5,
+      "widths": {
+        "0.60": 5
+      },
+      "in_figures_folder": 5,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 16,
+      "with_T_option": 16,
+      "widths": {
+        "0.48": 32
+      }
+    },
+    "tables": {
+      "total": 2,
+      "with_booktabs": true,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_43_regtech_compliance.tex",
+    "module": "module_04_traditional",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 21,
+      "with_t_option": 42,
+      "with_bottomnote": 17,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 4,
+      "widths": {
+        "0.60": 4
+      },
+      "in_figures_folder": 4,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 16,
+      "with_T_option": 16,
+      "widths": {
+        "0.48": 32
+      }
+    },
+    "tables": {
+      "total": 1,
+      "with_booktabs": true,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_44_capital_markets_tech.tex",
+    "module": "module_04_traditional",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 21,
+      "with_t_option": 42,
+      "with_bottomnote": 19,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 5,
+      "widths": {
+        "0.60": 5
+      },
+      "in_figures_folder": 5,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 15,
+      "with_T_option": 15,
+      "widths": {
+        "0.48": 30
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_45_derivatives_technology.tex",
+    "module": "module_04_traditional",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 20,
+      "with_t_option": 40,
+      "with_bottomnote": 18,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 4,
+      "widths": {
+        "0.60": 4
+      },
+      "in_figures_folder": 4,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 15,
+      "with_T_option": 15,
+      "widths": {
+        "0.48": 30
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_46_wealth_management.tex",
+    "module": "module_04_traditional",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 22,
+      "with_t_option": 40,
+      "with_bottomnote": 20,
+      "plain_frames": 2
+    },
+    "charts": {
+      "total": 4,
+      "widths": {
+        "0.60": 4
+      },
+      "in_figures_folder": 4,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 16,
+      "with_T_option": 16,
+      "widths": {
+        "0.48": 24,
+        "0.31": 9,
+        "0.23": 4
+      }
+    },
+    "tables": {
+      "total": 1,
+      "with_booktabs": true,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_47_data_vendors.tex",
+    "module": "module_04_traditional",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 19,
+      "with_t_option": 38,
+      "with_bottomnote": 16,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 3,
+      "widths": {
+        "0.60": 3
+      },
+      "in_figures_folder": 3,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 15,
+      "with_T_option": 15,
+      "widths": {
+        "0.48": 30
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  },
+  {
+    "file": "lesson_48_cbdc_future.tex",
+    "module": "module_04_traditional",
+    "settings": {
+      "document_class": true,
+      "theme": true,
+      "booktabs": true,
+      "graphicx": true
+    },
+    "colors": {
+      "mlblue": true,
+      "mlpurple": true,
+      "mllavender": true,
+      "mlorange": true,
+      "mlgreen": true,
+      "mlred": true
+    },
+    "commands": {
+      "bottomnote": true
+    },
+    "frames": {
+      "total": 20,
+      "with_t_option": 40,
+      "with_bottomnote": 18,
+      "plain_frames": 0
+    },
+    "charts": {
+      "total": 2,
+      "widths": {
+        "0.60": 2
+      },
+      "in_figures_folder": 2,
+      "other_location": 0
+    },
+    "columns": {
+      "total": 17,
+      "with_T_option": 17,
+      "widths": {
+        "0.48": 34
+      }
+    },
+    "tables": {
+      "total": 0,
+      "with_booktabs": false,
+      "with_hline": false
+    },
+    "issues": []
+  }
+]

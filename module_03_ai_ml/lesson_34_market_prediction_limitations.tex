@@ -37,36 +37,64 @@
 
 \begin{frame}
 \titlepage
+\bottomnote{Summary of key concepts presented above.}
 \end{frame}
 
-\begin{frame}{Learning Objectives}
-Lesson 34: Market Prediction Limitations
+\begin{frame}[t]{Learning Objectives}
+By the end of this lesson, you will be able to:
+\begin{itemize}
+\item Explain why markets are hard to predict (EMH)
+\item Recognize regime changes and structural breaks
+\item Understand model decay and concept drift
+\item Apply robust model governance frameworks
+\item Identify common pitfalls in ML trading systems
+\item Evaluate realistic performance expectations
+\end{itemize}
+\bottomnote{Summary of key concepts presented above.}
+\end{frame}
+
+\begin{frame}[t]{Market Regime Changes}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/regime_change/regime_change.pdf}
+\end{center}
+\bottomnote{Market regimes shift abruptly, causing models trained on past data to fail in new conditions.}
+\end{frame}
+
+\begin{frame}[t]{Model Decay Over Time}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/model_decay/model_decay.pdf}
+\end{center}
+\bottomnote{Predictive models degrade as market dynamics evolve, requiring continuous retraining and monitoring.}
+\end{frame}
+
+\begin{frame}[t]{Model Governance Framework}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/model_governance/model_governance.pdf}
+\end{center}
+\bottomnote{Robust governance includes validation, monitoring, versioning, and documented approval processes.}
+\end{frame}
+
+\begin{frame}[t]{End-to-End ML Pipeline}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/ml_pipeline/ml_pipeline.pdf}
+\end{center}
+\bottomnote{Production ML systems require data pipelines, feature stores, model registries, and monitoring infrastructure.}
+\end{frame}
+
+\begin{frame}[t]{Summary}
+\textbf{Key Takeaways:}
+\begin{itemize}
+\item Markets are hard to predict (EMH partially true)
+\item Regime changes invalidate historical patterns
+\item Model decay inevitable: continuous monitoring required
+\item Governance critical for production ML systems
+\item Realistic expectations: Sharpe 1.5-2.0 is excellent
+\item Alpha is scarce, crowded, and decays rapidly
+\end{itemize}
+
 \vspace{1em}
-
-Comprehensive coverage of Market Prediction Limitations concepts.
-\end{frame}
-
-\begin{frame}{Key Concepts}
-\textbf{Main Topics:}
-\begin{itemize}
-\item Topic 1 for Market Prediction Limitations
-\item Topic 2 for Market Prediction Limitations
-\item Topic 3 for Market Prediction Limitations
-\item Applications and examples
-\item Challenges and limitations
-\end{itemize}
-\bottomnote{Key concepts from this slide inform practical applications in finance.}
-\end{frame}
-
-\begin{frame}{Summary}
-\textbf{Key Takeaways from Lesson 34:}
-\begin{itemize}
-\item Main concept 1
-\item Main concept 2
-\item Main concept 3
-\item Practical applications
-\item Future outlook
-\end{itemize}
+\textbf{Next Lesson:} Explainability and Bias
+\bottomnote{Summary of key concepts presented above.}
 \end{frame}
 
 \end{document}

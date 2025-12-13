@@ -39,7 +39,7 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{Learning Objectives}
+\begin{frame}[t]{Learning Objectives}
 \begin{itemize}
 \item Understand Value at Risk (VaR) methodologies and implementation
 \item Analyze stress testing and scenario analysis frameworks
@@ -51,7 +51,14 @@
 
 \section{Value at Risk (VaR)}
 
-\begin{frame}{VaR Definition and Framework}
+\begin{frame}[t]{VaR Distribution Histogram}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/var_histogram/var_histogram.pdf}
+\end{center}
+\bottomnote{VaR quantifies potential losses at a given confidence level.}
+\end{frame}
+
+\begin{frame}[t]{VaR Definition and Framework}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -93,7 +100,7 @@ where $L$ = portfolio loss, $\alpha$ = confidence level (typically 95\% or 99\%)
 \bottomnote{Clear definitions are essential for understanding complex technical concepts.}
 \end{frame}
 
-\begin{frame}{VaR Methodologies}
+\begin{frame}[t]{VaR Methodologies}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -141,7 +148,7 @@ where $\mu$ = expected return, $z_\alpha$ = critical value (2.33 for 99\%), $\si
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{VaR Backtesting and Model Validation}
+\begin{frame}[t]{VaR Backtesting and Model Validation}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -191,7 +198,7 @@ Yellow/Red zones trigger capital multiplier increases
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Limitations of VaR and Alternatives}
+\begin{frame}[t]{Limitations of VaR and Alternatives}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -241,9 +248,23 @@ $$\text{ES}_\alpha = \mathbb{E}[L \mid L > \text{VaR}_\alpha]$$
 \bottomnote{Understanding limitations helps identify appropriate use cases and avoid over-engineering.}
 \end{frame}
 
+\begin{frame}[t]{Financial Risk Types}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/risk_types/risk_types.pdf}
+\end{center}
+\bottomnote{Financial institutions face multiple categories of risk requiring specialized management.}
+\end{frame}
+
 \section{Stress Testing and Scenario Analysis}
 
-\begin{frame}{Stress Testing Framework}
+\begin{frame}[t]{Stress Testing Framework}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/stress_testing/stress_testing.pdf}
+\end{center}
+\bottomnote{Stress tests evaluate resilience under extreme but plausible scenarios.}
+\end{frame}
+
+\begin{frame}[t]{Stress Testing Framework}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -285,7 +306,7 @@ $$\text{ES}_\alpha = \mathbb{E}[L \mid L > \text{VaR}_\alpha]$$
 \end{columns}
 \end{frame}
 
-\begin{frame}{Historical Crisis Scenarios}
+\begin{frame}[t]{Historical Crisis Scenarios}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -331,7 +352,7 @@ $$\text{ES}_\alpha = \mathbb{E}[L \mid L > \text{VaR}_\alpha]$$
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Reverse Stress Testing}
+\begin{frame}[t]{Reverse Stress Testing}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -379,7 +400,7 @@ $$\text{ES}_\alpha = \mathbb{E}[L \mid L > \text{VaR}_\alpha]$$
 
 \section{Model Risk Management}
 
-\begin{frame}{Model Risk Framework}
+\begin{frame}[t]{Model Risk Framework}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -417,7 +438,7 @@ $$\text{ES}_\alpha = \mathbb{E}[L \mid L > \text{VaR}_\alpha]$$
 \bottomnote{Risk management is essential for financial stability and profitability.}
 \end{frame}
 
-\begin{frame}{Model Validation Process}
+\begin{frame}[t]{Model Validation Process}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -483,7 +504,7 @@ $$\text{ES}_\alpha = \mathbb{E}[L \mid L > \text{VaR}_\alpha]$$
 \end{columns}
 \end{frame}
 
-\begin{frame}{Model Risk in Machine Learning}
+\begin{frame}[t]{Model Risk in Machine Learning}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -533,7 +554,7 @@ $$\text{ES}_\alpha = \mathbb{E}[L \mid L > \text{VaR}_\alpha]$$
 
 \section{Enterprise Risk Management Systems}
 
-\begin{frame}{ERM System Architecture}
+\begin{frame}[t]{ERM System Architecture}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -588,7 +609,7 @@ $$\text{ES}_\alpha = \mathbb{E}[L \mid L > \text{VaR}_\alpha]$$
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Risk Aggregation Challenges}
+\begin{frame}[t]{Risk Aggregation Challenges}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -633,7 +654,7 @@ $$\text{ES}_\alpha = \mathbb{E}[L \mid L > \text{VaR}_\alpha]$$
 \bottomnote{Understanding limitations helps identify appropriate use cases and avoid over-engineering.}
 \end{frame}
 
-\begin{frame}{Real-Time Risk Management}
+\begin{frame}[t]{Real-Time Risk Management}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -679,9 +700,23 @@ $$\text{ES}_\alpha = \mathbb{E}[L \mid L > \text{VaR}_\alpha]$$
 \bottomnote{Risk management is essential for financial stability and profitability.}
 \end{frame}
 
+\begin{frame}[t]{Basel Capital Requirements}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/basel_capital/basel_capital.pdf}
+\end{center}
+\bottomnote{Basel frameworks define minimum capital requirements for credit risk.}
+\end{frame}
+
+\begin{frame}[t]{Credit Rating Distribution}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/credit_rating_distribution/credit_rating_distribution.pdf}
+\end{center}
+\bottomnote{Credit ratings provide standardized assessment of default probability.}
+\end{frame}
+
 \section{Regulatory Capital and Risk Metrics}
 
-\begin{frame}{Basel III Market Risk Framework}
+\begin{frame}[t]{Basel III Market Risk Framework}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -735,7 +770,7 @@ where $mc$ = multiplier (1.5+), $\text{SES}$ = Stressed ES, $\text{DRC}$ = Defau
 \end{columns}
 \end{frame}
 
-\begin{frame}{Counterparty Credit Risk Metrics}
+\begin{frame}[t]{Counterparty Credit Risk Metrics}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}
@@ -782,7 +817,7 @@ where $R$ = recovery rate, $\text{EE}$ = expected exposure, $\text{PD}$ = defaul
 \bottomnote{Network metrics provide objective measures of adoption and ecosystem health.}
 \end{frame}
 
-\begin{frame}{Summary and Key Takeaways}
+\begin{frame}[t]{Summary and Key Takeaways}
 \begin{columns}[T]
 \scriptsize
 \column{0.48\textwidth}

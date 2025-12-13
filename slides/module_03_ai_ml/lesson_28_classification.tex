@@ -37,9 +37,10 @@
 
 \begin{frame}
 \titlepage
+\bottomnote{Summary of key concepts presented above.}
 \end{frame}
 
-\begin{frame}{Learning Objectives}
+\begin{frame}[t]{Learning Objectives}
 By the end of this lesson, you will be able to:
 \begin{itemize}
 \item Explain classification problems and contrast with regression
@@ -49,9 +50,10 @@ By the end of this lesson, you will be able to:
 \item Use ROC curves and AUC for model evaluation
 \item Apply classification to credit scoring and fraud detection
 \end{itemize}
+\bottomnote{Summary of key concepts presented above.}
 \end{frame}
 
-\begin{frame}{Classification vs. Regression}
+\begin{frame}[t]{Classification vs. Regression}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Regression (Lesson 27):}
@@ -98,7 +100,14 @@ By the end of this lesson, you will be able to:
 \bottomnote{Comparative analysis helps identify the right tool for specific requirements.}
 \end{frame}
 
-\begin{frame}{Logistic Regression: The Model}
+\begin{frame}[t]{Decision Boundaries}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/decision_boundary/decision_boundary.pdf}
+\end{center}
+\bottomnote{Decision boundaries show how classifiers separate different classes in feature space.}
+\end{frame}
+
+\begin{frame}[t]{Logistic Regression: The Model}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Why Not Linear Regression?}
@@ -146,7 +155,7 @@ P(Y=1 | X) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 X_1 + \cdots + \beta_p X_p)}}
 \bottomnote{Regression models predict continuous outcomes based on input features.}
 \end{frame}
 
-\begin{frame}{Example: Loan Default Prediction}
+\begin{frame}[t]{Example: Loan Default Prediction}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Problem:}
@@ -196,7 +205,7 @@ P(\text{Default}) = \frac{1}{1+e^{7.28}} = 0.0007 \text{ (0.07\%)}
 \bottomnote{Case studies provide concrete evidence of technology impact and adoption patterns.}
 \end{frame}
 
-\begin{frame}{Making Predictions: Decision Threshold}
+\begin{frame}[t]{Making Predictions: Decision Threshold}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{From Probabilities to Classes:}
@@ -241,7 +250,7 @@ P(\text{Default}) = \frac{1}{1+e^{7.28}} = 0.0007 \text{ (0.07\%)}
 \bottomnote{Market prediction is inherently difficult due to efficiency and noise.}
 \end{frame}
 
-\begin{frame}{Confusion Matrix}
+\begin{frame}[t]{Confusion Matrix}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{2x2 Table of Predictions vs. Actuals:}
@@ -296,7 +305,21 @@ All metrics derived from this matrix.
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Classification Metrics: Accuracy}
+\begin{frame}[t]{Confusion Matrix Visualization}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/confusion_matrix/confusion_matrix.pdf}
+\end{center}
+\bottomnote{Confusion matrix is the foundation for all classification metrics.}
+\end{frame}
+
+\begin{frame}[t]{Confusion Matrix in Finance Context}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/confusion_matrix_finance/confusion_matrix_finance.pdf}
+\end{center}
+\bottomnote{Different error types have asymmetric costs in financial applications.}
+\end{frame}
+
+\begin{frame}[t]{Classification Metrics: Accuracy}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Accuracy:}
@@ -344,7 +367,7 @@ High accuracy, but useless model (misses all fraud)!
 \bottomnote{Network metrics provide objective measures of adoption and ecosystem health.}
 \end{frame}
 
-\begin{frame}{Precision and Recall}
+\begin{frame}[t]{Precision and Recall}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Precision (Positive Predictive Value):}
@@ -396,7 +419,7 @@ TP=40, FP=30, FN=10, TN=920
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{F1-Score: Balancing Precision and Recall}
+\begin{frame}[t]{F1-Score: Balancing Precision and Recall}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{F1-Score:}
@@ -442,7 +465,7 @@ F_\beta = (1+\beta^2) \times \frac{\text{Prec} \times \text{Rec}}{\beta^2 \times
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{ROC Curve and AUC}
+\begin{frame}[t]{ROC Curve and AUC}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{ROC (Receiver Operating Characteristic):}
@@ -489,7 +512,22 @@ F_\beta = (1+\beta^2) \times \frac{\text{Prec} \times \text{Rec}}{\beta^2 \times
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Application: Credit Scoring}
+\begin{frame}[t]{ROC Curve Visualization}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/roc_curve/roc_curve.pdf}
+\end{center}
+\bottomnote{ROC curves visualize classifier performance across all threshold settings.}
+\end{frame}
+
+\begin{frame}[t]{ROC Curve Example: Credit Scoring}
+\vspace{-0.5em}
+\begin{center}
+\includegraphics[width=0.45\textwidth]{figures/roc_curve_example/roc_curve_example.pdf}
+\end{center}
+\bottomnote{Higher AUC indicates better discrimination between classes.}
+\end{frame}
+
+\begin{frame}[t]{Application: Credit Scoring}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Problem:}
@@ -539,7 +577,7 @@ F_\beta = (1+\beta^2) \times \frac{\text{Prec} \times \text{Rec}}{\beta^2 \times
 \bottomnote{Real-world applications demonstrate the practical value of blockchain technology.}
 \end{frame}
 
-\begin{frame}{Application: Fraud Detection}
+\begin{frame}[t]{Application: Fraud Detection}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Problem:}
@@ -594,7 +632,7 @@ F_\beta = (1+\beta^2) \times \frac{\text{Prec} \times \text{Rec}}{\beta^2 \times
 \bottomnote{Real-world applications demonstrate the practical value of blockchain technology.}
 \end{frame}
 
-\begin{frame}{Multi-Class Classification}
+\begin{frame}[t]{Multi-Class Classification}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Extension to K Classes:}
@@ -656,7 +694,7 @@ Predict credit rating transition:
 \bottomnote{Classification models assign discrete labels to observations.}
 \end{frame}
 
-\begin{frame}{Handling Imbalanced Data}
+\begin{frame}[t]{Handling Imbalanced Data}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Problem:}
@@ -713,7 +751,7 @@ Predict credit rating transition:
 \bottomnote{Quality data is the foundation for effective machine learning models.}
 \end{frame}
 
-\begin{frame}{Probability Calibration}
+\begin{frame}[t]{Probability Calibration}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Problem:}
@@ -767,7 +805,7 @@ Predict credit rating transition:
 \bottomnote{Key concepts from this slide inform practical applications in finance.}
 \end{frame}
 
-\begin{frame}{Summary and Key Takeaways}
+\begin{frame}[t]{Summary and Key Takeaways}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Core Concepts:}
@@ -806,9 +844,10 @@ Predict credit rating transition:
 \item Ensure fairness and explainability
 \end{itemize}
 \end{columns}
+\bottomnote{Summary of key concepts presented above.}
 \end{frame}
 
-\begin{frame}{Next Lesson Preview}
+\begin{frame}[t]{Next Lesson Preview}
 \textbf{Lesson 29: Algorithmic Trading Concepts}
 
 \vspace{0.5em}
@@ -828,6 +867,7 @@ Topics to be covered:
 \item Review time series concepts (stationarity, autocorrelation)
 \item Think: How would you test a trading strategy?
 \end{itemize}
+\bottomnote{Summary of key concepts presented above.}
 \end{frame}
 
 \end{document}

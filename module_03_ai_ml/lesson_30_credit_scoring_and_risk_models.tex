@@ -37,9 +37,10 @@
 
 \begin{frame}
 \titlepage
+\bottomnote{Summary of key concepts presented above.}
 \end{frame}
 
-\begin{frame}{Learning Objectives}
+\begin{frame}[t]{Learning Objectives}
 By the end of this lesson, you will be able to:
 \begin{itemize}
 \item Compare ML credit scoring with traditional methods (FICO)
@@ -49,9 +50,10 @@ By the end of this lesson, you will be able to:
 \item Describe regulatory frameworks (EBA guidelines)
 \item Calculate PD and LGD metrics
 \end{itemize}
+\bottomnote{Summary of key concepts presented above.}
 \end{frame}
 
-\begin{frame}{Traditional vs. ML Credit Scoring}
+\begin{frame}[t]{Traditional vs. ML Credit Scoring}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{FICO Score (Traditional):}
@@ -100,7 +102,7 @@ By the end of this lesson, you will be able to:
 \bottomnote{Comparative analysis helps identify the right tool for specific requirements.}
 \end{frame}
 
-\begin{frame}{Fairness and Bias}
+\begin{frame}[t]{Fairness and Bias}
 \begin{columns}[T]
 \column{0.48\textwidth}
 \textbf{Protected Attributes:}
@@ -143,7 +145,49 @@ By the end of this lesson, you will be able to:
 \bottomnote{AI and ML are transforming financial services through automation and prediction.}
 \end{frame}
 
-\begin{frame}{Summary}
+\begin{frame}[t]{FICO Score Ranges and Risk Categories}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/fico_score_ranges/fico_score_ranges.pdf}
+\end{center}
+\bottomnote{FICO scores range from 300 to 850, with higher scores indicating lower default risk.}
+\end{frame}
+
+\begin{frame}[t]{Credit Score Distribution}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/credit_score_distribution/credit_score_distribution.pdf}
+\end{center}
+\bottomnote{Credit scores typically follow a bell-shaped distribution, skewed toward higher scores.}
+\end{frame}
+
+\begin{frame}[t]{Credit Model Comparison: Traditional vs. ML}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/credit_model_comparison/credit_model_comparison.pdf}
+\end{center}
+\bottomnote{Machine learning models consistently outperform traditional scorecards in predictive accuracy.}
+\end{frame}
+
+\begin{frame}[t]{Default Probability Curves}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/default_probability_curve/default_probability_curve.pdf}
+\end{center}
+\bottomnote{Default probability decreases non-linearly with credit score, demonstrating risk stratification.}
+\end{frame}
+
+\begin{frame}[t]{Feature Importance in Credit Models}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/feature_importance_credit/feature_importance_credit.pdf}
+\end{center}
+\bottomnote{Payment history and credit utilization are typically the most predictive features in credit models.}
+\end{frame}
+
+\begin{frame}[t]{Algorithm Performance Comparison}
+\begin{center}
+\includegraphics[width=0.60\textwidth]{figures/algorithm_comparison/algorithm_comparison.pdf}
+\end{center}
+\bottomnote{Gradient boosting methods like XGBoost consistently achieve the highest AUC scores in credit scoring.}
+\end{frame}
+
+\begin{frame}[t]{Summary}
 \textbf{Key Takeaways:}
 \begin{itemize}
 \item ML improves credit scoring accuracy by 10-20\%
@@ -156,6 +200,7 @@ By the end of this lesson, you will be able to:
 
 \vspace{1em}
 \textbf{Next Lesson:} Fraud Detection and AML
+\bottomnote{Summary of key concepts presented above.}
 \end{frame}
 
 \end{document}
