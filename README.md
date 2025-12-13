@@ -127,3 +127,21 @@ This is an educational resource maintained by the Digital Finance team at FHGR. 
 ## Contact
 
 For questions or collaboration inquiries, please open an issue or contact the course team through the Digital-AI-Finance organization.
+
+## Description
+
+BSc-level Digital Finance course: 48 lessons on FinTech, Blockchain, AI/ML, and Traditional Finance
+
+
+## Installation
+
+```bash
+git clone https://github.com/Digital-AI-Finance/digital-finance.git
+cd digital-finance
+pip install -r requirements.txt
+```
+
+
+## Usage
+
+See the repository contents for usage examples.
